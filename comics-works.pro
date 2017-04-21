@@ -1,4 +1,5 @@
 TEMPLATE = subdirs
 
 SUBDIRS += \
-    comicsworks/entities
+    comicsworks/entities \
+    comicsworks/usecases

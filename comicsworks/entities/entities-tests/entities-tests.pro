@@ -1,6 +1,7 @@
 TEMPLATE = app
-TARGET = tst_example
 CONFIG += warn_on qmltestcase
+CONFIG -= app_bundle
+
 SOURCES += tst_entities.cpp
 
 DISTFILES += \

@@ -1,0 +1,4 @@
+module comicsworks.usecases
+
+singleton UActions 1.0 UActions.qml
+CreateGrid 1.0 CreateGrid.qml
