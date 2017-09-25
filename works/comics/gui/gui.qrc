@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/qt-project.og/imports/works.comics.gui.atoms">
+        <file>atoms/CWLogo.qml</file>
+    </qresource>
+</RCC>
