@@ -30,46 +30,46 @@ CUKE_STEP_("^the current workspace exists$") {
     QCOMPARE(ctx->workspace->eid(), QString("workspace1"));
 }
 
-CUKE_STEP_("^no pile with name \"([a-z]+[0-9]*)\" exists in the current workspace$") {
+CUKE_STEP_("^no pile with name \"([a-zA-Z]+[0-9]*)\" exists in the current workspace$") {
     REGEX_PARAM(QString, pileId);
     ScenarioScope<MainCtx> ctx;
     QVERIFY(! ctx->workspace->panels().contains(pileId));
 }
 
-CUKE_STEP_("^a pile with name \"([a-z]+[0-9]*)\" exists in the current workspace$") {
+CUKE_STEP_("^a pile with name \"([a-zA-Z]+[0-9]*)\" exists in the current workspace$") {
     REGEX_PARAM(QString, pileId);
     ScenarioScope<MainCtx> ctx;
     ctx->usecaseResult = usecases::create_pile_with_name(pileId, ctx->workspace);
     QVERIFY(ctx->workspace->panels().contains(pileId));
 }
 
-CUKE_STEP_("^I create a pile with name \"([a-z]+[0-9]*)\"$") {
+CUKE_STEP_("^I create a pile with name \"([a-zA-Z]+[0-9]*)\"$") {
     REGEX_PARAM(QString, pileId);
     ScenarioScope<MainCtx> ctx;
     ctx->usecaseResult = usecases::create_pile_with_name(pileId, ctx->workspace);
 }
 
-CUKE_STEP_("^I can lookup \"([a-z]+[0-9]*)\" in the current workspace$") {
+CUKE_STEP_("^I can lookup \"([a-zA-Z]+[0-9]*)\" in the current workspace$") {
     REGEX_PARAM(QString, pileId);
     ScenarioScope<MainCtx> ctx;
     QVERIFY(ctx->workspace->panels().contains(pileId));
 }
 
-CUKE_STEP_("^the pile with name \"([a-z]+[0-9]*)\" is created$") {
+CUKE_STEP_("^the pile with name \"([a-zA-Z]+[0-9]*)\" is created$") {
     REGEX_PARAM(QString, pileId);
     ScenarioScope<MainCtx> ctx;
     QCOMPARE(ctx->usecaseResult.value("eid").toString(), pileId);
     QCOMPARE(ctx->usecaseResult.value("outcome").toString(), QString("PILE_CREATED"));
 }
 
-CUKE_STEP_("^the pile with name \"([a-z]+[0-9]*)\" is not created$") {
+CUKE_STEP_("^the pile with name \"([a-zA-Z]+[0-9]*)\" is not created$") {
     REGEX_PARAM(QString, pileId);
     ScenarioScope<MainCtx> ctx;
     QCOMPARE(ctx->usecaseResult.value("eid").toString(), pileId);
     QCOMPARE(ctx->usecaseResult.value("outcome").toString(), QString("PILE_NOT_CREATED"));
 }
 
-CUKE_STEP_("^I am told that a pile with name \"([a-z]+[0-9]*)\" already exists$") {
+CUKE_STEP_("^I am told that a pile with name \"([a-zA-Z]+[0-9]*)\" already exists$") {
     REGEX_PARAM(QString, pileId);
     ScenarioScope<MainCtx> ctx;
     QCOMPARE(ctx->usecaseResult.value("eid").toString(), pileId);
