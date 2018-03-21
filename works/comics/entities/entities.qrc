@@ -1,8 +1,0 @@
-<RCC>
-    <qresource prefix="/qt-project.org/imports/comicsworks/entities">
-        <file>qmldir</file>
-        <file>Panel.qml</file>
-        <file>Grid.qml</file>
-        <file>World.qml</file>
-    </qresource>
-</RCC>

@@ -1,2 +1,0 @@
-RESOURCES += \
-    $$PWD/usecases.qrc

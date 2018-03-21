@@ -1,7 +1,0 @@
-<RCC>
-    <qresource prefix="/qt-project.org/imports/comicsworks/usecases">
-        <file>qmldir</file>
-        <file>UActions.qml</file>
-        <file>CreateGrid.qml</file>
-    </qresource>
-</RCC>

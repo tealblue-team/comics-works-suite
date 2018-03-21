@@ -1,5 +1,0 @@
-module comicsworks.entities
-
-singleton World 1.0 World.qml
-Grid 1.0 Grid.qml
-Panel 1.0 Panel.qml
