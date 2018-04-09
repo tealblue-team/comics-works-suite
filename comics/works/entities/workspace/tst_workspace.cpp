@@ -22,7 +22,7 @@ WorkspaceTest::WorkspaceTest()
 void WorkspaceTest::test_create()
 {
     // WHEN
-    QScopedPointer<Workspace> workspace (new Workspace("someId"));
+    QScopedPointer<Workspace> workspace(new Workspace("someId"));
     // THEN
     QCOMPARE(workspace->eid(),QString("someId"));
 }

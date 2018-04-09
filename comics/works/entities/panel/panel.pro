@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2018-03-16T07:04:33
+# Project created by QtCreator 2018-03-28T07:57:51
 #
 #-------------------------------------------------
 
@@ -8,7 +8,7 @@ QT       += testlib
 
 QT       -= gui
 
-TARGET = tst_workspace
+TARGET = tst_panel
 CONFIG   += console
 CONFIG   -= app_bundle
 
@@ -27,8 +27,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
-        tst_workspace.cpp 
+        tst_panel.cpp
 
 DEFINES += SRCDIR=\\\"$$PWD/\\\"
 
-include(workspace.pri)
+include(panel.pri)

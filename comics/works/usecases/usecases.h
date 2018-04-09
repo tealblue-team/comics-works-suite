@@ -2,14 +2,13 @@
 #define USECASES_H
 #include <QVariantMap>
 class QString;
+#include "comics/works/entities/workspace/workspace_base.h"
 
 namespace comics {
 namespace works {
-namespace entities {
-class Workspace;
-}
 namespace usecases {
-QVariantMap create_pile_with_name(const QString& name, entities::Workspace *workspace);
+QVariantMap create_pile(const QString& name, entities::WorkspaceBase *workspace);
+QVariantMap create_panel(const QString& name, entities::WorkspaceBase *workspace);
 }
 }
 }

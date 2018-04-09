@@ -8,12 +8,21 @@ Workspace::Workspace(const QString& eid, QObject *parent)
     setEid(eid);
 }
 
-QString Workspace::eid() const {
+void Workspace::addPanel(PanelBase* panel) {
+    if (! m_panels.contains(panel))
+        m_panels.append(panel);
+}
+
+const QString& Workspace::eid() const {
     return m_eid;
 }
 
-QStringList Workspace::panels() const {
+QVector<PanelBase*> Workspace::panels() const {
     return m_panels;
+}
+
+QVariantList Workspace::piles() const {
+    return m_piles;
 }
 
 void Workspace::setEid(const QString& eid) {
@@ -21,6 +30,6 @@ void Workspace::setEid(const QString& eid) {
         m_eid = eid;
 }
 
-void Workspace::setPanels(QStringList panels) {
-    m_panels = panels;
+void Workspace::setPiles(QVariantList piles) {
+    m_piles = piles;
 }

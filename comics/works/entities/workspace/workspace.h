@@ -2,8 +2,6 @@
 #define WORKSPACE_H
 #include "workspace_base.h"
 
-#include <QObject>
-
 namespace comics {
 namespace works {
 namespace entities {
@@ -12,13 +10,18 @@ class Workspace : public WorkspaceBase
     Q_OBJECT
 public:
     explicit Workspace(const QString& eid, QObject *parent = nullptr);
-    QString eid() const;
-    QStringList panels() const;
+
+    const QString& eid() const;
+    QVariantList piles() const;
+    QVector<PanelBase*> panels() const;
+
+    void addPanel(PanelBase* panel);
     void setEid(const QString& eid);
-    void setPanels(QStringList panels);
+    void setPiles(QVariantList piles);
 private:
     QString m_eid;
-    QStringList m_panels;
+    QVector<PanelBase*> m_panels;
+    QVariantList m_piles;
 };
 }
 }

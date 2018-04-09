@@ -21,6 +21,7 @@ unix {
 }
 LIBS += $$CUKES_TARGET_DIR/libcucumber-cpp.a
 
+include(../../comics/works/entities/panel/panel.pri)
 include(../../comics/works/entities/workspace/workspace.pri)
 include(../../comics/works/usecases/usecases.pri)
 

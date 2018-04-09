@@ -8,13 +8,14 @@ Feature: create pile
     Given the current workspace exists
 
   Scenario: completed
-    Given no pile with name "someId" exists in the current workspace
-    When I create a pile with name "someId"
-    Then the pile with name "someId" is created
-    And I can lookup "someId" in the current workspace
+    Given no pile with name "pile1" exists in the current workspace
+    When I try to create a pile with name "pile1"
+    Then the pile with name "pile1" is created
+    And I can lookup the pile with name "pile1" in the current workspace
 
   Scenario: abandoned - pile already exists
-    Given a pile with name "someId" exists in the current workspace
-    When I create a pile with name "someId"
-    Then the pile with name "someId" is not created
-    And I am told that a pile with name "someId" already exists
+    Given I try to create a pile with name "pile1"
+    And a pile with name "pile1" exists in the current workspace
+    When I try to create a pile with name "pile1"
+    Then the pile with name "pile1" is not created
+    And I am told that a pile with name "pile1" already exists
