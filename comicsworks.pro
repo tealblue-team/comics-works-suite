@@ -1,9 +1,10 @@
 TEMPLATE = subdirs
 
 SUBDIRS += \
-#    comics/works/gui \
     features/step_definitions \
+#    comics/works/gui \
     comics/works/entities \
-#    comics/works/usecases
+#    comics/works/usecases \
+#    comics/works/solutions/studio
 
 DISTFILES += features/*.feature

@@ -5,7 +5,8 @@ Feature: create pile
   without committing to stricter groupings like page, book etc.
 
   Background:
-    Given the current workspace exists
+    Given I try to create a workspace with name "workspace1"
+    And the workspace with name "workspace1" is created
 
   Scenario: completed
     Given no pile with name "pile1" exists in the current workspace

@@ -1,5 +1,10 @@
 <RCC>
-    <qresource prefix="/qt-project.og/imports/works.comics.gui.atoms">
+    <qresource prefix="/qt-project.org/imports/comics/works/gui">
         <file>atoms/CWLogo.qml</file>
+        <file>entities/Workspace.qml</file>
+        <file>entities/Panel.qml</file>
+        <file>templates/PanelFocusTpl.qml</file>
+        <file>entities/qmldir</file>
+        <file>templates/qmldir</file>
     </qresource>
 </RCC>

@@ -1,5 +1,5 @@
 TEMPLATE = subdirs
 
-include(components.pri)
+include(usecases.pri)
 
 INCLUDEPATH += $$PWD/../../..

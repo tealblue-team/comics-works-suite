@@ -1,0 +1,4 @@
+module comics.works.gui.entities
+
+Panel 1.0 Panel.qml
+Workspace 1.0 Workspace.qml

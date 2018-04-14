@@ -8,6 +8,7 @@ namespace entities {
 class Workspace : public WorkspaceBase
 {
     Q_OBJECT
+    Q_PROPERTY(QString eid READ eid NOTIFY eidChanged)
 public:
     explicit Workspace(const QString& eid, QObject *parent = nullptr);
 
@@ -18,6 +19,8 @@ public:
     void addPanel(PanelBase* panel);
     void setEid(const QString& eid);
     void setPiles(QVariantList piles);
+signals:
+    void eidChanged();
 private:
     QString m_eid;
     QVector<PanelBase*> m_panels;

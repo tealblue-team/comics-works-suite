@@ -26,8 +26,10 @@ QVariantList Workspace::piles() const {
 }
 
 void Workspace::setEid(const QString& eid) {
-    if (m_eid != eid && eid != "")
+    if (m_eid != eid && eid != "") {
         m_eid = eid;
+        emit eidChanged();
+    }
 }
 
 void Workspace::setPiles(QVariantList piles) {

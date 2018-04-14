@@ -4,7 +4,8 @@ Feature: create panel
   so that I can tell a story fragment through it.
 
   Background:
-    Given the current workspace exists
+    Given I try to create a workspace with name "workspace1"
+    And the workspace with name "workspace1" is created
 
   Scenario: completed
     Given no panel with name "panel1" exists in the current workspace
