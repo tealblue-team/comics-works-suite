@@ -9,10 +9,22 @@ Window {
     visible: true
     width: 800
     height: 600
-    Component.onCompleted: uc.open_workspace("defaultWorspace")
+    Component.onCompleted: uc.create_workspace("defaultWorspace")
     Connections {
         target: uc
-        onWorkspaceOpened: mainWindow.title = title
+        onWorkspaceCreated: mainWindow.title = value.eid
+        onPanelCreated: rep.model = value.panels
+    }
+    Workspace {
+        id: panelFocusViewer
+        anchors.fill: parent
+        Repeater {
+            id: rep
+            model: []
+            delegate: Panel {
+                panelName.text: modelData.eid
+            }
+        }
     }
     Button {
         anchors.margins: 8
@@ -21,16 +33,6 @@ Window {
         text: "+"
         width: 40
         height: width
-        onClicked: uc.create_panel("panel1")
-    }
-    Workspace {
-        id: panelFocusViewer
-        anchors.fill: parent
-        Repeater {
-            model: ListModel {}
-            delegate: Panel {
-                panelName.text: model.eid
-            }
-        }
+        onClicked: uc.create_panel("panel"+(rep.model.length+1),"defaultWorkspace")
     }
 }

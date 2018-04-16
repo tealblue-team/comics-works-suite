@@ -2,7 +2,7 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include "comics/works/usecases/usecases.h"
-#include "comics/works/entities/workspace/workspace.h"
+#include "comics/works/entities/register.h"
 
 int main(int argc, char *argv[])
 {
@@ -12,14 +12,13 @@ int main(int argc, char *argv[])
 
     using namespace comics::works;
 
-    // entities
-    auto e_workspace = new entities::Workspace("workspace1", &app);
-    qRegisterMetaType<entities::WorkspaceBase*>("entities::WorkspaceBase*");
+    // entities register
+    entities::Register entities_register;
     // usecases
     auto uc = new usecases(&app);
+    uc->entities_reg = &entities_register;
 
     QQmlApplicationEngine engine;
-    engine.rootContext()->setContextProperty("e_workspace", e_workspace);
     engine.rootContext()->setContextProperty("uc", uc);
 
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));

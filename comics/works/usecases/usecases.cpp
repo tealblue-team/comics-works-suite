@@ -25,7 +25,7 @@ QVariantMap usecases::create_pile(const QString& name, const QString& workspaceN
     };
 }
 
-QVariantMap usecases::create_panel(const QString& name, const QString& workspaceName)
+void usecases::create_panel(const QString& name, const QString& workspaceName)
 {
     bool found = false;
     for (int i = 0; i < entities_reg->workspace->panels().size(); ++i) {
@@ -50,21 +50,20 @@ QVariantMap usecases::create_panel(const QString& name, const QString& workspace
                             {"eid", name}
                         });
         ret["panels"] = panelsList;
-        return ret;
+        emit panelCreated(ret);
     }
-    return {
+    emit panelNotCreated({
         {"outcome", "PANEL_NOT_CREATED"},
         {"reason", "PANEL_ALREADY_EXISTS"},
         {"eid", name}
-    };
+    });
 }
 
-Q_INVOKABLE QVariantMap create_workspace(const QString& name)
+Q_INVOKABLE void usecases::create_workspace(const QString& name)
 {
     entities_reg->workspace = new entities::Workspace(name);
-    return {
-        {"outcome", "WORKSPACE_NOT_CREATED"},
-        {"reason", "NOT_IMPLEMENTED"},
+    emit workspaceCreated({
+        {"outcome", "WORKSPACE_CREATED"},
         {"eid", name}
-    };
+    });
 }

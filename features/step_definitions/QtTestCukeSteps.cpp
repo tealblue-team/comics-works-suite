@@ -14,13 +14,13 @@ using namespace comics::works;
 struct MainCtx {
     MainCtx()
         : argc(0)
-        , app(argc, NULL)
+        , app(argc, nullptr)
     {
         uc.entities_reg = &entities;
     }
     ~MainCtx()
     {
-        delete uc.entities_reg;
+        //delete uc.entities_reg;
     }
     int argc;
     bool usecaseSuccess;
@@ -62,6 +62,13 @@ CUKE_STEP_("^no panel with name \"([a-zA-Z]+[0-9]*)\" exists in the current work
         }
     }
     QVERIFY(! panelExists);
+}
+
+CUKE_STEP_("^no workspace with name \"([a-zA-Z]+[0-9]*)\" exists$") {
+    REGEX_PARAM(QString, workspaceId);
+    ScenarioScope<MainCtx> ctx;
+    bool workspaceExists = ctx->entities.workspace != nullptr;
+    QVERIFY(! workspaceExists);
 }
 
 CUKE_STEP_("^a pile with name \"([a-zA-Z]+[0-9]*)\" exists in the current workspace$") {
