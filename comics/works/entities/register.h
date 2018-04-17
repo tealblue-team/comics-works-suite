@@ -6,7 +6,7 @@ namespace comics {
 namespace works {
 namespace entities {
 struct Register {
-    WorkspaceBase* workspace = nullptr;
+    WorkspaceBase* currentWorkspace = nullptr;
 };
 }
 }

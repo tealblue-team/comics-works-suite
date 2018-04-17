@@ -14,7 +14,7 @@ public:
 
     const QString& eid() const;
     QVariantList piles() const;
-    QVector<PanelBase*> panels() const;
+    QVector<PanelBase*>* panels() const;
 
     void addPanel(PanelBase* panel);
     void setEid(const QString& eid);
@@ -23,7 +23,7 @@ signals:
     void eidChanged();
 private:
     QString m_eid;
-    QVector<PanelBase*> m_panels;
+    QVector<PanelBase*>* m_panels;
     QVariantList m_piles;
 };
 }

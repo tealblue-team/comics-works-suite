@@ -3,21 +3,22 @@
 using namespace comics::works::entities;
 
 Workspace::Workspace(const QString& eid, QObject *parent)
-    : WorkspaceBase(parent)
+    : WorkspaceBase(parent),
+      m_panels(new QVector<PanelBase*>)
 {
     setEid(eid);
 }
 
 void Workspace::addPanel(PanelBase* panel) {
-    if (! m_panels.contains(panel))
-        m_panels.append(panel);
+    if (! m_panels->contains(panel))
+        m_panels->append(panel);
 }
 
 const QString& Workspace::eid() const {
     return m_eid;
 }
 
-QVector<PanelBase*> Workspace::panels() const {
+QVector<PanelBase*>* Workspace::panels() const {
     return m_panels;
 }
 

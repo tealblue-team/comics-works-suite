@@ -5,16 +5,20 @@ Item {
     width: 800
     height: 600
 
-    default property alias panels: panels.children
+    property alias columns: panelsContainer.columns
+    property alias rows: panelsContainer.rows
+
+    default property alias panels: panelsContainer.children
 
     Rectangle {
         anchors.fill: parent
         color: "dimgray"
     }
 
-    Column {
-        id: panels
+    Grid {
+        id: panelsContainer
         spacing: 8
-        anchors.centerIn: parent
+        anchors.fill: parent
+        anchors.margins: 16
     }
 }

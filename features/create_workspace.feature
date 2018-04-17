@@ -1,7 +1,7 @@
 Feature: create workspace
   As a comic creator
   I want to create a workspace
-  so that I can keep all related work and settings in one single place.
+  so that I can keep all related work and settings in one place.
 
   Scenario: success
     Given no workspace with name "workspace1" exists

@@ -18,7 +18,7 @@ protected:
 public:
     virtual const QString& eid() const = 0;
     virtual QVariantList piles() const = 0;
-    virtual QVector<PanelBase*> panels() const = 0;
+    virtual QVector<PanelBase*>* panels() const = 0;
 
     virtual void addPanel(PanelBase* panel) = 0;
     virtual void setEid(const QString& eid) = 0;

@@ -1,5 +1,6 @@
 #include <cstdlib>
 #include <QTest>
+#include <QSignalSpy>
 #include <cucumber-cpp/autodetect.hpp>
 #include "comics/works/entities/register.h"
 #include "comics/works/entities/workspace/workspace.h"
@@ -18,10 +19,6 @@ struct MainCtx {
     {
         uc.entities_reg = &entities;
     }
-    ~MainCtx()
-    {
-        //delete uc.entities_reg;
-    }
     int argc;
     bool usecaseSuccess;
     QCoreApplication app;
@@ -36,27 +33,30 @@ std::ostream& operator<< (std::ostream& out, const QString& val) { out << val.to
 CUKE_STEP_("^I try to create a workspace with name \"([a-zA-Z]+[0-9]*)\"$") {
     REGEX_PARAM(QString, workspaceId);
     ScenarioScope<MainCtx> ctx;
-    ctx->usecaseResult = ctx->uc.create_workspace(workspaceId);
+    QSignalSpy usecaseResult(&ctx->uc, &usecases::usecaseCompleted);
+    ctx->uc.create_workspace(workspaceId);
+    usecaseResult.wait(5);
+    ctx->usecaseResult = usecaseResult.takeFirst().at(0).toMap();
 }
 
 CUKE_STEP_("^the workspace with name \"([a-zA-Z]+[0-9]*)\" is created$") {
     REGEX_PARAM(QString, workspaceId);
     ScenarioScope<MainCtx> ctx;
-    QCOMPARE(ctx->entities.workspace->eid(), workspaceId);
+    QCOMPARE(ctx->entities.currentWorkspace->eid(), workspaceId);
 }
 
 CUKE_STEP_("^no pile with name \"([a-zA-Z]+[0-9]*)\" exists in the current workspace$") {
     REGEX_PARAM(QString, pileId);
     ScenarioScope<MainCtx> ctx;
-    QVERIFY(! ctx->entities.workspace->piles().contains(pileId));
+    QVERIFY(! ctx->entities.currentWorkspace->piles().contains(pileId));
 }
 
 CUKE_STEP_("^no panel with name \"([a-zA-Z]+[0-9]*)\" exists in the current workspace$") {
     REGEX_PARAM(QString, panelId);
     ScenarioScope<MainCtx> ctx;
     bool panelExists = false;
-    for (int i = 0; i < ctx->entities.workspace->panels().size(); ++i) {
-        if (ctx->entities.workspace->panels().at(i)->eid() == panelId) {
+    for (int i = 0; i < ctx->entities.currentWorkspace->panels()->size(); ++i) {
+        if (ctx->entities.currentWorkspace->panels()->at(i)->eid() == panelId) {
             panelExists = true;
             break;
         }
@@ -67,22 +67,22 @@ CUKE_STEP_("^no panel with name \"([a-zA-Z]+[0-9]*)\" exists in the current work
 CUKE_STEP_("^no workspace with name \"([a-zA-Z]+[0-9]*)\" exists$") {
     REGEX_PARAM(QString, workspaceId);
     ScenarioScope<MainCtx> ctx;
-    bool workspaceExists = ctx->entities.workspace != nullptr;
+    bool workspaceExists = ctx->entities.currentWorkspace != nullptr;
     QVERIFY(! workspaceExists);
 }
 
 CUKE_STEP_("^a pile with name \"([a-zA-Z]+[0-9]*)\" exists in the current workspace$") {
     REGEX_PARAM(QString, pileId);
     ScenarioScope<MainCtx> ctx;
-    QVERIFY(ctx->entities.workspace->piles().contains(pileId));
+    QVERIFY(ctx->entities.currentWorkspace->piles().contains(pileId));
 }
 
 CUKE_STEP_("^a panel with name \"([a-zA-Z]+[0-9]*)\" exists in the current workspace$") {
     REGEX_PARAM(QString, panelId);
     ScenarioScope<MainCtx> ctx;
     bool panelExists = false;
-    for (int i = 0; i < ctx->entities.workspace->panels().size(); ++i) {
-        if (ctx->entities.workspace->panels().at(i)->eid() == panelId) {
+    for (int i = 0; i < ctx->entities.currentWorkspace->panels()->size(); ++i) {
+        if (ctx->entities.currentWorkspace->panels()->at(i)->eid() == panelId) {
             panelExists = true;
             break;
         }
@@ -93,13 +93,13 @@ CUKE_STEP_("^a panel with name \"([a-zA-Z]+[0-9]*)\" exists in the current works
 CUKE_STEP_("^I try to create a pile with name \"([a-zA-Z]+[0-9]*)\"$") {
     REGEX_PARAM(QString, pileId);
     ScenarioScope<MainCtx> ctx;
-    ctx->usecaseResult = ctx->uc.create_pile(pileId, ctx->entities.workspace->eid());
+    ctx->usecaseResult = ctx->uc.create_pile(pileId, ctx->entities.currentWorkspace->eid());
 }
 
 CUKE_STEP_("^I can lookup the pile with name \"([a-zA-Z]+[0-9]*)\" in the current workspace$") {
     REGEX_PARAM(QString, pileId);
     ScenarioScope<MainCtx> ctx;
-    QVERIFY(ctx->entities.workspace->piles().contains(pileId));
+    QVERIFY(ctx->entities.currentWorkspace->piles().contains(pileId));
 }
 
 CUKE_STEP_("^the pile with name \"([a-zA-Z]+[0-9]*)\" is created$") {
@@ -140,7 +140,19 @@ CUKE_STEP_("^I am told that a panel with name \"([a-zA-Z]+[0-9]*)\" already exis
 CUKE_STEP_("^I try to create a panel with name \"([a-zA-Z]+[0-9]*)\"$") {
     REGEX_PARAM(QString, panelId);
     ScenarioScope<MainCtx> ctx;
-    ctx->usecaseResult = ctx->uc.create_panel(panelId, ctx->entities.workspace->eid());
+    QSignalSpy usecaseResult(&ctx->uc, &usecases::usecaseCompleted);
+    ctx->uc.create_panel(panelId, ctx->entities.currentWorkspace->eid());
+    usecaseResult.wait(5);
+    ctx->usecaseResult = usecaseResult.takeFirst().at(0).toMap();
+}
+
+CUKE_STEP_("^I try to delete a panel with name \"([a-zA-Z]+[0-9]*)\"$") {
+    REGEX_PARAM(QString, panelId);
+    ScenarioScope<MainCtx> ctx;
+    QSignalSpy usecaseResult(&ctx->uc, &usecases::usecaseCompleted);
+    ctx->uc.delete_panel(panelId, ctx->entities.currentWorkspace->eid());
+    usecaseResult.wait(5);
+    ctx->usecaseResult = usecaseResult.takeFirst().at(0).toMap();
 }
 
 CUKE_STEP_("^the panel with name \"([a-zA-Z]+[0-9]*)\" is created$") {
@@ -150,12 +162,19 @@ CUKE_STEP_("^the panel with name \"([a-zA-Z]+[0-9]*)\" is created$") {
     QCOMPARE(ctx->usecaseResult.value("outcome").toString(), QString("PANEL_CREATED"));
 }
 
+CUKE_STEP_("^the panel with name \"([a-zA-Z]+[0-9]*)\" is deleted$") {
+    REGEX_PARAM(QString, panelId);
+    ScenarioScope<MainCtx> ctx;
+    QCOMPARE(ctx->usecaseResult.value("eid").toString(), panelId);
+    QCOMPARE(ctx->usecaseResult.value("outcome").toString(), QString("PANEL_DELETED"));
+}
+
 CUKE_STEP_("^I can lookup the panel with name \"([a-zA-Z]+[0-9]*)\" in the current workspace$") {
     REGEX_PARAM(QString, panelId);
     ScenarioScope<MainCtx> ctx;
     bool found = false;
-    for (int i = 0; i < ctx->entities.workspace->panels().size(); ++i) {
-        if (ctx->entities.workspace->panels().at(i)->eid() == panelId) {
+    for (int i = 0; i < ctx->entities.currentWorkspace->panels()->size(); ++i) {
+        if (ctx->entities.currentWorkspace->panels()->at(i)->eid() == panelId) {
             found = true;
             break;
         }
@@ -163,19 +182,32 @@ CUKE_STEP_("^I can lookup the panel with name \"([a-zA-Z]+[0-9]*)\" in the curre
     QVERIFY(found);
 }
 
+CUKE_STEP_("^I cannot lookup the panel with name \"([a-zA-Z]+[0-9]*)\" in the current workspace$") {
+    REGEX_PARAM(QString, panelId);
+    ScenarioScope<MainCtx> ctx;
+    bool found = false;
+    for (int i = 0; i < ctx->entities.currentWorkspace->panels()->size(); ++i) {
+        if (ctx->entities.currentWorkspace->panels()->at(i)->eid() == panelId) {
+            found = true;
+            break;
+        }
+    }
+    QVERIFY(! found);
+}
+
 CUKE_STEP_("^the width of panel \"([a-zA-Z]+[0-9]*)\" is greater than \"(\\d+)\"$") {
     REGEX_PARAM(QString, panelId);
     REGEX_PARAM(int, zeroWidth);
     ScenarioScope<MainCtx> ctx;
     int idx = -1;
-    for (int i = 0; i < ctx->entities.workspace->panels().size(); ++i) {
-        if (ctx->entities.workspace->panels().at(i)->eid() == panelId) {
+    for (int i = 0; i < ctx->entities.currentWorkspace->panels()->size(); ++i) {
+        if (ctx->entities.currentWorkspace->panels()->at(i)->eid() == panelId) {
             idx = i;
             break;
         }
     }
     if (idx > -1)
-        QVERIFY(ctx->entities.workspace->panels().at(idx)->width() > zeroWidth);
+        QVERIFY(ctx->entities.currentWorkspace->panels()->at(idx)->width() > zeroWidth);
 }
 
 CUKE_STEP_("^the height of panel \"([a-zA-Z]+[0-9]*)\" is greater than \"(\\d+)\"$") {
@@ -183,14 +215,14 @@ CUKE_STEP_("^the height of panel \"([a-zA-Z]+[0-9]*)\" is greater than \"(\\d+)\
     REGEX_PARAM(int, zeroHeight);
     ScenarioScope<MainCtx> ctx;
     int idx = -1;
-    for (int i = 0; i < ctx->entities.workspace->panels().size(); ++i) {
-        if (ctx->entities.workspace->panels().at(i)->eid() == panelId) {
+    for (int i = 0; i < ctx->entities.currentWorkspace->panels()->size(); ++i) {
+        if (ctx->entities.currentWorkspace->panels()->at(i)->eid() == panelId) {
             idx = i;
             break;
         }
     }
     if (idx > -1)
-        QVERIFY(ctx->entities.workspace->panels().at(idx)->height() > zeroHeight);
+        QVERIFY(ctx->entities.currentWorkspace->panels()->at(idx)->height() > zeroHeight);
 }
 
 
