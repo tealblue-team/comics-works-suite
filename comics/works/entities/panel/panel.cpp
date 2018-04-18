@@ -7,6 +7,10 @@ Panel::Panel(const QString& eid, QObject *parent) : PanelBase(parent)
     setEid(eid);
 }
 
+const QString& Panel::description() const {
+    return m_description;
+}
+
 const QString& Panel::eid() const {
     return m_eid;
 }
@@ -17,6 +21,12 @@ int Panel::width() const {
 
 int Panel::height() const {
     return m_height;
+}
+
+void Panel::setDescription(const QString& description)
+{
+    if (m_description != description)
+        m_description = description;
 }
 
 void Panel::setEid(const QString& eid) {

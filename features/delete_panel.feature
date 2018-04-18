@@ -1,7 +1,7 @@
 Feature: delete panel
   As a comic creator
   I want to delete a panel
-  because I created too many.
+  because I created too many
 
   Background:
     Given I try to create a workspace with name "workspace1"

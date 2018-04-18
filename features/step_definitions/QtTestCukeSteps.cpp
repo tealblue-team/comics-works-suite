@@ -225,4 +225,35 @@ CUKE_STEP_("^the height of panel \"([a-zA-Z]+[0-9]*)\" is greater than \"(\\d+)\
         QVERIFY(ctx->entities.currentWorkspace->panels()->at(idx)->height() > zeroHeight);
 }
 
+CUKE_STEP_("^I try to describe panel \"([a-zA-Z]+[0-9]*)\" as \"(.+)\"$") {
+    REGEX_PARAM(QString, panelId);
+    REGEX_PARAM(QString, panelDescription);
+    ScenarioScope<MainCtx> ctx;
+    QSignalSpy usecaseResult(&ctx->uc, &usecases::usecaseCompleted);
+    ctx->uc.describe_panel(panelId, panelDescription);
+    usecaseResult.wait(5);
+    ctx->usecaseResult = usecaseResult.takeFirst().at(0).toMap();
+}
+
+CUKE_STEP_("^a description is added to panel \"([a-zA-Z]+[0-9]*)\"$") {
+    REGEX_PARAM(QString, panelId);
+    ScenarioScope<MainCtx> ctx;
+    QCOMPARE(ctx->usecaseResult.value("eid").toString(), panelId);
+    QCOMPARE(ctx->usecaseResult.value("outcome").toString(), QString("PANEL_DESCRIBED"));
+}
+
+CUKE_STEP_("^the description for panel \"([a-zA-Z]+[0-9]*)\" reads \"(.+)\"$") {
+    REGEX_PARAM(QString, panelId);
+    REGEX_PARAM(QString, panelDescription);
+    ScenarioScope<MainCtx> ctx;
+    bool descriptionFound = false;
+    for (int i = 0; i < ctx->entities.currentWorkspace->panels()->size(); ++i) {
+        if ((ctx->entities.currentWorkspace->panels()->at(i)->eid() == panelId)
+        && (ctx->entities.currentWorkspace->panels()->at(i)->description() == panelDescription)) {
+            descriptionFound = true;
+            break;
+        }
+    }
+    QVERIFY(descriptionFound);
+}
 

@@ -1,7 +1,7 @@
 Feature: create panel
   As a comic creator
   I want to create a panel
-  so that I can tell a story fragment through it.
+  so that I can tell a story fragment through it
 
   Background:
     Given I try to create a workspace with name "workspace1"

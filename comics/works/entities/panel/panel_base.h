@@ -10,13 +10,15 @@ class PanelBase : public QObject
 {
     Q_OBJECT
 protected:
-    explicit PanelBase(QObject *parent = nullptr) {}
+    explicit PanelBase(QObject* parent = nullptr) : QObject(parent) {}
 public:
+    virtual const QString& description() const = 0;
     virtual const QString& eid() const = 0;
     virtual int width() const = 0;
     virtual int height() const = 0;
 
     virtual void setEid(const QString&) = 0;
+    virtual void setDescription(const QString&) = 0;
     virtual void setWidth(int) = 0;
     virtual void setHeight(int) = 0;
 };

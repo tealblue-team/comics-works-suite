@@ -2,7 +2,7 @@ Feature: create pile
   As a comic creator
   I want to create a pile
   so that I can group some panels together
-  without committing to stricter groupings like page, book etc.
+  without committing to stricter groupings like page, book etc
 
   Background:
     Given I try to create a workspace with name "workspace1"

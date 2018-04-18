@@ -41,17 +41,11 @@ void usecases::create_panel(const QString& name, const QString& workspaceName)
         panel->setWidth(256);
         panel->setHeight(256);
         entities_reg->currentWorkspace->addPanel(panel);
-        QVariantList panelsList;
-        for (int i=0;i<entities_reg->currentWorkspace->panels()->length();i++) {
-            QVariantMap panelSerial;
-            panelSerial["eid"] = entities_reg->currentWorkspace->panels()->at(i)->eid();
-            panelsList << panelSerial;
-        }
         ret = {
             {"outcome", "PANEL_CREATED"},
-            {"eid", name}
+            {"eid", name},
+            {"panels", _getPanelsList(entities_reg->currentWorkspace->panels())}
         };
-        ret["panels"] = panelsList;
         emit panelCreated(ret);
     } else {
         ret = {
@@ -80,17 +74,46 @@ void usecases::delete_panel(const QString &name, const QString &workspaceName)
 {
     QVariantMap ret;
     for (int i=0;i<entities_reg->currentWorkspace->panels()->length();i++) {
-        qDebug() << entities_reg->currentWorkspace->panels()->at(i)->eid() << name;
         if (entities_reg->currentWorkspace->panels()->at(i)->eid() == name) {
             entities_reg->currentWorkspace->panels()->remove(i);
-            qDebug() << entities_reg->currentWorkspace->panels()->length();
-            ret = {
-                {"outcome", "PANEL_DELETED"},
-                {"eid", name}
-            };
-            emit panelDeleted(ret);
             break;
         }
     }
+    ret = {
+        {"outcome", "PANEL_DELETED"},
+        {"eid", name},
+        {"panels", _getPanelsList(entities_reg->currentWorkspace->panels())}
+    };
+    emit panelDeleted(ret);
     emit usecaseCompleted(ret);
+}
+
+void usecases::describe_panel(const QString &name, const QString &description)
+{
+    QVariantMap ret;
+    for (int i=0;i<entities_reg->currentWorkspace->panels()->length();i++) {
+        if (entities_reg->currentWorkspace->panels()->at(i)->eid() == name) {
+            entities_reg->currentWorkspace->panels()->at(i)->setDescription(description);
+            break;
+        }
+    }
+    ret = {
+        {"outcome", "PANEL_DESCRIBED"},
+        {"eid", name},
+        {"panels", _getPanelsList(entities_reg->currentWorkspace->panels())}
+    };
+    emit panelDescribed(ret);
+    emit usecaseCompleted(ret);
+}
+
+QVariantList usecases::_getPanelsList(QVector<entities::PanelBase *>* panels) const
+{
+    QVariantList panelsList;
+    for (int i=0;i<panels->length();i++) {
+        QVariantMap panelSerial;
+        panelSerial["eid"] = panels->at(i)->eid();
+        panelSerial["description"] = panels->at(i)->description();
+        panelsList << panelSerial;
+    }
+    return panelsList;
 }

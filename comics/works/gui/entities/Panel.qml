@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import QtQuick.Controls 2.2
 import QtGraphicalEffects 1.0
 import QtQuick.Layouts 1.3
 
@@ -8,7 +9,8 @@ Item {
     width: 256
     height: width
 
-    property alias panelName: panelName
+    property alias name: name
+    property alias description: description
 
     Rectangle {
         id: pageFace
@@ -23,17 +25,22 @@ Item {
         radius: 8.0
         color: "#80000000"
     }
-
     Item {
         id: drawingSurface
         anchors.fill: parent
         anchors.margins: 32
     }
     Text {
-        id: panelName
+        id: name
         anchors.horizontalCenter: parent.horizontalCenter
         text: "[panel name]"
         opacity: .8
+    }
+    TextField {
+        id: description
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.bottom: parent.bottom
+        placeholderText: "[panel description]"
     }
 }
 
