@@ -7,6 +7,7 @@ import comics.works.gui.molecules 1.0 as CWGM
 
 Window {
     id: mainWindow
+    title: "comics.works"
     visible: true
     width: 256 * 3 + 48 + 200
     height: 600
@@ -14,7 +15,7 @@ Window {
     Component.onCompleted: uc.create_workspace(workspaceName)
     Connections {
         target: uc
-        onWorkspaceCreated: mainWindow.title = value.eid
+//        onWorkspaceCreated: mainWindow.title = value.eid
         onPanelCreated: rep.model = value.panels
         onPanelDeleted: rep.model = value.panels
         onPanelDescribed: rep.model = value.panels
