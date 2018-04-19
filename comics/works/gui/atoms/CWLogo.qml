@@ -35,7 +35,7 @@ Item {
             from: 0
             to: 360
             duration: 20000 / 6
-            running: switcher.checked
+            running: true
         }
     }
     Image {

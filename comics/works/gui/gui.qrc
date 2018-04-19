@@ -1,10 +1,13 @@
 <RCC>
     <qresource prefix="/qt-project.org/imports/comics/works/gui">
         <file>atoms/CWLogo.qml</file>
-        <file>entities/Workspace.qml</file>
-        <file>entities/Panel.qml</file>
-        <file>templates/PanelFocusTpl.qml</file>
-        <file>entities/qmldir</file>
+        <file>molecules/Table.qml</file>
+        <file>molecules/PanelCard.qml</file>
+        <file>molecules/qmldir</file>
         <file>templates/qmldir</file>
+        <file>atoms/qmldir</file>
+        <file>assets/comicsworks-logo-bubbles.svg</file>
+        <file>assets/comicsworks-logo-cog-big.svg</file>
+        <file>assets/comicsworks-logo-cog-small.svg</file>
     </qresource>
 </RCC>

@@ -3,7 +3,7 @@ import QtQuick.Controls 2.2
 import QtGraphicalEffects 1.0
 import QtQuick.Layouts 1.3
 
-Item {
+FocusScope {
     id: panel
 
     width: 256
@@ -38,9 +38,11 @@ Item {
     }
     TextField {
         id: description
+        focus: true
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
         placeholderText: "[panel description]"
+        Keys.onEscapePressed: focus = false
     }
 }
 
