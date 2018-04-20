@@ -2,8 +2,8 @@ import QtQuick 2.9
 import QtQuick.Window 2.2
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
-import comics.works.gui.atoms 1.0 as CWGA
-import comics.works.gui.molecules 1.0 as CWGM
+import comics.works.ui.atoms 1.0 as CWA
+import comics.works.ui.molecules 1.0 as CWM
 
 Window {
     id: mainWindow
@@ -68,7 +68,7 @@ Window {
                         }
                     }
                 }
-                CWGA.CWLogo {
+                CWA.CWLogo {
                     anchors.bottom: parent.bottom
                 }
             }
@@ -88,7 +88,7 @@ Window {
                     uc.delete_panel("panel"+(rep.model.length), workspaceName)
                 }
             }
-            CWGM.Table {
+            CWM.Table {
                 anchors.fill: parent
                 GridView {
                     id: rep
@@ -97,7 +97,7 @@ Window {
                     cellWidth: rep.width / 3
                     cellHeight: 264
                     model: []
-                    delegate: CWGM.PanelCard {
+                    delegate: CWM.PanelCard {
                         id: panelCard
                         name.text: modelData.eid
                         description.placeholderText: modelData.description || "<add description>"

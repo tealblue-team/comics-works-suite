@@ -1,3 +1,3 @@
 TEMPLATE = subdirs
 
-include(gui.pri)
+include(ui.pri)

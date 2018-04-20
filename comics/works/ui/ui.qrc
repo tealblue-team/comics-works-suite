@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/qt-project.org/imports/comics/works/gui">
+    <qresource prefix="/qt-project.org/imports/comics/works/ui">
         <file>atoms/CWLogo.qml</file>
         <file>molecules/Table.qml</file>
         <file>molecules/PanelCard.qml</file>
