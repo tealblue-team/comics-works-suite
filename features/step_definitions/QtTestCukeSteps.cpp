@@ -3,8 +3,9 @@
 #include <QSignalSpy>
 #include <cucumber-cpp/autodetect.hpp>
 #include "comics/works/entities/register.h"
-#include "comics/works/entities/workspace/workspace.h"
+#include "comics/works/entities/character/character.h"
 #include "comics/works/entities/panel/panel.h"
+#include "comics/works/entities/workspace/workspace.h"
 #include "comics/works/usecases/usecases.h"
 
 using cucumber::ScenarioScope;
@@ -20,7 +21,6 @@ struct MainCtx {
         uc.entities_reg = &entities;
     }
     int argc;
-    bool usecaseSuccess;
     QCoreApplication app;
     QVariantMap usecaseResult;
     usecases uc;
@@ -249,11 +249,53 @@ CUKE_STEP_("^the description for panel \"([a-zA-Z]+[0-9]*)\" reads \"(.+)\"$") {
     bool descriptionFound = false;
     for (int i = 0; i < ctx->entities.currentWorkspace->panels()->size(); ++i) {
         if ((ctx->entities.currentWorkspace->panels()->at(i)->eid() == panelId)
-        && (ctx->entities.currentWorkspace->panels()->at(i)->description() == panelDescription)) {
+                && (ctx->entities.currentWorkspace->panels()->at(i)->description() == panelDescription)) {
             descriptionFound = true;
             break;
         }
     }
     QVERIFY(descriptionFound);
+}
+
+CUKE_STEP_("^no character with name \"([a-zA-Z0-9]+)\" exists in the current workspace$") {
+    REGEX_PARAM(QString, characterName);
+    ScenarioScope<MainCtx> ctx;
+    bool characterExists = false;
+    for (int i = 0; i < ctx->entities.currentWorkspace->characters()->size(); ++i) {
+        if (ctx->entities.currentWorkspace->characters()->at(i)->name() == characterName) {
+            characterExists = true;
+            break;
+        }
+    }
+    QVERIFY(! characterExists);
+}
+
+CUKE_STEP_("^I try to create a character with name \"([a-zA-Z0-9]+)\"$") {
+    REGEX_PARAM(QString, characterName);
+    ScenarioScope<MainCtx> ctx;
+    QSignalSpy usecaseResult(&ctx->uc, &usecases::usecaseCompleted);
+    ctx->uc.create_character(characterName, ctx->entities.currentWorkspace->eid());
+    usecaseResult.wait(5);
+    ctx->usecaseResult = usecaseResult.takeFirst().at(0).toMap();
+}
+
+CUKE_STEP_("^the character with name \"([a-zA-Z0-9]+)\" is created$") {
+    REGEX_PARAM(QString, characterName);
+    ScenarioScope<MainCtx> ctx;
+    QCOMPARE(ctx->usecaseResult.value("name").toString(), characterName);
+    QCOMPARE(ctx->usecaseResult.value("outcome").toString(), QString("CHARACTER_CREATED"));
+}
+
+CUKE_STEP_("^I can lookup the character with name \"([a-zA-Z0-9]+)\" in the current workspace$") {
+    REGEX_PARAM(QString, characterName);
+    ScenarioScope<MainCtx> ctx;
+    bool found = false;
+    for (int i = 0; i < ctx->entities.currentWorkspace->characters()->size(); ++i) {
+        if (ctx->entities.currentWorkspace->characters()->at(i)->name() == characterName) {
+            found = true;
+            break;
+        }
+    }
+    QVERIFY(found);
 }
 

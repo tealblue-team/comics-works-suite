@@ -11,6 +11,7 @@ class usecases : public QObject {
     Q_OBJECT
 public:
     explicit usecases(QObject* parent = nullptr);
+    Q_INVOKABLE void create_character(const QString& name, const QString& workspaceName);
     Q_INVOKABLE void create_panel(const QString& name, const QString& workspaceName);
     Q_INVOKABLE QVariantMap create_pile(const QString& name, const QString& workspaceName);
     Q_INVOKABLE void create_workspace(const QString& name);
@@ -21,12 +22,15 @@ public:
 signals:
     void usecaseCompleted(QVariantMap value);
 
+    void characterCreated(QVariantMap value);
+    void characterNotCreated(QVariantMap value);
     void panelCreated(QVariantMap value);
     void panelDeleted(QVariantMap value);
     void panelDescribed(QVariantMap value);
     void panelNotCreated(QVariantMap value);
     void workspaceCreated(QVariantMap value);
 private:
+    QVariantList _getCharactersList(QVector<entities::CharacterBase*>*) const;
     QVariantList _getPanelsList(QVector<entities::PanelBase*>*) const;
 };
 }

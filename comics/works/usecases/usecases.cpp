@@ -3,6 +3,7 @@
 #include "usecases.h"
 #include "comics/works/entities/register.h"
 #include "comics/works/entities/panel/panel.h"
+#include "comics/works/entities/character/character.h"
 #include "comics/works/entities/workspace/workspace.h"
 
 using namespace comics::works;
@@ -54,6 +55,36 @@ void usecases::create_panel(const QString& name, const QString& workspaceName)
             {"eid", name}
         };
         emit panelNotCreated(ret);
+    }
+    emit usecaseCompleted(ret);
+}
+
+void usecases::create_character(const QString& name, const QString& workspaceName)
+{
+    QVariantMap ret;
+    bool found = false;
+    for (int i = 0; i < entities_reg->currentWorkspace->characters()->size(); ++i) {
+        if (entities_reg->currentWorkspace->characters()->at(i)->name() == name) {
+            found = true;
+            break;
+        }
+    }
+    if (!found) {
+        auto character = new entities::Character(name, entities_reg->currentWorkspace);
+        entities_reg->currentWorkspace->addCharacter(character);
+        ret = {
+            {"outcome", "CHARACTER_CREATED"},
+            {"name", name},
+            {"characters", _getCharactersList(entities_reg->currentWorkspace->characters())}
+        };
+        emit characterCreated(ret);
+    } else {
+        ret = {
+            {"outcome", "CHARACTER_NOT_CREATED"},
+            {"reason", "CHARACTER_ALREADY_EXISTS"},
+            {"name", name}
+        };
+        emit characterNotCreated(ret);
     }
     emit usecaseCompleted(ret);
 }
@@ -116,4 +147,15 @@ QVariantList usecases::_getPanelsList(QVector<entities::PanelBase *>* panels) co
         panelsList << panelSerial;
     }
     return panelsList;
+}
+
+QVariantList usecases::_getCharactersList(QVector<entities::CharacterBase *>* characters) const
+{
+    QVariantList charactersList;
+    for (int i=0;i<characters->length();i++) {
+        QVariantMap characterSerial;
+        characterSerial["name"] = characters->at(i)->name();
+        charactersList << characterSerial;
+    }
+    return charactersList;
 }
