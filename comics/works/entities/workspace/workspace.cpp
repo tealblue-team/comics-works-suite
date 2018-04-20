@@ -4,9 +4,20 @@ using namespace comics::works::entities;
 
 Workspace::Workspace(const QString& eid, QObject *parent)
     : WorkspaceBase(parent),
+      m_characters(new QVector<CharacterBase*>),
       m_panels(new QVector<PanelBase*>)
 {
     setEid(eid);
+}
+
+QVector<CharacterBase *> *Workspace::characters() const
+{
+    return m_characters;
+}
+
+void Workspace::addCharacter(CharacterBase* character) {
+    if (! m_characters->contains(character))
+        m_characters->append(character);
 }
 
 void Workspace::addPanel(PanelBase* panel) {

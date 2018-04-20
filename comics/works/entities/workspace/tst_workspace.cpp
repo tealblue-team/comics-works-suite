@@ -12,14 +12,25 @@ public:
     WorkspaceTest();
 
 private Q_SLOTS:
-    void test_create();
+    void test_ctor();
+    void test_eid();
 };
 
 WorkspaceTest::WorkspaceTest()
 {
 }
 
-void WorkspaceTest::test_create()
+void WorkspaceTest::test_ctor()
+{
+    // WHEN
+    QScopedPointer<Workspace> workspace(new Workspace("someId"));
+    // THEN
+    QVERIFY(workspace.data());
+    QVERIFY(workspace->panels());
+    QVERIFY(workspace->characters());
+}
+
+void WorkspaceTest::test_eid()
 {
     // WHEN
     QScopedPointer<Workspace> workspace(new Workspace("someId"));
