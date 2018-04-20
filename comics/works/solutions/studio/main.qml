@@ -15,37 +15,62 @@ Window {
     Component.onCompleted: uc.create_workspace(workspaceName)
     Connections {
         target: uc
-//        onWorkspaceCreated: mainWindow.title = value.eid
+        //        onWorkspaceCreated: mainWindow.title = value.eid
+        onCharacterCreated: charactersListView.model = value.characters
         onPanelCreated: rep.model = value.panels
         onPanelDeleted: rep.model = value.panels
         onPanelDescribed: rep.model = value.panels
     }
     GridLayout {
+        id: viewTpl
         anchors.fill: parent
         columnSpacing: 0
         Rectangle {
             color: "#333"
             Layout.preferredWidth: 200
             Layout.fillHeight: true
-            ListView {
+            ColumnLayout {
                 anchors.fill: parent
-                anchors.margins: 16
-                model: rep.model
-                delegate: Column {
-                    Text {
-                        text: modelData.eid
-                        color: "white"
-                        opacity: .8
-                    }
-                    Text {
-                        x: 16
-                        text: modelData.description
-                        color: "white"
+                TextField {
+                    placeholderText: "add character"
+                    Keys.onReturnPressed: {
+                        uc.create_character(text,workspaceName)
+                        clear()
                     }
                 }
-            }
-            CWGA.CWLogo {
-                anchors.bottom: parent.bottom
+                ListView {
+                    id: charactersListView
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: 128
+                    Layout.margins: 16
+                    model: []
+                    delegate: Text {
+                        text: modelData.name
+                        color: "#fff"
+                    }
+                }
+                ListView {
+                    id: panelsListView
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    Layout.margins: 16
+                    model: rep.model
+                    delegate: Column {
+                        Text {
+                            text: modelData.eid
+                            color: "white"
+                            opacity: .8
+                        }
+                        Text {
+                            x: 16
+                            text: modelData.description
+                            color: "white"
+                        }
+                    }
+                }
+                CWGA.CWLogo {
+                    anchors.bottom: parent.bottom
+                }
             }
         }
         FocusScope {

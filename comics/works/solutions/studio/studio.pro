@@ -29,5 +29,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 include(../../gui/gui.pri)
 include(../../usecases/usecases.pri)
+include(../../entities/character/character.pri)
 include(../../entities/panel/panel.pri)
 include(../../entities/workspace/workspace.pri)
