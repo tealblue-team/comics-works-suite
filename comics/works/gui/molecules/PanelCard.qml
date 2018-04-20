@@ -34,7 +34,7 @@ FocusScope {
         id: name
         anchors.horizontalCenter: parent.horizontalCenter
         text: "[panel name]"
-        opacity: .8
+        opacity: .5
     }
     TextField {
         id: description
