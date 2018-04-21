@@ -1,0 +1,18 @@
+Feature: add dialog to panel
+  As a comic creator
+  I want to add a dialog to a panel
+  so that I can convey story through language
+
+  Background:
+    Given I try to create a workspace with name "workspace1"
+    And the workspace with name "workspace1" is created
+    And I try to create a panel with name "panel1"
+    And the panel with name "panel1" is created
+    And I try to create a character with name "Ayran"
+    And the character with name "Ayran" is created
+
+  Scenario: completed
+    When I try to add a dialog saying "hello world" for character "Ayran" to panel "panel1"
+    Then a dialog is added to panel "panel1"
+    And the first dialog for panel "panel1" belongs to character "Ayran"
+    And the first dialog for panel "panel1" reads "hello world"
