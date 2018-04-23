@@ -299,3 +299,59 @@ CUKE_STEP_("^I can lookup the character with name \"([a-zA-Z0-9]+)\" in the curr
     QVERIFY(found);
 }
 
+CUKE_STEP_("^I try to add a dialog saying \"(.+)\" for character \"([a-zA-Z0-9]+)\" to panel \"([a-zA-Z]+[0-9]*)\"$") {
+    REGEX_PARAM(QString, dialogContent);
+    REGEX_PARAM(QString, characterName);
+    REGEX_PARAM(QString, panelName);
+    ScenarioScope<MainCtx> ctx;
+    QSignalSpy usecaseResult(&ctx->uc, &usecases::usecaseCompleted);
+    ctx->uc.add_dialog_to_panel(dialogContent, characterName, panelName);
+    usecaseResult.wait(5);
+    ctx->usecaseResult = usecaseResult.takeFirst().at(0).toMap();
+}
+
+CUKE_STEP_("^a dialog is added to panel \"([a-zA-Z]+[0-9]*)\"$") {
+    REGEX_PARAM(QString, panelName);
+    ScenarioScope<MainCtx> ctx;
+    bool dialogFound = false;
+    for (int i = 0; i < ctx->entities.currentWorkspace->panels()->size(); ++i) {
+        if ((ctx->entities.currentWorkspace->panels()->at(i)->eid() == panelName)
+                && (ctx->entities.currentWorkspace->panels()->at(i)->dialogs().length() > 0)) {
+            dialogFound = true;
+            break;
+        }
+    }
+    QVERIFY(dialogFound);
+}
+
+CUKE_STEP_("^the first dialog for panel \"([a-zA-Z]+[0-9]*)\" belongs to character \"([a-zA-Z0-9]+)\"$") {
+    REGEX_PARAM(QString, panelName);
+    REGEX_PARAM(QString, characterName);
+    ScenarioScope<MainCtx> ctx;
+    bool dialogFound = false;
+    for (int i = 0; i < ctx->entities.currentWorkspace->panels()->size(); ++i) {
+        if ((ctx->entities.currentWorkspace->panels()->at(i)->eid() == panelName)
+                && (ctx->entities.currentWorkspace->panels()->at(i)->dialogs().at(0).value("characterName") == characterName)) {
+            dialogFound = true;
+            break;
+        }
+    }
+    QVERIFY(dialogFound);
+}
+
+
+CUKE_STEP_("^the first dialog for panel \"([a-zA-Z]+[0-9]*)\" reads \"(.+)\"$") {
+    REGEX_PARAM(QString, panelName);
+    REGEX_PARAM(QString, dialogContent);
+    ScenarioScope<MainCtx> ctx;
+    bool dialogFound = false;
+    for (int i = 0; i < ctx->entities.currentWorkspace->panels()->size(); ++i) {
+        if ((ctx->entities.currentWorkspace->panels()->at(i)->eid() == panelName)
+                && (ctx->entities.currentWorkspace->panels()->at(i)->dialogs().at(0).value("dialogContent") == dialogContent)) {
+            dialogFound = true;
+            break;
+        }
+    }
+    QVERIFY(dialogFound);
+}
+

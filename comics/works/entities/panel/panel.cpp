@@ -1,14 +1,21 @@
 #include "panel.h"
+#include <QVariantMap>
 
 using namespace comics::works::entities;
 
-Panel::Panel(const QString& eid, QObject *parent) : PanelBase(parent)
+Panel::Panel(const QString& eid, QObject *parent)
+    : PanelBase(parent)
 {
     setEid(eid);
 }
 
 const QString& Panel::description() const {
     return m_description;
+}
+
+QList<QVariantMap> Panel::dialogs() const
+{
+    return m_dialogs;
 }
 
 const QString& Panel::eid() const {
@@ -21,6 +28,17 @@ int Panel::width() const {
 
 int Panel::height() const {
     return m_height;
+}
+
+void Panel::addDialog(const QString &dialogContent, const QString &characterName)
+{
+    QList<QVariantMap> dialogs = m_dialogs;
+    QVariantMap dialog({
+        {"dialogContent", dialogContent},
+        {"characterName", characterName},
+    });
+    dialogs.append(dialog);
+    m_dialogs = dialogs;
 }
 
 void Panel::setDescription(const QString& description)

@@ -11,6 +11,28 @@ using namespace comics::works;
 usecases::usecases(QObject *parent) : QObject(parent)
 {}
 
+void usecases::add_dialog_to_panel(const QString &dialogContent, const QString &characterName, const QString &panelName)
+{
+    QVariantMap ret;
+    entities::PanelBase* panel;
+    for (int i=0;i<entities_reg->currentWorkspace->panels()->length();i++) {
+        if (entities_reg->currentWorkspace->panels()->at(i)->eid() == panelName) {
+            panel = entities_reg->currentWorkspace->panels()->at(i);
+            panel->addDialog(dialogContent, characterName);
+            break;
+        }
+    }
+    ret = {
+        {"outcome", "DIALOG_ADDED_TO_PANEL"},
+        {"dialogContent", dialogContent},
+        {"characterName", characterName},
+        {"panelName", panel->eid()},
+        {"panels", _getPanelsList(entities_reg->currentWorkspace->panels())}
+    };
+    emit dialogAddedToPanel(ret);
+    emit usecaseCompleted(ret);
+}
+
 QVariantMap usecases::create_pile(const QString& name, const QString& workspaceName)
 {
     if (!entities_reg->currentWorkspace->piles().contains(name)) {
@@ -119,23 +141,25 @@ void usecases::delete_panel(const QString &name, const QString &workspaceName)
     emit usecaseCompleted(ret);
 }
 
-void usecases::describe_panel(const QString &name, const QString &description)
+void usecases::describe_panel(const QString &panelName, const QString &panelDescription)
 {
     QVariantMap ret;
     for (int i=0;i<entities_reg->currentWorkspace->panels()->length();i++) {
-        if (entities_reg->currentWorkspace->panels()->at(i)->eid() == name) {
-            entities_reg->currentWorkspace->panels()->at(i)->setDescription(description);
+        if (entities_reg->currentWorkspace->panels()->at(i)->eid() == panelName) {
+            entities_reg->currentWorkspace->panels()->at(i)->setDescription(panelDescription);
             break;
         }
     }
     ret = {
         {"outcome", "PANEL_DESCRIBED"},
-        {"eid", name},
+        {"eid", panelName},
         {"panels", _getPanelsList(entities_reg->currentWorkspace->panels())}
     };
     emit panelDescribed(ret);
     emit usecaseCompleted(ret);
 }
+
+// ----------------------------------------------------------------------------------
 
 QVariantList usecases::_getPanelsList(QVector<entities::PanelBase *>* panels) const
 {
