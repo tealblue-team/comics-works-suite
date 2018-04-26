@@ -1,10 +1,12 @@
 #include "panel.h"
 #include <QVariantMap>
+#include <QVector>
 
 using namespace comics::works::entities;
 
 Panel::Panel(const QString& eid, QObject *parent)
-    : PanelBase(parent)
+    : PanelBase(parent),
+      m_characters(new QVector<CharacterBase*>)
 {
     setEid(eid);
 }
@@ -13,7 +15,7 @@ const QString& Panel::description() const {
     return m_description;
 }
 
-QList<QVariantMap> Panel::dialogs() const
+QVariantList Panel::dialogs() const
 {
     return m_dialogs;
 }
@@ -30,14 +32,24 @@ int Panel::height() const {
     return m_height;
 }
 
+QVector<CharacterBase *> *Panel::characters() const
+{
+    return m_characters;
+}
+
+void Panel::addCharacter(CharacterBase* character) {
+    if (! m_characters->contains(character))
+        m_characters->append(character);
+}
+
 void Panel::addDialog(const QString &dialogContent, const QString &characterName)
 {
-    QList<QVariantMap> dialogs = m_dialogs;
+    QVariantList dialogs = m_dialogs;
     QVariantMap dialog({
-        {"dialogContent", dialogContent},
+        {"dialogContent_en_US", dialogContent},
         {"characterName", characterName},
     });
-    dialogs.append(dialog);
+    dialogs.append(QVariant(dialog));
     m_dialogs = dialogs;
 }
 

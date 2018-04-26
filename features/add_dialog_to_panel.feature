@@ -10,6 +10,8 @@ Feature: add dialog to panel
     And the panel with name "panel1" is created
     And I try to create a character with name "Ayran"
     And the character with name "Ayran" is created
+    And I try to add character with name "Ayran" to panel "panel1"
+    And the character is added to panel "panel1"
 
   Scenario: completed
     When I try to add a dialog saying "hello world" for character "Ayran" to panel "panel1"

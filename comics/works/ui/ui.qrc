@@ -9,5 +9,9 @@
         <file>assets/comicsworks-logo-bubbles.svg</file>
         <file>assets/comicsworks-logo-cog-big.svg</file>
         <file>assets/comicsworks-logo-cog-small.svg</file>
+        <file>assets/cw-icons-bubble.png</file>
+        <file>assets/cw-icons-character.png</file>
+        <file>molecules/AddCharacterButton.qml</file>
+        <file>molecules/AddDialogButton.qml</file>
     </qresource>
 </RCC>

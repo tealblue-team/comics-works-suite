@@ -11,6 +11,35 @@ using namespace comics::works;
 usecases::usecases(QObject *parent) : QObject(parent)
 {}
 
+void usecases::add_character_to_panel(const QString &characterName, const QString &panelName)
+{
+    QVariantMap ret;
+    entities::PanelBase* panel;
+    entities::CharacterBase* character;
+    for (int i=0;i<entities_reg->currentWorkspace->panels()->length();i++) {
+        panel = entities_reg->currentWorkspace->panels()->at(i);
+        if (panel->eid() == panelName) {
+            panel = entities_reg->currentWorkspace->panels()->at(i);
+            for (int j=0;i<entities_reg->currentWorkspace->characters()->length();j++) {
+                character = entities_reg->currentWorkspace->characters()->at(j);
+                if (character->name() == characterName) {
+                    panel->addCharacter(character);
+                    break;
+                }
+            }
+            break;
+        }
+    }
+    ret = {
+        {"outcome", "CHARACTER_ADDED_TO_PANEL"},
+        {"characterName", characterName},
+        {"panelName", panel->eid()},
+        {"panels", _getPanelsList(entities_reg->currentWorkspace->panels())}
+    };
+    emit characterAddedToPanel(ret);
+    emit usecaseCompleted(ret);
+}
+
 void usecases::add_dialog_to_panel(const QString &dialogContent, const QString &characterName, const QString &panelName)
 {
     QVariantMap ret;
@@ -24,7 +53,7 @@ void usecases::add_dialog_to_panel(const QString &dialogContent, const QString &
     }
     ret = {
         {"outcome", "DIALOG_ADDED_TO_PANEL"},
-        {"dialogContent", dialogContent},
+        {"dialogContent_en_US", dialogContent},
         {"characterName", characterName},
         {"panelName", panel->eid()},
         {"panels", _getPanelsList(entities_reg->currentWorkspace->panels())}
@@ -164,10 +193,16 @@ void usecases::describe_panel(const QString &panelName, const QString &panelDesc
 QVariantList usecases::_getPanelsList(QVector<entities::PanelBase *>* panels) const
 {
     QVariantList panelsList;
-    for (int i=0;i<panels->length();i++) {
+    for (int i=0;i<panels->length();++i) {
         QVariantMap panelSerial;
         panelSerial["eid"] = panels->at(i)->eid();
         panelSerial["description"] = panels->at(i)->description();
+        QStringList characters;
+        for (int j=0;j<panels->at(i)->characters()->length();++j) {
+            characters << panels->at(i)->characters()->at(j)->name();
+        }
+        panelSerial["characters"] = QVariant(characters);
+        panelSerial["dialogs"] = QVariantList(panels->at(i)->dialogs());
         panelsList << panelSerial;
     }
     return panelsList;

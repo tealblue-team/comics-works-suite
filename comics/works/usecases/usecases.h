@@ -11,6 +11,7 @@ class usecases : public QObject {
     Q_OBJECT
 public:
     explicit usecases(QObject* parent = nullptr);
+    Q_INVOKABLE void add_character_to_panel(const QString& characterName, const QString& panelName);
     Q_INVOKABLE void add_dialog_to_panel(const QString& dialogContent, const QString& characterName, const QString& panelName);
     Q_INVOKABLE void create_character(const QString& characterName, const QString& workspaceName);
     Q_INVOKABLE void create_panel(const QString& panelName, const QString& workspaceName);
@@ -23,6 +24,7 @@ public:
 signals:
     void usecaseCompleted(QVariantMap value);
 
+    void characterAddedToPanel(QVariantMap value);
     void characterCreated(QVariantMap value);
     void characterNotCreated(QVariantMap value);
     void dialogAddedToPanel(QVariantMap value);

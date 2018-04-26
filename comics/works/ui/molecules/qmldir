@@ -1,4 +1,6 @@
 module comics.works.ui.molecules
 
+AddCharacterButton 1.0 AddCharacterButton.qml
+AddDialogButton 1.0 AddDialogButton.qml
 PanelCard 1.0 PanelCard.qml
 Table 1.0 Table.qml

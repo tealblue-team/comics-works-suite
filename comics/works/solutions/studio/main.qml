@@ -16,6 +16,8 @@ Window {
     Connections {
         target: uc
         //        onWorkspaceCreated: mainWindow.title = value.eid
+        onCharacterAddedToPanel: rep.model = value.panels
+        onDialogAddedToPanel: rep.model = value.panels
         onCharacterCreated: charactersListView.model = value.characters
         onPanelCreated: rep.model = value.panels
         onPanelDeleted: rep.model = value.panels
@@ -102,6 +104,10 @@ Window {
                         name.text: modelData.eid
                         description.placeholderText: modelData.description || "<add description>"
                         Keys.onReturnPressed: uc.describe_panel(modelData.eid, description.displayText)
+                        addCharacterButton.onClicked: availableCharactersPane.visible = true
+                        onAddDialogButtonClicked: {
+                            uc.add_dialog_to_panel(dialogContent, characterName, modelData.eid)
+                        }
                     }
                 }
             }

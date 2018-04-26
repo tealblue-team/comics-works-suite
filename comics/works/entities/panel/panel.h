@@ -12,12 +12,14 @@ class Panel : public PanelBase
 public:
     explicit Panel(const QString& eid, QObject *parent = nullptr);
 
+    QVector<CharacterBase*>* characters() const;
     const QString& description() const;
-    QList<QVariantMap> dialogs() const;
+    QVariantList dialogs() const;
     const QString& eid() const;
     int width() const;
     int height() const;
 
+    void addCharacter(entities::CharacterBase*);
     void addDialog(const QString& dialogContent, const QString& characterName);
     void setDescription(const QString&);
     void setEid(const QString&);
@@ -25,7 +27,8 @@ public:
     void setHeight(int);
 private:
     QString m_description;
-    QList<QVariantMap> m_dialogs;
+    QVector<entities::CharacterBase*>* m_characters;
+    QVariantList m_dialogs;
     QString m_eid;
     int m_width = 0;
     int m_height = 0;

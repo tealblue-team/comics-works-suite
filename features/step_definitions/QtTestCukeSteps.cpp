@@ -310,6 +310,16 @@ CUKE_STEP_("^I try to add a dialog saying \"(.+)\" for character \"([a-zA-Z0-9]+
     ctx->usecaseResult = usecaseResult.takeFirst().at(0).toMap();
 }
 
+CUKE_STEP_("^I try to add character with name \"([a-zA-Z0-9]+)\" to panel \"([a-zA-Z]+[0-9]*)\"$") {
+    REGEX_PARAM(QString, characterName);
+    REGEX_PARAM(QString, panelName);
+    ScenarioScope<MainCtx> ctx;
+    QSignalSpy usecaseResult(&ctx->uc, &usecases::usecaseCompleted);
+    ctx->uc.add_character_to_panel(characterName, panelName);
+    usecaseResult.wait(5);
+    ctx->usecaseResult = usecaseResult.takeFirst().at(0).toMap();
+}
+
 CUKE_STEP_("^a dialog is added to panel \"([a-zA-Z]+[0-9]*)\"$") {
     REGEX_PARAM(QString, panelName);
     ScenarioScope<MainCtx> ctx;
@@ -331,7 +341,7 @@ CUKE_STEP_("^the first dialog for panel \"([a-zA-Z]+[0-9]*)\" belongs to charact
     bool dialogFound = false;
     for (int i = 0; i < ctx->entities.currentWorkspace->panels()->size(); ++i) {
         if ((ctx->entities.currentWorkspace->panels()->at(i)->eid() == panelName)
-                && (ctx->entities.currentWorkspace->panels()->at(i)->dialogs().at(0).value("characterName") == characterName)) {
+                && (ctx->entities.currentWorkspace->panels()->at(i)->dialogs().at(0).toMap().value("characterName") == characterName)) {
             dialogFound = true;
             break;
         }
@@ -347,11 +357,40 @@ CUKE_STEP_("^the first dialog for panel \"([a-zA-Z]+[0-9]*)\" reads \"(.+)\"$") 
     bool dialogFound = false;
     for (int i = 0; i < ctx->entities.currentWorkspace->panels()->size(); ++i) {
         if ((ctx->entities.currentWorkspace->panels()->at(i)->eid() == panelName)
-                && (ctx->entities.currentWorkspace->panels()->at(i)->dialogs().at(0).value("dialogContent") == dialogContent)) {
+                && (ctx->entities.currentWorkspace->panels()->at(i)->dialogs().at(0).toMap().value("dialogContent_en_US") == dialogContent)) {
             dialogFound = true;
             break;
         }
     }
     QVERIFY(dialogFound);
+}
+
+CUKE_STEP_("^the character is added to panel \"([a-zA-Z]+[0-9]*)\"$") {
+    REGEX_PARAM(QString, panelName);
+    ScenarioScope<MainCtx> ctx;
+    bool characterFound = false;
+    for (int i = 0; i < ctx->entities.currentWorkspace->panels()->size(); ++i) {
+        if ((ctx->entities.currentWorkspace->panels()->at(i)->eid() == panelName)
+                && (ctx->entities.currentWorkspace->panels()->at(i)->characters()->length() > 0)) {
+            characterFound = true;
+            break;
+        }
+    }
+    QVERIFY(characterFound);
+}
+
+CUKE_STEP_("^the first character for panel \"([a-zA-Z]+[0-9]*)\" has name \"([a-zA-Z0-9]+)\"$") {
+    REGEX_PARAM(QString, panelName);
+    REGEX_PARAM(QString, characterName);
+    ScenarioScope<MainCtx> ctx;
+    bool characterFound = false;
+    for (int i = 0; i < ctx->entities.currentWorkspace->panels()->size(); ++i) {
+        if ((ctx->entities.currentWorkspace->panels()->at(i)->eid() == panelName)
+                && (ctx->entities.currentWorkspace->panels()->at(i)->characters()->at(0)->name() == characterName)) {
+            characterFound = true;
+            break;
+        }
+    }
+    QVERIFY(characterFound);
 }
 

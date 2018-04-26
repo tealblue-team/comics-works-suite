@@ -17,7 +17,7 @@ Item {
             loops: Animation.Infinite
             from: 360
             to: 0
-            duration: 20000 / 4
+            duration: 20000 / 4.065
         }
     }
     Image {
