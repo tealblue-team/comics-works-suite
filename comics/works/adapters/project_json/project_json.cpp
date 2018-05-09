@@ -42,20 +42,45 @@ void ProjectJson::loadFrom(const QJsonDocument& projectJsonDoc, comics::works::u
                 auto panelEid = panels.at(i).toMap().value("eid").toString();
                 auto panelCharacters = panelsJson.at(i).toObject().value("characters").toArray();
                 for (int j=0;j<panelCharacters.size();++j) {
-                    // add check
-                    qDebug() << panelCharacters.at(j).toString();
-                    uc->add_character_to_panel(panelCharacters.at(j).toString(), panelEid);
                     m_panelCharactersCount += 1;
+                    uc->add_character_to_panel(panelCharacters.at(j).toString(), panelEid);
                 }
             }
         }
     });
     connect(uc, &usecases::characterAddedToPanel, [=](QVariant value) {
-        auto panels = value.toMap().value("panels").toList();
-        if (panels.size() == m_descriptionsCount) {
-            if (panels.last().toMap().value("characters").toList().count() == m_panelCharactersCount) {
-                emit completed(0);
+        int charactersCount = 0;
+        for (int i=0;i<panelsJson.size();++i) {
+            auto panelCharacters = panelsJson.at(i).toObject().value("characters").toArray();
+            for (int j=0;j<panelCharacters.size();++j) {
+                charactersCount += 1;
             }
+        }
+        if (charactersCount == m_panelCharactersCount) {
+            for (int i=0;i<panelsJson.size();++i) {
+                auto panelDialogsJson = panelsJson.at(i).toObject().value("dialogs").toArray();
+                for (int j=0;j<panelDialogsJson.size();++j) {
+                    auto dialogJson = panelDialogsJson.at(j).toObject();
+                    m_dialogsCount += 1;
+                    uc->add_dialog_to_panel(
+                                dialogJson.value("dialogContent_en_US").toString(),
+                                dialogJson.value("characterName").toString(),
+                                panelsJson.at(i).toObject().value("eid").toString()
+                                );
+                }
+            }
+        }
+    });
+    connect(uc, &usecases::dialogAddedToPanel, [=](QVariant value) {
+        int dialogsCount = 0;
+        for (int i=0;i<panelsJson.size();++i) {
+            auto panelDialogs = panelsJson.at(i).toObject().value("dialogs").toArray();
+            for (int j=0;j<panelDialogs.size();++j) {
+                dialogsCount += 1;
+            }
+        }
+        if (dialogsCount == m_dialogsCount) {
+            emit completed(0);
         }
     });
     for (int i=0;i<charactersJson.size();++i) {

@@ -16,14 +16,14 @@ public:
     ProjectJsonTest();
 
 private Q_SLOTS:
-    void test_loadFromQJsonDocument();
+    void test_loadFromJsonDocument();
 };
 
 ProjectJsonTest::ProjectJsonTest()
 {
 }
 
-void ProjectJsonTest::test_loadFromQJsonDocument()
+void ProjectJsonTest::test_loadFromJsonDocument()
 {
     // Given
     entities::Register entities_register;
@@ -36,7 +36,7 @@ void ProjectJsonTest::test_loadFromQJsonDocument()
                     "\"characters\":[{\"name\":\"Ayran\"},{\"name\":\"Birun\"},{\"name\":\"Dilgun\"},{\"name\":\"Barsun\"}],"
                     "\"panels\":["
                         "{\"characters\":[\"Ayran\",\"Birun\"],\"description\":\"first scene\",\"dialogs\":[{\"characterName\":\"Ayran\",\"dialogContent_en_US\":\"Hello\"},{\"characterName\":\"Birun\",\"dialogContent_en_US\":\"Hi\"}],\"eid\":\"panel1\"},"
-                        "{\"characters\":[\"Dilgun\",\"Barsun\"],\"description\":\"second scene\",\"dialogs\":[{\"characterName\":\"Dilgun\",\"dialogContent_en_US\":\"Hey\"},{\"characterName\":\"Barsun\",\"dialogContent_en_US\":\"Hey there\"}],\"eid\":\"panel2\"}"
+                        "{\"characters\":[\"Barsun\",\"Dilgun\"],\"description\":\"second scene\",\"dialogs\":[{\"characterName\":\"Dilgun\",\"dialogContent_en_US\":\"Hey\"},{\"characterName\":\"Barsun\",\"dialogContent_en_US\":\"Hey there\"}],\"eid\":\"panel2\"}"
                     "]"
                 "}"
                 );
@@ -47,7 +47,7 @@ void ProjectJsonTest::test_loadFromQJsonDocument()
     // When
     QSignalSpy completed(adapter.data(), SIGNAL(completed(int)));
     adapter->loadFrom(projectJsonDoc, uc.data());
-    completed.wait(1000);
+    completed.wait(500);
     // Then
     auto characters = uc->entities_reg->currentWorkspace->characters();
     QVERIFY(characters);
@@ -63,13 +63,21 @@ void ProjectJsonTest::test_loadFromQJsonDocument()
     QCOMPARE(panels->at(0)->characters()->at(0)->name(), QString("Ayran"));
     QCOMPARE(panels->at(0)->characters()->at(1)->name(), QString("Birun"));
     QCOMPARE(panels->at(0)->dialogs().length(), 2);
+    QCOMPARE(panels->at(0)->dialogs().at(0).toMap().value("characterName"), QString("Ayran"));
+    QCOMPARE(panels->at(0)->dialogs().at(0).toMap().value("dialogContent_en_US"), QString("Hello"));
+    QCOMPARE(panels->at(0)->dialogs().at(1).toMap().value("characterName"), QString("Birun"));
+    QCOMPARE(panels->at(0)->dialogs().at(1).toMap().value("dialogContent_en_US"), QString("Hi"));
     // And
     QCOMPARE(panels->at(1)->eid(), "panel2");
     QCOMPARE(panels->at(1)->description(), "second scene");
     QCOMPARE(panels->at(1)->characters()->length(), 2);
-    QCOMPARE(panels->at(1)->characters()->at(0)->name(), QString("Dilgun"));
-    QCOMPARE(panels->at(2)->characters()->at(1)->name(), QString("Barsun"));
+    QCOMPARE(panels->at(1)->characters()->at(0)->name(), QString("Barsun"));
+    QCOMPARE(panels->at(1)->characters()->at(1)->name(), QString("Dilgun"));
     QCOMPARE(panels->at(1)->dialogs().length(), 2);
+    QCOMPARE(panels->at(1)->dialogs().at(0).toMap().value("characterName"), QString("Dilgun"));
+    QCOMPARE(panels->at(1)->dialogs().at(0).toMap().value("dialogContent_en_US"), QString("Hey"));
+    QCOMPARE(panels->at(1)->dialogs().at(1).toMap().value("characterName"), QString("Barsun"));
+    QCOMPARE(panels->at(1)->dialogs().at(1).toMap().value("dialogContent_en_US"), QString("Hey there"));
 }
 
 QTEST_MAIN(ProjectJsonTest)

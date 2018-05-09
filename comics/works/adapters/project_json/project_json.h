@@ -18,6 +18,7 @@ signals:
     void completed(int success);
 private:
     int m_descriptionsCount = 0;
+    int m_dialogsCount = 0;
     int m_panelCharactersCount = 0;
 };
 }
