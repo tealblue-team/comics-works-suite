@@ -15,13 +15,20 @@ Window {
     Component.onCompleted: uc.create_workspace(workspaceName)
     Connections {
         target: uc
-        //        onWorkspaceCreated: mainWindow.title = value.eid
+        onWorkspaceCreated: projectJson.loadFrom("{"
+                                                 +"\"characters\":[{\"name\":\"Ayran\"},{\"name\":\"Birun\"},{\"name\":\"Dilgun\"},{\"name\":\"Barsun\"}],"
+                                                 +"\"panels\":["
+                                                     +"{\"characters\":[\"Ayran\",\"Birun\"],\"description\":\"first scene\",\"dialogs\":[{\"characterName\":\"Ayran\",\"dialogContent_en_US\":\"Hello\"},{\"characterName\":\"Birun\",\"dialogContent_en_US\":\"Hi\"}],\"eid\":\"panel1\"},"
+                                                     +"{\"characters\":[\"Barsun\",\"Dilgun\"],\"description\":\"second scene\",\"dialogs\":[{\"characterName\":\"Dilgun\",\"dialogContent_en_US\":\"Hey\"},{\"characterName\":\"Barsun\",\"dialogContent_en_US\":\"Hey there\"}],\"eid\":\"panel2\"}"
+                                                 +"]"
+                                             +"}")
         onCharacterAddedToPanel: rep.model = value.panels
         onDialogAddedToPanel: rep.model = value.panels
         onCharacterCreated: charactersListView.model = value.characters
         onPanelCreated: rep.model = value.panels
         onPanelDeleted: rep.model = value.panels
         onPanelDescribed: rep.model = value.panels
+        onUsecaseCompleted: print(JSON.stringify(value.panels), JSON.stringify(value.characters))
     }
     GridLayout {
         id: viewTpl

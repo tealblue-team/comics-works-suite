@@ -16,22 +16,21 @@ public:
     ProjectJsonTest();
 
 private Q_SLOTS:
-    void test_loadFromJsonDocument();
+    void test_loadFromJson();
 };
 
 ProjectJsonTest::ProjectJsonTest()
 {
 }
 
-void ProjectJsonTest::test_loadFromJsonDocument()
+void ProjectJsonTest::test_loadFromJson()
 {
     // Given
     entities::Register entities_register;
     QScopedPointer<usecases> uc(new usecases());
     uc->entities_reg = &entities_register;
     // Given
-    QJsonDocument projectJsonDoc =
-            QJsonDocument::fromJson(
+    QByteArray projectJsonDoc(
                 "{"
                     "\"characters\":[{\"name\":\"Ayran\"},{\"name\":\"Birun\"},{\"name\":\"Dilgun\"},{\"name\":\"Barsun\"}],"
                     "\"panels\":["
@@ -43,10 +42,10 @@ void ProjectJsonTest::test_loadFromJsonDocument()
     // Given
     uc->create_workspace("defaultWorkspace");
     // Given
-    QScopedPointer<adapters::ProjectJson> adapter(new adapters::ProjectJson());
+    QScopedPointer<adapters::ProjectJson> adapter(new adapters::ProjectJson(uc.data()));
     // When
     QSignalSpy completed(adapter.data(), SIGNAL(completed(int)));
-    adapter->loadFrom(projectJsonDoc, uc.data());
+    adapter->loadFrom(projectJsonDoc);
     completed.wait(500);
     // Then
     auto characters = uc->entities_reg->currentWorkspace->characters();

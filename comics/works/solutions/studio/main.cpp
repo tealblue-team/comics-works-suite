@@ -3,6 +3,7 @@
 #include <QQmlContext>
 #include "comics/works/usecases/usecases.h"
 #include "comics/works/entities/register.h"
+#include "comics/works/adapters/project_json/project_json.h"
 
 int main(int argc, char *argv[])
 {
@@ -17,9 +18,12 @@ int main(int argc, char *argv[])
     // usecases
     auto uc = new usecases(&app);
     uc->entities_reg = &entities_register;
+    // adapters
+    auto projectJson = new adapters::ProjectJson(uc,&app);
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextProperty("uc", uc);
+    engine.rootContext()->setContextProperty("projectJson", projectJson);
 
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
     if (engine.rootObjects().isEmpty())
