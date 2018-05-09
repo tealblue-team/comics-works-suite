@@ -197,11 +197,11 @@ QVariantList usecases::_getPanelsList(QVector<entities::PanelBase *>* panels) co
         QVariantMap panelSerial;
         panelSerial["eid"] = panels->at(i)->eid();
         panelSerial["description"] = panels->at(i)->description();
-        QStringList characters;
+        QVariantList characters;
         for (int j=0;j<panels->at(i)->characters()->length();++j) {
             characters << panels->at(i)->characters()->at(j)->name();
         }
-        panelSerial["characters"] = QVariant(characters);
+        panelSerial["characters"] = characters;
         panelSerial["dialogs"] = QVariantList(panels->at(i)->dialogs());
         panelsList << panelSerial;
     }
