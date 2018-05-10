@@ -7,15 +7,22 @@
 namespace comics {
 namespace works {
 class usecases;
+namespace entities {
+class Register;
+class PanelBase;
+class CharacterBase;
+}
 namespace adapters {
 class ProjectJson : public QObject
 {
     Q_OBJECT
 public:
     explicit ProjectJson(usecases* uc, QObject *parent = nullptr);
-    Q_INVOKABLE void loadFrom(const QByteArray&);
+    Q_INVOKABLE void loadFromJsonDoc(const QByteArray&);
+    Q_INVOKABLE void saveToJsonDoc(const entities::Register &);
 signals:
-    void completed(int success);
+    void loaded(int success);
+    void saved(QByteArray jsonDoc);
 private:
     usecases* m_uc = nullptr;
     int m_descriptionsCount = 0;

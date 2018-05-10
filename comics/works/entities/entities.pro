@@ -3,6 +3,6 @@ TEMPLATE = subdirs
 SUBDIRS += \
     character \
     panel \
-    workspace \
+    workspace
 
 include(entities.pri)

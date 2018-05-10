@@ -20,6 +20,8 @@ public:
     Q_INVOKABLE void delete_panel(const QString& panelName, const QString& workspaceName);
     Q_INVOKABLE void describe_panel(const QString& panelName, const QString& panelDescription);
 
+    QVariantList _getCharactersList(QVector<entities::CharacterBase*>*) const;
+    QVariantList _getPanelsList(QVector<entities::PanelBase*>*) const;
     entities::Register* entities_reg = nullptr;
 signals:
     void usecaseCompleted(QVariantMap value);
@@ -33,9 +35,6 @@ signals:
     void panelDescribed(QVariantMap value);
     void panelNotCreated(QVariantMap value);
     void workspaceCreated(QVariantMap value);
-private:
-    QVariantList _getCharactersList(QVector<entities::CharacterBase*>*) const;
-    QVariantList _getPanelsList(QVector<entities::PanelBase*>*) const;
 };
 }
 }

@@ -11,7 +11,7 @@ ProjectJson::ProjectJson(comics::works::usecases* uc, QObject *parent) : QObject
     m_uc = uc;
 }
 
-void ProjectJson::loadFrom(const QByteArray& projectJson)
+void ProjectJson::loadFromJsonDoc(const QByteArray& projectJson)
 {
     auto projectJsonDoc = QJsonDocument::fromJson(projectJson);
     auto jsonObject = projectJsonDoc.object();
@@ -90,11 +90,20 @@ void ProjectJson::loadFrom(const QByteArray& projectJson)
             m_uc->disconnect(m_describePanels);
             m_uc->disconnect(m_addCharactersToPanels);
             m_uc->disconnect(m_addDialogsToPanels);
-            emit completed(0);
+            emit loaded(0);
         }
     });
     for (int i=0;i<charactersJson.size();++i) {
         auto characterName = charactersJson.at(i).toObject().value("name").toString();
         m_uc->create_character(characterName, m_uc->entities_reg->currentWorkspace->eid());
     }
+}
+
+void ProjectJson::saveToJsonDoc(const entities::Register& entities_register)
+{
+    auto projectJson = QJsonObject();
+    projectJson["panels"] = QJsonArray::fromVariantList(m_uc->_getPanelsList(entities_register.currentWorkspace->panels()));
+    projectJson["characters"] = QJsonArray::fromVariantList(m_uc->_getCharactersList(entities_register.currentWorkspace->characters()));
+    auto projectJsonDoc = QJsonDocument(projectJson);
+    emit saved(projectJsonDoc.toJson(QJsonDocument::Compact));
 }

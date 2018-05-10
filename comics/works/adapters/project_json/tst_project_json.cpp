@@ -16,14 +16,15 @@ public:
     ProjectJsonTest();
 
 private Q_SLOTS:
-    void test_loadFromJson();
+    void test_loadFromJsonDoc();
+    void test_saveToJsonDoc();
 };
 
 ProjectJsonTest::ProjectJsonTest()
 {
 }
 
-void ProjectJsonTest::test_loadFromJson()
+void ProjectJsonTest::test_loadFromJsonDoc()
 {
     // Given
     entities::Register entities_register;
@@ -32,11 +33,11 @@ void ProjectJsonTest::test_loadFromJson()
     // Given
     QByteArray projectJsonDoc(
                 "{"
-                    "\"characters\":[{\"name\":\"Ayran\"},{\"name\":\"Birun\"},{\"name\":\"Dilgun\"},{\"name\":\"Barsun\"}],"
-                    "\"panels\":["
-                        "{\"characters\":[\"Ayran\",\"Birun\"],\"description\":\"first scene\",\"dialogs\":[{\"characterName\":\"Ayran\",\"dialogContent_en_US\":\"Hello\"},{\"characterName\":\"Birun\",\"dialogContent_en_US\":\"Hi\"}],\"eid\":\"panel1\"},"
-                        "{\"characters\":[\"Barsun\",\"Dilgun\"],\"description\":\"second scene\",\"dialogs\":[{\"characterName\":\"Dilgun\",\"dialogContent_en_US\":\"Hey\"},{\"characterName\":\"Barsun\",\"dialogContent_en_US\":\"Hey there\"}],\"eid\":\"panel2\"}"
-                    "]"
+                "\"characters\":[{\"name\":\"Ayran\"},{\"name\":\"Birun\"},{\"name\":\"Dilgun\"},{\"name\":\"Barsun\"}],"
+                "\"panels\":["
+                "{\"characters\":[\"Ayran\",\"Birun\"],\"description\":\"first scene\",\"dialogs\":[{\"characterName\":\"Ayran\",\"dialogContent_en_US\":\"Hello\"},{\"characterName\":\"Birun\",\"dialogContent_en_US\":\"Hi\"}],\"eid\":\"panel1\"},"
+                "{\"characters\":[\"Barsun\",\"Dilgun\"],\"description\":\"second scene\",\"dialogs\":[{\"characterName\":\"Dilgun\",\"dialogContent_en_US\":\"Hey\"},{\"characterName\":\"Barsun\",\"dialogContent_en_US\":\"Hey there\"}],\"eid\":\"panel2\"}"
+                "]"
                 "}"
                 );
     // Given
@@ -44,9 +45,9 @@ void ProjectJsonTest::test_loadFromJson()
     // Given
     QScopedPointer<adapters::ProjectJson> adapter(new adapters::ProjectJson(uc.data()));
     // When
-    QSignalSpy completed(adapter.data(), SIGNAL(completed(int)));
-    adapter->loadFrom(projectJsonDoc);
-    completed.wait(500);
+    QSignalSpy loaded(adapter.data(), SIGNAL(loaded(int)));
+    adapter->loadFromJsonDoc(projectJsonDoc);
+    loaded.wait(200);
     // Then
     auto characters = uc->entities_reg->currentWorkspace->characters();
     QVERIFY(characters);
@@ -77,6 +78,41 @@ void ProjectJsonTest::test_loadFromJson()
     QCOMPARE(panels->at(1)->dialogs().at(0).toMap().value("dialogContent_en_US"), QString("Hey"));
     QCOMPARE(panels->at(1)->dialogs().at(1).toMap().value("characterName"), QString("Barsun"));
     QCOMPARE(panels->at(1)->dialogs().at(1).toMap().value("dialogContent_en_US"), QString("Hey there"));
+}
+
+void ProjectJsonTest::test_saveToJsonDoc()
+{
+    // Given
+    entities::Register entities_register;
+    QScopedPointer<usecases> uc(new usecases());
+    uc->entities_reg = &entities_register;
+    // Given
+    QByteArray projectJsonDoc(
+                "{"
+                "\"characters\":[{\"name\":\"Ayran\"},{\"name\":\"Birun\"},{\"name\":\"Dilgun\"},{\"name\":\"Barsun\"}],"
+                "\"panels\":["
+                "{\"characters\":[\"Ayran\",\"Birun\"],\"description\":\"first scene\",\"dialogs\":[{\"characterName\":\"Ayran\",\"dialogContent_en_US\":\"Hello\"},{\"characterName\":\"Birun\",\"dialogContent_en_US\":\"Hi\"}],\"eid\":\"panel1\"},"
+                "{\"characters\":[\"Barsun\",\"Dilgun\"],\"description\":\"second scene\",\"dialogs\":[{\"characterName\":\"Dilgun\",\"dialogContent_en_US\":\"Hey\"},{\"characterName\":\"Barsun\",\"dialogContent_en_US\":\"Hey there\"}],\"eid\":\"panel2\"}"
+                "]"
+                "}"
+                );
+    // Given
+    uc->create_workspace("defaultWorkspace");
+    // Given
+    QScopedPointer<adapters::ProjectJson> adapter(new adapters::ProjectJson(uc.data()));
+    // Given
+    QSignalSpy loaded(adapter.data(), SIGNAL(loaded(int)));
+    adapter->loadFromJsonDoc(projectJsonDoc);
+    loaded.wait(200);
+    // When
+    QSignalSpy saved(adapter.data(), SIGNAL(saved(QByteArray)));
+    adapter->saveToJsonDoc(entities_register);
+    saved.wait(200);
+    if (!saved.first().isEmpty() && saved.first().count() > 0) {
+        QCOMPARE(saved.first().at(0).toByteArray(),projectJsonDoc);
+    } else {
+        QFAIL("");
+    }
 }
 
 QTEST_MAIN(ProjectJsonTest)
