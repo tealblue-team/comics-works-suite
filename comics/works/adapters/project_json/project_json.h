@@ -22,8 +22,8 @@ public:
     void setUsecases(usecases*);
     Q_INVOKABLE void loadFromJsonDoc(const QByteArray&);
     Q_INVOKABLE void saveToJsonDoc(const entities::Register &);
-    Q_INVOKABLE QByteArray readJsonFromFile(QString);
-    Q_INVOKABLE int writeJsonToFile(QByteArray json, QUrl filePath);
+    Q_INVOKABLE QByteArray readJsonFromFile(const QString&);
+    Q_INVOKABLE int writeJsonToFile(const QByteArray& json, const QString& filePath);
 signals:
     void loaded(int success);
     void saved(QByteArray jsonDoc);

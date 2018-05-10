@@ -115,7 +115,7 @@ void ProjectJson::saveToJsonDoc(const entities::Register& entities_register)
 }
 
 
-QByteArray ProjectJson::readJsonFromFile(QString filePath)
+QByteArray ProjectJson::readJsonFromFile(const QString& filePath)
 {
     QFile file(filePath);
     file.open(QIODevice::ReadOnly);
@@ -124,7 +124,10 @@ QByteArray ProjectJson::readJsonFromFile(QString filePath)
     return fileContent;
 }
 
-int ProjectJson::writeJsonToFile(QByteArray json, QUrl filePath)
+int ProjectJson::writeJsonToFile(const QByteArray& json, const QString& filePath)
 {
+    QFile file(filePath);
+    file.open(QIODevice::WriteOnly);
+    file.write(json);
     return 0;
 }

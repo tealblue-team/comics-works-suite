@@ -143,7 +143,27 @@ void ProjectJsonTest::test_readJsonFromFile()
 }
 
 void ProjectJsonTest::test_writeJsonToFile()
-{}
+{
+    // Given
+    QScopedPointer<adapters::ProjectJson> adapter(new adapters::ProjectJson());
+    // Given
+    const QString fileName("testProject2.cw.json");
+    // Given
+    QByteArray projectJson(
+                "{\n"
+                "    \"characters\":[{\"name\":\"Ayran\"},{\"name\":\"Birun\"},{\"name\":\"Dilgun\"},{\"name\":\"Barsun\"}],\n"
+                "    \"panels\":[\n"
+                "        {\"characters\":[\"Ayran\",\"Birun\"],\"description\":\"first scene\",\"dialogs\":[{\"characterName\":\"Ayran\",\"dialogContent_en_US\":\"Hello\"},{\"characterName\":\"Birun\",\"dialogContent_en_US\":\"Hi\"}],\"eid\":\"panel1\"},\n"
+                "        {\"characters\":[\"Barsun\",\"Dilgun\"],\"description\":\"second scene\",\"dialogs\":[{\"characterName\":\"Dilgun\",\"dialogContent_en_US\":\"Hey\"},{\"characterName\":\"Barsun\",\"dialogContent_en_US\":\"Hey there\"}],\"eid\":\"panel2\"}\n"
+                "    ]\n"
+                "}\n"
+                );
+    // When
+    int success = adapter->writeJsonToFile(projectJson, fileName);
+    // Then
+    QCOMPARE(success, 0);
+    QCOMPARE(adapter->readJsonFromFile(fileName), projectJson);
+}
 
 QTEST_MAIN(ProjectJsonTest)
 
