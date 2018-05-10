@@ -37,3 +37,9 @@ include(../../entities/workspace/workspace.pri)
 include(../../usecases/usecases.pri)
 
 INCLUDEPATH += $$PWD/../../../..
+
+DISTFILES += \
+    testProject1.cw.json
+
+RESOURCES += \
+    project_json.qrc

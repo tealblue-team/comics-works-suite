@@ -1,12 +1,18 @@
 #include <QDebug>
 #include <QJsonObject>
 #include <QJsonArray>
+#include <QUrl>
+#include <QFile>
 #include "project_json.h"
 #include "comics/works/usecases/usecases.h"
 
 using namespace comics::works::adapters;
 
-ProjectJson::ProjectJson(comics::works::usecases* uc, QObject *parent) : QObject(parent)
+ProjectJson::ProjectJson(QObject *parent) : QObject(parent)
+{
+}
+
+void ProjectJson::setUsecases(usecases* uc)
 {
     m_uc = uc;
 }
@@ -106,4 +112,19 @@ void ProjectJson::saveToJsonDoc(const entities::Register& entities_register)
     projectJson["characters"] = QJsonArray::fromVariantList(m_uc->_getCharactersList(entities_register.currentWorkspace->characters()));
     auto projectJsonDoc = QJsonDocument(projectJson);
     emit saved(projectJsonDoc.toJson(QJsonDocument::Compact));
+}
+
+
+QByteArray ProjectJson::readJsonFromFile(QString filePath)
+{
+    QFile file(filePath);
+    file.open(QIODevice::ReadOnly);
+    QByteArray fileContent = file.readAll();
+    file.close();
+    return fileContent;
+}
+
+int ProjectJson::writeJsonToFile(QByteArray json, QUrl filePath)
+{
+    return 0;
 }

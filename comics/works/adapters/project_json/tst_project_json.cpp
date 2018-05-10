@@ -18,6 +18,9 @@ public:
 private Q_SLOTS:
     void test_loadFromJsonDoc();
     void test_saveToJsonDoc();
+
+    void test_readJsonFromFile();
+    void test_writeJsonToFile();
 };
 
 ProjectJsonTest::ProjectJsonTest()
@@ -43,7 +46,8 @@ void ProjectJsonTest::test_loadFromJsonDoc()
     // Given
     uc->create_workspace("defaultWorkspace");
     // Given
-    QScopedPointer<adapters::ProjectJson> adapter(new adapters::ProjectJson(uc.data()));
+    QScopedPointer<adapters::ProjectJson> adapter(new adapters::ProjectJson());
+    adapter->setUsecases(uc.data());
     // When
     QSignalSpy loaded(adapter.data(), SIGNAL(loaded(int)));
     adapter->loadFromJsonDoc(projectJsonDoc);
@@ -99,7 +103,8 @@ void ProjectJsonTest::test_saveToJsonDoc()
     // Given
     uc->create_workspace("defaultWorkspace");
     // Given
-    QScopedPointer<adapters::ProjectJson> adapter(new adapters::ProjectJson(uc.data()));
+    QScopedPointer<adapters::ProjectJson> adapter(new adapters::ProjectJson());
+    adapter->setUsecases(uc.data());
     // Given
     QSignalSpy loaded(adapter.data(), SIGNAL(loaded(int)));
     adapter->loadFromJsonDoc(projectJsonDoc);
@@ -114,6 +119,31 @@ void ProjectJsonTest::test_saveToJsonDoc()
         QFAIL("");
     }
 }
+
+void ProjectJsonTest::test_readJsonFromFile()
+{
+    // Given
+    QScopedPointer<adapters::ProjectJson> adapter(new adapters::ProjectJson());
+    // Given
+    const QString fileName(":/qt-project.org/imports/testProject1.cw.json");
+    // Given
+    QByteArray expectedProjectJson(
+                "{\n"
+                "    \"characters\":[{\"name\":\"Ayran\"},{\"name\":\"Birun\"},{\"name\":\"Dilgun\"},{\"name\":\"Barsun\"}],\n"
+                "    \"panels\":[\n"
+                "        {\"characters\":[\"Ayran\",\"Birun\"],\"description\":\"first scene\",\"dialogs\":[{\"characterName\":\"Ayran\",\"dialogContent_en_US\":\"Hello\"},{\"characterName\":\"Birun\",\"dialogContent_en_US\":\"Hi\"}],\"eid\":\"panel1\"},\n"
+                "        {\"characters\":[\"Barsun\",\"Dilgun\"],\"description\":\"second scene\",\"dialogs\":[{\"characterName\":\"Dilgun\",\"dialogContent_en_US\":\"Hey\"},{\"characterName\":\"Barsun\",\"dialogContent_en_US\":\"Hey there\"}],\"eid\":\"panel2\"}\n"
+                "    ]\n"
+                "}\n"
+                );
+    // When
+    auto actualProjectJson = adapter->readJsonFromFile(fileName);
+    // Then
+    QCOMPARE(actualProjectJson, expectedProjectJson);
+}
+
+void ProjectJsonTest::test_writeJsonToFile()
+{}
 
 QTEST_MAIN(ProjectJsonTest)
 

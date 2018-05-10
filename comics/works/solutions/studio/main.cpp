@@ -19,7 +19,8 @@ int main(int argc, char *argv[])
     auto uc = new usecases(&app);
     uc->entities_reg = &entities_register;
     // adapters
-    auto projectJson = new adapters::ProjectJson(uc,&app);
+    auto projectJson = new adapters::ProjectJson(&app);
+    projectJson->setUsecases(uc);
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextProperty("uc", uc);

@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QJsonDocument>
+#include <QUrl>
 
 namespace comics {
 namespace works {
@@ -17,9 +18,12 @@ class ProjectJson : public QObject
 {
     Q_OBJECT
 public:
-    explicit ProjectJson(usecases* uc, QObject *parent = nullptr);
+    explicit ProjectJson(QObject *parent = nullptr);
+    void setUsecases(usecases*);
     Q_INVOKABLE void loadFromJsonDoc(const QByteArray&);
     Q_INVOKABLE void saveToJsonDoc(const entities::Register &);
+    Q_INVOKABLE QByteArray readJsonFromFile(QString);
+    Q_INVOKABLE int writeJsonToFile(QByteArray json, QUrl filePath);
 signals:
     void loaded(int success);
     void saved(QByteArray jsonDoc);
