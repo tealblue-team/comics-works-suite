@@ -16,7 +16,7 @@ Window {
     Connections {
         target: uc
         onWorkspaceCreated: {
-            var jsonString = projectJson.readJsonFromFile("../../sampleProject1.json")
+            var jsonString = projectJson.readJsonFromFile("../../heavyLoad1.cw.json")
             projectJson.loadFromJsonDoc(jsonString)
         }
         onCharacterAddedToPanel: rep.model = value.panels
@@ -29,7 +29,7 @@ Window {
     Connections {
         target: projectJson
         onSaved: {
-            projectJson.writeJsonToFile(jsonDoc,"../../sampleProject1.json")
+            projectJson.writeJsonToFile(jsonDoc,"../../heavyLoad1.cw.json")
             snackbar.visible = true
             snackbar.text = qsTr("File saved")
             snackbarTimer.start()

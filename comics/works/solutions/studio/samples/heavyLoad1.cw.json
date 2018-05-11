@@ -1,0 +1,54 @@
+{
+    "characters": [
+        {
+            "name": "Ayran"
+        },
+        {
+            "name": "Birun"
+        }
+    ],
+    "panels": [
+        {
+            "characters": [
+                "Ayran"
+            ],
+            "description": "Wide shot. Full moon, dark. A small silhouette walking along the road almost coming out of the forest.",
+            "dialogs": [
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "So... that's what war is"
+                }
+            ],
+            "eid": "I-A-1"
+        },
+        {
+            "characters": [
+                "Ayran"
+            ],
+            "description": "Zoom in. The man's feet walking forward.",
+            "dialogs": [
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "I am leaving my country with a heavy load upon me"
+                }
+            ],
+            "eid": "I-A-2A"
+        },
+        {
+            "characters": [
+                "Ayran"
+            ],
+            "description": "The man's profile can be seen. It is full of anguish and fear. His eyes are fixed onto something.",
+            "dialogs": [],
+            "eid": "I-A-2B"
+        },
+        {
+            "characters": [
+                "Ayran"
+            ],
+            "description": "A countryside road goes from a forest towards a river. In the distance, a guard post. Beyond the post, a bridge.",
+            "dialogs": [],
+            "eid": "I-A-3"
+        }
+    ]
+}

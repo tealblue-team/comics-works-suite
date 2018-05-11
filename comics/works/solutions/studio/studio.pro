@@ -35,5 +35,5 @@ include(../../entities/panel/panel.pri)
 include(../../entities/workspace/workspace.pri)
 include(../../adapters/project_json/project_json.pri)
 
-samples.files = $$PWD/samples/sampleProject1.json
+samples.files = $$PWD/samples/heavyLoad1.cw.json
 QMAKE_BUNDLE_DATA += samples
