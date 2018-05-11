@@ -21,7 +21,7 @@ public:
     explicit ProjectJson(QObject *parent = nullptr);
     void setUsecases(usecases*);
     Q_INVOKABLE void loadFromJsonDoc(const QByteArray&);
-    Q_INVOKABLE void saveToJsonDoc(const entities::Register &);
+    Q_INVOKABLE void saveToJsonDoc();
     Q_INVOKABLE QByteArray readJsonFromFile(const QString&);
     Q_INVOKABLE int writeJsonToFile(const QByteArray& json, const QString& filePath);
 signals:

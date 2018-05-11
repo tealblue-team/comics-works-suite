@@ -105,13 +105,13 @@ void ProjectJson::loadFromJsonDoc(const QByteArray& projectJson)
     }
 }
 
-void ProjectJson::saveToJsonDoc(const entities::Register& entities_register)
+void ProjectJson::saveToJsonDoc()
 {
     auto projectJson = QJsonObject();
-    projectJson["panels"] = QJsonArray::fromVariantList(m_uc->_getPanelsList(entities_register.currentWorkspace->panels()));
-    projectJson["characters"] = QJsonArray::fromVariantList(m_uc->_getCharactersList(entities_register.currentWorkspace->characters()));
+    projectJson["panels"] = QJsonArray::fromVariantList(m_uc->_getPanelsList(m_uc->entities_reg->currentWorkspace->panels()));
+    projectJson["characters"] = QJsonArray::fromVariantList(m_uc->_getCharactersList(m_uc->entities_reg->currentWorkspace->characters()));
     auto projectJsonDoc = QJsonDocument(projectJson);
-    emit saved(projectJsonDoc.toJson(QJsonDocument::Compact));
+    emit saved(projectJsonDoc.toJson(QJsonDocument::Indented));
 }
 
 

@@ -16,14 +16,8 @@ Window {
     Connections {
         target: uc
         onWorkspaceCreated: {
-            var jsonDoc = {
-                "characters":[{"name":"Ayran"},{"name":"Birun"},{"name":"Dilgun"},{"name":"Barsun"}],
-                "panels":[
-                    {"characters":["Ayran","Birun"],"description":"first scene","dialogs":[{"characterName":"Ayran","dialogContent_en_US":"Hello"},{"characterName":"Birun","dialogContent_en_US":"Hi"}],"eid":"panel1"},
-                    {"characters":["Barsun","Dilgun"],"description":"second scene","dialogs":[{"characterName":"Dilgun","dialogContent_en_US":"Hey"},{"characterName":"Barsun","dialogContent_en_US":"Hey there"}],"eid":"panel2"}
-                ]
-            }
-            projectJson.loadFromJsonDoc(JSON.stringify(jsonDoc))
+            var jsonString = projectJson.readJsonFromFile("../../sampleProject1.json")
+            projectJson.loadFromJsonDoc(jsonString)
         }
         onCharacterAddedToPanel: rep.model = value.panels
         onDialogAddedToPanel: rep.model = value.panels
@@ -31,6 +25,15 @@ Window {
         onPanelCreated: rep.model = value.panels
         onPanelDeleted: rep.model = value.panels
         onPanelDescribed: rep.model = value.panels
+    }
+    Connections {
+        target: projectJson
+        onSaved: {
+            projectJson.writeJsonToFile(jsonDoc,"../../sampleProject1.json")
+            snackbar.visible = true
+            snackbar.text = qsTr("File saved")
+            snackbarTimer.start()
+        }
     }
     GridLayout {
         id: viewTpl
@@ -144,6 +147,7 @@ Window {
         }
     }
     Label {
+        id: snackbar
         anchors.top: parent.top
         anchors.margins: 16
         padding: 8
@@ -155,9 +159,16 @@ Window {
         horizontalAlignment: Label.AlignHCenter
         text: qsTr("hit <b>+</b> to add a panel,<br/><b>-</b> to remove the last created")
         Timer {
+            id: snackbarTimer
             interval: 2500
             running: true
             onTriggered: parent.visible = false
         }
+    }
+    Button {
+        anchors.bottom: parent.bottom
+        anchors.right: parent.right
+        text: "Save"
+        onClicked: projectJson.saveToJsonDoc()
     }
 }
