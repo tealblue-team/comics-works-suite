@@ -22,6 +22,10 @@ Window {
         onCharacterAddedToPanel: rep.model = value.panels
         onDialogAddedToPanel: rep.model = value.panels
         onCharacterCreated: charactersListView.model = value.characters
+        onCharacterDeleted: {
+            charactersListView.model = value.characters
+            rep.model = value.panels
+        }
         onPanelCreated: rep.model = value.panels
         onPanelDeleted: rep.model = value.panels
         onPanelDescribed: rep.model = value.panels
@@ -58,9 +62,20 @@ Window {
                     Layout.preferredHeight: 128
                     Layout.margins: 16
                     model: []
-                    delegate: Text {
+                    delegate: Item {
+                        width: parent.width
+                        height: 32
+                        Text {
                         text: modelData.name
                         color: "#fff"
+                        }
+                        Button {
+                            anchors.right: parent.right
+                            width: 32
+                            height: 32
+                            text: "X"
+                            onClicked: uc.delete_character(modelData.name, workspaceName)
+                        }
                     }
                 }
                 ListView {

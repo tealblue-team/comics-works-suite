@@ -15,8 +15,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp
 
-RESOURCES += qml.qrc \
-#    samples.qrc
+RESOURCES += qml.qrc
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 
@@ -37,3 +36,5 @@ include(../../adapters/project_json/project_json.pri)
 
 samples.files = $$PWD/samples/heavyLoad1.cw.json
 QMAKE_BUNDLE_DATA += samples
+
+OTHER_FILES += $$PWD/samples/heavyLoad1.cw.json
