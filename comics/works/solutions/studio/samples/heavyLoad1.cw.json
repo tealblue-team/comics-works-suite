@@ -39,7 +39,8 @@
                 "Ayran"
             ],
             "description": "The man's profile can be seen. It is full of anguish and fear. His eyes are fixed onto something.",
-            "dialogs": [],
+            "dialogs": [
+            ],
             "eid": "I-A-2B"
         },
         {
@@ -47,8 +48,93 @@
                 "Ayran"
             ],
             "description": "A countryside road goes from a forest towards a river. In the distance, a guard post. Beyond the post, a bridge.",
-            "dialogs": [],
+            "dialogs": [
+            ],
             "eid": "I-A-3"
+        },
+        {
+            "characters": [
+                "Ayran"
+            ],
+            "description": "(from behind) The man crouches at the end of the forest putting down his weight and looks out towards the river.",
+            "dialogs": [
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "... A load that will never leave me."
+                }
+            ],
+            "eid": "panel5"
+        },
+        {
+            "characters": [
+                "Ayran"
+            ],
+            "description": "Zoom in to the post's guards from the man's standpoint.",
+            "dialogs": [
+            ],
+            "eid": "panel6"
+        },
+        {
+            "characters": [
+                "Ayran"
+            ],
+            "description": "The man looks into that direction.",
+            "dialogs": [
+            ],
+            "eid": "panel7"
+        },
+        {
+            "characters": [
+                "Ayran"
+            ],
+            "description": "The man looks into a different direction.",
+            "dialogs": [
+            ],
+            "eid": "panel8"
+        },
+        {
+            "characters": [
+                "Ayran"
+            ],
+            "description": "A bit south of the bridge and the post there is a wide tree that stretches onto the strong river, almost reaching the opposite bank.",
+            "dialogs": [
+            ],
+            "eid": "panel9"
+        },
+        {
+            "characters": [
+                "Ayran"
+            ],
+            "description": "The man takes up his weight again...",
+            "dialogs": [
+            ],
+            "eid": "panel10"
+        },
+        {
+            "characters": [
+                "Ayran"
+            ],
+            "description": "Zoom onto the man and the weight",
+            "dialogs": [
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "Yet, when it all started everything looked so exciting..."
+                }
+            ],
+            "eid": "panel11"
+        },
+        {
+            "characters": [
+                "Ayran"
+            ],
+            "description": "...and goes down the vantage point towards the river crossing. The weight is a dead body.",
+            "dialogs": [
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "But now HE is dead, and so am I."
+                }
+            ],
+            "eid": "panel12"
         }
     ]
 }
