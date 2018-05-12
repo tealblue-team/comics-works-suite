@@ -1,2 +1,7 @@
-RESOURCES += \
-    $$PWD/ui.qrc
+RESOURCES += $$PWD/ui.qrc
+
+SOURCES += \
+    $$PWD/fonts.cpp
+
+HEADERS += \
+    $$PWD/fonts.h

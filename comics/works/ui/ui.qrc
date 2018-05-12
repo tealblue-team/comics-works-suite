@@ -14,5 +14,24 @@
         <file>molecules/AddCharacterButton.qml</file>
         <file>molecules/AddDialogButton.qml</file>
         <file>atoms/Colors.qml</file>
+        <file>assets/fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf</file>
+        <file>assets/fonts/Source_Sans_Pro/SourceSansPro-SemiBold.ttf</file>
+        <file>atoms/Typo.qml</file>
+        <file>atoms/H1.qml</file>
+        <file>atoms/H2.qml</file>
+        <file>atoms/H3.qml</file>
+        <file>atoms/H4.qml</file>
+        <file>atoms/H5.qml</file>
+        <file>atoms/H6.qml</file>
+        <file>atoms/P1.qml</file>
+        <file>atoms/P2.qml</file>
+        <file>assets/icons/panel.svg</file>
+        <file>assets/icons/dialog.svg</file>
+        <file>assets/icons/add.svg</file>
+        <file>assets/icons/creator.svg</file>
+        <file>assets/icons/remove.svg</file>
+        <file>assets/icons/characters.svg</file>
+        <file>atoms/Icon.qml</file>
+        <file>atoms/Icons.qml</file>
     </qresource>
 </RCC>

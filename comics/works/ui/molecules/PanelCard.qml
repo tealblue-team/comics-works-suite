@@ -36,12 +36,6 @@ FocusScope {
         anchors.fill: parent
         anchors.margins: 32
     }
-    Text {
-        id: name
-        anchors.horizontalCenter: parent.horizontalCenter
-        text: "[panel name]"
-        opacity: .5
-    }
     TextField {
         id: description
         focus: true
@@ -81,7 +75,7 @@ FocusScope {
         width: parent.width
         Repeater {
             model: modelData.dialogs
-            Text {
+            CWA.P1 {
                 width: dialogs.width
                 wrapMode: Text.Wrap
                 text: "<b>%1:</b> %2".arg(modelData.characterName).arg(modelData.dialogContent_en_US)
@@ -108,6 +102,14 @@ FocusScope {
                 width: parent.width
             }
         }
+    }
+    CWA.P2 {
+        id: name
+        anchors.bottom: parent.bottom
+        anchors.right: parent.right
+        anchors.margins: 8
+        text: "[panel name]"
+        opacity: .5
     }
 }
 

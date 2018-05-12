@@ -1,4 +1,17 @@
 module comics.works.ui.atoms
 
 singleton Colors 1.0 Colors.qml
+singleton Typo 1.0 Typo.qml
+singleton Icons 1.0 Icons.qml
+
 CWLogo 1.0 CWLogo.qml
+Icon 1.0 Icon.qml
+
+H1 1.0 H1.qml
+H2 1.0 H2.qml
+H3 1.0 H3.qml
+H4 1.0 H4.qml
+H5 1.0 H5.qml
+H6 1.0 H6.qml
+P1 1.0 P1.qml
+P2 1.0 P2.qml

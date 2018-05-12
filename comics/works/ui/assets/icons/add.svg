@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>plus</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="16X16-Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="plus" fill-rule="nonzero" fill="#959DA1">
+            <g transform="translate(4.000000, 4.000000)" id="Combined-Shape">
+                <path d="M9,7 L9,1.02177148 C9,0.457462672 8.55228475,3.55271368e-15 8,3.55271368e-15 C7.44771525,3.55271368e-15 7,0.457462672 7,1.02177148 L7,7 L1.02177148,7 C0.457462672,7 0,7.44771525 0,8 C0,8.55228475 0.457462672,9 1.02177148,9 L7,9 L7,14.9782285 C7,15.5425373 7.44771525,16 8,16 C8.55228475,16 9,15.5425373 9,14.9782285 L9,9 L14.9782285,9 C15.5425373,9 16,8.55228475 16,8 C16,7.44771525 15.5425373,7 14.9782285,7 L9,7 Z"></path>
+            </g>
+        </g>
+    </g>
+</svg>
