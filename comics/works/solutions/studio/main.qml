@@ -62,12 +62,24 @@ Window {
                     Layout.preferredHeight: 128
                     Layout.margins: 16
                     model: []
+                    spacing: 4
+                    clip: true
+                    header: Row {
+                        spacing: 8
+                        CWA.Icon {
+                            content: "characters"
+                        }
+                        CWA.H6 {
+                            text: qsTr("Characters")
+                            color: CWA.Colors.shades400
+                        }
+                    }
                     delegate: Item {
                         width: parent.width
                         height: 32
-                        Text {
-                        text: modelData.name
-                        color: CWA.Colors.shades0
+                        CWA.P1 {
+                            text: modelData.name
+                            color: CWA.Colors.shades0
                         }
                         Button {
                             anchors.right: parent.right
@@ -84,14 +96,25 @@ Window {
                     Layout.fillHeight: true
                     Layout.margins: 16
                     model: rep.model
-                    delegate: Column {
-                        Text {
+                    clip: true
+                    header: Row {
+                        spacing: 8
+                        CWA.Icon {
+                            content: "panel"
+                        }
+                        CWA.H6 {
+                            text: qsTr("Panels")
+                            color: CWA.Colors.shades400
+                        }
+                    }
+                    delegate: Row {
+                        spacing: 8
+                        CWA.P1 {
                             text: modelData.eid
                             color: CWA.Colors.shades0
                             opacity: .8
                         }
-                        Text {
-                            x: 16
+                        CWA.P2 {
                             text: modelData.description
                             color: CWA.Colors.shades0
                         }

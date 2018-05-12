@@ -4,6 +4,7 @@
 #include "comics/works/usecases/usecases.h"
 #include "comics/works/entities/register.h"
 #include "comics/works/adapters/project_json/project_json.h"
+#include "comics/works/ui/fonts.h"
 
 int main(int argc, char *argv[])
 {
@@ -21,6 +22,10 @@ int main(int argc, char *argv[])
     // adapters
     auto projectJson = new adapters::ProjectJson(&app);
     projectJson->setUsecases(uc);
+
+    ui::Fonts* fonts = new comics::works::ui::Fonts();
+    fonts->setDefaultFont(app);
+    fonts->deleteLater();
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextProperty("uc", uc);
