@@ -3,18 +3,20 @@ import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import QtQuick.Window 2.10
 import comics.works.ui.atoms 1.0 as CWA
+import comics.works.ui.molecules 1.0 as CWM
 
 Window {
     visible: true
     width: 1024
     height: 768
     title: qsTr("comics.works UI")
+    color: CWA.Colors.shades300
     GridLayout {
         anchors.fill: parent
         anchors.margins: 16
-        columns: 2
+        columns: 4
         ColumnLayout {
-            Layout.columnSpan: 2
+            Layout.columnSpan: 4
             Label {
                 text: "Colors"
             }
@@ -87,6 +89,28 @@ Window {
                             text: modelData
                         }
                     }
+                }
+            }
+        }
+        ColumnLayout {
+            Label {
+                text: "Panel"
+            }
+            CWM.PanelCard {
+
+            }
+        }
+        ColumnLayout {
+            Label {
+                text: "Various"
+            }
+            Row {
+                spacing: 8
+                CWA.CharacterBadge {
+                    text: "Ayran"
+                }
+                CWA.P2 {
+                    text: "Character Badge"
                 }
             }
         }

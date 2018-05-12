@@ -9,32 +9,30 @@ FocusScope {
     id: panel
 
     width: 256
-    height: width
+    height: width + 1
 
     property alias name: name
     property alias description: description
-    property alias addCharacterButton: addCharacterButton
+    property alias addCharacterBadge: addCharacterBadge
     property alias availableCharactersPane: availableCharactersPane
+    property alias availableCharactersListView: availableCharactersListView
 
     signal addDialogButtonClicked(string characterName, string dialogContent)
 
     Rectangle {
+        width: panel.width
+        height: width
+        radius: 4
+        color: CWA.Colors.shades900
+        y: 1
+        opacity: .2
+    }
+    Rectangle {
         id: pageFace
-        anchors.fill: parent
+        width: panel.width
+        height: width
         color: CWA.Colors.shades0
-    }
-    DropShadow {
-        source:pageFace
-        anchors.fill: source
-        horizontalOffset: 3
-        verticalOffset: 3
-        radius: 8.0
-        color: "#80000000"
-    }
-    Item {
-        id: drawingSurface
-        anchors.fill: parent
-        anchors.margins: 32
+        radius: 4
     }
     TextField {
         id: description
@@ -42,19 +40,26 @@ FocusScope {
         width: parent.width - 40
         placeholderText: "[panel description]"
         Keys.onEscapePressed: focus = false
-    }
-    CWM.AddCharacterButton {
-        id: addCharacterButton
-        anchors.right: parent.right
-        anchors.top: parent.top
-        enabled: charactersListView.count > 0
+        background: Rectangle {
+            implicitWidth: 200
+            implicitHeight: 40
+            color: "transparent"
+            border.color: "transparent"
+            CWA.P2 {
+                color: CWA.Colors.shades0
+                opacity: .5
+                text: qsTr(description.placeholderText)
+                anchors.verticalCenter: parent.verticalCenter
+                visible: ! description.displayText
+            }
+        }
     }
     Column {
         id: characters
-        anchors.top: addCharacterButton.bottom
+        anchors.top: description.bottom
         width: parent.width
         Repeater {
-            model: modelData.characters
+            model: typeof(modelData) != "undefined" ? modelData.characters : ["character1","character2"]
             Row {
                 width: characters.width
                 TextField {
@@ -74,7 +79,16 @@ FocusScope {
         anchors.top: characters.bottom
         width: parent.width
         Repeater {
-            model: modelData.dialogs
+            model: typeof(modelData) != "undefined" ? modelData.dialogs : [
+                                                          {
+                                                              "characterName":"character1",
+                                                              "dialogContent_en_US":"dialog1"
+                                                          },
+                                                          {
+                                                              "characterName":"character2",
+                                                              "dialogContent_en_US":"dialog2"
+                                                          }
+                                                      ]
             CWA.P1 {
                 width: dialogs.width
                 wrapMode: Text.Wrap
@@ -92,7 +106,6 @@ FocusScope {
         ListView {
             id: availableCharactersListView
             anchors.fill: parent
-            model: charactersListView.model
             delegate: ItemDelegate {
                 text: modelData.name
                 onClicked: {
@@ -103,10 +116,26 @@ FocusScope {
             }
         }
     }
+    Row {
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        anchors.margins: 8
+        spacing: 4
+        Repeater {
+            id: panelCharacters
+            model: typeof(modelData) != "undefined" ? modelData.characters : ["character1","character2"]
+            delegate: CWA.CharacterBadge {
+                text: modelData
+            }
+        }
+        CWA.AddCharacterBadge {
+            id: addCharacterBadge
+        }
+    }
     CWA.P2 {
         id: name
         anchors.bottom: parent.bottom
-        anchors.right: parent.right
+        anchors.left: parent.left
         anchors.margins: 8
         text: "[panel name]"
         opacity: .5

@@ -49,13 +49,6 @@ Window {
             Layout.fillHeight: true
             ColumnLayout {
                 anchors.fill: parent
-                TextField {
-                    placeholderText: "add character"
-                    Keys.onReturnPressed: {
-                        uc.create_character(text,workspaceName)
-                        clear()
-                    }
-                }
                 ListView {
                     id: charactersListView
                     Layout.fillWidth: true
@@ -76,17 +69,42 @@ Window {
                     }
                     delegate: Item {
                         width: parent.width
-                        height: 32
+                        height: 24
                         CWA.P1 {
                             text: modelData.name
                             color: CWA.Colors.shades0
+                            anchors.verticalCenter: parent.verticalCenter
                         }
-                        Button {
+                        MouseArea {
                             anchors.right: parent.right
-                            width: 32
-                            height: 32
-                            text: "X"
+                            width: 24
+                            height: 24
                             onClicked: uc.delete_character(modelData.name, workspaceName)
+                            CWA.Icon {
+                                content: "remove"
+                                anchors.centerIn: parent
+                            }
+                        }
+                    }
+                    footer: TextField {
+                        id: addCharacterField
+                        color: CWA.Colors.shades0
+                        background: Rectangle {
+                            implicitWidth: 200
+                            implicitHeight: 40
+                            color: "transparent"
+                            border.color: "transparent"
+                            CWA.P2 {
+                                color: CWA.Colors.shades0
+                                opacity: .5
+                                text: qsTr("add character...")
+                                anchors.verticalCenter: parent.verticalCenter
+                                visible: ! addCharacterField.displayText
+                            }
+                        }
+                        Keys.onReturnPressed: {
+                            uc.create_character(text,workspaceName)
+                            clear()
                         }
                     }
                 }
@@ -108,15 +126,59 @@ Window {
                         }
                     }
                     delegate: Row {
-                        spacing: 8
-                        CWA.P1 {
+                        spacing: 4
+                        width: panelsListView.width
+                        CWA.P2 {
                             text: modelData.eid
                             color: CWA.Colors.shades0
                             opacity: .8
+                            width: 56
                         }
                         CWA.P2 {
                             text: modelData.description
                             color: CWA.Colors.shades0
+                            elide: Text.ElideRight
+                            width: panelsListView.width - 64
+                        }
+                    }
+                    footer: Column {
+                        width: panelsListView.width
+                        Item {
+                            width: parent.width
+                            height: 20
+                            CWA.P2 {
+                                id: addPanelButton
+                                text: qsTr("add panel...")
+                                color: CWA.Colors.shades0
+                                opacity: .5
+                                MouseArea {
+                                    anchors.fill: parent
+                                    onClicked: uc.create_panel("panel"+(rep.model.length+1), workspaceName)
+                                }
+                            }
+                            CWA.Icon {
+                                content: "add"
+                                anchors.right: parent.right
+                            }
+                        }
+                        Item {
+                            width: parent.width
+                            height: 20
+                            CWA.P2 {
+                                id: removePanelButton
+                                text: qsTr("remove last panel...")
+                                color: CWA.Colors.shades0
+                                opacity: .5
+                                MouseArea {
+                                    anchors.fill: parent
+                                    onClicked: uc.delete_panel("panel"+(rep.model.length), workspaceName)
+                                }
+                                enabled: rep.model.length > 0
+                            }
+                            CWA.Icon {
+                                content: "remove"
+                                anchors.right: parent.right
+                            }
                         }
                     }
                 }
@@ -155,33 +217,14 @@ Window {
                         name.text: modelData.eid
                         description.placeholderText: modelData.description || "<add description>"
                         Keys.onReturnPressed: uc.describe_panel(modelData.eid, description.displayText)
-                        addCharacterButton.onClicked: availableCharactersPane.visible = true
+                        addCharacterBadge.enabled: charactersListView.count > 0
+                        addCharacterBadge.onClicked: availableCharactersPane.visible = true
+                        availableCharactersListView.model: charactersListView.model
                         onAddDialogButtonClicked: {
                             uc.add_dialog_to_panel(dialogContent, characterName, modelData.eid)
                         }
                     }
                 }
-            }
-            Button {
-                id: addPanelButton
-                onClicked: uc.create_panel("panel"+(rep.model.length+1), workspaceName)
-                anchors.margins: 8
-                anchors.top: parent.top
-                anchors.right: parent.right
-                text: "+"
-                width: 40
-                height: width
-            }
-            Button {
-                id: removePanelButton
-                onClicked: uc.delete_panel("panel"+(rep.model.length), workspaceName)
-                anchors.margins: 8
-                anchors.top: addPanelButton.bottom
-                anchors.right: parent.right
-                text: "-"
-                width: 40
-                height: width
-                enabled: rep.model.length > 0
             }
         }
     }

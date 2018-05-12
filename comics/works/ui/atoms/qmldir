@@ -15,3 +15,6 @@ H5 1.0 H5.qml
 H6 1.0 H6.qml
 P1 1.0 P1.qml
 P2 1.0 P2.qml
+
+AddCharacterBadge 1.0 AddCharacterBadge.qml
+CharacterBadge 1.0 CharacterBadge.qml

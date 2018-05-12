@@ -11,7 +11,6 @@
         <file>assets/comicsworks-logo-cog-small.svg</file>
         <file>assets/cw-icons-bubble.png</file>
         <file>assets/cw-icons-character.png</file>
-        <file>molecules/AddCharacterButton.qml</file>
         <file>molecules/AddDialogButton.qml</file>
         <file>atoms/Colors.qml</file>
         <file>assets/fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf</file>
@@ -33,5 +32,7 @@
         <file>assets/icons/characters.svg</file>
         <file>atoms/Icon.qml</file>
         <file>atoms/Icons.qml</file>
+        <file>atoms/AddCharacterBadge.qml</file>
+        <file>atoms/CharacterBadge.qml</file>
     </qresource>
 </RCC>
