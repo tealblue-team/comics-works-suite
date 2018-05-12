@@ -365,32 +365,74 @@ CUKE_STEP_("^the first dialog for panel \"([a-zA-Z]+[0-9]*)\" reads \"(.+)\"$") 
     QVERIFY(dialogFound);
 }
 
-CUKE_STEP_("^the character is added to panel \"([a-zA-Z]+[0-9]*)\"$") {
+CUKE_STEP_("^the character with name \"([a-zA-Z0-9]+)\" is added to panel \"([a-zA-Z]+[0-9]*)\"$") {
+    REGEX_PARAM(QString, characterName);
     REGEX_PARAM(QString, panelName);
     ScenarioScope<MainCtx> ctx;
     bool characterFound = false;
-    for (int i = 0; i < ctx->entities.currentWorkspace->panels()->size(); ++i) {
-        if ((ctx->entities.currentWorkspace->panels()->at(i)->eid() == panelName)
-                && (ctx->entities.currentWorkspace->panels()->at(i)->characters()->length() > 0)) {
-            characterFound = true;
+    auto panelsResult = ctx->usecaseResult.value("panels").toList();
+    for (int i=0;i<panelsResult.size();++i) {
+        auto panelResult = panelsResult.at(i).toMap();
+        if (panelResult.value("eid") == panelName) {
+            auto panelResultCharacters = panelResult.value("characters").toList();
+            qDebug() << panelResultCharacters;
+            for (int j=0;j<panelResultCharacters.size();++j) {
+                if (panelResultCharacters.at(j).toString() == characterName) {
+                    characterFound = true;
+                    break;
+                }
+            }
             break;
         }
     }
     QVERIFY(characterFound);
 }
 
-CUKE_STEP_("^the first character for panel \"([a-zA-Z]+[0-9]*)\" has name \"([a-zA-Z0-9]+)\"$") {
-    REGEX_PARAM(QString, panelName);
+CUKE_STEP_("^I try to delete the character with name \"([a-zA-Z0-9]+)\"$") {
+    REGEX_PARAM(QString, characterName);
+    ScenarioScope<MainCtx> ctx;
+    QSignalSpy usecaseResult(&ctx->uc, &usecases::usecaseCompleted);
+    ctx->uc.delete_character(characterName, ctx->entities.currentWorkspace->eid());
+    usecaseResult.wait(5);
+    ctx->usecaseResult = usecaseResult.takeFirst().at(0).toMap();
+}
+
+CUKE_STEP_("^the character with name \"([a-zA-Z0-9]+)\" is deleted$") {
+    REGEX_PARAM(QString, characterName);
+    ScenarioScope<MainCtx> ctx;
+    QCOMPARE(ctx->usecaseResult.value("name").toString(), characterName);
+    QCOMPARE(ctx->usecaseResult.value("outcome").toString(), QString("CHARACTER_DELETED"));
+}
+
+CUKE_STEP_("^all dialogs for character with name \"([a-zA-Z0-9]+)\" in all panels are deleted$") {
+    REGEX_PARAM(QString, characterName);
+    ScenarioScope<MainCtx> ctx;
+    bool dialogFound = false;
+    auto panelsResult = ctx->usecaseResult.value("panels").toList();
+    for (int i=0;i<panelsResult.size();++i) {
+        auto dialogsResult = panelsResult.at(i).toMap().value("dialogs").toList();
+        for (int j=0;j<dialogsResult.size();++j) {
+            auto dialogResult = dialogsResult.at(j).toMap();
+            if (dialogResult.value("characterName").toString() == characterName) {
+                dialogFound = true;
+                break;
+            }
+        }
+    }
+    QVERIFY(! dialogFound);
+}
+
+CUKE_STEP_("^the character with name \"([a-zA-Z0-9]+)\" is deleted from all panels$") {
     REGEX_PARAM(QString, characterName);
     ScenarioScope<MainCtx> ctx;
     bool characterFound = false;
-    for (int i = 0; i < ctx->entities.currentWorkspace->panels()->size(); ++i) {
-        if ((ctx->entities.currentWorkspace->panels()->at(i)->eid() == panelName)
-                && (ctx->entities.currentWorkspace->panels()->at(i)->characters()->at(0)->name() == characterName)) {
+    auto panelsResult = ctx->usecaseResult.value("panels").toList();
+    for (int i=0;i<panelsResult.size();++i) {
+        auto dialogCharactersResult = panelsResult.at(i).toMap().value("characters").toList();
+        if (dialogCharactersResult.at(i).toString() == characterName) {
             characterFound = true;
             break;
         }
     }
-    QVERIFY(characterFound);
+    QVERIFY(! characterFound);
 }
-

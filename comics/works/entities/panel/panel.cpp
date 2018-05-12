@@ -44,13 +44,20 @@ void Panel::addCharacter(CharacterBase* character) {
 
 void Panel::addDialog(const QString &dialogContent, const QString &characterName)
 {
-    QVariantList dialogs = m_dialogs;
     QVariantMap dialog({
         {"dialogContent_en_US", dialogContent},
         {"characterName", characterName},
     });
-    dialogs.append(QVariant(dialog));
-    m_dialogs = dialogs;
+    m_dialogs.append(QVariant(dialog));
+}
+
+void Panel::removeDialog(const QString &dialogContent, const QString &characterName)
+{
+    QVariantMap dialog({
+        {"dialogContent_en_US", dialogContent},
+        {"characterName", characterName},
+    });
+    m_dialogs.removeAt(m_dialogs.indexOf(QVariant(dialog)));
 }
 
 void Panel::setDescription(const QString& description)

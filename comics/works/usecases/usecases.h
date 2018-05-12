@@ -17,6 +17,7 @@ public:
     Q_INVOKABLE void create_panel(const QString& panelName, const QString& workspaceName);
     Q_INVOKABLE QVariantMap create_pile(const QString& pileName, const QString& workspaceName);
     Q_INVOKABLE void create_workspace(const QString& workspaceName);
+    Q_INVOKABLE void delete_character(const QString& characterName, const QString& workspaceName);
     Q_INVOKABLE void delete_panel(const QString& panelName, const QString& workspaceName);
     Q_INVOKABLE void describe_panel(const QString& panelName, const QString& panelDescription);
 
@@ -28,6 +29,7 @@ signals:
 
     void characterAddedToPanel(QVariantMap value);
     void characterCreated(QVariantMap value);
+    void characterDeleted(QVariantMap value);
     void characterNotCreated(QVariantMap value);
     void dialogAddedToPanel(QVariantMap value);
     void panelCreated(QVariantMap value);

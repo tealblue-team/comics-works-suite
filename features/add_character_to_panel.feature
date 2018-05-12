@@ -13,5 +13,4 @@ Feature: add character to panel
 
   Scenario: completed
     When I try to add character with name "Ayran" to panel "panel1"
-    Then the character is added to panel "panel1"
-    And the first character for panel "panel1" has name "Ayran"
+    Then the character with name "Ayran" is added to panel "panel1"

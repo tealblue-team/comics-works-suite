@@ -22,6 +22,7 @@ public:
 
     virtual void addCharacter(entities::CharacterBase*) = 0;
     virtual void addDialog(const QString& dialogContent, const QString& characterName) = 0;
+    virtual void removeDialog(const QString& dialogContent, const QString& characterName) = 0;
     virtual void setEid(const QString&) = 0;
     virtual void setDescription(const QString&) = 0;
     virtual void setWidth(int) = 0;
