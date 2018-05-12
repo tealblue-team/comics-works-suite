@@ -14,14 +14,15 @@ usecases::usecases(QObject *parent) : QObject(parent)
 void usecases::add_character_to_panel(const QString &characterName, const QString &panelName)
 {
     QVariantMap ret;
-    entities::PanelBase* panel;
-    entities::CharacterBase* character;
-    for (int i=0;i<entities_reg->currentWorkspace->panels()->length();++i) {
-        panel = entities_reg->currentWorkspace->panels()->at(i);
+    entities::PanelBase* panel = nullptr;
+    entities::CharacterBase* character = nullptr;
+    auto panels = entities_reg->currentWorkspace->panels();
+    for (int i=0;i<panels->length();++i) {
+        panel = panels->at(i);
         if (panel->eid() == panelName) {
-            panel = entities_reg->currentWorkspace->panels()->at(i);
-            for (int j=0;i<entities_reg->currentWorkspace->characters()->length();++j) {
-                character = entities_reg->currentWorkspace->characters()->at(j);
+            auto characters = entities_reg->currentWorkspace->characters();
+            for (int j=0;j<characters->length();++j) {
+                character = characters->at(j);
                 if (character->name() == characterName) {
                     panel->addCharacter(character);
                     break;
@@ -32,7 +33,7 @@ void usecases::add_character_to_panel(const QString &characterName, const QStrin
     }
     ret = {
         {"outcome", "CHARACTER_ADDED_TO_PANEL"},
-        {"characterName", characterName},
+        {"characterName", character->name()},
         {"panelName", panel->eid()},
         {"panels", _getPanelsList(entities_reg->currentWorkspace->panels())}
     };
@@ -165,20 +166,23 @@ void usecases::delete_character(const QString &characterName, const QString &wor
     auto panels = entities_reg->currentWorkspace->panels();
     for (int i=0;i<panels->length();++i) {
         auto dialogs = panels->at(i)->dialogs();
-        for (int j=0;j<dialogs.size();++j) {
-            auto dialog = dialogs.at(j).toMap();
-            if (dialog.value("characterName").toString() == characterName) {
-                panels->at(i)->removeDialog(
-                            dialog.value("dialogContent_en_US").toString(),
-                            dialog.value("characterName").toString());
+        if (dialogs.size() > 0) {
+            for (int j=0;j<dialogs.size();++j) {
+                auto dialog = dialogs.at(j).toMap();
+                if (dialog.value("characterName").toString() == characterName) {
+                    panels->at(i)->removeDialog(
+                                dialog.value("dialogContent_en_US").toString(),
+                                dialog.value("characterName").toString());
+                }
             }
         }
         auto dialogCharacters = panels->at(i)->characters();
-        for (int j=0;j<dialogCharacters->size();++j) {
-            auto dialog = dialogs.at(j).toMap();
-            if (dialogCharacters->at(j)->name() == characterName) {
-                dialogCharacters->remove(i);
-                break;
+        if (dialogCharacters->size() > 0) {
+            for (int j=0;j<dialogCharacters->size();++j) {
+                if (dialogCharacters->at(j)->name() == characterName) {
+                    dialogCharacters->remove(j);
+                    break;
+                }
             }
         }
     }
@@ -251,10 +255,12 @@ QVariantList usecases::_getPanelsList(QVector<entities::PanelBase *>* panels) co
 QVariantList usecases::_getCharactersList(QVector<entities::CharacterBase *>* characters) const
 {
     QVariantList charactersList;
-    for (int i=0;i<characters->length();++i) {
-        QVariantMap characterSerial;
-        characterSerial["name"] = characters->at(i)->name();
-        charactersList << characterSerial;
+    if (characters->length() > 0) {
+        for (int i=0;i<characters->length();++i) {
+            QVariantMap characterSerial;
+            characterSerial["name"] = characters->at(i)->name();
+            charactersList << characterSerial;
+        }
     }
     return charactersList;
 }
