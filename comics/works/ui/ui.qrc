@@ -13,5 +13,6 @@
         <file>assets/cw-icons-character.png</file>
         <file>molecules/AddCharacterButton.qml</file>
         <file>molecules/AddDialogButton.qml</file>
+        <file>atoms/Colors.qml</file>
     </qresource>
 </RCC>

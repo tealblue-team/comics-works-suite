@@ -2,6 +2,7 @@ import QtQuick 2.0
 import QtQuick.Controls 2.2
 import QtGraphicalEffects 1.0
 import QtQuick.Layouts 1.3
+import "../atoms" as CWA
 import "." as CWM
 
 FocusScope {
@@ -20,7 +21,7 @@ FocusScope {
     Rectangle {
         id: pageFace
         anchors.fill: parent
-        color: "white"
+        color: CWA.Colors.shades0
     }
     DropShadow {
         source:pageFace

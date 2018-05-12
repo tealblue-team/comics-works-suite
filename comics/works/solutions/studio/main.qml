@@ -44,7 +44,7 @@ Window {
         anchors.fill: parent
         columnSpacing: 0
         Rectangle {
-            color: "#333"
+            color: CWA.Colors.shades600
             Layout.preferredWidth: 200
             Layout.fillHeight: true
             ColumnLayout {
@@ -67,7 +67,7 @@ Window {
                         height: 32
                         Text {
                         text: modelData.name
-                        color: "#fff"
+                        color: CWA.Colors.shades0
                         }
                         Button {
                             anchors.right: parent.right
@@ -87,17 +87,18 @@ Window {
                     delegate: Column {
                         Text {
                             text: modelData.eid
-                            color: "white"
+                            color: CWA.Colors.shades0
                             opacity: .8
                         }
                         Text {
                             x: 16
                             text: modelData.description
-                            color: "white"
+                            color: CWA.Colors.shades0
                         }
                     }
                 }
                 CWA.CWLogo {
+                    visible: false
                     anchors.bottom: parent.bottom
                 }
             }
@@ -167,8 +168,8 @@ Window {
         anchors.margins: 16
         padding: 8
         anchors.horizontalCenter: parent.horizontalCenter
-        background: Rectangle {color: "#333";radius:4}
-        color: "white"
+        background: Rectangle {color: CWA.Colors.shades600;radius:4}
+        color: CWA.Colors.shades0
         width: 256
         height: 48
         horizontalAlignment: Label.AlignHCenter
