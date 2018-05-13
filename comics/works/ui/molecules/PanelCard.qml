@@ -25,9 +25,9 @@ FocusScope {
         width: panel.width
         height: width
         radius: 4
-        color: CWA.Colors.shades900
+        color: CWA.Colors.shades600
         y: 1
-        opacity: .2
+        opacity: .8
     }
     Rectangle {
         id: pageFace

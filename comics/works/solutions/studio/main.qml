@@ -49,10 +49,10 @@ Window {
             Layout.fillHeight: true
             ColumnLayout {
                 anchors.fill: parent
-                anchors.topMargin: 12
+                anchors.margins: 16
+                anchors.topMargin: 8
                 Row {
                     spacing: 8
-                    Layout.leftMargin: 16
                     CWA.CWLogoBw {
                         id: cwLogoBw
                         width: 40
@@ -64,34 +64,39 @@ Window {
                             text: "comics.works"
                             color: CWA.Colors.shades300
                         }
-                        CWA.H5 {
-                            text: "Studio"
-                            color: CWA.Colors.shades400
+                        Row {
+                            CWA.H5 {
+                                text: "Studio"
+                                color: CWA.Colors.shades400
+                            }
+                            CWA.H5 {
+                                text: "Writer"
+                                color: CWA.Colors.shades300
+                            }
                         }
+                    }
+                }
+                Row {
+                    spacing: 8
+                    CWA.Icon {
+                        content: "characters"
+                    }
+                    CWA.H6 {
+                        text: qsTr("Characters")
+                        color: CWA.Colors.shades400
                     }
                 }
                 ListView {
                     id: charactersListView
                     Layout.fillWidth: true
-                    Layout.preferredHeight: 128
-                    Layout.margins: 16
+                    Layout.preferredHeight: 96
                     model: []
                     spacing: 4
                     clip: true
-                    header: Row {
-                        spacing: 8
-                        CWA.Icon {
-                            content: "characters"
-                        }
-                        CWA.H6 {
-                            text: qsTr("Characters")
-                            color: CWA.Colors.shades400
-                        }
-                    }
                     delegate: Item {
                         width: parent.width
-                        height: 24
-                        CWA.P1 {
+                        height: 20
+                        CWA.P2 {
                             text: modelData.name
                             color: CWA.Colors.shades0
                             anchors.verticalCenter: parent.verticalCenter
@@ -129,23 +134,22 @@ Window {
                         }
                     }
                 }
+                Row {
+                    spacing: 8
+                    CWA.Icon {
+                        content: "panel"
+                    }
+                    CWA.H6 {
+                        text: qsTr("Panels")
+                        color: CWA.Colors.shades400
+                    }
+                }
                 ListView {
                     id: panelsListView
                     Layout.fillWidth: true
                     Layout.fillHeight: true
-                    Layout.margins: 16
                     model: rep.model
                     clip: true
-                    header: Row {
-                        spacing: 8
-                        CWA.Icon {
-                            content: "panel"
-                        }
-                        CWA.H6 {
-                            text: qsTr("Panels")
-                            color: CWA.Colors.shades400
-                        }
-                    }
                     delegate: Row {
                         spacing: 4
                         width: panelsListView.width
@@ -169,7 +173,7 @@ Window {
                             height: 20
                             CWA.P2 {
                                 id: addPanelButton
-                                text: qsTr("add panel...")
+                                text: qsTr("add panel")
                                 color: CWA.Colors.shades0
                                 opacity: .5
                                 MouseArea {
@@ -187,7 +191,7 @@ Window {
                             height: 20
                             CWA.P2 {
                                 id: removePanelButton
-                                text: qsTr("remove last panel...")
+                                text: qsTr("remove last panel")
                                 color: CWA.Colors.shades0
                                 opacity: .5
                                 MouseArea {
@@ -253,7 +257,7 @@ Window {
                 id: snackbar
                 anchors.top: parent.top
                 anchors.margins: 16
-                padding: 8
+                padding: 6
                 anchors.horizontalCenter: parent.horizontalCenter
                 background: Rectangle {color: CWA.Colors.shades600;radius:4}
                 color: CWA.Colors.shades0
