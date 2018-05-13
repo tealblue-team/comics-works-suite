@@ -34,5 +34,8 @@
         <file>atoms/Icons.qml</file>
         <file>atoms/AddCharacterBadge.qml</file>
         <file>atoms/CharacterBadge.qml</file>
+        <file>atoms/AddDialogBadge.qml</file>
+        <file>assets/comicsworks-logo-bw.png</file>
+        <file>atoms/CWLogoBw.qml</file>
     </qresource>
 </RCC>

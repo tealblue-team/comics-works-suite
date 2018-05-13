@@ -9,8 +9,8 @@ Window {
     id: mainWindow
     title: "comics.works"
     visible: true
-    width: 256 * 3 + 48 + 200
-    height: 600
+    width: 1024
+    height: 768
     property string workspaceName: "workspace1"
     Component.onCompleted: uc.create_workspace(workspaceName)
     Connections {
@@ -49,6 +49,27 @@ Window {
             Layout.fillHeight: true
             ColumnLayout {
                 anchors.fill: parent
+                anchors.topMargin: 12
+                Row {
+                    spacing: 8
+                    Layout.leftMargin: 16
+                    CWA.CWLogoBw {
+                        id: cwLogoBw
+                        width: 40
+                    }
+                    Column {
+                        anchors.verticalCenter: cwLogoBw.verticalCenter
+                        spacing: -8
+                        CWA.H5 {
+                            text: "comics.works"
+                            color: CWA.Colors.shades300
+                        }
+                        CWA.H5 {
+                            text: "Studio"
+                            color: CWA.Colors.shades400
+                        }
+                    }
+                }
                 ListView {
                     id: charactersListView
                     Layout.fillWidth: true
@@ -182,9 +203,11 @@ Window {
                         }
                     }
                 }
-                CWA.CWLogo {
-                    visible: false
-                    anchors.bottom: parent.bottom
+                Button {
+                    text: "Save"
+                    onClicked: projectJson.saveToJsonDoc()
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    Layout.margins: 16
                 }
             }
         }
@@ -215,10 +238,10 @@ Window {
                     delegate: CWM.PanelCard {
                         id: panelCard
                         name.text: modelData.eid
-                        description.placeholderText: modelData.description || "<add description>"
-                        Keys.onReturnPressed: uc.describe_panel(modelData.eid, description.displayText)
+                        description.placeholderText: "<%1>".arg(qsTr("add description"))
+                        description.text: modelData.description
+                        onDescriptionConfirmed: uc.describe_panel(modelData.eid, description.text)
                         addCharacterBadge.enabled: charactersListView.count > 0
-                        addCharacterBadge.onClicked: availableCharactersPane.visible = true
                         availableCharactersListView.model: charactersListView.model
                         onAddDialogButtonClicked: {
                             uc.add_dialog_to_panel(dialogContent, characterName, modelData.eid)
@@ -226,31 +249,26 @@ Window {
                     }
                 }
             }
+            Label {
+                id: snackbar
+                anchors.top: parent.top
+                anchors.margins: 16
+                padding: 8
+                anchors.horizontalCenter: parent.horizontalCenter
+                background: Rectangle {color: CWA.Colors.shades600;radius:4}
+                color: CWA.Colors.shades0
+                font.pixelSize: CWA.Typo.p2
+                width: 256
+                height: 48
+                horizontalAlignment: Label.AlignHCenter
+                text: qsTr("hit <b>+</b> to add a panel,<br/><b>-</b> to remove the last created")
+                Timer {
+                    id: snackbarTimer
+                    interval: 2500
+                    running: true
+                    onTriggered: parent.visible = false
+                }
+            }
         }
-    }
-    Label {
-        id: snackbar
-        anchors.top: parent.top
-        anchors.margins: 16
-        padding: 8
-        anchors.horizontalCenter: parent.horizontalCenter
-        background: Rectangle {color: CWA.Colors.shades600;radius:4}
-        color: CWA.Colors.shades0
-        width: 256
-        height: 48
-        horizontalAlignment: Label.AlignHCenter
-        text: qsTr("hit <b>+</b> to add a panel,<br/><b>-</b> to remove the last created")
-        Timer {
-            id: snackbarTimer
-            interval: 2500
-            running: true
-            onTriggered: parent.visible = false
-        }
-    }
-    Button {
-        anchors.bottom: parent.bottom
-        anchors.right: parent.right
-        text: "Save"
-        onClicked: projectJson.saveToJsonDoc()
     }
 }

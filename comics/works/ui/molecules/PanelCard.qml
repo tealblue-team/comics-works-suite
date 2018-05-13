@@ -11,6 +11,8 @@ FocusScope {
     width: 256
     height: width + 1
 
+    signal descriptionConfirmed(var event)
+
     property alias name: name
     property alias description: description
     property alias addCharacterBadge: addCharacterBadge
@@ -34,111 +36,138 @@ FocusScope {
         color: CWA.Colors.shades0
         radius: 4
     }
-    TextField {
-        id: description
-        focus: true
-        width: parent.width - 40
-        placeholderText: "[panel description]"
-        Keys.onEscapePressed: focus = false
-        background: Rectangle {
-            implicitWidth: 200
-            implicitHeight: 40
-            color: "transparent"
-            border.color: "transparent"
-            CWA.P2 {
-                color: CWA.Colors.shades0
-                opacity: .5
-                text: qsTr(description.placeholderText)
-                anchors.verticalCenter: parent.verticalCenter
-                visible: ! description.displayText
-            }
-        }
+    CWA.P2 {
+        id: name
+        x: 8
+        y: 8
+        text: "[panel name]"
+        opacity: .5
     }
-    Column {
-        id: characters
-        anchors.top: description.bottom
-        width: parent.width
-        Repeater {
-            model: typeof(modelData) != "undefined" ? modelData.characters : ["character1","character2"]
-            Row {
-                width: characters.width
-                TextField {
-                    id: dialogField
-                    placeholderText: modelData
-                    width: parent.width - 40
-                }
-                CWM.AddDialogButton {
-                    id: addDialogButton
-                    onClicked: addDialogButtonClicked(modelData, dialogField.displayText)
-                }
-            }
-        }
+    TextArea {
+        id: description
+        font.pixelSize: CWA.Typo.p2
+        color: CWA.Colors.shades600
+        anchors.top: name.bottom
+        padding: 4
+        focus: true
+        width: parent.width - 8
+        height: implicitHeight
+        placeholderText: "<add description>"
+        Keys.onEscapePressed: focus = false
+        Keys.onReturnPressed: descriptionConfirmed(event)
+        wrapMode: TextArea.Wrap
     }
     Column {
         id: dialogs
-        anchors.top: characters.bottom
+        anchors.top: description.bottom
         width: parent.width
+        spacing: 4
         Repeater {
             model: typeof(modelData) != "undefined" ? modelData.dialogs : [
                                                           {
-                                                              "characterName":"character1",
-                                                              "dialogContent_en_US":"dialog1"
+                                                              "characterName":"first character",
+                                                              "dialogContent_en_US":"I am an example of a fairly long dialog that might stretch more than one line"
                                                           },
                                                           {
-                                                              "characterName":"character2",
-                                                              "dialogContent_en_US":"dialog2"
+                                                              "characterName":"second character",
+                                                              "dialogContent_en_US":"I am a shorter dialog"
                                                           }
                                                       ]
-            CWA.P1 {
-                width: dialogs.width
-                wrapMode: Text.Wrap
-                text: "<b>%1:</b> %2".arg(modelData.characterName).arg(modelData.dialogContent_en_US)
+            delegate: Row {
+                x: 8
+                spacing: 8
+                width: dialogs.width - 8
+                height: childrenRect.height
+                CWA.CharacterBadge {
+                    text: modelData.characterName.substring(0,3)
+                    size: "S"
+                }
+                Text {
+                    color: CWA.Colors.shades700
+                    font.pixelSize: CWA.Typo.p2
+                    width: parent.width - 48
+                    wrapMode: Text.Wrap
+                    height: implicitHeight
+                    text: modelData.dialogContent_en_US
+                }
+            }
+        }
+        Row {
+            x: 8
+            spacing: 8
+            width: dialogs.width - 8
+            height: childrenRect.height
+            CWA.AddDialogBadge {
+                anchors.verticalCenter: dialogField.verticalCenter
+                opacity: .6
+            }
+            TextField {
+                id: dialogField
+                width: parent.width - 40
+                padding: 0
+                font.pixelSize: CWA.Typo.p2
+                background: Rectangle {
+                    implicitWidth: 200
+                    implicitHeight: 32
+                    color: "transparent"
+                    border.color: "transparent"
+                    CWA.P2 {
+                        color: CWA.Colors.shades400
+                        text: qsTr("add dialog...")
+                        anchors.verticalCenter: parent.verticalCenter
+                        visible: ! dialogField.displayText
+                    }
+                }
             }
         }
     }
-    Pane {
+    Rectangle {
         id: availableCharactersPane
         z: 10
         visible: false
         anchors.right: parent.right
+        anchors.margins: 8
+        radius: 4
+        anchors.bottom: panelCharactersRow.top
         width: 80
-        height: availableCharactersListView.count * 24 + padding * 2
+        height: availableCharactersListView.count * 24 + 8
+        color: CWA.Colors.shades200
         ListView {
             id: availableCharactersListView
             anchors.fill: parent
+            anchors.margins: 4
             delegate: ItemDelegate {
+                padding: 0
                 text: modelData.name
+                font.pixelSize: CWA.Typo.p2
                 onClicked: {
                     uc.add_character_to_panel(modelData.name, panelCard.name.text)
                     parent.parent.visible = false
                 }
                 width: parent.width
+                height: 24
             }
         }
     }
     Row {
+        id: panelCharactersRow
         anchors.right: parent.right
         anchors.bottom: parent.bottom
         anchors.margins: 8
         spacing: 4
         Repeater {
             id: panelCharacters
-            model: typeof(modelData) != "undefined" ? modelData.characters : ["character1","character2"]
+            model: typeof(modelData) != "undefined" ? modelData.characters : ["first character","second character"]
             delegate: CWA.CharacterBadge {
                 text: modelData
+                onClicked: if (dialogField.displayText) addDialogButtonClicked(modelData, dialogField.displayText)
             }
         }
         CWA.AddCharacterBadge {
             id: addCharacterBadge
+            onClicked: availableCharactersPane.visible = ! availableCharactersPane.visible
+            opacity: .6
         }
-    }
-    CWA.P2 {
-        id: name
-        anchors.bottom: parent.bottom
-        anchors.left: parent.left
-        anchors.margins: 8
-        text: "[panel name]"
-        opacity: .5
     }
 }
 

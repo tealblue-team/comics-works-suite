@@ -19,7 +19,7 @@
                     "dialogContent_en_US": "So... that's what war is"
                 }
             ],
-            "eid": "I-A-1"
+            "eid": "panel1"
         },
         {
             "characters": [
@@ -32,7 +32,7 @@
                     "dialogContent_en_US": "I am leaving my country with a heavy load upon me"
                 }
             ],
-            "eid": "I-A-2A"
+            "eid": "panel2"
         },
         {
             "characters": [
@@ -41,7 +41,7 @@
             "description": "The man's profile can be seen. It is full of anguish and fear. His eyes are fixed onto something.",
             "dialogs": [
             ],
-            "eid": "I-A-2B"
+            "eid": "panel3"
         },
         {
             "characters": [
@@ -50,7 +50,7 @@
             "description": "A countryside road goes from a forest towards a river. In the distance, a guard post. Beyond the post, a bridge.",
             "dialogs": [
             ],
-            "eid": "I-A-3"
+            "eid": "panel4"
         },
         {
             "characters": [

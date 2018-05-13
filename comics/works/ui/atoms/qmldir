@@ -5,6 +5,7 @@ singleton Typo 1.0 Typo.qml
 singleton Icons 1.0 Icons.qml
 
 CWLogo 1.0 CWLogo.qml
+CWLogoBw 1.0 CWLogoBw.qml
 Icon 1.0 Icon.qml
 
 H1 1.0 H1.qml
@@ -17,4 +18,5 @@ P1 1.0 P1.qml
 P2 1.0 P2.qml
 
 AddCharacterBadge 1.0 AddCharacterBadge.qml
+AddDialogBadge 1.0 AddDialogBadge.qml
 CharacterBadge 1.0 CharacterBadge.qml
