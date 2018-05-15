@@ -1,9 +1,5 @@
 import QtQuick 2.9
 import QtQuick.Window 2.2
-import QtQuick.Controls 2.2
-import QtQuick.Layouts 1.3
-import comics.works.ui.atoms 1.0 as CWA
-import comics.works.ui.molecules 1.0 as CWM
 
 Window {
     id: mainWindow
