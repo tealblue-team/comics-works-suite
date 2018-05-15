@@ -6,7 +6,7 @@ import "../atoms" as CWA
 import "." as CWM
 
 FocusScope {
-    id: panel
+    id: root
 
     width: 256
     height: width + 1
@@ -15,14 +15,13 @@ FocusScope {
 
     property alias name: name
     property alias description: description
-    property alias addCharacterBadge: addCharacterBadge
-    property alias availableCharactersPane: availableCharactersPane
-    property alias availableCharactersListView: availableCharactersListView
+    property alias addCharacterButton: addCharacterButton
+    property alias availableCharactersSelector: availableCharactersSelector
 
     signal addDialogButtonClicked(string characterName, string dialogContent)
 
     Rectangle {
-        width: panel.width
+        width: root.width
         height: width
         radius: 4
         color: CWA.Colors.shades600
@@ -31,7 +30,7 @@ FocusScope {
     }
     Rectangle {
         id: pageFace
-        width: panel.width
+        width: root.width
         height: width
         color: CWA.Colors.shades0
         radius: 4
@@ -78,7 +77,7 @@ FocusScope {
                 spacing: 8
                 width: dialogs.width - 8
                 height: childrenRect.height
-                CWA.CharacterBadge {
+                CWA.InlineTextPicButton {
                     text: modelData.characterName.substring(0,3)
                     size: "S"
                 }
@@ -97,7 +96,8 @@ FocusScope {
             spacing: 8
             width: dialogs.width - 8
             height: childrenRect.height
-            CWA.AddDialogBadge {
+            CWA.InlineIconButton {
+                size: "S"
                 anchors.verticalCenter: dialogField.verticalCenter
                 opacity: .6
             }
@@ -121,33 +121,13 @@ FocusScope {
             }
         }
     }
-    Rectangle {
-        id: availableCharactersPane
-        z: 10
-        visible: false
+    CWA.InlineSelectionList {
+        id: availableCharactersSelector
         anchors.right: parent.right
-        anchors.margins: 8
-        radius: 4
         anchors.bottom: panelCharactersRow.top
-        width: 80
-        height: availableCharactersListView.count * 24 + 8
-        color: CWA.Colors.shades200
-        ListView {
-            id: availableCharactersListView
-            anchors.fill: parent
-            anchors.margins: 4
-            delegate: ItemDelegate {
-                padding: 0
-                text: modelData.name
-                font.pixelSize: CWA.Typo.p2
-                onClicked: {
-                    uc.add_character_to_panel(modelData.name, panelCard.name.text)
-                    parent.parent.visible = false
-                }
-                width: parent.width
-                height: 24
-            }
-        }
+        anchors.margins: 8
+        visible: false
+        onItemClicked: visible = !visible
     }
     Row {
         id: panelCharactersRow
@@ -158,14 +138,14 @@ FocusScope {
         Repeater {
             id: panelCharacters
             model: typeof(modelData) != "undefined" ? modelData.characters : ["first character","second character"]
-            delegate: CWA.CharacterBadge {
+            delegate: CWA.InlineTextPicButton {
                 text: modelData
                 onClicked: if (dialogField.displayText) addDialogButtonClicked(modelData, dialogField.displayText)
             }
         }
-        CWA.AddCharacterBadge {
-            id: addCharacterBadge
-            onClicked: availableCharactersPane.visible = ! availableCharactersPane.visible
+        CWA.InlineIconButton {
+            id: addCharacterButton
+            onClicked: availableCharactersSelector.visible = ! availableCharactersSelector.visible
             opacity: .6
         }
     }

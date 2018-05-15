@@ -1,5 +1,5 @@
 module comics.works.ui.molecules
 
-AddDialogButton 1.0 AddDialogButton.qml
+Desk 1.0 Desk.qml
 PanelCard 1.0 PanelCard.qml
-Table 1.0 Table.qml
+Snackbar 1.0 Snackbar.qml

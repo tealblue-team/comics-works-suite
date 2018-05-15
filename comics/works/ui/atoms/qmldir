@@ -17,6 +17,6 @@ H6 1.0 H6.qml
 P1 1.0 P1.qml
 P2 1.0 P2.qml
 
-AddCharacterBadge 1.0 AddCharacterBadge.qml
-AddDialogBadge 1.0 AddDialogBadge.qml
-CharacterBadge 1.0 CharacterBadge.qml
+InlineIconButton 1.0 InlineIconButton.qml
+InlineSelectionList 1.0 InlineSelectionList.qml
+InlineTextPicButton 1.0 InlineTextPicButton.qml

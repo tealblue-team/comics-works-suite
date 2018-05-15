@@ -10,4 +10,5 @@ QtObject {
     property int h6: 16
     property int p1: 16
     property int p2: 14
+    property int p3: 12
 }

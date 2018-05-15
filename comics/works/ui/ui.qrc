@@ -1,8 +1,9 @@
 <RCC>
     <qresource prefix="/qt-project.org/imports/comics/works/ui">
         <file>atoms/CWLogo.qml</file>
-        <file>molecules/Table.qml</file>
+        <file>molecules/Desk.qml</file>
         <file>molecules/PanelCard.qml</file>
+        <file>molecules/Snackbar.qml</file>
         <file>molecules/qmldir</file>
         <file>templates/qmldir</file>
         <file>atoms/qmldir</file>
@@ -11,7 +12,6 @@
         <file>assets/comicsworks-logo-cog-small.svg</file>
         <file>assets/cw-icons-bubble.png</file>
         <file>assets/cw-icons-character.png</file>
-        <file>molecules/AddDialogButton.qml</file>
         <file>atoms/Colors.qml</file>
         <file>assets/fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf</file>
         <file>assets/fonts/Source_Sans_Pro/SourceSansPro-SemiBold.ttf</file>
@@ -32,10 +32,10 @@
         <file>assets/icons/characters.svg</file>
         <file>atoms/Icon.qml</file>
         <file>atoms/Icons.qml</file>
-        <file>atoms/AddCharacterBadge.qml</file>
-        <file>atoms/CharacterBadge.qml</file>
-        <file>atoms/AddDialogBadge.qml</file>
+        <file>atoms/InlineIconButton.qml</file>
+        <file>atoms/InlineTextPicButton.qml</file>
         <file>assets/comicsworks-logo-bw.png</file>
         <file>atoms/CWLogoBw.qml</file>
+        <file>atoms/InlineSelectionList.qml</file>
     </qresource>
 </RCC>

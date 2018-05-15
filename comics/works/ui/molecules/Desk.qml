@@ -1,7 +1,7 @@
 import QtQuick 2.0
 
 Item {
-    id: tableSurface
+    id: desk
     width: 800
     height: 600
 
