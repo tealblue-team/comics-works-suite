@@ -3,7 +3,7 @@ import QtQuick.Controls 2.2
 import QtGraphicalEffects 1.0
 import QtQuick.Layouts 1.3
 import "../atoms" as CWA
-import "." as CWM
+import "../molecules" as CWM
 
 FocusScope {
     id: root
@@ -77,7 +77,7 @@ FocusScope {
                 spacing: 8
                 width: dialogs.width - 8
                 height: childrenRect.height
-                CWA.InlineTextPicButton {
+                CWM.InlineTextPicButton {
                     text: modelData.characterName.substring(0,3)
                     size: "S"
                 }
@@ -96,7 +96,7 @@ FocusScope {
             spacing: 8
             width: dialogs.width - 8
             height: childrenRect.height
-            CWA.InlineIconButton {
+            CWM.InlineIconButton {
                 size: "S"
                 anchors.verticalCenter: dialogField.verticalCenter
                 opacity: .6
@@ -121,7 +121,7 @@ FocusScope {
             }
         }
     }
-    CWA.InlineSelectionList {
+    CWM.InlineSelectionList {
         id: availableCharactersSelector
         anchors.right: parent.right
         anchors.bottom: panelCharactersRow.top
@@ -138,12 +138,12 @@ FocusScope {
         Repeater {
             id: panelCharacters
             model: typeof(modelData) != "undefined" ? modelData.characters : ["first character","second character"]
-            delegate: CWA.InlineTextPicButton {
+            delegate: CWM.InlineTextPicButton {
                 text: modelData
                 onClicked: if (dialogField.displayText) addDialogButtonClicked(modelData, dialogField.displayText)
             }
         }
-        CWA.InlineIconButton {
+        CWM.InlineIconButton {
             id: addCharacterButton
             onClicked: availableCharactersSelector.visible = ! availableCharactersSelector.visible
             opacity: .6

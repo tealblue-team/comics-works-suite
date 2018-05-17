@@ -1,25 +1,26 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.3
+import "../atoms" as CWA
 
 RoundButton {
     id: root
     property string size
-    width: size === "S" ? 24 : 32
-    height: width
+    implicitWidth: size === "S" ? 24 : 32
+    implicitHeight: width
     radius: width / 2
     background: Rectangle {
         anchors.fill: parent
         radius: width / 2
-        color: pressed ? Colors.shades500 : Colors.shades400
+        color: pressed ? CWA.Colors.shades500 : CWA.Colors.shades400
     }
-    contentItem: P2 {
-        font.pixelSize: size == "S" ? Typo.p3 : Typo.p2
+    contentItem: CWA.P2 {
+        font.pixelSize: size == "S" ? CWA.Typo.p3 : CWA.Typo.p2
         text: root.text.substring(0,3)
         width: 24
         height: width
         anchors.centerIn: parent
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
-        color: Colors.shades0
+        color: CWA.Colors.shades0
     }
 }

@@ -4,6 +4,7 @@ import QtQuick.Layouts 1.3
 import QtQuick.Window 2.10
 import comics.works.ui.atoms 1.0 as CWA
 import comics.works.ui.molecules 1.0 as CWM
+import comics.works.ui.organisms 1.0 as CWO
 
 Window {
     visible: true
@@ -24,6 +25,10 @@ Window {
                 Layout.alignment: Qt.AlignTop
                 Layout.margins: 8
                 Layout.columnSpan: 3
+                Label {
+                    text: "Atoms"
+                    font.pixelSize: 20
+                }
                 Label {
                     text: "Colors"
                 }
@@ -121,48 +126,6 @@ Window {
                     }
                 }
             }
-            ColumnLayout {
-                Layout.alignment: Qt.AlignTop
-                Layout.margins: 8
-                Label {
-                    text: "Various"
-                }
-                Row {
-                    spacing: 8
-                    CWA.InlineIconButton {}
-                    CWA.P2 {
-                        text: "InlineIconButton"
-                    }
-                }
-                Row {
-                    spacing: 8
-                    CWA.InlineIconButton {
-                        size: "S"
-                    }
-                    CWA.P2 {
-                        text: "InlineIconButton (size: S)"
-                    }
-                }
-                Row {
-                    spacing: 8
-                    CWA.InlineTextPicButton {
-                        text: "Ayran"
-                    }
-                    CWA.P2 {
-                        text: "InlineTextPicButton"
-                    }
-                }
-                Row {
-                    spacing: 8
-                    CWA.InlineTextPicButton {
-                        size: "S"
-                        text: "Ayran"
-                    }
-                    CWA.P2 {
-                        text: "InlineTextPicButton (size: S)"
-                    }
-                }
-            }
         }
         GridLayout {
             id: secondPage
@@ -173,16 +136,50 @@ Window {
                 Layout.alignment: Qt.AlignTop
                 Layout.margins: 8
                 Label {
-                    text: "Panel"
+                    text: "Molecules"
+                    font.pixelSize: 20
                 }
-                CWM.PanelCard {
-
+                Label {
+                    text: "InlineIconButton"
+                }
+                CWM.InlineIconButton {}
+                Label {
+                    text: "InlineIconButton (size: S)"
+                }
+                CWM.InlineIconButton {
+                    size: "S"
+                }
+                Label {
+                    text: "InlineTextPicButton"
+                }
+                CWM.InlineTextPicButton {
+                    text: "Ayran"
+                }
+                Label {
+                    text: "InlineTextPicButton (size: S)"
+                }
+                CWM.InlineTextPicButton {
+                    size: "S"
+                    text: "Ayran"
+                }
+                Label {
+                    text: "InlineSelectionList"
+                }
+                CWM.InlineSelectionList {
+                }
+            }
+            ColumnLayout {
+                Layout.alignment: Qt.AlignTop
+                Layout.margins: 8
+                Label {
+                    text: "Desk"
+                }
+                CWM.Desk {
                 }
                 Label {
                     text: "Snackbar"
                 }
                 CWM.Snackbar {
-
                 }
             }
         }
@@ -195,7 +192,13 @@ Window {
                 Layout.alignment: Qt.AlignTop
                 Layout.margins: 8
                 Label {
-                    text: "(organism)"
+                    text: "Organisms"
+                    font.pixelSize: 20
+                }
+                Label {
+                    text: "PanelCard"
+                }
+                CWO.PanelCard {
                 }
             }
         }

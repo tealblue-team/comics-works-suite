@@ -1,9 +1,10 @@
 import QtQuick 2.9
 import QtQuick.Window 2.2
+import comics.works.ui.molecules 1.0 as CWM
 
 Window {
     id: mainWindow
-    title: "comics.works StoryTeller"
+    title: "%1 - %2".arg("comics.works").arg("StoryTeller")
     visible: true
     width: 1024
     height: 768
@@ -38,5 +39,18 @@ Window {
     StoryTellerViewer {
         id: storyTellerViewer
         anchors.fill: parent
+    }
+    CWM.Snackbar {
+        id: snackbar
+        text: qsTr("hit <b>+</b> to add a panel,<br/><b>-</b> to remove the last created")
+        anchors.top: parent.top
+        anchors.margins: 16
+        anchors.horizontalCenter: parent.horizontalCenter
+        Timer {
+            id: snackbarTimer
+            interval: 2500
+            running: true
+            onTriggered: parent.visible = false
+        }
     }
 }
