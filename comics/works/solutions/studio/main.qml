@@ -77,7 +77,10 @@ Window {
             addCharacterButton.enabled: charactersModel.count > 0
             availableCharactersSelector.model: charactersModel
             availableCharactersSelector.onItemClicked: uc.add_character_to_panel(name, model.eid)
-            onAddDialogButtonClicked: uc.add_dialog_to_panel(dialogContent, characterName, model.eid)
+            onAddDialogButtonClicked: {
+                uc.add_dialog_to_panel(dialogContent, characterName, model.eid)
+                dialogField.clear()
+            }
             dialogsList.model: model.dialogs
             panelCharactersList.model: model.characters
         }

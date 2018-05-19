@@ -7,6 +7,6 @@ import "../organisms" as CWO
 
 GridView {
     id: root
-    cellWidth: width / 3
+    cellWidth: 264
     cellHeight: 264
 }

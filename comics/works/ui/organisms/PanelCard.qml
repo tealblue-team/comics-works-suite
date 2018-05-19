@@ -16,6 +16,7 @@ FocusScope {
     property alias name: name
     property alias description: description
     property alias addCharacterButton: addCharacterButton
+    property alias dialogField: dialogField
     property alias availableCharactersSelector: availableCharactersSelector
     property alias dialogsList: dialogsList
     property alias panelCharactersList: panelCharactersList
