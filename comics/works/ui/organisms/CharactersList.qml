@@ -47,7 +47,10 @@ Rectangle {
         }
         ListView {
             id: listView
-            model: [{"name":"first character"},{"name":"second character"}]
+            model: ListModel {
+                ListElement {name:"first character"}
+                ListElement {name:"second character"}
+            }
             spacing: 4
             clip: true
             height: 180
@@ -57,7 +60,7 @@ Rectangle {
                 width: parent.width
                 height: 20
                 CWA.P2 {
-                    text: modelData.name
+                    text: model.name
                     color: CWA.Colors.shades0
                     anchors.verticalCenter: parent.verticalCenter
                 }
@@ -65,7 +68,7 @@ Rectangle {
                     anchors.right: parent.right
                     width: 24
                     height: 24
-                    onClicked: itemClicked(modelData.name)
+                    onClicked: itemClicked(model.name)
                     CWA.Icon {
                         content: "remove"
                         anchors.centerIn: parent

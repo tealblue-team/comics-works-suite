@@ -2,4 +2,5 @@ module comics.works.ui.organisms
 
 PanelCard 1.0 PanelCard.qml
 CharactersList 1.0 CharactersList.qml
-PanelsListView 1.0 PanelsListView.qml
+PanelsGrid 1.0 PanelsGrid.qml
+PanelsList 1.0 PanelsList.qml

@@ -1,11 +1,12 @@
 <RCC>
     <qresource prefix="/qt-project.org/imports/comics/works/ui">
-        <file>atoms/CWLogo.qml</file>
-        <file>molecules/Desk.qml</file>
-        <file>molecules/Snackbar.qml</file>
+        <file>organisms/qmldir</file>
         <file>molecules/qmldir</file>
         <file>templates/qmldir</file>
         <file>atoms/qmldir</file>
+        <file>atoms/CWLogo.qml</file>
+        <file>molecules/Desk.qml</file>
+        <file>molecules/Snackbar.qml</file>
         <file>assets/comicsworks-logo-bubbles.svg</file>
         <file>assets/comicsworks-logo-cog-big.svg</file>
         <file>assets/comicsworks-logo-cog-small.svg</file>
@@ -38,8 +39,9 @@
         <file>molecules/InlineSelectionList.qml</file>
         <file>templates/StoryTellerTpl.qml</file>
         <file>organisms/CharactersList.qml</file>
-        <file>organisms/qmldir</file>
         <file>organisms/PanelCard.qml</file>
-        <file>organisms/PanelsListView.qml</file>
+        <file>organisms/PanelsList.qml</file>
+        <file>organisms/PanelsGrid.qml</file>
+        <file>molecules/InlineTextIconButton.qml</file>
     </qresource>
 </RCC>

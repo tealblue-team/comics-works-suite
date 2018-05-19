@@ -14,13 +14,12 @@ Rectangle {
         anchors.margins: 4
         Repeater {
             id: repeater
-            model: typeof(modelData) != "undefined" ? modelData.characters : [{"name":"first character"},{"name":"second character"}]
             delegate: ItemDelegate {
                 padding: 0
-                text: modelData.name
+                text: model.name
                 font.pixelSize: CWA.Typo.p2
                 onClicked: {
-                    itemClicked(modelData.name)
+                    itemClicked(model.name)
                 }
                 width: parent.width
                 height: 24

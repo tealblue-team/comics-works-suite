@@ -27,6 +27,8 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
+include(vendor/vendor.pri)
+
 include(../../ui/ui.pri)
 include(../../usecases/usecases.pri)
 include(../../entities/character/character.pri)

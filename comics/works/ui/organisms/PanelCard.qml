@@ -17,6 +17,8 @@ FocusScope {
     property alias description: description
     property alias addCharacterButton: addCharacterButton
     property alias availableCharactersSelector: availableCharactersSelector
+    property alias dialogsList: dialogsList
+    property alias panelCharactersList: panelCharactersList
 
     signal addDialogButtonClicked(string characterName, string dialogContent)
 
@@ -40,12 +42,12 @@ FocusScope {
         x: 8
         y: 8
         text: "[panel name]"
-        opacity: .5
+        opacity: .4
     }
     TextArea {
         id: description
         font.pixelSize: CWA.Typo.p2
-        color: CWA.Colors.shades600
+        color: CWA.Colors.shades500
         anchors.top: name.bottom
         padding: 4
         focus: true
@@ -62,16 +64,17 @@ FocusScope {
         width: parent.width
         spacing: 4
         Repeater {
-            model: typeof(modelData) != "undefined" ? modelData.dialogs : [
-                                                          {
-                                                              "characterName":"first character",
-                                                              "dialogContent_en_US":"I am an example of a fairly long dialog that might stretch more than one line"
-                                                          },
-                                                          {
-                                                              "characterName":"second character",
-                                                              "dialogContent_en_US":"I am a shorter dialog"
-                                                          }
-                                                      ]
+            id: dialogsList
+            model: [
+                {
+                    "characterName":"first character",
+                    "dialogContent_en_US":"I am an example of a fairly long dialog that might stretch more than one line"
+                },
+                {
+                    "characterName":"second character",
+                    "dialogContent_en_US":"I am a shorter dialog"
+                }
+            ]
             delegate: Row {
                 x: 8
                 spacing: 8
@@ -136,8 +139,8 @@ FocusScope {
         anchors.margins: 8
         spacing: 4
         Repeater {
-            id: panelCharacters
-            model: typeof(modelData) != "undefined" ? modelData.characters : ["first character","second character"]
+            id: panelCharactersList
+            model: ["first character","second character"]
             delegate: CWM.InlineTextPicButton {
                 text: modelData
                 onClicked: if (dialogField.displayText) addDialogButtonClicked(modelData, dialogField.displayText)

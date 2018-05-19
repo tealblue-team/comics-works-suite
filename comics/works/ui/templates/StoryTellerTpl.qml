@@ -7,8 +7,10 @@ import "../organisms" as CWO
 
 GridLayout {
     id: root
-    property alias charactersListView: charactersListView
+    property alias charactersList: charactersList
+    property alias panelsList: panelsList
     property alias panelsGrid: panelsGrid
+    property alias saveButton: saveButton
     width: 1024
     height: 768
     columnSpacing: 0
@@ -47,12 +49,8 @@ GridLayout {
                 }
             }
             CWO.CharactersList {
-                id: charactersListView
+                id: charactersList
                 Layout.fillWidth: true
-                onAddCharacterFieldReturnPressed: {
-                    uc.create_character(addCharacterField.text,workspaceName)
-                    addCharacterField.clear()
-                }
             }
             Row {
                 spacing: 8
@@ -64,15 +62,15 @@ GridLayout {
                     color: CWA.Colors.shades400
                 }
             }
-            CWO.PanelsListView {
-                id: panelsListView
+            CWO.PanelsList {
+                id: panelsList
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 model: panelsGrid.model
             }
             Button {
-                text: "Save"
-                onClicked: projectJson.saveToJsonDoc()
+                id: saveButton
+                text: qsTr("Save")
                 anchors.horizontalCenter: parent.horizontalCenter
                 Layout.margins: 16
             }
@@ -86,24 +84,10 @@ GridLayout {
         CWM.Desk {
             id: desk
             anchors.fill: parent
-            GridView {
+            CWO.PanelsGrid {
                 id: panelsGrid
                 anchors.fill: parent
                 anchors.margins: 8
-                cellWidth: panelsGrid.width / 3
-                cellHeight: 264
-                model: []
-                delegate: CWO.PanelCard {
-                    id: panelCard
-                    name.text: modelData.eid
-                    description.placeholderText: "<%1>".arg(qsTr("add description"))
-                    description.text: modelData.description
-                    onDescriptionConfirmed: uc.describe_panel(modelData.eid, description.text)
-                    addCharacterButton.enabled: charactersListView.count > 0
-                    availableCharactersSelector.model: charactersListView.model
-                    availableCharactersSelector.onItemClicked: uc.add_character_to_panel(name, modelData.eid)
-                    onAddDialogButtonClicked: uc.add_dialog_to_panel(dialogContent, characterName, modelData.eid)
-                }
             }
         }
     }

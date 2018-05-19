@@ -3,5 +3,6 @@ module comics.works.ui.molecules
 Desk 1.0 Desk.qml
 InlineIconButton 1.0 InlineIconButton.qml
 InlineSelectionList 1.0 InlineSelectionList.qml
+InlineTextIconButton 1.0 InlineTextIconButton.qml
 InlineTextPicButton 1.0 InlineTextPicButton.qml
 Snackbar 1.0 Snackbar.qml
