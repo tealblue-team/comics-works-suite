@@ -53,7 +53,7 @@ Window {
                             width: 120
                             height: 90
                             color: CWA.Colors[modelData]
-                            Text {
+                            Label {
                                 anchors.centerIn: parent
                                 text: "%1\n%2".arg(modelData).arg(CWA.Colors[modelData])
                                 horizontalAlignment: Text.AlignHCenter
@@ -70,14 +70,12 @@ Window {
                     text: "Logotypes"
                 }
                 CWA.CWLogo {
-
                 }
                 Rectangle {
                     width: childrenRect.width
                     height: childrenRect.height
                     color: CWA.Colors.shades600
                     CWA.CWLogoBw {
-
                     }
                 }
             }
@@ -150,6 +148,18 @@ Window {
                     size: "S"
                 }
                 Label {
+                    text: "InlineSelectionList"
+                }
+                CWM.InlineSelectionList {
+                }
+                Label {
+                    text: "InlineTextIconButton"
+                }
+                CWM.InlineTextIconButton {
+                    text: "panels"
+                    iconContent: "panel"
+                }
+                Label {
                     text: "InlineTextPicButton"
                 }
                 CWM.InlineTextPicButton {
@@ -161,11 +171,6 @@ Window {
                 CWM.InlineTextPicButton {
                     size: "S"
                     text: "Ayran"
-                }
-                Label {
-                    text: "InlineSelectionList"
-                }
-                CWM.InlineSelectionList {
                 }
             }
             ColumnLayout {
@@ -199,6 +204,16 @@ Window {
                     text: "PanelCard"
                 }
                 CWO.PanelCard {
+                }
+                Label {
+                    text: "PanelsList"
+                }
+                CWO.PanelsList {
+                }
+                Label {
+                    text: "CharactersList"
+                }
+                CWO.CharactersList {
                 }
             }
         }
