@@ -24,6 +24,10 @@ const QString& Panel::eid() const {
     return m_eid;
 }
 
+const QString& Panel::name() const {
+    return m_name;
+}
+
 int Panel::width() const {
     return m_width;
 }
@@ -69,6 +73,11 @@ void Panel::setDescription(const QString& description)
 void Panel::setEid(const QString& eid) {
     if (m_eid != eid && eid != "")
         m_eid = eid;
+}
+
+void Panel::setName(const QString& name) {
+    if (m_name != name)
+        m_name = name;
 }
 
 void Panel::setWidth(int width) {

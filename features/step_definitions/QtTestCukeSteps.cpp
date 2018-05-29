@@ -51,7 +51,7 @@ CUKE_STEP_("^no pile with name \"([a-zA-Z]+[0-9]*)\" exists in the current works
     QVERIFY(! ctx->entities.currentWorkspace->piles().contains(pileId));
 }
 
-CUKE_STEP_("^no panel with name \"([a-zA-Z]+[0-9]*)\" exists in the current workspace$") {
+CUKE_STEP_("^no panel with id \"([a-zA-Z]+[0-9]*)\" exists in the current workspace$") {
     REGEX_PARAM(QString, panelId);
     ScenarioScope<MainCtx> ctx;
     bool panelExists = false;
@@ -77,7 +77,7 @@ CUKE_STEP_("^a pile with name \"([a-zA-Z]+[0-9]*)\" exists in the current worksp
     QVERIFY(ctx->entities.currentWorkspace->piles().contains(pileId));
 }
 
-CUKE_STEP_("^a panel with name \"([a-zA-Z]+[0-9]*)\" exists in the current workspace$") {
+CUKE_STEP_("^a panel with id \"([a-zA-Z]+[0-9]*)\" exists in the current workspace$") {
     REGEX_PARAM(QString, panelId);
     ScenarioScope<MainCtx> ctx;
     bool panelExists = false;
@@ -116,7 +116,7 @@ CUKE_STEP_("^the pile with name \"([a-zA-Z]+[0-9]*)\" is not created$") {
     QCOMPARE(ctx->usecaseResult.value("outcome").toString(), QString("PILE_NOT_CREATED"));
 }
 
-CUKE_STEP_("^the panel with name \"([a-zA-Z]+[0-9]*)\" is not created$") {
+CUKE_STEP_("^the panel with id \"([a-zA-Z]+[0-9]*)\" is not created$") {
     REGEX_PARAM(QString, panelId);
     ScenarioScope<MainCtx> ctx;
     QCOMPARE(ctx->usecaseResult.value("eid").toString(), panelId);
@@ -130,14 +130,14 @@ CUKE_STEP_("^I am told that a pile with name \"([a-zA-Z]+[0-9]*)\" already exist
     QCOMPARE(ctx->usecaseResult.value("reason").toString(),QString("PILE_ALREADY_EXISTS"));
 }
 
-CUKE_STEP_("^I am told that a panel with name \"([a-zA-Z]+[0-9]*)\" already exists$") {
+CUKE_STEP_("^I am told that a panel with id \"([a-zA-Z]+[0-9]*)\" already exists$") {
     REGEX_PARAM(QString, panelId);
     ScenarioScope<MainCtx> ctx;
     QCOMPARE(ctx->usecaseResult.value("eid").toString(), panelId);
     QCOMPARE(ctx->usecaseResult.value("reason").toString(),QString("PANEL_ALREADY_EXISTS"));
 }
 
-CUKE_STEP_("^I try to create a panel with name \"([a-zA-Z]+[0-9]*)\"$") {
+CUKE_STEP_("^I try to create a panel with id \"([a-zA-Z]+[0-9]*)\"$") {
     REGEX_PARAM(QString, panelId);
     ScenarioScope<MainCtx> ctx;
     QSignalSpy usecaseResult(&ctx->uc, &usecases::usecaseCompleted);
@@ -146,7 +146,7 @@ CUKE_STEP_("^I try to create a panel with name \"([a-zA-Z]+[0-9]*)\"$") {
     ctx->usecaseResult = usecaseResult.takeFirst().at(0).toMap();
 }
 
-CUKE_STEP_("^I try to delete a panel with name \"([a-zA-Z]+[0-9]*)\"$") {
+CUKE_STEP_("^I try to delete a panel with id \"([a-zA-Z]+[0-9]*)\"$") {
     REGEX_PARAM(QString, panelId);
     ScenarioScope<MainCtx> ctx;
     QSignalSpy usecaseResult(&ctx->uc, &usecases::usecaseCompleted);
@@ -155,21 +155,21 @@ CUKE_STEP_("^I try to delete a panel with name \"([a-zA-Z]+[0-9]*)\"$") {
     ctx->usecaseResult = usecaseResult.takeFirst().at(0).toMap();
 }
 
-CUKE_STEP_("^the panel with name \"([a-zA-Z]+[0-9]*)\" is created$") {
+CUKE_STEP_("^the panel with id \"([a-zA-Z]+[0-9]*)\" is created$") {
     REGEX_PARAM(QString, panelId);
     ScenarioScope<MainCtx> ctx;
     QCOMPARE(ctx->usecaseResult.value("eid").toString(), panelId);
     QCOMPARE(ctx->usecaseResult.value("outcome").toString(), QString("PANEL_CREATED"));
 }
 
-CUKE_STEP_("^the panel with name \"([a-zA-Z]+[0-9]*)\" is deleted$") {
+CUKE_STEP_("^the panel with id \"([a-zA-Z]+[0-9]*)\" is deleted$") {
     REGEX_PARAM(QString, panelId);
     ScenarioScope<MainCtx> ctx;
     QCOMPARE(ctx->usecaseResult.value("eid").toString(), panelId);
     QCOMPARE(ctx->usecaseResult.value("outcome").toString(), QString("PANEL_DELETED"));
 }
 
-CUKE_STEP_("^I can lookup the panel with name \"([a-zA-Z]+[0-9]*)\" in the current workspace$") {
+CUKE_STEP_("^I can lookup the panel with id \"([a-zA-Z]+[0-9]*)\" in the current workspace$") {
     REGEX_PARAM(QString, panelId);
     ScenarioScope<MainCtx> ctx;
     bool found = false;
@@ -182,7 +182,7 @@ CUKE_STEP_("^I can lookup the panel with name \"([a-zA-Z]+[0-9]*)\" in the curre
     QVERIFY(found);
 }
 
-CUKE_STEP_("^I cannot lookup the panel with name \"([a-zA-Z]+[0-9]*)\" in the current workspace$") {
+CUKE_STEP_("^I cannot lookup the panel with id \"([a-zA-Z]+[0-9]*)\" in the current workspace$") {
     REGEX_PARAM(QString, panelId);
     ScenarioScope<MainCtx> ctx;
     bool found = false;
@@ -255,6 +255,38 @@ CUKE_STEP_("^the description for panel \"([a-zA-Z]+[0-9]*)\" reads \"(.+)\"$") {
         }
     }
     QVERIFY(descriptionFound);
+}
+
+CUKE_STEP_("^I try to name panel \"([a-zA-Z]+[0-9]*)\" as \"(.+)\"$") {
+    REGEX_PARAM(QString, panelId);
+    REGEX_PARAM(QString, panelName);
+    ScenarioScope<MainCtx> ctx;
+    QSignalSpy usecaseResult(&ctx->uc, &usecases::usecaseCompleted);
+    ctx->uc.name_panel(panelId, panelName);
+    usecaseResult.wait(5);
+    ctx->usecaseResult = usecaseResult.takeFirst().at(0).toMap();
+}
+
+CUKE_STEP_("^a name is added to panel \"([a-zA-Z]+[0-9]*)\"$") {
+    REGEX_PARAM(QString, panelId);
+    ScenarioScope<MainCtx> ctx;
+    QCOMPARE(ctx->usecaseResult.value("eid").toString(), panelId);
+    QCOMPARE(ctx->usecaseResult.value("outcome").toString(), QString("PANEL_NAMED"));
+}
+
+CUKE_STEP_("^the name for panel \"([a-zA-Z]+[0-9]*)\" reads \"(.+)\"$") {
+    REGEX_PARAM(QString, panelId);
+    REGEX_PARAM(QString, panelName);
+    ScenarioScope<MainCtx> ctx;
+    bool nameFound = false;
+    for (int i = 0; i < ctx->entities.currentWorkspace->panels()->size(); ++i) {
+        if ((ctx->entities.currentWorkspace->panels()->at(i)->eid() == panelId)
+                && (ctx->entities.currentWorkspace->panels()->at(i)->name() == panelName)) {
+            nameFound = true;
+            break;
+        }
+    }
+    QVERIFY(nameFound);
 }
 
 CUKE_STEP_("^no character with name \"([a-zA-Z0-9]+)\" exists in the current workspace$") {

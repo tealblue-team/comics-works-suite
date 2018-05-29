@@ -52,16 +52,6 @@ GridLayout {
                 id: charactersList
                 Layout.fillWidth: true
             }
-            Row {
-                spacing: 8
-                CWA.Icon {
-                    content: "panel"
-                }
-                CWA.H6 {
-                    text: qsTr("Panels")
-                    color: CWA.Colors.shades400
-                }
-            }
             CWO.PanelsList {
                 id: panelsList
                 Layout.fillHeight: true

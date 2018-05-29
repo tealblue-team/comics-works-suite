@@ -205,6 +205,10 @@ Window {
                 }
                 CWO.PanelCard {
                 }
+            }
+            ColumnLayout {
+                Layout.alignment: Qt.AlignTop
+                Layout.margins: 8
                 Label {
                     text: "PanelsList"
                 }

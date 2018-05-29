@@ -5,10 +5,12 @@ import "../atoms" as CWA
 RoundButton {
     id: root
     property string size
+    property alias iconContent: icon.content
     implicitWidth: size == "S" ? 24 : 32
     implicitHeight: width
     radius: width / 2
     contentItem: CWA.Icon {
+        id: icon
         content: "add"
         anchors.centerIn: parent
     }

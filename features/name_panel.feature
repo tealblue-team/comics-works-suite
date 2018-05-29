@@ -1,7 +1,7 @@
-Feature: delete panel
+Feature: name panel
   As a comic creator
-  I want to delete a panel
-  because I created too many
+  I want to name a panel
+  so that I can refer to it according to my organisation system
 
   Background:
     Given I try to create a workspace with name "workspace1"
@@ -10,6 +10,6 @@ Feature: delete panel
     And the panel with id "panel1" is created
 
   Scenario: completed
-    When I try to delete a panel with id "panel1"
-    Then the panel with id "panel1" is deleted
-    And I cannot lookup the panel with id "panel1" in the current workspace
+    When I try to name panel "panel1" as "HL-I-1"
+    Then a name is added to panel "panel1"
+    And the name for panel "panel1" reads "HL-I-1"

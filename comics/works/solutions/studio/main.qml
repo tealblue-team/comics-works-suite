@@ -41,7 +41,7 @@ Window {
             projectJson.writeJsonToFile(jsonDoc,"../../heavyLoad1.cw.json")
             snackbar.visible = true
             snackbar.text = qsTr("File saved")
-            snackbarTimer.start()
+            snackbar.timer.start()
         }
     }
     JsonListModel {
@@ -64,8 +64,14 @@ Window {
         }
 
         panelsList.model: panelsModel
-        panelsList.addPanelButton.onClicked: uc.create_panel("panel"+(panelsModel.count+1), workspaceName)
-        panelsList.removePanelButton.onClicked: uc.delete_panel("panel"+(panelsModel.count), workspaceName)
+        panelsList.addPanelButton.onClicked: {
+            var abc=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+            uc.create_panel("panel%1%2%3"
+                            .arg(abc[Math.floor(Math.random()*26)].toUpperCase())
+                            .arg(abc[Math.floor(Math.random()*26)].toUpperCase())
+                            .arg(abc[Math.floor(Math.random()*26)].toUpperCase()), workspaceName)
+        }
+        panelsList.onRemovePanelButtonClicked: uc.delete_panel(itemId, workspaceName)
 
         panelsGrid.model: panelsModel
         panelsGrid.delegate: CWO.PanelCard {
@@ -84,6 +90,7 @@ Window {
             dialogsList.model: model.dialogs
             panelCharactersList.model: model.characters
         }
+
         saveButton.onClicked: projectJson.saveToJsonDoc()
     }
     CWM.Snackbar {
@@ -92,11 +99,5 @@ Window {
         anchors.top: parent.top
         anchors.margins: 16
         anchors.horizontalCenter: parent.horizontalCenter
-        Timer {
-            id: snackbarTimer
-            interval: 2500
-            running: true
-            onTriggered: parent.visible = false
-        }
     }
 }

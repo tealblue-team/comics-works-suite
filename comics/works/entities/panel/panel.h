@@ -16,6 +16,7 @@ public:
     const QString& description() const;
     QVariantList dialogs() const;
     const QString& eid() const;
+    const QString& name() const;
     int width() const;
     int height() const;
 
@@ -24,6 +25,7 @@ public:
     void removeDialog(const QString& dialogContent, const QString& characterName);
     void setDescription(const QString&);
     void setEid(const QString&);
+    void setName(const QString&);
     void setWidth(int);
     void setHeight(int);
 private:
@@ -31,6 +33,7 @@ private:
     QVector<entities::CharacterBase*>* m_characters;
     QVariantList m_dialogs;
     QString m_eid;
+    QString m_name;
     int m_width = 0;
     int m_height = 0;
 };

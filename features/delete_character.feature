@@ -10,8 +10,8 @@ Feature: delete character
     And the character with name "Ayran" is created
     And I try to create a character with name "Birun"
     And the character with name "Birun" is created
-    And I try to create a panel with name "panel1"
-    And the panel with name "panel1" is created
+    And I try to create a panel with id "panel1"
+    And the panel with id "panel1" is created
     And I try to add character with name "Ayran" to panel "panel1"
     And the character with name "Ayran" is added to panel "panel1"
     And I try to add character with name "Birun" to panel "panel1"

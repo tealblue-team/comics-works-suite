@@ -6,8 +6,8 @@ Feature: describe panel
   Background:
     Given I try to create a workspace with name "workspace1"
     And the workspace with name "workspace1" is created
-    And I try to create a panel with name "panel1"
-    And the panel with name "panel1" is created
+    And I try to create a panel with id "panel1"
+    And the panel with id "panel1" is created
 
   Scenario: completed
     When I try to describe panel "panel1" as "my first panel"

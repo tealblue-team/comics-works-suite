@@ -5,28 +5,39 @@ import "../molecules" as CWM
 
 Rectangle {
     id: root
-    signal itemClicked(string name)
+    signal removePanelButtonClicked(string itemId)
     property alias model: listView.model
     property alias addPanelButton: addPanelButton
-    property alias removePanelButton: removePanelButton
-    implicitWidth: childrenRect.width
-    implicitHeight: 200
     color: CWA.Colors.shades600
+    implicitWidth: 256
+    implicitHeight: 256
+    Row {
+        id: header
+        spacing: 8
+        CWA.Icon {
+            content: "panel"
+        }
+        CWA.H6 {
+            text: qsTr("Panels")
+            color: CWA.Colors.shades400
+        }
+    }
     Column {
         id: buttonsCol
         width: root.width
+        anchors.top: header.bottom
         CWM.InlineTextIconButton {
             id: addPanelButton
             text: qsTr("add panel")
             iconContent: "add"
             anchors{left:parent.left;right:parent.right}
         }
-        CWM.InlineTextIconButton {
-            id: removePanelButton
-            text: qsTr("remove last panel")
-            iconContent: "remove"
-            anchors{left:parent.left;right:parent.right}
-        }
+//        CWM.InlineTextIconButton {
+//            id: removePanelButton
+//            text: qsTr("remove last panel")
+//            iconContent: "remove"
+//            anchors{left:parent.left;right:parent.right}
+//        }
     }
     ListView {
         id: listView
@@ -40,20 +51,33 @@ Rectangle {
             ListElement {eid:"panel1";description:"desc1"}
             ListElement {eid:"panel2";description:"desc2"}
         }
-        delegate: Row {
-            spacing: 4
+        delegate: Item {
             width: root.width
+            height: childrenRect.height
             CWA.P2 {
+                id: nameLabel
                 text: model.eid
                 color: CWA.Colors.shades0
                 opacity: .8
                 width: 56
             }
             CWA.P2 {
+                id: descriptionLabel
                 text: model.description
                 color: CWA.Colors.shades0
                 elide: Text.ElideRight
                 width: root.width - 64
+                anchors.left: nameLabel.right
+            }
+            MouseArea {
+                anchors.right: parent.right
+                width: 24
+                height: 24
+                onClicked: removePanelButtonClicked(model.eid)
+                CWA.Icon {
+                    content: "remove"
+                    anchors.centerIn: parent
+                }
             }
         }
     }

@@ -17,6 +17,7 @@ public:
     virtual const QString& description() const = 0;
     virtual QVariantList dialogs() const = 0;
     virtual const QString& eid() const = 0;
+    virtual const QString& name() const = 0;
     virtual int width() const = 0;
     virtual int height() const = 0;
 
@@ -25,6 +26,7 @@ public:
     virtual void removeDialog(const QString& dialogContent, const QString& characterName) = 0;
     virtual void setEid(const QString&) = 0;
     virtual void setDescription(const QString&) = 0;
+    virtual void setName(const QString&) = 0;
     virtual void setWidth(int) = 0;
     virtual void setHeight(int) = 0;
 };

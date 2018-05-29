@@ -83,9 +83,11 @@ void usecases::create_panel(const QString& name, const QString& workspaceName)
 {
     QVariantMap ret;
     bool found = false;
-    for (int i = 0; i < entities_reg->currentWorkspace->panels()->size(); ++i) {
-        if (entities_reg->currentWorkspace->panels()->at(i)->eid() == name) {
+    auto panels = entities_reg->currentWorkspace->panels();
+    for (int i = 0; i < panels->size(); ++i) {
+        if (panels->at(i)->eid() == name) {
             found = true;
+            qDebug() << "eccalla";
             break;
         }
     }
@@ -199,36 +201,56 @@ void usecases::delete_character(const QString &characterName, const QString &wor
 void usecases::delete_panel(const QString &name, const QString &workspaceName)
 {
     QVariantMap ret;
-    for (int i=0;i<entities_reg->currentWorkspace->panels()->length();++i) {
-        if (entities_reg->currentWorkspace->panels()->at(i)->eid() == name) {
-            entities_reg->currentWorkspace->panels()->remove(i);
+    auto panels = entities_reg->currentWorkspace->panels();
+    for (int i=0;i<panels->size();++i) {
+        if (panels->at(i)->eid() == name) {
+            panels->remove(i);
             break;
         }
     }
     ret = {
         {"outcome", "PANEL_DELETED"},
         {"eid", name},
-        {"panels", _getPanelsList(entities_reg->currentWorkspace->panels())}
+        {"panels", _getPanelsList(panels)}
     };
     emit panelDeleted(ret);
     emit usecaseCompleted(ret);
 }
 
-void usecases::describe_panel(const QString &panelName, const QString &panelDescription)
+void usecases::describe_panel(const QString &panelId, const QString &panelDescription)
 {
     QVariantMap ret;
     for (int i=0;i<entities_reg->currentWorkspace->panels()->length();++i) {
-        if (entities_reg->currentWorkspace->panels()->at(i)->eid() == panelName) {
+        if (entities_reg->currentWorkspace->panels()->at(i)->eid() == panelId) {
             entities_reg->currentWorkspace->panels()->at(i)->setDescription(panelDescription);
             break;
         }
     }
     ret = {
         {"outcome", "PANEL_DESCRIBED"},
-        {"eid", panelName},
+        {"eid", panelId},
         {"panels", _getPanelsList(entities_reg->currentWorkspace->panels())}
     };
     emit panelDescribed(ret);
+    emit usecaseCompleted(ret);
+}
+
+void usecases::name_panel(const QString &panelId, const QString &panelName)
+{
+    QVariantMap ret;
+    auto panels = entities_reg->currentWorkspace->panels();
+    for (int i=0;i<panels->length();++i) {
+        if (panels->at(i)->eid() == panelId) {
+            panels->at(i)->setName(panelName);
+            break;
+        }
+    }
+    ret = {
+        {"outcome", "PANEL_NAMED"},
+        {"eid", panelId},
+        {"panels", _getPanelsList(panels)}
+    };
+    emit panelNamed(ret);
     emit usecaseCompleted(ret);
 }
 
