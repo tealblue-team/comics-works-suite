@@ -19,7 +19,8 @@
                     "dialogContent_en_US": "So... that's what war is"
                 }
             ],
-            "eid": "panel1"
+            "eid": "panelXBW",
+            "name": "HL-I-1"
         },
         {
             "characters": [
@@ -32,7 +33,8 @@
                     "dialogContent_en_US": "I am leaving my country with a heavy load upon me"
                 }
             ],
-            "eid": "panel2"
+            "eid": "panelSNX",
+            "name": "HL-I-2A"
         },
         {
             "characters": [
@@ -41,7 +43,8 @@
             "description": "The man's profile can be seen. It is full of anguish and fear. His eyes are fixed onto something.",
             "dialogs": [
             ],
-            "eid": "panel3"
+            "eid": "panelJNO",
+            "name": "HL-I-2B"
         },
         {
             "characters": [
@@ -50,7 +53,8 @@
             "description": "A countryside road goes from a forest towards a river. In the distance, a guard post. Beyond the post, a bridge.",
             "dialogs": [
             ],
-            "eid": "panel4"
+            "eid": "panelWLS",
+            "name": "HL-I-3"
         },
         {
             "characters": [
@@ -63,7 +67,8 @@
                     "dialogContent_en_US": "... A load that will never leave me."
                 }
             ],
-            "eid": "panel5"
+            "eid": "panelLNA",
+            "name": "HL-I-4A"
         },
         {
             "characters": [
@@ -72,7 +77,8 @@
             "description": "Zoom in to the post's guards from the man's standpoint.",
             "dialogs": [
             ],
-            "eid": "panel6"
+            "eid": "panelBYS",
+            "name": "HL-I-4B"
         },
         {
             "characters": [
@@ -81,7 +87,8 @@
             "description": "The man looks into that direction.",
             "dialogs": [
             ],
-            "eid": "panel7"
+            "eid": "panelIAY",
+            "name": "HL-I-5A"
         },
         {
             "characters": [
@@ -90,7 +97,8 @@
             "description": "The man looks into a different direction.",
             "dialogs": [
             ],
-            "eid": "panel8"
+            "eid": "panelMSL",
+            "name": "HL-I-5B"
         },
         {
             "characters": [
@@ -99,7 +107,8 @@
             "description": "A bit south of the bridge and the post there is a wide tree that stretches onto the strong river, almost reaching the opposite bank.",
             "dialogs": [
             ],
-            "eid": "panel9"
+            "eid": "panelPWA",
+            "name": "HL-I-6"
         },
         {
             "characters": [
@@ -108,7 +117,8 @@
             "description": "The man takes up his weight again...",
             "dialogs": [
             ],
-            "eid": "panel10"
+            "eid": "panelLKM",
+            "name": "HL-I-7"
         },
         {
             "characters": [
@@ -121,7 +131,8 @@
                     "dialogContent_en_US": "Yet, when it all started everything looked so exciting..."
                 }
             ],
-            "eid": "panel11"
+            "eid": "panelQDH",
+            "name": "HL-1-8"
         },
         {
             "characters": [
@@ -134,7 +145,8 @@
                     "dialogContent_en_US": "But now HE is dead, and so am I."
                 }
             ],
-            "eid": "panel12"
+            "eid": "panelCSG",
+            "name": "HL-I-9"
         }
     ]
 }
