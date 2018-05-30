@@ -5,6 +5,9 @@
         },
         {
             "name": "Birun"
+        },
+        {
+            "name": "Narrator"
         }
     ],
     "panels": [
@@ -147,6 +150,96 @@
             ],
             "eid": "panelCSG",
             "name": "HL-I-9"
+        },
+        {
+            "characters": [
+                "Birun",
+                "Ayran",
+                "Narrator"
+            ],
+            "description": "",
+            "dialogs": [
+                {
+                    "characterName": "Narrator",
+                    "dialogContent_en_US": "Some time before..."
+                }
+            ],
+            "eid": "panelTSE",
+            "name": "HL-I-10"
+        },
+        {
+            "characters": [
+                "Ayran",
+                "Birun"
+            ],
+            "description": "",
+            "dialogs": [
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "Birun! Commend your soul to Ashtalan the almighty, cause you're gonna meet her soon!"
+                }
+            ],
+            "eid": "panelMYA",
+            "name": "HL-I-11"
+        },
+        {
+            "characters": [
+                "Ayran"
+            ],
+            "description": "",
+            "dialogs": [
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "WAAAH!"
+                }
+            ],
+            "eid": "panelVFF",
+            "name": "HL-I-12"
+        },
+        {
+            "characters": [
+                "Ayran",
+                "Birun"
+            ],
+            "description": "",
+            "dialogs": [
+                {
+                    "characterName": "Birun",
+                    "dialogContent_en_US": "Ayran, you son of a blind raccoon! I'll show you now!"
+                }
+            ],
+            "eid": "panelSTP",
+            "name": "HL-I-13"
+        },
+        {
+            "characters": [
+                "Ayran",
+                "Birun"
+            ],
+            "description": "",
+            "dialogs": [
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "?"
+                },
+                {
+                    "characterName": "Birun",
+                    "dialogContent_en_US": "HA!"
+                }
+            ],
+            "eid": "panelFMN",
+            "name": "HL-I-14"
+        },
+        {
+            "characters": [
+                "Ayran",
+                "Birun"
+            ],
+            "description": "",
+            "dialogs": [
+            ],
+            "eid": "panelRLE",
+            "name": "HL-I-15"
         }
     ]
 }
