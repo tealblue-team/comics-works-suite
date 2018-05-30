@@ -33,7 +33,18 @@ void ProjectJson::loadFromJsonDoc(const QByteArray& projectJson)
             }
         }
     });
-    m_describePanels = connect(m_uc, &usecases::panelCreated, [=](QVariant value) {
+    m_namePanels = connect(m_uc, &usecases::panelCreated, [=](QVariant value) {
+        auto panels = value.toMap().value("panels").toList();
+        if (panels.size() == panelsJson.size()) {
+            for (int i=0;i<panels.size();++i) {
+                auto panelEid = panels.at(i).toMap().value("eid").toString();
+                auto panelName = panelsJson.at(i).toObject().value("name").toString();
+                m_namesCount += 1;
+                m_uc->name_panel(panelEid, panelName);
+            }
+        }
+    });
+    m_describePanels = connect(m_uc, &usecases::panelNamed, [=](QVariant value) {
         auto panels = value.toMap().value("panels").toList();
         if (panels.size() == panelsJson.size()) {
             for (int i=0;i<panels.size();++i) {

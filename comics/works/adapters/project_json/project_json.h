@@ -31,11 +31,13 @@ private:
     usecases* m_uc = nullptr;
     int m_descriptionsCount = 0;
     int m_dialogsCount = 0;
+    int m_namesCount = 0;
     int m_panelCharactersCount = 0;
-    QMetaObject::Connection m_createPanels;
-    QMetaObject::Connection m_describePanels;
     QMetaObject::Connection m_addCharactersToPanels;
     QMetaObject::Connection m_addDialogsToPanels;
+    QMetaObject::Connection m_createPanels;
+    QMetaObject::Connection m_describePanels;
+    QMetaObject::Connection m_namePanels;
 };
 }
 }

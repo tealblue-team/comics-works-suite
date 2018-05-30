@@ -12,6 +12,8 @@ FocusScope {
     height: width + 1
 
     signal descriptionConfirmed(var event)
+    signal nameConfirmed(var event)
+    signal addDialogButtonClicked(string characterName, string dialogContent)
 
     property alias name: name
     property alias description: description
@@ -20,8 +22,6 @@ FocusScope {
     property alias availableCharactersSelector: availableCharactersSelector
     property alias dialogsList: dialogsList
     property alias panelCharactersList: panelCharactersList
-
-    signal addDialogButtonClicked(string characterName, string dialogContent)
 
     Rectangle {
         width: root.width
@@ -38,12 +38,18 @@ FocusScope {
         color: CWA.Colors.shades0
         radius: 4
     }
-    CWA.P2 {
+    TextField {
         id: name
-        x: 8
-        y: 8
-        text: "[panel name]"
-        opacity: .4
+        font.pixelSize: CWA.Typo.p2
+        color: CWA.Colors.shades500
+        padding: 4
+        width: parent.width - 8
+        height: implicitHeight
+        placeholderText: "<add name>"
+        Keys.onEscapePressed: focus = false
+        Keys.onReturnPressed: nameConfirmed(event)
+        wrapMode: TextArea.Wrap
+        background: Rectangle {}
     }
     TextArea {
         id: description
