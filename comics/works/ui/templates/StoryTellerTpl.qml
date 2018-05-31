@@ -11,6 +11,7 @@ GridLayout {
     property alias panelsList: panelsList
     property alias panelsGrid: panelsGrid
     property alias saveButton: saveButton
+    property alias exportToPdfButton: exportToPdfButton
     width: 1024
     height: 768
     columnSpacing: 0
@@ -58,11 +59,17 @@ GridLayout {
                 Layout.fillWidth: true
                 model: panelsGrid.model
             }
-            Button {
-                id: saveButton
-                text: qsTr("Save")
-                anchors.horizontalCenter: parent.horizontalCenter
+            Row {
                 Layout.margins: 16
+                anchors.horizontalCenter: parent.horizontalCenter
+                Button {
+                    id: saveButton
+                    text: qsTr("Save")
+                }
+                Button {
+                    id: exportToPdfButton
+                    text: qsTr("Export PDF")
+                }
             }
         }
     }

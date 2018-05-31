@@ -29,6 +29,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         tst_project_pdf.cpp
 
+include(../project_json/project_json.pri)
 include(../../entities/entities.pri)
 include(../../entities/character/character.pri)
 include(../../entities/panel/panel.pri)
@@ -36,3 +37,5 @@ include(../../entities/workspace/workspace.pri)
 include(../../usecases/usecases.pri)
 
 INCLUDEPATH += $$PWD/../../../..
+
+include(project_pdf.pri)

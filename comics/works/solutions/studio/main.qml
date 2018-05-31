@@ -99,6 +99,9 @@ Window {
         saveButton {
             onClicked: projectJson.saveToJsonDoc()
         }
+        exportToPdfButton {
+            onClicked: projectPdf.saveToPdf("myProject.cw.pdf")
+        }
     }
     CWM.Snackbar {
         id: snackbar
