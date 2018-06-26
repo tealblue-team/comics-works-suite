@@ -79,26 +79,25 @@ QVariantMap usecases::create_pile(const QString& name, const QString& workspaceN
     };
 }
 
-void usecases::create_panel(const QString& name, const QString& workspaceName)
+void usecases::create_panel(const QString& eid, const QString& workspaceName)
 {
     QVariantMap ret;
     bool found = false;
     auto panels = entities_reg->currentWorkspace->panels();
     for (int i = 0; i < panels->size(); ++i) {
-        if (panels->at(i)->eid() == name) {
+        if (panels->at(i)->eid() == eid) {
             found = true;
-            qDebug() << "eccalla";
             break;
         }
     }
     if (!found) {
-        auto panel = new entities::Panel(name, entities_reg->currentWorkspace);
+        auto panel = new entities::Panel(eid, entities_reg->currentWorkspace);
         panel->setWidth(256);
         panel->setHeight(256);
         entities_reg->currentWorkspace->addPanel(panel);
         ret = {
             {"outcome", "PANEL_CREATED"},
-            {"eid", name},
+            {"eid", eid},
             {"panels", _getPanelsList(entities_reg->currentWorkspace->panels())}
         };
         emit panelCreated(ret);
@@ -106,7 +105,7 @@ void usecases::create_panel(const QString& name, const QString& workspaceName)
         ret = {
             {"outcome", "PANEL_NOT_CREATED"},
             {"reason", "PANEL_ALREADY_EXISTS"},
-            {"eid", name}
+            {"eid", eid}
         };
         emit panelNotCreated(ret);
     }
@@ -262,8 +261,7 @@ QVariantList usecases::_getPanelsList(QVector<entities::PanelBase *>* panels) co
     for (int i=0;i<panels->length();++i) {
         QVariantMap panelSerial;
         panelSerial["eid"] = panels->at(i)->eid();
-        if (panels->at(i)->name() != "")
-            panelSerial["name"] = panels->at(i)->name();
+        panelSerial["name"] = panels->at(i)->name();
         panelSerial["description"] = panels->at(i)->description();
         QVariantList characters;
         for (int j=0;j<panels->at(i)->characters()->length();++j) {
