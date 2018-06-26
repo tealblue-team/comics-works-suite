@@ -1,5 +1,6 @@
 import QtQuick 2.9
 import QtQuick.Window 2.2
+import Qt.labs.platform 1.0
 import com.cutehacks.gel 1.0
 import comics.works.ui.molecules 1.0 as CWM
 import comics.works.ui.organisms 1.0 as CWO
@@ -45,6 +46,15 @@ Window {
             snackbar.timer.start()
         }
     }
+    Connections {
+        target: projectPdf
+        onSaved: {
+            snackbar.visible = true
+            snackbar.text = qsTr("Project exported to %1".arg(filePath))
+            snackbar.timer.start()
+        }
+    }
+
     JsonListModel {
         id: panelsModel
         idAttribute: "eid"
@@ -100,8 +110,15 @@ Window {
             onClicked: projectJson.saveToJsonDoc()
         }
         exportToPdfButton {
-            onClicked: projectPdf.saveToPdf("myProject.cw.pdf")
+            onClicked: fileDialog.open()
         }
+    }
+    FileDialog {
+        id: fileDialog
+        folder: StandardPaths.writableLocation(StandardPaths.DocumentsLocation)
+        onAccepted: projectPdf.saveToPdf(file)
+        fileMode: FileDialog.SaveFile
+        defaultSuffix: "pdf"
     }
     CWM.Snackbar {
         id: snackbar
