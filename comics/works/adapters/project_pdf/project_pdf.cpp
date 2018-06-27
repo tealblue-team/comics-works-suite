@@ -1,3 +1,4 @@
+#include <QDebug>
 #include <QPrinter>
 #include <QFileInfo>
 #include <QTextCursor>
@@ -28,7 +29,8 @@ void ProjectPdf::saveToPdf(const QString& fileName)
         QPrinter printer(QPrinter::PrinterResolution);
         printer.setOutputFormat(QPrinter::PdfFormat);
         printer.setPaperSize(QPrinter::Letter);
-        printer.setOutputFileName(filePath);
+        qDebug() << filePath;
+        printer.setOutputFileName(filePath.startsWith("file:/") ? filePath.remove(0,6) : filePath);
         printer.setFontEmbeddingEnabled(true);
 
         doc->print(&printer);
