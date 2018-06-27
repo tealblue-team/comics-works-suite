@@ -16,10 +16,6 @@ Window {
     Component.onCompleted: uc.create_workspace(workspaceName)
     Connections {
         target: uc
-        onWorkspaceCreated: {
-            var jsonString = projectJson.readJsonFromFile("../../heavyLoad1.cw.json")
-            projectJson.loadFromJsonDoc(jsonString)
-        }
         onCharacterAddedToPanel: panelsModel.add(value.panels)
         onDialogAddedToPanel: panelsModel.add(value.panels)
         onCharacterCreated: charactersModel.add(value.characters)
@@ -106,19 +102,33 @@ Window {
                 panelCharactersList.model: model.characters
             }
         }
+        openProjectButton {
+            onClicked: openDialog.open()
+            visible: panelsModel.count === 0 && charactersModel.count === 0
+        }
         saveButton {
             onClicked: projectJson.saveToJsonDoc()
         }
         exportToPdfButton {
-            onClicked: fileDialog.open()
+            onClicked: saveDialog.open()
         }
     }
     FileDialog {
-        id: fileDialog
+        id: saveDialog
         folder: StandardPaths.writableLocation(StandardPaths.DocumentsLocation)
         onAccepted: projectPdf.saveToPdf(file)
         fileMode: FileDialog.SaveFile
         defaultSuffix: "pdf"
+    }
+    FileDialog {
+        id: openDialog
+        folder: StandardPaths.writableLocation(StandardPaths.DocumentsLocation)
+        onAccepted: {
+            var jsonString = projectJson.readJsonFromFile(file)
+            projectJson.loadFromJsonDoc(jsonString)
+        }
+        fileMode: FileDialog.OpenFile
+        nameFilters: ["CW JSON files (*.cw.json)"]
     }
     CWM.Snackbar {
         id: snackbar

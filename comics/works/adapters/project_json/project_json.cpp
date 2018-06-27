@@ -126,9 +126,10 @@ void ProjectJson::saveToJsonDoc()
 }
 
 
-QByteArray ProjectJson::readJsonFromFile(const QString& filePath)
+QByteArray ProjectJson::readJsonFromFile(const QString& fileName)
 {
-    QFile file(filePath);
+    QString filePath = fileName;
+    QFile file(filePath.startsWith("file:/") ? filePath.remove(0,6) : filePath);
     file.open(QIODevice::ReadOnly);
     QByteArray fileContent = file.readAll();
     file.close();

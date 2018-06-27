@@ -12,6 +12,7 @@ GridLayout {
     property alias panelsGrid: panelsGrid
     property alias saveButton: saveButton
     property alias exportToPdfButton: exportToPdfButton
+    property alias openProjectButton: openProjectButton
     width: 1024
     height: 768
     columnSpacing: 0
@@ -85,6 +86,11 @@ GridLayout {
                 id: panelsGrid
                 anchors.fill: parent
                 anchors.margins: 8
+            }
+            Button {
+                id: openProjectButton
+                text: qsTr("open project")
+                anchors.centerIn: parent
             }
         }
     }

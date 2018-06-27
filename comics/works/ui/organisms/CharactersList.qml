@@ -43,10 +43,10 @@ Rectangle {
     }
     ListView {
         id: listView
-        model: ListModel {
-            ListElement {name:"first character"}
-            ListElement {name:"second character"}
-        }
+//        model: ListModel {
+//            ListElement {name:"first character"}
+//            ListElement {name:"second character"}
+//        }
         spacing: 4
         clip: true
         anchors.top: addCharacterField.bottom
