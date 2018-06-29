@@ -61,15 +61,18 @@ GridLayout {
                 model: panelsGrid.model
             }
             Row {
-                Layout.margins: 16
                 anchors.horizontalCenter: parent.horizontalCenter
+                anchors.bottom: parent.bottom
+                spacing: 8
                 Button {
                     id: saveButton
                     text: qsTr("Save")
+                    width: 64
                 }
                 Button {
                     id: exportToPdfButton
                     text: qsTr("Export PDF")
+                    width: 88
                 }
             }
         }
