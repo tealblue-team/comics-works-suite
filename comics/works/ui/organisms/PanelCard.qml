@@ -22,6 +22,7 @@ FocusScope {
     property alias availableCharactersSelector: availableCharactersSelector
     property alias dialogsList: dialogsList
     property alias panelCharactersList: panelCharactersList
+    property alias indexLabel: indexLabel
 
     Rectangle {
         width: root.width
@@ -49,7 +50,7 @@ FocusScope {
         Keys.onEscapePressed: focus = false
         Keys.onReturnPressed: nameConfirmed(event)
         wrapMode: TextArea.Wrap
-        background: Rectangle {}
+        background: Item {}
     }
     TextArea {
         id: description
@@ -182,5 +183,14 @@ FocusScope {
             opacity: .6
         }
     }
+   CWA.P2 {
+       id: indexLabel
+       anchors.bottom: parent.bottom
+       anchors.left: parent.left
+       anchors.margins: 8
+       text: "[idx]"
+       verticalAlignment: Qt.AlignBottom
+       color: CWA.Colors.shades300
+   }
 }
 
