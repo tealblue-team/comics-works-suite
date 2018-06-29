@@ -64,12 +64,12 @@ GridLayout {
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.bottom: parent.bottom
                 spacing: 8
-                Button {
+                CWM.Button {
                     id: saveButton
                     text: qsTr("Save")
                     width: 64
                 }
-                Button {
+                CWM.Button {
                     id: exportToPdfButton
                     text: qsTr("Export PDF")
                     width: 88
@@ -90,7 +90,7 @@ GridLayout {
                 anchors.fill: parent
                 anchors.margins: 8
             }
-            Button {
+            CWM.Button {
                 id: openProjectButton
                 text: qsTr("open project")
                 anchors.centerIn: parent
