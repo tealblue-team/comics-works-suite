@@ -107,9 +107,11 @@ FocusScope {
             width: dialogs.width - 8
             height: childrenRect.height
             CWM.InlineIconButton {
+                id: dialogCharacterButton
                 size: "S"
                 anchors.verticalCenter: dialogField.verticalCenter
                 opacity: .6
+                onClicked: panelCharactersSelector.visible = ! panelCharactersSelector.visible
             }
             TextField {
                 id: dialogField
@@ -122,10 +124,30 @@ FocusScope {
                     color: "transparent"
                     border.color: "transparent"
                     CWA.P2 {
+                        id: chooseDialogCharacterButton
                         color: CWA.Colors.shades400
                         text: qsTr("add dialog...")
                         anchors.verticalCenter: parent.verticalCenter
                         visible: ! dialogField.displayText
+                    }
+                }
+            }
+        }
+        Row {
+            id: panelCharactersSelector
+            x: 8
+            spacing: 4
+            visible: false
+            Repeater {
+                model: panelCharactersList.model
+                delegate: CWM.InlineTextPicButton {
+                    size: "S"
+                    text: modelData
+                    onClicked: {
+                        if (dialogField.displayText) {
+                            addDialogButtonClicked(modelData, dialogField.displayText)
+                            panelCharactersSelector.visible = false
+                        }
                     }
                 }
             }
@@ -149,6 +171,7 @@ FocusScope {
             id: panelCharactersList
             model: ["first character","second character"]
             delegate: CWM.InlineTextPicButton {
+                enabled: false
                 text: modelData
                 onClicked: if (dialogField.displayText) addDialogButtonClicked(modelData, dialogField.displayText)
             }
