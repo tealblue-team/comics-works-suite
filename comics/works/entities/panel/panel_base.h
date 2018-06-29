@@ -2,11 +2,11 @@
 #define PANEL_BASE_H
 
 #include <QObject>
-#include "comics/works/entities/character/character_base.h"
 
 namespace comics {
 namespace works {
 namespace entities {
+class CharacterBase;
 class PanelBase : public QObject
 {
     Q_OBJECT
@@ -21,7 +21,7 @@ public:
     virtual int width() const = 0;
     virtual int height() const = 0;
 
-    virtual void addCharacter(entities::CharacterBase*) = 0;
+    virtual void addCharacter(CharacterBase*) = 0;
     virtual void addDialog(const QString& dialogContent, const QString& characterName) = 0;
     virtual void removeDialog(const QString& dialogContent, const QString& characterName) = 0;
     virtual void setEid(const QString&) = 0;

@@ -1,12 +1,12 @@
 #ifndef REGISTER_H
 #define REGISTER_H
-#include "workspace/workspace_base.h"
 
 namespace comics {
 namespace works {
 namespace entities {
+class ProjectBase;
 struct Register {
-    WorkspaceBase* currentWorkspace = nullptr;
+    ProjectBase* currentProject = nullptr;
 };
 }
 }

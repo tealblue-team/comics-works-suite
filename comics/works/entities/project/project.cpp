@@ -1,49 +1,49 @@
-#include "workspace.h"
+#include "project.h"
 
 using namespace comics::works::entities;
 
-Workspace::Workspace(const QString& eid, QObject *parent)
-    : WorkspaceBase(parent),
+Project::Project(const QString& eid, QObject *parent)
+    : ProjectBase(parent),
       m_characters(new QVector<CharacterBase*>),
       m_panels(new QVector<PanelBase*>)
 {
     setEid(eid);
 }
 
-QVector<CharacterBase *> *Workspace::characters() const
+QVector<CharacterBase *> *Project::characters() const
 {
     return m_characters;
 }
 
-void Workspace::addCharacter(CharacterBase* character) {
+void Project::addCharacter(CharacterBase* character) {
     if (! m_characters->contains(character))
         m_characters->append(character);
 }
 
-void Workspace::addPanel(PanelBase* panel) {
+void Project::addPanel(PanelBase* panel) {
     if (! m_panels->contains(panel))
         m_panels->append(panel);
 }
 
-const QString& Workspace::eid() const {
+const QString& Project::eid() const {
     return m_eid;
 }
 
-QVector<PanelBase*>* Workspace::panels() const {
+QVector<PanelBase*>* Project::panels() const {
     return m_panels;
 }
 
-QVariantList Workspace::piles() const {
+QVariantList Project::piles() const {
     return m_piles;
 }
 
-void Workspace::setEid(const QString& eid) {
+void Project::setEid(const QString& eid) {
     if (m_eid != eid && eid != "") {
         m_eid = eid;
         emit eidChanged();
     }
 }
 
-void Workspace::setPiles(QVariantList piles) {
+void Project::setPiles(QVariantList piles) {
     m_piles = piles;
 }

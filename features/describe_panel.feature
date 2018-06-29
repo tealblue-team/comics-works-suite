@@ -4,8 +4,8 @@ Feature: describe panel
   so that I can give it a meaning even before filling it
 
   Background:
-    Given I try to create a workspace with name "workspace1"
-    And the workspace with name "workspace1" is created
+    Given I try to create a project with name "project1"
+    And the project with name "project1" is created
     And I try to create a panel with id "panel1"
     And the panel with id "panel1" is created
 

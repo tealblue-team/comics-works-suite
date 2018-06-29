@@ -1,5 +1,5 @@
-#ifndef WORKSPACE_BASE_H
-#define WORKSPACE_BASE_H
+#ifndef PROJECT_BASE_H
+#define PROJECT_BASE_H
 
 #include <QObject>
 #include <QString>
@@ -11,11 +11,11 @@ namespace works {
 namespace entities {
 class CharacterBase;
 class PanelBase;
-class WorkspaceBase : public QObject
+class ProjectBase : public QObject
 {
     Q_OBJECT
 protected:
-    explicit WorkspaceBase(QObject *parent = nullptr) {}
+    explicit ProjectBase(QObject *parent = nullptr) {}
 public:
     virtual const QString& eid() const = 0;
     virtual QVariantList piles() const = 0;
@@ -31,4 +31,4 @@ public:
 }
 }
 
-#endif // WORKSPACE_BASE_H
+#endif // PROJECT_BASE_H

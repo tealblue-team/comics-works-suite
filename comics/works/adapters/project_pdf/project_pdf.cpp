@@ -4,7 +4,9 @@
 #include <QTextCursor>
 #include <QTextDocument>
 #include "project_pdf.h"
-#include "../../usecases/usecases.h"
+#include "comics/works/usecases/usecases.h"
+#include "comics/works/entities/character/character_base.h"
+#include "comics/works/entities/project/project_base.h"
 
 using namespace comics::works::adapters;
 
@@ -44,14 +46,14 @@ QTextDocument* ProjectPdf::convertToTextDoc() {
     auto document = new QTextDocument();
     QTextCursor cursor(document);
 
-    auto characters = m_uc->entities_reg->currentWorkspace->characters();
+    auto characters = m_uc->entities_reg->currentProject->characters();
     cursor.insertText(tr("Characters: "));
     for (int i=0; i < characters->length(); ++i) {
         auto character = characters->at(i);
         cursor.insertText(QString(i==characters->length()-1 ? "%1\n" : "%1, ").arg(character->name()));
     }
 
-    auto panels = m_uc->entities_reg->currentWorkspace->panels();
+    auto panels = m_uc->entities_reg->currentProject->panels();
     for (int i=0; i < panels->length(); ++i) {
         auto panel = panels->at(i);
         cursor.insertBlock();

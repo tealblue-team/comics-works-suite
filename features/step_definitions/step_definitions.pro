@@ -24,7 +24,7 @@ LIBS += $$CUKES_TARGET_DIR/libcucumber-cpp.a
 include(../../comics/works/entities/entities.pri)
 include(../../comics/works/entities/character/character.pri)
 include(../../comics/works/entities/panel/panel.pri)
-include(../../comics/works/entities/workspace/workspace.pri)
+include(../../comics/works/entities/project/project.pri)
 include(../../comics/works/usecases/usecases.pri)
 
 INCLUDEPATH += $$PWD/../..

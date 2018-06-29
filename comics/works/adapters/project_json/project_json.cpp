@@ -5,6 +5,7 @@
 #include <QFile>
 #include "project_json.h"
 #include "comics/works/usecases/usecases.h"
+#include "comics/works/entities/project/project.h"
 
 using namespace comics::works::adapters;
 
@@ -29,7 +30,7 @@ void ProjectJson::loadFromJsonDoc(const QByteArray& projectJson)
         if (characters.size() == charactersJson.size()) {
             for (int i=0;i<panelsJson.size();++i) {
                 auto panelEid = panelsJson.at(i).toObject().value("eid").toString();
-                m_uc->create_panel(panelEid, m_uc->entities_reg->currentWorkspace->eid());
+                m_uc->create_panel(panelEid, m_uc->entities_reg->currentProject->eid());
             }
         }
     });
@@ -112,15 +113,15 @@ void ProjectJson::loadFromJsonDoc(const QByteArray& projectJson)
     });
     for (int i=0;i<charactersJson.size();++i) {
         auto characterName = charactersJson.at(i).toObject().value("name").toString();
-        m_uc->create_character(characterName, m_uc->entities_reg->currentWorkspace->eid());
+        m_uc->create_character(characterName, m_uc->entities_reg->currentProject->eid());
     }
 }
 
 void ProjectJson::saveToJsonDoc()
 {
     auto projectJson = QJsonObject();
-    projectJson["panels"] = QJsonArray::fromVariantList(m_uc->_getPanelsList(m_uc->entities_reg->currentWorkspace->panels()));
-    projectJson["characters"] = QJsonArray::fromVariantList(m_uc->_getCharactersList(m_uc->entities_reg->currentWorkspace->characters()));
+    projectJson["panels"] = QJsonArray::fromVariantList(m_uc->_getPanelsList(m_uc->entities_reg->currentProject->panels()));
+    projectJson["characters"] = QJsonArray::fromVariantList(m_uc->_getCharactersList(m_uc->entities_reg->currentProject->characters()));
     auto projectJsonDoc = QJsonDocument(projectJson);
     emit saved(projectJsonDoc.toJson(QJsonDocument::Indented));
 }

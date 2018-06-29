@@ -8,7 +8,7 @@ QT       += testlib
 
 QT       -= gui
 
-TARGET = tst_workspace
+TARGET = tst_project
 CONFIG   += console
 CONFIG   -= app_bundle
 
@@ -27,8 +27,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
-        tst_workspace.cpp 
+        tst_project.cpp
 
 DEFINES += SRCDIR=\\\"$$PWD/\\\"
 
-include(workspace.pri)
+include(project.pri)

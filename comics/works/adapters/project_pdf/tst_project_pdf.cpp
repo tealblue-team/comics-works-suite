@@ -42,7 +42,7 @@ void ProjectPdfTest::test_saveToPdf()
                 "}\n"
                 );
     // Given
-    uc->create_workspace("defaultWorkspace");
+    uc->create_project("defaultWorkspace");
     // Given
     QScopedPointer<adapters::ProjectJson> jsonAdapter(new adapters::ProjectJson());
     jsonAdapter->setUsecases(uc.data());

@@ -5,6 +5,8 @@
 #include "project_json.h"
 #include "comics/works/usecases/usecases.h"
 #include "comics/works/entities/register.h"
+#include "comics/works/entities/character/character_base.h"
+#include "comics/works/entities/project/project_base.h"
 
 using namespace comics::works;
 
@@ -44,7 +46,7 @@ void ProjectJsonTest::test_loadFromJsonDoc()
                 "}"
                 );
     // Given
-    uc->create_workspace("defaultWorkspace");
+    uc->create_project("defaultWorkspace");
     // Given
     QScopedPointer<adapters::ProjectJson> adapter(new adapters::ProjectJson());
     adapter->setUsecases(uc.data());
@@ -53,11 +55,11 @@ void ProjectJsonTest::test_loadFromJsonDoc()
     adapter->loadFromJsonDoc(projectJsonDoc);
     loaded.wait(200);
     // Then
-    auto characters = uc->entities_reg->currentWorkspace->characters();
+    auto characters = uc->entities_reg->currentProject->characters();
     QVERIFY(characters);
     QCOMPARE(characters->length(), 4);
     // And
-    auto panels = uc->entities_reg->currentWorkspace->panels();
+    auto panels = uc->entities_reg->currentProject->panels();
     QVERIFY(panels);
     QCOMPARE(panels->length(), 2);
     // And
@@ -102,7 +104,7 @@ void ProjectJsonTest::test_saveToJsonDoc()
                 "}\n"
                 );
     // Given
-    uc->create_workspace("defaultWorkspace");
+    uc->create_project("defaultWorkspace");
     // Given
     QScopedPointer<adapters::ProjectJson> adapter(new adapters::ProjectJson());
     adapter->setUsecases(uc.data());

@@ -33,7 +33,7 @@ include(project_json.pri)
 include(../../entities/entities.pri)
 include(../../entities/character/character.pri)
 include(../../entities/panel/panel.pri)
-include(../../entities/workspace/workspace.pri)
+include(../../entities/project/project.pri)
 include(../../usecases/usecases.pri)
 
 INCLUDEPATH += $$PWD/../../../..

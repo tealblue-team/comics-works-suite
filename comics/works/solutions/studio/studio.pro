@@ -33,7 +33,7 @@ include(../../ui/ui.pri)
 include(../../usecases/usecases.pri)
 include(../../entities/character/character.pri)
 include(../../entities/panel/panel.pri)
-include(../../entities/workspace/workspace.pri)
+include(../../entities/project/project.pri)
 include(../../adapters/project_json/project_json.pri)
 include(../../adapters/project_pdf/project_pdf.pri)
 

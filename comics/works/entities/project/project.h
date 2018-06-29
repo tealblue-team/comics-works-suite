@@ -1,16 +1,16 @@
-#ifndef WORKSPACE_H
-#define WORKSPACE_H
-#include "workspace_base.h"
+#ifndef PROJECT_H
+#define PROJECT_H
+#include "project_base.h"
 
 namespace comics {
 namespace works {
 namespace entities {
-class Workspace : public WorkspaceBase
+class Project : public ProjectBase
 {
     Q_OBJECT
     Q_PROPERTY(QString eid READ eid NOTIFY eidChanged)
 public:
-    explicit Workspace(const QString& eid, QObject *parent = nullptr);
+    explicit Project(const QString& eid, QObject *parent = nullptr);
 
     QVector<CharacterBase*>* characters() const;
     const QString& eid() const;
@@ -33,4 +33,4 @@ private:
 }
 }
 
-#endif // WORKSPACE_H
+#endif // PROJECT_H

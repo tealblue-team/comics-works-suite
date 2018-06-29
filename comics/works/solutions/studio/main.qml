@@ -12,8 +12,8 @@ Window {
     visible: true
     width: 1024
     height: 768
-    property string workspaceName: "workspace1"
-    Component.onCompleted: uc.create_workspace(workspaceName)
+    property string projectName: "project1"
+    Component.onCompleted: uc.create_project(projectName)
     Connections {
         target: uc
         onCharacterAddedToPanel: panelsModel.add(value.panels)
@@ -64,9 +64,9 @@ Window {
         anchors.fill: parent
         charactersList {
             model: charactersModel
-            onItemClicked: uc.delete_character(name, workspaceName)
+            onItemClicked: uc.delete_character(name, projectName)
             onAddCharacterFieldReturnPressed: {
-                uc.create_character(charactersList.addCharacterField.text,workspaceName)
+                uc.create_character(charactersList.addCharacterField.text,projectName)
                 charactersList.addCharacterField.clear()
             }
         }
@@ -77,9 +77,9 @@ Window {
                 uc.create_panel("panel%1%2%3"
                                 .arg(abc[Math.floor(Math.random()*26)].toUpperCase())
                                 .arg(abc[Math.floor(Math.random()*26)].toUpperCase())
-                                .arg(abc[Math.floor(Math.random()*26)].toUpperCase()), workspaceName)
+                                .arg(abc[Math.floor(Math.random()*26)].toUpperCase()), projectName)
             }
-            onRemovePanelButtonClicked: uc.delete_panel(itemId, workspaceName)
+            onRemovePanelButtonClicked: uc.delete_panel(itemId, projectName)
         }
         panelsGrid {
             model: panelsModel
