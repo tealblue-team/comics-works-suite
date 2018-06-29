@@ -74,7 +74,9 @@ Window {
             model: panelsModel
             addPanelButton.onClicked: {
                 var abc=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
-                uc.create_panel("panel%1%2%3"
+                uc.create_panel("panel%1%2%3%4%5"
+                                .arg(abc[Math.floor(Math.random()*26)].toUpperCase())
+                                .arg(abc[Math.floor(Math.random()*26)].toUpperCase())
                                 .arg(abc[Math.floor(Math.random()*26)].toUpperCase())
                                 .arg(abc[Math.floor(Math.random()*26)].toUpperCase())
                                 .arg(abc[Math.floor(Math.random()*26)].toUpperCase()), projectName)
@@ -87,7 +89,7 @@ Window {
                 id: panelCard
                 name.placeholderText: "[%1]".arg(model.eid)
                 name.text: model.name || ""
-                description.placeholderText: "<%1>".arg(qsTr("add description"))
+                description.placeholderText: qsTr("add description...")
                 description.text: model.description
                 onNameConfirmed: uc.name_panel(model.eid, name.text)
                 onDescriptionConfirmed: uc.describe_panel(model.eid, description.text)
@@ -100,6 +102,7 @@ Window {
                 }
                 dialogsList.model: model.dialogs
                 panelCharactersList.model: model.characters
+                indexLabel.text: 1+index
             }
         }
         openProjectButton {
@@ -111,6 +114,7 @@ Window {
         }
         exportToPdfButton {
             onClicked: saveDialog.open()
+            enabled: charactersList.model.count > 0 || panelsList.model.count > 0
         }
     }
     FileDialog {
