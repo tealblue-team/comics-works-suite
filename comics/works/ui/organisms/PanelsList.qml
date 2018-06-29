@@ -56,7 +56,7 @@ Rectangle {
             height: childrenRect.height
             CWA.P2 {
                 id: nameLabel
-                text: model.name || model.eid
+                text: model.name || "[%1]".arg(model.eid)
                 color: CWA.Colors.shades0
                 opacity: .8
                 width: 56
