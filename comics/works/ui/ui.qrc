@@ -43,5 +43,6 @@
         <file>organisms/PanelsList.qml</file>
         <file>organisms/PanelsGrid.qml</file>
         <file>molecules/InlineTextIconButton.qml</file>
+        <file>molecules/Button.qml</file>
     </qresource>
 </RCC>
