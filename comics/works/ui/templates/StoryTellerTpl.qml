@@ -63,7 +63,7 @@ GridLayout {
             Row {
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.bottom: parent.bottom
-                spacing: 8
+                spacing: 4
                 CWM.Button {
                     id: saveButton
                     text: qsTr("Save")
@@ -92,7 +92,7 @@ GridLayout {
             }
             CWM.Button {
                 id: openProjectButton
-                text: qsTr("open project")
+                text: qsTr("Open Project")
                 anchors.centerIn: parent
             }
         }
