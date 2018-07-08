@@ -1,4 +1,6 @@
 #include <QDebug>
+#include <array>
+#include <cmath>
 #include <QJsonObject>
 #include <QJsonArray>
 #include <QUrl>
@@ -30,6 +32,16 @@ void ProjectJson::loadFromJsonDoc(const QByteArray& projectJson)
         if (characters.size() == charactersJson.size()) {
             for (int i=0;i<panelsJson.size();++i) {
                 auto panelEid = panelsJson.at(i).toObject().value("eid").toString();
+                if (panelEid == "") {
+                    std::array<char,26> abc({{'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'}});
+                    panelEid = QString("panel%1%2%3%4%5")
+                            .arg(QString(abc[rand()/((RAND_MAX + 1u)/26)]).toUpper())
+                            .arg(QString(abc[rand()/((RAND_MAX + 1u)/26)]).toUpper())
+                            .arg(QString(abc[rand()/((RAND_MAX + 1u)/26)]).toUpper())
+                            .arg(QString(abc[rand()/((RAND_MAX + 1u)/26)]).toUpper())
+                            .arg(QString(abc[rand()/((RAND_MAX + 1u)/26)]).toUpper());
+                    qDebug() << panelEid;
+                }
                 m_uc->create_panel(panelEid, m_uc->entities_reg->currentProject->eid());
             }
         }
@@ -70,6 +82,7 @@ void ProjectJson::loadFromJsonDoc(const QByteArray& projectJson)
         }
     });
     m_addDialogsToPanels = connect(m_uc, &usecases::characterAddedToPanel, [=](QVariant value) {
+        auto panels = value.toMap().value("panels").toList();
         int charactersCount = 0;
         for (int i=0;i<panelsJson.size();++i) {
             auto panelCharacters = panelsJson.at(i).toObject().value("characters").toArray();
@@ -86,7 +99,7 @@ void ProjectJson::loadFromJsonDoc(const QByteArray& projectJson)
                     m_uc->add_dialog_to_panel(
                                 dialogJson.value("dialogContent_en_US").toString(),
                                 dialogJson.value("characterName").toString(),
-                                panelsJson.at(i).toObject().value("eid").toString()
+                                panels.at(i).toMap().value("eid").toString()
                                 );
                 }
             }
