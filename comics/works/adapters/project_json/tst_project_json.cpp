@@ -99,7 +99,7 @@ void ProjectJsonTest::test_saveToJsonDoc()
                 "    \"characters\":[{\"name\":\"Ayran\"},{\"name\":\"Birun\"},{\"name\":\"Dilgun\"},{\"name\":\"Barsun\"}],\n"
                 "    \"panels\":[\n"
                 "        {\"characters\":[\"Ayran\",\"Birun\"],\"description\":\"first scene\",\"dialogs\":[{\"characterName\":\"Ayran\",\"dialogContent_en_US\":\"Hello\"},{\"characterName\":\"Birun\",\"dialogContent_en_US\":\"Hi\"}],\"eid\":\"panelABC\",\"name\":\"HL-I-1\"},\n"
-                "        {\"characters\":[\"Barsun\",\"Dilgun\"],\"description\":\"second scene\",\"dialogs\":[{\"characterName\":\"Dilgun\",\"dialogContent_en_US\":\"Hey\"},{\"characterName\":\"Barsun\",\"dialogContent_en_US\":\"Hey there\"}],\"eid\":\"panelDEF\"}\n"
+                "        {\"characters\":[\"Barsun\",\"Dilgun\"],\"description\":\"second scene\",\"dialogs\":[{\"characterName\":\"Dilgun\",\"dialogContent_en_US\":\"Hey\"},{\"characterName\":\"Barsun\",\"dialogContent_en_US\":\"Hey there\"}],\"eid\":\"panelDEF\",\"name\":\"\"}\n"
                 "    ]\n"
                 "}\n"
                 );
@@ -117,6 +117,8 @@ void ProjectJsonTest::test_saveToJsonDoc()
     adapter->saveToJsonDoc();
     saved.wait(200);
     if (!saved.first().isEmpty() && saved.first().count() > 0) {
+        qDebug() << saved.first().at(0).toByteArray();
+        qDebug() << QJsonDocument::fromJson(projectJsonDoc).toJson(QJsonDocument::Indented);
         QCOMPARE(saved.first().at(0).toByteArray(),QJsonDocument::fromJson(projectJsonDoc).toJson(QJsonDocument::Indented));
     } else {
         QFAIL("");
@@ -157,7 +159,7 @@ void ProjectJsonTest::test_writeJsonToFile()
                 "    \"characters\":[{\"name\":\"Ayran\"},{\"name\":\"Birun\"},{\"name\":\"Dilgun\"},{\"name\":\"Barsun\"}],\n"
                 "    \"panels\":[\n"
                 "        {\"characters\":[\"Ayran\",\"Birun\"],\"description\":\"first scene\",\"dialogs\":[{\"characterName\":\"Ayran\",\"dialogContent_en_US\":\"Hello\"},{\"characterName\":\"Birun\",\"dialogContent_en_US\":\"Hi\"}],\"eid\":\"panelABC\",\"name\":\"HL-I-1\"},\n"
-                "        {\"characters\":[\"Barsun\",\"Dilgun\"],\"description\":\"second scene\",\"dialogs\":[{\"characterName\":\"Dilgun\",\"dialogContent_en_US\":\"Hey\"},{\"characterName\":\"Barsun\",\"dialogContent_en_US\":\"Hey there\"}],\"eid\":\"panelDEF\"}\n"
+                "        {\"characters\":[\"Barsun\",\"Dilgun\"],\"description\":\"second scene\",\"dialogs\":[{\"characterName\":\"Dilgun\",\"dialogContent_en_US\":\"Hey\"},{\"characterName\":\"Barsun\",\"dialogContent_en_US\":\"Hey there\"}],\"eid\":\"panelDEF\",\"name\":\"}\n"
                 "    ]\n"
                 "}\n"
                 );
