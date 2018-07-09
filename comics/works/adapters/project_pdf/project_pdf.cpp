@@ -67,6 +67,11 @@ QTextDocument* ProjectPdf::convertToTextDoc() {
         auto panel = panels->at(i);
         cursor.insertBlock();
         cursor.insertText(QString("%1\n").arg(panel->name() != "" ? panel->name() : panel->eid()));
+        if (panel->characters()) {
+            for (int j=0;j<panel->characters()->length();++j) {
+                cursor.insertText(QString(j==panel->characters()->length()-1 ? "%1.\n" : "%1, ").arg(panel->characters()->at(j)->name()));
+            }
+        }
         if (panel->description() != "") {
             cursor.setCharFormat(italic);
             cursor.insertText(QString("%1\n").arg(panel->description()));
