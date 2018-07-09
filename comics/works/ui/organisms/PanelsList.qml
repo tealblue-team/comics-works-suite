@@ -3,12 +3,15 @@ import QtQuick.Controls 2.3
 import "../atoms" as CWA
 import "../molecules" as CWM
 
-Rectangle {
+FocusScope {
     id: root
     signal removePanelButtonClicked(string itemId)
     property alias model: listView.model
     property alias addPanelButton: addPanelButton
-    color: CWA.Colors.shades600
+    Rectangle {
+        anchors.fill: parent
+        color: CWA.Colors.shades600
+    }
     implicitWidth: 256
     implicitHeight: 256
     Row {
@@ -28,16 +31,12 @@ Rectangle {
         anchors.top: header.bottom
         CWM.InlineTextIconButton {
             id: addPanelButton
+            focus: true
             text: qsTr("add panel")
             iconContent: "add"
             anchors{left:parent.left;right:parent.right}
+            Keys.onReturnPressed: clicked()
         }
-//        CWM.InlineTextIconButton {
-//            id: removePanelButton
-//            text: qsTr("remove last panel")
-//            iconContent: "remove"
-//            anchors{left:parent.left;right:parent.right}
-//        }
     }
     ListView {
         id: listView

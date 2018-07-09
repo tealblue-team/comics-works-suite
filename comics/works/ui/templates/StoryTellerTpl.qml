@@ -13,6 +13,7 @@ GridLayout {
     property alias saveButton: saveButton
     property alias exportToPdfButton: exportToPdfButton
     property alias openProjectButton: openProjectButton
+    property alias startProjectHint: startProjectHint
     width: 1024
     height: 768
     columnSpacing: 0
@@ -53,6 +54,7 @@ GridLayout {
             CWO.CharactersList {
                 id: charactersList
                 Layout.fillWidth: true
+                KeyNavigation.tab: panelsList
             }
             CWO.PanelsList {
                 id: panelsList
@@ -77,14 +79,13 @@ GridLayout {
             }
         }
     }
-    FocusScope {
-        id: deskFocus
-        Layout.fillWidth: true
-        Layout.fillHeight: true
-        focus: true
+//    FocusScope {
+//        id: deskFocus
+//        focus: true
         CWM.Desk {
             id: desk
-            anchors.fill: parent
+            Layout.fillWidth: true
+            Layout.fillHeight: true
             CWO.PanelsGrid {
                 id: panelsGrid
                 anchors.fill: parent
@@ -95,6 +96,14 @@ GridLayout {
                 text: qsTr("Open Project")
                 anchors.centerIn: parent
             }
+            CWA.P1 {
+                id: startProjectHint
+                anchors.top: openProjectButton.bottom
+                anchors.topMargin: 16
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: qsTr("or, start adding characters and panels...")
+                color: CWA.Colors.shades300
+            }
         }
-    }
+//    }
 }

@@ -2,7 +2,7 @@ import QtQuick 2.10
 import QtQuick.Controls 2.3
 import "../atoms" as CWA
 
-Rectangle {
+FocusScope {
     id: root
     signal addCharacterFieldReturnPressed(var event)
     signal itemClicked(string name)
@@ -10,7 +10,10 @@ Rectangle {
     property alias addCharacterField: addCharacterField
     implicitWidth: 256
     implicitHeight: 256
-    color: CWA.Colors.shades600
+    Rectangle {
+        anchors.fill: parent
+        color: CWA.Colors.shades600
+    }
     Row {
         id: header
         spacing: 8
@@ -32,7 +35,7 @@ Rectangle {
             color: "transparent"
             border.color: "transparent"
             CWA.P2 {
-                color: CWA.Colors.shades0
+                color: addCharacterField.activeFocus ? CWA.Colors.primary500 : CWA.Colors.shades0
                 opacity: .5
                 text: qsTr("add character...")
                 anchors.verticalCenter: parent.verticalCenter

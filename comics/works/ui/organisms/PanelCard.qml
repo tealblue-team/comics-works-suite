@@ -10,9 +10,12 @@ FocusScope {
 
     width: 256
     height: width + 1
+    focus: true
 
     signal descriptionConfirmed(var event)
     signal nameConfirmed(var event)
+    signal descriptionTabPressed(var event)
+    signal descriptionBacktabPressed(var event)
     signal addDialogButtonClicked(string characterName, string dialogContent)
 
     property alias name: name
@@ -24,31 +27,35 @@ FocusScope {
     property alias panelCharactersList: panelCharactersList
     property alias indexLabel: indexLabel
 
+    Keys.onEscapePressed: focus = false
+
     Rectangle {
         width: root.width
         height: width
         radius: 4
-        color: CWA.Colors.shades600
+        color: CWA.Colors.shades400
         y: 1
-        opacity: .8
     }
     Rectangle {
         id: pageFace
         width: root.width
         height: width
-        color: CWA.Colors.shades0
+        color: root.activeFocus ? CWA.Colors.shades0 : CWA.Colors.shades100
         radius: 4
     }
     TextField {
         id: name
+        focus: true
         font.pixelSize: CWA.Typo.p2
         color: CWA.Colors.shades500
         padding: 4
         width: parent.width - 8
         height: implicitHeight
         placeholderText: "<add name>"
-        Keys.onEscapePressed: focus = false
-        Keys.onReturnPressed: nameConfirmed(event)
+        Keys.onReturnPressed: {
+            nameConfirmed(event)
+            description.focus = true
+        }
         wrapMode: TextArea.Wrap
         background: Item {}
     }
@@ -58,12 +65,14 @@ FocusScope {
         color: CWA.Colors.shades500
         anchors.top: name.bottom
         padding: 4
-        focus: true
         width: parent.width - 8
         height: implicitHeight
         placeholderText: "<add description>"
-        Keys.onEscapePressed: focus = false
-        Keys.onReturnPressed: descriptionConfirmed(event)
+        Keys.onReturnPressed: {
+            descriptionConfirmed(event)
+            dialogField.focus = true
+        }
+        Keys.onTabPressed: dialogField.focus = true
         wrapMode: TextArea.Wrap
     }
     Column {
@@ -119,6 +128,10 @@ FocusScope {
                 width: parent.width - 40
                 padding: 0
                 font.pixelSize: CWA.Typo.p2
+                Keys.onReturnPressed: {
+                    dialogCharacterButton.clicked()
+                    panelCharactersSelector.children[0].focus = true
+                }
                 background: Rectangle {
                     implicitWidth: 200
                     implicitHeight: 32
@@ -144,6 +157,7 @@ FocusScope {
                 delegate: CWM.InlineTextPicButton {
                     size: "S"
                     text: modelData
+                    Keys.onReturnPressed: clicked()
                     onClicked: {
                         if (dialogField.displayText) {
                             addDialogButtonClicked(modelData, dialogField.displayText)
@@ -174,7 +188,6 @@ FocusScope {
             delegate: CWM.InlineTextPicButton {
                 enabled: false
                 text: modelData
-                onClicked: if (dialogField.displayText) addDialogButtonClicked(modelData, dialogField.displayText)
             }
         }
         CWM.InlineIconButton {
@@ -183,14 +196,14 @@ FocusScope {
             opacity: .6
         }
     }
-   CWA.P2 {
-       id: indexLabel
-       anchors.bottom: parent.bottom
-       anchors.left: parent.left
-       anchors.margins: 8
-       text: "[idx]"
-       verticalAlignment: Qt.AlignBottom
-       color: CWA.Colors.shades300
-   }
+    CWA.P2 {
+        id: indexLabel
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
+        anchors.margins: 8
+        text: "[idx]"
+        verticalAlignment: Qt.AlignBottom
+        color: CWA.Colors.shades300
+    }
 }
 

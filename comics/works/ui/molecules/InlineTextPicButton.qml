@@ -11,7 +11,8 @@ RoundButton {
     background: Rectangle {
         anchors.fill: parent
         radius: width / 2
-        color: pressed ? CWA.Colors.shades500 : CWA.Colors.shades400
+        color: activeFocus ? CWA.Colors.shades700 :
+                   pressed ? CWA.Colors.shades500 : CWA.Colors.shades300
     }
     contentItem: CWA.P2 {
         font.pixelSize: size == "S" ? CWA.Typo.p3 : CWA.Typo.p2

@@ -2,6 +2,7 @@ import QtQuick 2.9
 import QtQuick.Window 2.2
 import Qt.labs.platform 1.0
 import com.cutehacks.gel 1.0
+import comics.works.ui.atoms 1.0 as CWA
 import comics.works.ui.molecules 1.0 as CWM
 import comics.works.ui.organisms 1.0 as CWO
 import comics.works.ui.templates 1.0 as CWT
@@ -66,8 +67,10 @@ Window {
             model: charactersModel
             onItemClicked: uc.delete_character(name, projectName)
             onAddCharacterFieldReturnPressed: {
-                uc.create_character(charactersList.addCharacterField.text,projectName)
-                charactersList.addCharacterField.clear()
+                if (charactersList.addCharacterField.displayText !== "") {
+                    uc.create_character(charactersList.addCharacterField.text, projectName)
+                    charactersList.addCharacterField.clear()
+                }
             }
         }
         panelsList {
@@ -93,6 +96,12 @@ Window {
                 description.text: model.description
                 onNameConfirmed: uc.name_panel(model.eid, name.text)
                 onDescriptionConfirmed: uc.describe_panel(model.eid, description.text)
+                onDescriptionTabPressed: storyTellerViewer.panelsGrid.currentIndex < storyTellerViewer.panelsGrid.count-1
+                                         ? storyTellerViewer.panelsGrid.currentIndex += 1
+                                         : storyTellerViewer.panelsGrid.currentIndex = 0
+                onDescriptionBacktabPressed: storyTellerViewer.panelsGrid.currentIndex > 0
+                                             ? storyTellerViewer.panelsGrid.currentIndex -= 1
+                                             : storyTellerViewer.panelsGrid.currentIndex = storyTellerViewer.panelsGrid.count-1
                 addCharacterButton.enabled: charactersModel.count > 0
                 availableCharactersSelector.model: charactersModel
                 availableCharactersSelector.onItemClicked: uc.add_character_to_panel(name, model.eid)
@@ -109,6 +118,7 @@ Window {
             onClicked: openDialog.open()
             visible: panelsModel.count === 0 && charactersModel.count === 0
         }
+        startProjectHint.visible: panelsModel.count === 0 && charactersModel.count === 0
         saveButton {
             onClicked: projectJson.saveToJsonDoc()
         }
@@ -140,5 +150,10 @@ Window {
         anchors.top: parent.top
         anchors.margins: 16
         anchors.horizontalCenter: parent.horizontalCenter
+    }
+    CWA.P1 {
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        text: storyTellerViewer.panelsGrid.currentIndex
     }
 }
