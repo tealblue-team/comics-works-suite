@@ -40,7 +40,6 @@ void ProjectJson::loadFromJsonDoc(const QByteArray& projectJson)
                             .arg(QString(abc[rand()/((RAND_MAX + 1u)/26)]).toUpper())
                             .arg(QString(abc[rand()/((RAND_MAX + 1u)/26)]).toUpper())
                             .arg(QString(abc[rand()/((RAND_MAX + 1u)/26)]).toUpper());
-                    qDebug() << panelEid;
                 }
                 m_uc->create_panel(panelEid, m_uc->entities_reg->currentProject->eid());
             }
