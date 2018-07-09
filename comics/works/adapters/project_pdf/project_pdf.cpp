@@ -31,7 +31,6 @@ void ProjectPdf::saveToPdf(const QString& fileName)
         QPrinter printer(QPrinter::PrinterResolution);
         printer.setOutputFormat(QPrinter::PdfFormat);
         printer.setPaperSize(QPrinter::Letter);
-        qDebug() << filePath;
         printer.setOutputFileName(filePath.startsWith("file:/") ? filePath.remove(0,6) : filePath);
         printer.setFontEmbeddingEnabled(true);
 
@@ -46,6 +45,16 @@ QTextDocument* ProjectPdf::convertToTextDoc() {
     auto document = new QTextDocument();
     QTextCursor cursor(document);
 
+    QTextCharFormat plain;
+
+    QTextCharFormat italic;
+    italic.setFontItalic(true);
+
+    QTextCharFormat bold;
+    bold.setFontWeight(600);
+
+    cursor.setCharFormat(plain);
+
     auto characters = m_uc->entities_reg->currentProject->characters();
     cursor.insertText(tr("Characters: "));
     for (int i=0; i < characters->length(); ++i) {
@@ -58,13 +67,16 @@ QTextDocument* ProjectPdf::convertToTextDoc() {
         auto panel = panels->at(i);
         cursor.insertBlock();
         cursor.insertText(QString("%1\n").arg(panel->name() != "" ? panel->name() : panel->eid()));
-        if (panel->description() != "")
+        if (panel->description() != "") {
+            cursor.setCharFormat(italic);
             cursor.insertText(QString("%1\n").arg(panel->description()));
+            cursor.setCharFormat(plain);
+        }
         for (int j=0; j < panel->dialogs().length(); ++j) {
-            cursor.insertText(QString("%1: %2\n").arg(
-                                  panel->dialogs().at(j).toMap().value("characterName").toString(),
-                                  panel->dialogs().at(j).toMap().value("dialogContent_en_US").toString())
-                              );
+            cursor.setCharFormat(bold);
+            cursor.insertText(QString("%1: ").arg(panel->dialogs().at(j).toMap().value("characterName").toString()));
+            cursor.setCharFormat(plain);
+            cursor.insertText(QString("%1\n").arg(panel->dialogs().at(j).toMap().value("dialogContent_en_US").toString()));
         }
     }
     return document;
