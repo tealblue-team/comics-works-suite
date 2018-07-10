@@ -18,11 +18,12 @@ Rectangle {
                 padding: 0
                 text: model.name
                 font.pixelSize: CWA.Typo.p2
-                onClicked: {
-                    itemClicked(model.name)
-                }
+                onClicked: itemClicked(model.name)
                 width: parent.width
                 height: 24
+                background: Rectangle {
+                    color: activeFocus ? CWA.Colors.shades400 : CWA.Colors.shades200
+                }
             }
         }
     }

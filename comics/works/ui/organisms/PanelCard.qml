@@ -27,8 +27,6 @@ FocusScope {
     property alias panelCharactersList: panelCharactersList
     property alias indexLabel: indexLabel
 
-    Keys.onEscapePressed: focus = false
-
     Rectangle {
         width: root.width
         height: width
@@ -54,16 +52,48 @@ FocusScope {
         placeholderText: "<add name>"
         Keys.onReturnPressed: {
             nameConfirmed(event)
-            description.focus = true
+            addCharacterButton.focus = true
         }
+        KeyNavigation.tab: addCharacterButton
         wrapMode: TextArea.Wrap
         background: Item {}
+    }
+    Row {
+        id: panelCharactersRow
+        anchors.left: parent.left
+        anchors.top: name.bottom
+        anchors.margins: 8
+        spacing: 4
+        Repeater {
+            id: panelCharactersList
+            model: ["first character","second character"]
+            delegate: CWM.InlineTextPicButton {
+                enabled: false
+                text: modelData
+            }
+        }
+        CWM.InlineIconButton {
+            id: addCharacterButton
+            onClicked: availableCharactersSelector.visible = ! availableCharactersSelector.visible
+            iconContent: "characters"
+            KeyNavigation.tab: description
+            Keys.onReturnPressed: clicked()
+        }
+    }
+    CWM.InlineSelectionList {
+        id: availableCharactersSelector
+        anchors.top: panelCharactersRow.bottom
+        anchors.left: panelCharactersRow.left
+        anchors.topMargin: 8
+        visible: false
+        onItemClicked: visible = !visible
+        z: 2
     }
     TextArea {
         id: description
         font.pixelSize: CWA.Typo.p2
         color: CWA.Colors.shades500
-        anchors.top: name.bottom
+        anchors.top: panelCharactersRow.bottom
         padding: 4
         width: parent.width - 8
         height: implicitHeight
@@ -78,6 +108,7 @@ FocusScope {
     Column {
         id: dialogs
         anchors.top: description.bottom
+        anchors.topMargin: 4
         width: parent.width
         spacing: 4
         Repeater {
@@ -120,18 +151,19 @@ FocusScope {
                 id: dialogCharacterButton
                 size: "S"
                 anchors.verticalCenter: dialogField.verticalCenter
-                opacity: .6
-                onClicked: panelCharactersSelector.visible = ! panelCharactersSelector.visible
+                onClicked: {
+                    panelCharactersSelector.visible = ! panelCharactersSelector.visible
+                    panelCharactersSelector.focus = true
+                }
+                iconContent: "dialog"
+                enabled: dialogField.displayText !== ""
             }
             TextField {
                 id: dialogField
                 width: parent.width - 40
                 padding: 0
                 font.pixelSize: CWA.Typo.p2
-                Keys.onReturnPressed: {
-                    dialogCharacterButton.clicked()
-                    panelCharactersSelector.children[0].focus = true
-                }
+                Keys.onReturnPressed: dialogCharacterButton.clicked()
                 background: Rectangle {
                     implicitWidth: 200
                     implicitHeight: 32
@@ -147,53 +179,28 @@ FocusScope {
                 }
             }
         }
-        Row {
-            id: panelCharactersSelector
-            x: 8
-            spacing: 4
-            visible: false
-            Repeater {
-                model: panelCharactersList.model
-                delegate: CWM.InlineTextPicButton {
-                    size: "S"
-                    text: modelData
-                    Keys.onReturnPressed: clicked()
-                    onClicked: {
-                        if (dialogField.displayText) {
-                            addDialogButtonClicked(modelData, dialogField.displayText)
-                            panelCharactersSelector.visible = false
-                        }
-                    }
+    }
+    ListView {
+        id: panelCharactersSelector
+        anchors.top: dialogs.bottom
+        x: 40
+        spacing: 4
+        visible: false
+        width: 24 * count
+        orientation: ListView.Horizontal
+        model: panelCharactersList.model
+        currentIndex: 0
+        delegate: CWM.InlineTextPicButton {
+            size: "S"
+            text: modelData
+            Keys.onReturnPressed: clicked()
+            Keys.onTabPressed: panelCharactersSelector.currentIndex += 1
+            onClicked: {
+                if (dialogField.displayText) {
+                    addDialogButtonClicked(modelData, dialogField.displayText)
+                    panelCharactersSelector.visible = false
                 }
             }
-        }
-    }
-    CWM.InlineSelectionList {
-        id: availableCharactersSelector
-        anchors.right: parent.right
-        anchors.bottom: panelCharactersRow.top
-        anchors.margins: 8
-        visible: false
-        onItemClicked: visible = !visible
-    }
-    Row {
-        id: panelCharactersRow
-        anchors.right: parent.right
-        anchors.bottom: parent.bottom
-        anchors.margins: 8
-        spacing: 4
-        Repeater {
-            id: panelCharactersList
-            model: ["first character","second character"]
-            delegate: CWM.InlineTextPicButton {
-                enabled: false
-                text: modelData
-            }
-        }
-        CWM.InlineIconButton {
-            id: addCharacterButton
-            onClicked: availableCharactersSelector.visible = ! availableCharactersSelector.visible
-            opacity: .6
         }
     }
     CWA.P2 {
@@ -203,7 +210,7 @@ FocusScope {
         anchors.margins: 8
         text: "[idx]"
         verticalAlignment: Qt.AlignBottom
-        color: CWA.Colors.shades300
+        color: CWA.Colors.shades400
     }
 }
 

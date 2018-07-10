@@ -35,7 +35,7 @@ FocusScope {
             color: "transparent"
             border.color: "transparent"
             CWA.P2 {
-                color: addCharacterField.activeFocus ? CWA.Colors.primary500 : CWA.Colors.shades0
+                color: CWA.Colors.shades0
                 opacity: .5
                 text: qsTr("add character...")
                 anchors.verticalCenter: parent.verticalCenter

@@ -61,6 +61,7 @@ GridLayout {
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 model: panelsGrid.model
+                KeyNavigation.tab: panelsGrid
             }
             Row {
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -79,31 +80,27 @@ GridLayout {
             }
         }
     }
-//    FocusScope {
-//        id: deskFocus
-//        focus: true
-        CWM.Desk {
-            id: desk
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            CWO.PanelsGrid {
-                id: panelsGrid
-                anchors.fill: parent
-                anchors.margins: 8
-            }
-            CWM.Button {
-                id: openProjectButton
-                text: qsTr("Open Project")
-                anchors.centerIn: parent
-            }
-            CWA.P1 {
-                id: startProjectHint
-                anchors.top: openProjectButton.bottom
-                anchors.topMargin: 16
-                anchors.horizontalCenter: parent.horizontalCenter
-                text: qsTr("or, start adding characters and panels...")
-                color: CWA.Colors.shades300
-            }
+    CWM.Desk {
+        id: desk
+        Layout.fillWidth: true
+        Layout.fillHeight: true
+        CWO.PanelsGrid {
+            id: panelsGrid
+            anchors.fill: parent
+            anchors.margins: 8
         }
-//    }
+        CWM.Button {
+            id: openProjectButton
+            text: qsTr("Open Project")
+            anchors.centerIn: parent
+        }
+        CWA.P1 {
+            id: startProjectHint
+            anchors.top: openProjectButton.bottom
+            anchors.topMargin: 16
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: qsTr("or, start adding characters and panels...")
+            color: CWA.Colors.shades300
+        }
+    }
 }

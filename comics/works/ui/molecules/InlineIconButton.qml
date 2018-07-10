@@ -18,6 +18,7 @@ RoundButton {
         width: root.width
         height: root.height
         radius: root.radius
-        color: pressed ? CWA.Colors.shades500 : CWA.Colors.shades400
+        color: root.activeFocus ? CWA.Colors.shades400 :
+                   pressed ? CWA.Colors.shades500 : CWA.Colors.shades300
     }
 }
