@@ -6,6 +6,7 @@ RoundButton {
     id: root
     property string size
     property alias iconContent: icon.content
+    property alias backgroundColor: background.color
     implicitWidth: size == "S" ? 24 : 32
     implicitHeight: width
     radius: width / 2
@@ -15,10 +16,11 @@ RoundButton {
         anchors.centerIn: parent
     }
     background: Rectangle {
+        id: background
         width: root.width
         height: root.height
         radius: root.radius
-        color: root.activeFocus ? CWA.Colors.shades400 :
+        color: root.activeFocus ? CWA.Colors.primary500 :
                    pressed ? CWA.Colors.shades500 : CWA.Colors.shades300
     }
 }

@@ -74,7 +74,10 @@ FocusScope {
         }
         CWM.InlineIconButton {
             id: addCharacterButton
-            onClicked: availableCharactersSelector.visible = ! availableCharactersSelector.visible
+            onClicked: {
+                availableCharactersSelector.visible = ! availableCharactersSelector.visible
+                availableCharactersSelector.focus = true
+            }
             iconContent: "characters"
             KeyNavigation.tab: description
             Keys.onReturnPressed: clicked()
@@ -86,7 +89,10 @@ FocusScope {
         anchors.left: panelCharactersRow.left
         anchors.topMargin: 8
         visible: false
-        onItemClicked: visible = !visible
+        onItemClicked: {
+            visible = !visible
+            description.focus = true
+        }
         z: 2
     }
     TextArea {
@@ -150,6 +156,7 @@ FocusScope {
             CWM.InlineIconButton {
                 id: dialogCharacterButton
                 size: "S"
+                backgroundColor: dialogField.activeFocus ? CWA.Colors.primary500 : CWA.Colors.shades300
                 anchors.verticalCenter: dialogField.verticalCenter
                 onClicked: {
                     panelCharactersSelector.visible = ! panelCharactersSelector.visible
@@ -193,8 +200,16 @@ FocusScope {
         delegate: CWM.InlineTextPicButton {
             size: "S"
             text: modelData
-            Keys.onReturnPressed: clicked()
-            Keys.onTabPressed: panelCharactersSelector.currentIndex += 1
+            Keys.onReturnPressed: {
+                clicked()
+                dialogField.focus = true
+            }
+            Keys.onTabPressed: panelCharactersSelector.currentIndex < panelCharactersSelector.count-1
+                                   ? panelCharactersSelector.currentIndex += 1
+                                   : panelCharactersSelector.currentIndex = 0
+            Keys.onBacktabPressed: panelCharactersSelector.currentIndex > 0
+                                    ? panelCharactersSelector.currentIndex -= 1
+                                    : panelCharactersSelector.currentIndex = panelCharactersSelector.count-1
             onClicked: {
                 if (dialogField.displayText) {
                     addDialogButtonClicked(modelData, dialogField.displayText)

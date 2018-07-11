@@ -2,29 +2,24 @@ import QtQuick 2.0
 import QtQuick.Controls 2.3
 import "../atoms" as CWA
 
-Rectangle {
+ListView {
     id: root
     signal itemClicked(string name)
-    property alias model: repeater.model
     width: 80
-    height: repeater.count * 24 + 8
-    color: CWA.Colors.shades200
-    Column {
-        anchors.fill: parent
-        anchors.margins: 4
-        Repeater {
-            id: repeater
-            delegate: ItemDelegate {
-                padding: 0
-                text: model.name
-                font.pixelSize: CWA.Typo.p2
-                onClicked: itemClicked(model.name)
-                width: parent.width
-                height: 24
-                background: Rectangle {
-                    color: activeFocus ? CWA.Colors.shades400 : CWA.Colors.shades200
-                }
-            }
+    height: count * 24 + 8
+    currentIndex: 0
+    delegate: ItemDelegate {
+        padding: 4
+        text: typeof(modelData)=="undefined" ? modelData.name : model.name
+        font.pixelSize: CWA.Typo.p2
+        onClicked: itemClicked(model.name)
+        Keys.onReturnPressed: itemClicked(model.name)
+        width: 80
+        height: 24
+        Keys.onTabPressed: currentIndex < count-1 ? currentIndex += 1 : currentIndex=0
+        Keys.onBacktabPressed: currentIndex > 0 ? currentIndex -= 1 : currentIndex=count-1
+        background: Rectangle {
+            color: parent.activeFocus ? CWA.Colors.primary500 : CWA.Colors.shades200
         }
     }
 }
