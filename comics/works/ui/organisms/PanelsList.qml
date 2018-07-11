@@ -58,14 +58,18 @@ FocusScope {
                 text: model.name || "[%1]".arg(model.eid)
                 color: CWA.Colors.shades0
                 opacity: .8
-                width: 56
+                width: 60
+                elide: Text.ElideRight
+                font.pixelSize: 10
+                anchors.verticalCenter: descriptionLabel.verticalCenter
+                verticalAlignment: Qt.AlignVCenter
             }
             CWA.P2 {
                 id: descriptionLabel
-                text: model.description
+                text: model.description || ""
                 color: CWA.Colors.shades0
                 elide: Text.ElideRight
-                width: root.width - 64
+                width: root.width - 84
                 anchors.left: nameLabel.right
             }
             MouseArea {
