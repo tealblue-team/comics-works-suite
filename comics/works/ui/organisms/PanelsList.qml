@@ -47,30 +47,31 @@ FocusScope {
         anchors.right: parent.right
         anchors.bottom: parent.bottom
         model: ListModel{
-            ListElement {eid:"panel1";description:"desc1"}
-            ListElement {eid:"panel2";description:"desc2"}
+            ListElement {eid:"pABCDE";description:"desc1";name:"panel 1"}
+            ListElement {eid:"pABCDE";description:"desc2"}
         }
         delegate: Item {
             width: root.width
             height: childrenRect.height
-            CWA.P2 {
+            CWA.P3 {
                 id: nameLabel
                 text: model.name || "[%1]".arg(model.eid)
                 color: CWA.Colors.shades0
                 opacity: .8
-                width: 60
+                width: 64
                 elide: Text.ElideRight
-                font.pixelSize: 10
+                font.pixelSize: 11
                 anchors.verticalCenter: descriptionLabel.verticalCenter
                 verticalAlignment: Qt.AlignVCenter
             }
-            CWA.P2 {
+            CWA.P3 {
                 id: descriptionLabel
                 text: model.description || ""
                 color: CWA.Colors.shades0
                 elide: Text.ElideRight
-                width: root.width - 84
+                width: root.width - 88
                 anchors.left: nameLabel.right
+                verticalAlignment: Qt.AlignVCenter
             }
             MouseArea {
                 anchors.right: parent.right

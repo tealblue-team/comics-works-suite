@@ -4,6 +4,7 @@ import QtGraphicalEffects 1.0
 Item {
     id: icon
     property string content: "panel"
+    property alias color: colorizer.hue
     Image {
         id: iconImage
         width: 16
@@ -12,6 +13,7 @@ Item {
         source: Qt.resolvedUrl("../assets/icons/%1.svg".arg(content))
     }
     Colorize {
+        id: colorizer
         anchors.fill: iconImage
         source: iconImage
         saturation: 0

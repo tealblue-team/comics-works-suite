@@ -34,7 +34,7 @@ void ProjectJson::loadFromJsonDoc(const QByteArray& projectJson)
                 auto panelEid = panelsJson.at(i).toObject().value("eid").toString();
                 if (panelEid == "") {
                     std::array<char,26> abc({{'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'}});
-                    panelEid = QString("panel%1%2%3%4%5")
+                    panelEid = QString("p%1%2%3%4%5")
                             .arg(QString(abc[rand()/((RAND_MAX + 1u)/26)]).toUpper())
                             .arg(QString(abc[rand()/((RAND_MAX + 1u)/26)]).toUpper())
                             .arg(QString(abc[rand()/((RAND_MAX + 1u)/26)]).toUpper())
@@ -149,10 +149,11 @@ QByteArray ProjectJson::readJsonFromFile(const QString& fileName)
     return fileContent;
 }
 
-int ProjectJson::writeJsonToFile(const QByteArray& json, const QString& filePath)
+QString ProjectJson::writeJsonToFile(const QByteArray& json, const QString& fileName)
 {
-    QFile file(filePath);
+    QString filePath = fileName;
+    QFile file(filePath.startsWith("file:/") ? filePath.remove(0,6) : filePath);
     file.open(QIODevice::WriteOnly);
     file.write(json);
-    return 0;
+    return filePath;
 }

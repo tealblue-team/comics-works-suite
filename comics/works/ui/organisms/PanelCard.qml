@@ -45,7 +45,7 @@ FocusScope {
         id: name
         focus: true
         font.pixelSize: CWA.Typo.p2
-        color: CWA.Colors.shades500
+        color: activeFocus ? CWA.Colors.primary900 : CWA.Colors.shades500
         padding: 4
         width: parent.width - 8
         height: implicitHeight
@@ -98,7 +98,7 @@ FocusScope {
     TextArea {
         id: description
         font.pixelSize: CWA.Typo.p2
-        color: CWA.Colors.shades500
+        color: activeFocus ? CWA.Colors.primary900 : CWA.Colors.shades500
         anchors.top: panelCharactersRow.bottom
         padding: 4
         width: parent.width - 8

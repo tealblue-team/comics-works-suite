@@ -23,7 +23,7 @@ public:
     Q_INVOKABLE void loadFromJsonDoc(const QByteArray&);
     Q_INVOKABLE void saveToJsonDoc();
     Q_INVOKABLE QByteArray readJsonFromFile(const QString&);
-    Q_INVOKABLE int writeJsonToFile(const QByteArray& json, const QString& filePath);
+    Q_INVOKABLE QString writeJsonToFile(const QByteArray& json, const QString& filePath);
 signals:
     void loaded(int success);
     void saved(QByteArray jsonDoc);

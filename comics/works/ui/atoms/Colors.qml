@@ -13,5 +13,7 @@ QtObject {
     property color shades700: "#222222"
     property color shades900: "#000000"
     property color primary500: "#00C8C8"
+    property color primary700: Qt.darker(primary500,1.2)
+    property color primary900: Qt.darker(primary500,1.5)
     property color accent500: "#FF933A"
 }

@@ -14,7 +14,7 @@ Button {
         anchors.fill: parent
         CWA.P2 {
             text: root.text || "[text]"
-            color: pressed ? CWA.Colors.shades700 : CWA.Colors.shades0
+            color: root.activeFocus ? CWA.Colors.primary500 : pressed ? CWA.Colors.shades700 : CWA.Colors.shades0
             opacity: root.activeFocus ? 1 : .5
             anchors.verticalCenter: parent.verticalCenter
         }

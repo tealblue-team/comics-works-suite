@@ -1,285 +1,384 @@
 {
-  "projectName": "HL-I",
-  "characters": [{
-      "name": "Ayran"
-    },
-    {
-      "name": "Birun"
-    },
-    {
-      "name": "Narrator"
-    }
-  ],
-  "panels": [{
-      "characters": [
-        "Ayran"
-      ],
-      "description": "Wide shot. Full moon, dark. A small silhouette walking along the road almost coming out of the forest.",
-      "dialogs": [{
-        "characterName": "Ayran",
-        "dialogContent_en_US": "So... that's what war is"
-      }],
-      "name": "HL-I-A-1"
-    },
-    {
-      "characters": [
-        "Ayran"
-      ],
-      "description": "Zoom in. The man's feet walking forward.",
-      "dialogs": [{
-        "characterName": "Ayran",
-        "dialogContent_en_US": "I am leaving my country with a heavy load upon me"
-      }],
-      "name": "HL-I-A-2A"
-    },
-    {
-      "characters": [
-        "Ayran"
-      ],
-      "description": "The man's profile can be seen. It is full of anguish and fear. His eyes are fixed onto something.",
-      "name": "HL-I-A-2B"
-    },
-    {
-      "characters": [
-        "Ayran"
-      ],
-      "description": "A countryside road goes from a forest towards a river. In the distance, a guard post. Beyond the post, a bridge.",
-      "name": "HL-I-A-3"
-    },
-    {
-      "characters": [
-        "Ayran"
-      ],
-      "description": "(from behind) The man crouches at the end of the forest putting down his weight and looks out towards the river.",
-      "dialogs": [{
-        "characterName": "Ayran",
-        "dialogContent_en_US": "... A load that will never leave me."
-      }],
-      "name": "HL-I-A-4A"
-    },
-    {
-      "characters": [
-        "Ayran"
-      ],
-      "description": "Zoom in to the post's guards from the man's standpoint.",
-      "name": "HL-I-A-4B"
-    },
-    {
-      "characters": [
-        "Ayran"
-      ],
-      "description": "The man looks into that direction.",
-      "name": "HL-I-A-5A"
-    },
-    {
-      "characters": [
-        "Ayran"
-      ],
-      "description": "The man looks into a different direction.",
-      "name": "HL-I-A-5B"
-    },
-    {
-      "characters": [
-        "Ayran"
-      ],
-      "description": "A bit south of the bridge and the post there is a wide tree that stretches onto the strong river, almost reaching the opposite bank.",
-      "name": "HL-I-A-6"
-    },
-    {
-      "characters": [
-        "Ayran"
-      ],
-      "description": "The man takes up his weight again...",
-      "name": "HL-I-A-7"
-    },
-    {
-      "characters": [
-        "Ayran"
-      ],
-      "description": "Zoom onto the man and the weight",
-      "dialogs": [{
-        "characterName": "Ayran",
-        "dialogContent_en_US": "Yet, when it all started everything looked so exciting..."
-      }],
-      "name": "HL-I-A-8"
-    },
-    {
-      "characters": [
-        "Ayran"
-      ],
-      "description": "...and goes down the vantage point towards the river crossing. The weight is a dead body.",
-      "dialogs": [{
-        "characterName": "Ayran",
-        "dialogContent_en_US": "But now HE is dead, and so am I."
-      }],
-      "name": "HL-I-A-9"
-    },
-    {
-      "characters": [
-        "Birun",
-        "Ayran",
-        "Narrator"
-      ],
-      "description": "Wide shot. Far off Birun and Ayran face to face with sticks.",
-      "dialogs": [{
-        "characterName": "Narrator",
-        "dialogContent_en_US": "Some time before..."
-      }],
-      "name": "HL-I-B-1"
-    },
-    {
-      "characters": [
-        "Ayran",
-        "Birun"
-      ],
-      "description": "Zoom in.",
-      "dialogs": [{
-        "characterName": "Ayran",
-        "dialogContent_en_US": "Birun! Commend your soul to Ashtalan the almighty, cause you're gonna meet her soon!"
-      }],
-      "name": "HL-I-B-2"
-    },
-    {
-      "characters": [
-        "Ayran"
-      ],
-      "description": "Ayran, starting the attack.",
-      "dialogs": [{
-        "characterName": "Ayran",
-        "dialogContent_en_US": "WAAAH!"
-      }],
-      "name": "HL-I-B-3"
-    },
-    {
-      "characters": [
-        "Ayran",
-        "Birun"
-      ],
-      "description": "Ayran hitting.",
-      "dialogs": [{
-        "characterName": "Birun",
-        "dialogContent_en_US": "Ayran, you son of a blind raccoon! I'll show you now!"
-      }],
-      "name": "HL-I-B-4"
-    },
-    {
-      "characters": [
-        "Ayran",
-        "Birun"
-      ],
-      "description": "Birun jumps.",
-      "dialogs": [{
-          "characterName": "Ayran",
-          "dialogContent_en_US": "?"
+    "characters": [
+        {
+            "name": "Ayran"
         },
         {
-          "characterName": "Birun",
-          "dialogContent_en_US": "HA!"
+            "name": "Birun"
+        },
+        {
+            "name": "Narrator"
+        },
+        {
+            "name": "Guard 1"
+        },
+        {
+            "name": "Guard 2"
         }
-      ],
-      "name": "HL-I-B-5"
-    },
-    {
-      "characters": [
-        "Ayran",
-        "Birun"
-      ],
-      "description": "Birun hitting back.",
-      "name": "HL-I-B-6"
-    },
-    {
-      "characters": [
-        "Ayran",
-        "Birun"
-      ],
-      "description": "Birun kicks Ayran in face.",
-      "name": "HL-I-B-7"
-    },
-    {
-      "characters": [
-        "Ayran",
-        "Birun"
-      ],
-      "description": "Birun kicks Ayran in stomach.",
-      "name": "HL-I-B-8"
-    },
-    {
-      "characters": [
-        "Ayran",
-        "Birun"
-      ],
-      "description": "Birun tears Ayran down.",
-      "name": "HL-I-B-9"
-    },
-    {
-      "characters": [
-        "Ayran",
-        "Birun"
-      ],
-      "description": "Ayran reacts.",
-      "name": "HL-I-B-10"
-    },
-    {
-      "characters": [
-        "Ayran",
-        "Birun"
-      ],
-      "description": "Ayran stands up.",
-      "name": "HL-I-B-11A"
-    },
-    {
-      "characters": [
-        "Ayran",
-        "Birun"
-      ],
-      "description": "Ayran overthrows Birun.",
-      "name": "HL-I-B-11B"
-    },
-    {
-      "characters": [
-        "Ayran",
-        "Birun"
-      ],
-      "description": "Ayran over Birun.",
-      "name": "HL-I-B-12"
-    },
-    {
-      "characters": [
-        "Ayran",
-        "Birun"
-      ],
-      "description": "Ayran raises fist.",
-      "dialogs": [{
-        "characterName": "Birun",
-        "dialogContent_en_US": "Hey..."
-      }],
-      "name": "HL-I-B-13"
-    },
-    {
-      "characters": [
-        "Ayran"
-      ],
-      "description": "Ayran's angry face.",
-      "name": "HL-I-B-14A"
-    },
-    {
-      "characters": [
-        "Birun"
-      ],
-      "description": "Birun's scared face.",
-      "name": "HL-I-B-14B"
-    },
-    {
-      "characters": [
-        "Ayran",
-        "Birun"
-      ],
-      "description": "Ayran striking fist.",
-      "dialogs": [{
-        "characterName": "Ayran",
-        "dialogContent_en_US": "Go to hell!"
-      }],
-      "name": "HL-I-B-15"
-    }
-  ]
+    ],
+    "panels": [
+        {
+            "characters": [
+                "Ayran"
+            ],
+            "description": "Wide shot. Full moon, dark. A small silhouette walking along the road almost coming out of the forest.",
+            "dialogs": [
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "So... that's what war is"
+                }
+            ],
+            "eid": "pADTLN",
+            "name": "HL-I-A-1"
+        },
+        {
+            "characters": [
+                "Ayran"
+            ],
+            "description": "Zoom in. The man's feet walking forward.",
+            "dialogs": [
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "I am leaving my country with a heavy load upon me"
+                }
+            ],
+            "eid": "pFBRRY",
+            "name": "HL-I-A-2A"
+        },
+        {
+            "characters": [
+                "Ayran"
+            ],
+            "description": "The man's profile can be seen. It is full of anguish and fear. His eyes are fixed onto something.",
+            "dialogs": [
+            ],
+            "eid": "pJNVAB",
+            "name": "HL-I-A-2B"
+        },
+        {
+            "characters": [
+                "Ayran",
+                "Guard 1",
+                "Guard 2"
+            ],
+            "description": "A countryside road goes from a forest towards a river. In the distance, a guard post. Beyond the post, a bridge.",
+            "dialogs": [
+            ],
+            "eid": "pNRAJB",
+            "name": "HL-I-A-3"
+        },
+        {
+            "characters": [
+                "Ayran"
+            ],
+            "description": "(from behind) The man crouches at the end of the forest putting down his weight and looks out towards the river.",
+            "dialogs": [
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "... A load that will never leave me."
+                }
+            ],
+            "eid": "pKRPYW",
+            "name": "HL-I-A-4A"
+        },
+        {
+            "characters": [
+                "Ayran",
+                "Guard 1",
+                "Guard 2"
+            ],
+            "description": "Zoom in to the post's guards from the man's standpoint.",
+            "dialogs": [
+            ],
+            "eid": "pNCRKS",
+            "name": "HL-I-A-4B"
+        },
+        {
+            "characters": [
+                "Ayran",
+                "Guard 1",
+                "Guard 2"
+            ],
+            "description": "The man looks into that direction.",
+            "dialogs": [
+            ],
+            "eid": "pXTGBT",
+            "name": "HL-I-A-5A"
+        },
+        {
+            "characters": [
+                "Ayran"
+            ],
+            "description": "The man looks into a different direction.",
+            "dialogs": [
+            ],
+            "eid": "pIQTZJ",
+            "name": "HL-I-A-5B"
+        },
+        {
+            "characters": [
+                "Ayran"
+            ],
+            "description": "A bit south of the bridge and the post there is a wide tree that stretches onto the strong river, almost reaching the opposite bank.",
+            "dialogs": [
+            ],
+            "eid": "pGZSTQ",
+            "name": "HL-I-A-6"
+        },
+        {
+            "characters": [
+                "Ayran"
+            ],
+            "description": "The man takes up his weight again...",
+            "dialogs": [
+            ],
+            "eid": "pBQXHL",
+            "name": "HL-I-A-7"
+        },
+        {
+            "characters": [
+                "Ayran"
+            ],
+            "description": "Zoom onto the man and the weight",
+            "dialogs": [
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "Yet, when it all started everything looked so exciting..."
+                }
+            ],
+            "eid": "pTMGHJ",
+            "name": "HL-I-A-8"
+        },
+        {
+            "characters": [
+                "Ayran"
+            ],
+            "description": "...and goes down the vantage point towards the river crossing. The weight is a dead body.",
+            "dialogs": [
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "But now HE is dead, and so am I."
+                }
+            ],
+            "eid": "pEMXXB",
+            "name": "HL-I-A-9"
+        },
+        {
+            "characters": [
+                "Birun",
+                "Ayran",
+                "Narrator"
+            ],
+            "description": "Wide shot. Far off Birun and Ayran face to face with sticks.",
+            "dialogs": [
+                {
+                    "characterName": "Narrator",
+                    "dialogContent_en_US": "Some time before..."
+                }
+            ],
+            "eid": "pXNNIZ",
+            "name": "HL-I-B-1"
+        },
+        {
+            "characters": [
+                "Ayran",
+                "Birun"
+            ],
+            "description": "Zoom in.",
+            "dialogs": [
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "Birun! Commend your soul to Ashtalan the almighty, cause you're gonna meet her soon!"
+                }
+            ],
+            "eid": "pMGCYB",
+            "name": "HL-I-B-2"
+        },
+        {
+            "characters": [
+                "Ayran"
+            ],
+            "description": "Ayran, starting the attack.",
+            "dialogs": [
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "WAAAH!"
+                }
+            ],
+            "eid": "pNJHXN",
+            "name": "HL-I-B-3"
+        },
+        {
+            "characters": [
+                "Ayran",
+                "Birun"
+            ],
+            "description": "Ayran hitting.",
+            "dialogs": [
+                {
+                    "characterName": "Birun",
+                    "dialogContent_en_US": "Ayran, you son of a blind raccoon! I'll show you now!"
+                }
+            ],
+            "eid": "pMYBTU",
+            "name": "HL-I-B-4"
+        },
+        {
+            "characters": [
+                "Ayran",
+                "Birun"
+            ],
+            "description": "Birun jumps.",
+            "dialogs": [
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "?"
+                },
+                {
+                    "characterName": "Birun",
+                    "dialogContent_en_US": "HA!"
+                }
+            ],
+            "eid": "pVDARW",
+            "name": "HL-I-B-5"
+        },
+        {
+            "characters": [
+                "Ayran",
+                "Birun"
+            ],
+            "description": "Birun hitting back.",
+            "dialogs": [
+            ],
+            "eid": "pQTSZX",
+            "name": "HL-I-B-6"
+        },
+        {
+            "characters": [
+                "Ayran",
+                "Birun"
+            ],
+            "description": "Birun kicks Ayran in face.",
+            "dialogs": [
+            ],
+            "eid": "pGHJNP",
+            "name": "HL-I-B-7"
+        },
+        {
+            "characters": [
+                "Ayran",
+                "Birun"
+            ],
+            "description": "Birun kicks Ayran in stomach.",
+            "dialogs": [
+            ],
+            "eid": "pVKVHK",
+            "name": "HL-I-B-8"
+        },
+        {
+            "characters": [
+                "Ayran",
+                "Birun"
+            ],
+            "description": "Birun tears Ayran down.",
+            "dialogs": [
+            ],
+            "eid": "pNMHED",
+            "name": "HL-I-B-9"
+        },
+        {
+            "characters": [
+                "Ayran",
+                "Birun"
+            ],
+            "description": "Ayran reacts.",
+            "dialogs": [
+            ],
+            "eid": "pOUANM",
+            "name": "HL-I-B-10"
+        },
+        {
+            "characters": [
+                "Ayran",
+                "Birun"
+            ],
+            "description": "Ayran stands up.",
+            "dialogs": [
+            ],
+            "eid": "pYTOXQ",
+            "name": "HL-I-B-11A"
+        },
+        {
+            "characters": [
+                "Ayran",
+                "Birun"
+            ],
+            "description": "Ayran overthrows Birun.",
+            "dialogs": [
+            ],
+            "eid": "pVEFSD",
+            "name": "HL-I-B-11B"
+        },
+        {
+            "characters": [
+                "Ayran",
+                "Birun"
+            ],
+            "description": "Ayran over Birun.",
+            "dialogs": [
+            ],
+            "eid": "pCHAKA",
+            "name": "HL-I-B-12"
+        },
+        {
+            "characters": [
+                "Ayran",
+                "Birun"
+            ],
+            "description": "Ayran raises fist.",
+            "dialogs": [
+                {
+                    "characterName": "Birun",
+                    "dialogContent_en_US": "Hey..."
+                }
+            ],
+            "eid": "pSYGEI",
+            "name": "HL-I-B-13"
+        },
+        {
+            "characters": [
+                "Ayran"
+            ],
+            "description": "Ayran's angry face.",
+            "dialogs": [
+            ],
+            "eid": "pXQDRK",
+            "name": "HL-I-B-14A"
+        },
+        {
+            "characters": [
+                "Birun"
+            ],
+            "description": "Birun's scared face.",
+            "dialogs": [
+            ],
+            "eid": "pKMDPV",
+            "name": "HL-I-B-14B"
+        },
+        {
+            "characters": [
+                "Ayran",
+                "Birun"
+            ],
+            "description": "Ayran striking fist.",
+            "dialogs": [
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "Go to hell!"
+                }
+            ],
+            "eid": "pPYODZ",
+            "name": "HL-I-B-15"
+        }
+    ]
 }

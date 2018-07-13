@@ -5,7 +5,7 @@ singleton Typo 1.0 Typo.qml
 singleton Icons 1.0 Icons.qml
 
 CWLogo 1.0 CWLogo.qml
-CWLogoBw 1.0 CWLogoBw.qml
+CWLogoIcon 1.0 CWLogoIcon.qml
 Icon 1.0 Icon.qml
 
 H1 1.0 H1.qml
@@ -16,3 +16,4 @@ H5 1.0 H5.qml
 H6 1.0 H6.qml
 P1 1.0 P1.qml
 P2 1.0 P2.qml
+P3 1.0 P3.qml

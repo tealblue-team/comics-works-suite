@@ -164,9 +164,9 @@ void ProjectJsonTest::test_writeJsonToFile()
                 "}\n"
                 );
     // When
-    int success = adapter->writeJsonToFile(projectJson, fileName);
+    bool success = adapter->writeJsonToFile(projectJson, fileName) == fileName;
     // Then
-    QCOMPARE(success, 0);
+    QCOMPARE(success, true);
     QCOMPARE(adapter->readJsonFromFile(fileName), projectJson);
 }
 

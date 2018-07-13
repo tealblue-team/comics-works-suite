@@ -13,6 +13,7 @@ GridLayout {
     property alias saveButton: saveButton
     property alias exportToPdfButton: exportToPdfButton
     property alias openProjectButton: openProjectButton
+    property alias closeButton: closeButton
     property alias startProjectHint: startProjectHint
     width: 1024
     height: 768
@@ -28,27 +29,28 @@ GridLayout {
             Row {
                 Layout.fillWidth: true
                 spacing: 8
-                CWA.CWLogoBw {
-                    id: cwLogoBw
+                CWA.CWLogoIcon {
+                    id: cwLogoIcon
                     width: 40
                 }
                 Column {
-                    anchors.verticalCenter: cwLogoBw.verticalCenter
+                    anchors.verticalCenter: cwLogoIcon.verticalCenter
                     spacing: -8
-                    CWA.H5 {
-                        text: "comics.works"
-                        color: CWA.Colors.shades400
-                    }
                     Row {
                         CWA.H5 {
-                            text: "Story"
-                            color: CWA.Colors.shades400
+                            text: "comics."
+                            color: CWA.Colors.accent500
                         }
                         CWA.H5 {
-                            text: "Teller"
+                            text: "works"
                             color: CWA.Colors.shades300
                         }
                     }
+                    CWA.H5 {
+                        text: "StoryTeller"
+                        color: CWA.Colors.primary500
+                    }
+
                 }
             }
             CWO.CharactersList {
@@ -70,7 +72,12 @@ GridLayout {
                 CWM.Button {
                     id: saveButton
                     text: qsTr("Save")
-                    width: 64
+                    width: 52
+                }
+                CWM.Button {
+                    id: closeButton
+                    text: qsTr("X")
+                    width: 32
                 }
                 CWM.Button {
                     id: exportToPdfButton

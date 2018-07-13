@@ -5,13 +5,12 @@
         <file>templates/qmldir</file>
         <file>atoms/qmldir</file>
         <file>atoms/CWLogo.qml</file>
+        <file>atoms/CWLogoIcon.qml</file>
         <file>molecules/Desk.qml</file>
         <file>molecules/Snackbar.qml</file>
         <file>assets/comicsworks-logo-bubbles.svg</file>
         <file>assets/comicsworks-logo-cog-big.svg</file>
         <file>assets/comicsworks-logo-cog-small.svg</file>
-        <file>assets/cw-icons-bubble.png</file>
-        <file>assets/cw-icons-character.png</file>
         <file>atoms/Colors.qml</file>
         <file>assets/fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf</file>
         <file>assets/fonts/Source_Sans_Pro/SourceSansPro-SemiBold.ttf</file>
@@ -24,6 +23,7 @@
         <file>atoms/H6.qml</file>
         <file>atoms/P1.qml</file>
         <file>atoms/P2.qml</file>
+        <file>atoms/P3.qml</file>
         <file>assets/icons/panel.svg</file>
         <file>assets/icons/dialog.svg</file>
         <file>assets/icons/add.svg</file>
@@ -34,8 +34,6 @@
         <file>atoms/Icons.qml</file>
         <file>molecules/InlineIconButton.qml</file>
         <file>molecules/InlineTextPicButton.qml</file>
-        <file>assets/comicsworks-logo-bw.png</file>
-        <file>atoms/CWLogoBw.qml</file>
         <file>molecules/InlineSelectionList.qml</file>
         <file>templates/StoryTellerTpl.qml</file>
         <file>organisms/CharactersList.qml</file>
@@ -44,5 +42,6 @@
         <file>organisms/PanelsGrid.qml</file>
         <file>molecules/InlineTextIconButton.qml</file>
         <file>molecules/Button.qml</file>
+        <file>assets/comics-works-logo-64.png</file>
     </qresource>
 </RCC>

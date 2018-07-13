@@ -35,15 +35,6 @@ Window {
         onPanelNamed: panelsModel.add(value.panels)
     }
     Connections {
-        target: projectJson
-        onSaved: {
-            projectJson.writeJsonToFile(jsonDoc,"../../heavyLoad1.cw.json")
-            snackbar.visible = true
-            snackbar.text = qsTr("File saved")
-            snackbar.timer.start()
-        }
-    }
-    Connections {
         target: projectPdf
         onSaved: {
             snackbar.visible = true
@@ -77,7 +68,7 @@ Window {
             model: panelsModel
             addPanelButton.onClicked: {
                 var abc=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
-                uc.create_panel("panel%1%2%3%4%5"
+                uc.create_panel("p%1%2%3%4%5"
                                 .arg(abc[Math.floor(Math.random()*26)].toUpperCase())
                                 .arg(abc[Math.floor(Math.random()*26)].toUpperCase())
                                 .arg(abc[Math.floor(Math.random()*26)].toUpperCase())
@@ -120,15 +111,34 @@ Window {
         }
         startProjectHint.visible: panelsModel.count === 0 && charactersModel.count === 0
         saveButton {
-            onClicked: projectJson.saveToJsonDoc()
+            onClicked: saveDialog.open()
         }
         exportToPdfButton {
-            onClicked: saveDialog.open()
+            onClicked: exportToPdfDialog.open()
             enabled: charactersList.model.count > 0 || panelsList.model.count > 0
+        }
+        closeButton {
+            enabled: false
         }
     }
     FileDialog {
         id: saveDialog
+        folder: StandardPaths.writableLocation(StandardPaths.DocumentsLocation)
+        onAccepted: projectJson.saveToJsonDoc()
+        fileMode: FileDialog.SaveFile
+        defaultSuffix: "json"
+        Connections {
+            target: projectJson
+            onSaved: {
+                var filePath = projectJson.writeJsonToFile(jsonDoc, saveDialog.currentFile)
+                snackbar.visible = true
+                snackbar.text = qsTr("Project saved to %1".arg(filePath))
+                snackbar.timer.start()
+            }
+        }
+    }
+    FileDialog {
+        id: exportToPdfDialog
         folder: StandardPaths.writableLocation(StandardPaths.DocumentsLocation)
         onAccepted: projectPdf.saveToPdf(file)
         fileMode: FileDialog.SaveFile
