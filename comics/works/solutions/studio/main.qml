@@ -9,12 +9,12 @@ import comics.works.ui.templates 1.0 as CWT
 
 Window {
     id: mainWindow
-    title: "%1 - %2".arg("comics.works").arg("StoryTeller")
+    title: "%1 %2 - [%3]".arg("comics.works").arg("StoryTeller").arg(projectId)
     visible: true
     width: 1024
     height: 768
-    property string projectName
-    Component.onCompleted: uc.create_project("project1")
+    property string projectId
+    Component.onCompleted: uc.create_project("project%1".arg(utils.generateRandomId(5)))
     Connections {
         target: uc
         onCharacterAddedToPanel: panelsModel.add(value.panels)
@@ -33,6 +33,7 @@ Window {
         }
         onPanelDescribed: panelsModel.add(value.panels)
         onPanelNamed: panelsModel.add(value.panels)
+        onProjectCreated: projectId = value.eid
     }
     Connections {
         target: projectPdf
@@ -56,21 +57,18 @@ Window {
         anchors.fill: parent
         charactersList {
             model: charactersModel
-            onItemClicked: uc.delete_character(name, projectName)
+            onItemClicked: uc.delete_character(name, projectId)
             onAddCharacterFieldReturnPressed: {
                 if (charactersList.addCharacterField.displayText !== "") {
-                    uc.create_character(charactersList.addCharacterField.text, projectName)
+                    uc.create_character(charactersList.addCharacterField.text, projectId)
                     charactersList.addCharacterField.clear()
                 }
             }
         }
         panelsList {
             model: panelsModel
-            addPanelButton.onClicked: {
-                var abc=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
-                uc.create_panel("p%1".arg(utils.generateRandomId(5)), projectName)
-            }
-            onRemovePanelButtonClicked: uc.delete_panel(itemId, projectName)
+            addPanelButton.onClicked: uc.create_panel("p%1".arg(utils.generateRandomId(5)), projectId)
+            onRemovePanelButtonClicked: uc.delete_panel(itemId, projectId)
         }
         panelsGrid {
             model: panelsModel
