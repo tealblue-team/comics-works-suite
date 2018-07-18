@@ -6,7 +6,8 @@ SUBDIRS += \
     comics/works/entities \
     comics/works/usecases \
     comics/works/solutions/studio \
-    comics/works/adapters
+    comics/works/adapters \
+    comics/works/utils
 
 DISTFILES += features/*.feature \
     features/name_panel.feature

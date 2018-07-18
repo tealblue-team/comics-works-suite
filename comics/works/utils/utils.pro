@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2018-04-27T07:12:27
+# Project created by QtCreator 2018-07-16T18:37:09
 #
 #-------------------------------------------------
 
@@ -8,7 +8,7 @@ QT       += testlib
 
 QT       -= gui
 
-TARGET = tst_project_json
+TARGET = tst_utils
 CONFIG   += console
 CONFIG   -= app_bundle
 
@@ -25,22 +25,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+include(utils.pri)
 
 SOURCES += \
-        tst_project_json.cpp
+        tst_utils.cpp
 
-include(project_json.pri)
-include(../../entities/entities.pri)
-include(../../entities/character/character.pri)
-include(../../entities/panel/panel.pri)
-include(../../entities/project/project.pri)
-include(../../usecases/usecases.pri)
-include(../../utils/utils.pri)
 
-INCLUDEPATH += $$PWD/../../../..
-
-DISTFILES += \
-    testProject1.cw.json
-
-RESOURCES += \
-    project_json.qrc

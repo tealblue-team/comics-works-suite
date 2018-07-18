@@ -1,6 +1,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
+#include "comics/works/utils/utils.h"
 #include "comics/works/usecases/usecases.h"
 #include "comics/works/entities/register.h"
 #include "comics/works/adapters/project_json/project_json.h"
@@ -20,12 +21,16 @@ int main(int argc, char *argv[])
     // usecases
     auto uc = new usecases(&app);
     uc->entities_reg = &entities_register;
+    // utils
+    auto utils = new Utils(&app);
     // adapters
     auto projectJson = new adapters::ProjectJson(&app);
     projectJson->setUsecases(uc);
+    projectJson->setUtils(utils);
 
     auto projectPdf = new adapters::ProjectPdf(&app);
     projectPdf->setUsecases(uc);
+    projectJson->setUtils(utils);
 
     ui::Fonts* fonts = new comics::works::ui::Fonts();
     fonts->setDefaultFont(app);
@@ -33,6 +38,7 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextProperty("uc", uc);
+    engine.rootContext()->setContextProperty("utils", utils);
     engine.rootContext()->setContextProperty("projectJson", projectJson);
     engine.rootContext()->setContextProperty("projectPdf", projectPdf);
 

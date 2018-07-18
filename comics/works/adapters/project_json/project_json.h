@@ -8,6 +8,7 @@
 namespace comics {
 namespace works {
 class usecases;
+class Utils;
 namespace entities {
 class Register;
 class PanelBase;
@@ -20,6 +21,7 @@ class ProjectJson : public QObject
 public:
     explicit ProjectJson(QObject *parent = nullptr);
     void setUsecases(usecases*);
+    void setUtils(Utils*);
     Q_INVOKABLE void loadFromJsonDoc(const QByteArray&);
     Q_INVOKABLE void saveToJsonDoc();
     Q_INVOKABLE QByteArray readJsonFromFile(const QString&);
@@ -29,6 +31,7 @@ signals:
     void saved(QByteArray jsonDoc);
 private:
     usecases* m_uc = nullptr;
+    Utils* m_utils = nullptr;
     int m_descriptionsCount = 0;
     int m_dialogsCount = 0;
     int m_namesCount = 0;

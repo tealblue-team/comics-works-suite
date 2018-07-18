@@ -26,6 +26,7 @@ FocusScope {
     property alias dialogsList: dialogsList
     property alias panelCharactersList: panelCharactersList
     property alias indexLabel: indexLabel
+    KeyNavigation.tab: name
 
     Rectangle {
         width: root.width
@@ -43,7 +44,7 @@ FocusScope {
     }
     TextField {
         id: name
-        focus: true
+//        focus: true
         font.pixelSize: CWA.Typo.p2
         color: activeFocus ? CWA.Colors.primary900 : CWA.Colors.shades500
         padding: 4
@@ -55,6 +56,7 @@ FocusScope {
             addCharacterButton.focus = true
         }
         KeyNavigation.tab: addCharacterButton
+        KeyNavigation.backtab: root
         wrapMode: TextArea.Wrap
         background: Item {}
     }

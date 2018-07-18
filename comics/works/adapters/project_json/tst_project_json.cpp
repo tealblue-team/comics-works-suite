@@ -4,6 +4,7 @@
 #include <QJsonDocument>
 #include "project_json.h"
 #include "comics/works/usecases/usecases.h"
+#include "comics/works/utils/utils.h"
 #include "comics/works/entities/register.h"
 #include "comics/works/entities/character/character_base.h"
 #include "comics/works/entities/project/project_base.h"
@@ -50,6 +51,9 @@ void ProjectJsonTest::test_loadFromJsonDoc()
     // Given
     QScopedPointer<adapters::ProjectJson> adapter(new adapters::ProjectJson());
     adapter->setUsecases(uc.data());
+    // Given
+    QScopedPointer<Utils> utils(new Utils());
+    adapter->setUtils(utils.data());
     // When
     QSignalSpy loaded(adapter.data(), SIGNAL(loaded(int)));
     adapter->loadFromJsonDoc(projectJsonDoc);

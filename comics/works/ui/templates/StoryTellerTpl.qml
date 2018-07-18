@@ -48,7 +48,7 @@ GridLayout {
                     }
                     CWA.H5 {
                         text: "StoryTeller"
-                        color: CWA.Colors.primary500
+                        color: CWA.Colors.shades300
                     }
 
                 }
@@ -106,7 +106,7 @@ GridLayout {
             anchors.top: openProjectButton.bottom
             anchors.topMargin: 16
             anchors.horizontalCenter: parent.horizontalCenter
-            text: qsTr("or, start adding characters and panels...")
+            text: qsTr("Or, start adding characters and panels...")
             color: CWA.Colors.shades300
         }
     }

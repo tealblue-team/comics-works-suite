@@ -13,8 +13,8 @@ Window {
     visible: true
     width: 1024
     height: 768
-    property string projectName: "project1"
-    Component.onCompleted: uc.create_project(projectName)
+    property string projectName
+    Component.onCompleted: uc.create_project("project1")
     Connections {
         target: uc
         onCharacterAddedToPanel: panelsModel.add(value.panels)
@@ -68,12 +68,7 @@ Window {
             model: panelsModel
             addPanelButton.onClicked: {
                 var abc=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
-                uc.create_panel("p%1%2%3%4%5"
-                                .arg(abc[Math.floor(Math.random()*26)].toUpperCase())
-                                .arg(abc[Math.floor(Math.random()*26)].toUpperCase())
-                                .arg(abc[Math.floor(Math.random()*26)].toUpperCase())
-                                .arg(abc[Math.floor(Math.random()*26)].toUpperCase())
-                                .arg(abc[Math.floor(Math.random()*26)].toUpperCase()), projectName)
+                uc.create_panel("p%1".arg(utils.generateRandomId(5)), projectName)
             }
             onRemovePanelButtonClicked: uc.delete_panel(itemId, projectName)
         }

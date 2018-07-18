@@ -35,6 +35,7 @@ include(../../entities/character/character.pri)
 include(../../entities/panel/panel.pri)
 include(../../entities/project/project.pri)
 include(../../usecases/usecases.pri)
+include(../../utils/utils.pri)
 
 INCLUDEPATH += $$PWD/../../../..
 

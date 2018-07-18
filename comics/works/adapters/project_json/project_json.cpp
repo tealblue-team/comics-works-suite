@@ -1,6 +1,4 @@
 #include <QDebug>
-#include <array>
-#include <cmath>
 #include <QJsonObject>
 #include <QJsonArray>
 #include <QUrl>
@@ -8,6 +6,7 @@
 #include "project_json.h"
 #include "comics/works/usecases/usecases.h"
 #include "comics/works/entities/project/project.h"
+#include "comics/works/utils/utils.h"
 
 using namespace comics::works::adapters;
 
@@ -18,6 +17,11 @@ ProjectJson::ProjectJson(QObject *parent) : QObject(parent)
 void ProjectJson::setUsecases(usecases* uc)
 {
     m_uc = uc;
+}
+
+void ProjectJson::setUtils(Utils* utils)
+{
+    m_utils = utils;
 }
 
 void ProjectJson::loadFromJsonDoc(const QByteArray& projectJson)
@@ -32,15 +36,8 @@ void ProjectJson::loadFromJsonDoc(const QByteArray& projectJson)
         if (characters.size() == charactersJson.size()) {
             for (int i=0;i<panelsJson.size();++i) {
                 auto panelEid = panelsJson.at(i).toObject().value("eid").toString();
-                if (panelEid == "") {
-                    std::array<char,26> abc({{'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'}});
-                    panelEid = QString("p%1%2%3%4%5")
-                            .arg(QString(abc[rand()/((RAND_MAX + 1u)/26)]).toUpper())
-                            .arg(QString(abc[rand()/((RAND_MAX + 1u)/26)]).toUpper())
-                            .arg(QString(abc[rand()/((RAND_MAX + 1u)/26)]).toUpper())
-                            .arg(QString(abc[rand()/((RAND_MAX + 1u)/26)]).toUpper())
-                            .arg(QString(abc[rand()/((RAND_MAX + 1u)/26)]).toUpper());
-                }
+                if (panelEid == "")
+                    panelEid = QString("p%1").arg(m_utils->generateRandomId(5));
                 m_uc->create_panel(panelEid, m_uc->entities_reg->currentProject->eid());
             }
         }
