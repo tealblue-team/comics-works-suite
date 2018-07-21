@@ -9,5 +9,4 @@ SUBDIRS += \
     comics/works/adapters \
     comics/works/utils
 
-DISTFILES += features/*.feature \
-    features/name_panel.feature
+DISTFILES += features/*.feature
