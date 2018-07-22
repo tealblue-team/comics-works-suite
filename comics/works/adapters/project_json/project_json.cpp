@@ -120,6 +120,7 @@ void ProjectJson::loadFromJsonDoc(const QByteArray& projectJson)
             emit loaded(0);
         }
     });
+    m_uc->create_project(QString("project%1").arg(m_utils->generateRandomId(5)));
     for (int i=0;i<charactersJson.size();++i) {
         auto characterName = charactersJson.at(i).toObject().value("name").toString();
         m_uc->create_character(characterName, m_uc->entities_reg->currentProject->eid());
