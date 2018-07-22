@@ -186,10 +186,12 @@ CUKE_STEP_("^I cannot lookup the panel with id \"([a-zA-Z]+[0-9]*)\" in the curr
     REGEX_PARAM(QString, panelId);
     ScenarioScope<MainCtx> ctx;
     bool found = false;
-    for (int i = 0; i < ctx->entities.currentProject->panels()->size(); ++i) {
-        if (ctx->entities.currentProject->panels()->at(i)->eid() == panelId) {
-            found = true;
-            break;
+    if (ctx->entities.currentProject) {
+        for (int i = 0; i < ctx->entities.currentProject->panels()->size(); ++i) {
+            if (ctx->entities.currentProject->panels()->at(i)->eid() == panelId) {
+                found = true;
+                break;
+            }
         }
     }
     QVERIFY(! found);
@@ -432,8 +434,12 @@ CUKE_STEP_("^I try to delete the character with name \"([a-zA-Z0-9]+)\"$") {
 CUKE_STEP_("^the character with name \"([a-zA-Z0-9]+)\" is deleted$") {
     REGEX_PARAM(QString, characterName);
     ScenarioScope<MainCtx> ctx;
-    QCOMPARE(ctx->usecaseResult.value("name").toString(), characterName);
-    QCOMPARE(ctx->usecaseResult.value("outcome").toString(), QString("CHARACTER_DELETED"));
+    bool found = false;
+    auto charactersResult = ctx->usecaseResult.value("characters").toList();
+    for (int i=0;i<charactersResult.size();++i) {
+        found = charactersResult.at(i) == characterName;
+    }
+    QVERIFY(! found);
 }
 
 CUKE_STEP_("^all dialogs for character with name \"([a-zA-Z0-9]+)\" in all panels are deleted$") {
@@ -467,4 +473,20 @@ CUKE_STEP_("^the character with name \"([a-zA-Z0-9]+)\" is deleted from all pane
         }
     }
     QVERIFY(! characterFound);
+}
+
+CUKE_STEP_("^I try to delete the project with name \"([a-zA-Z]+[0-9]*)\"$") {
+    REGEX_PARAM(QString, projectName);
+    ScenarioScope<MainCtx> ctx;
+    QSignalSpy usecaseResult(&ctx->uc, &usecases::usecaseCompleted);
+    ctx->uc.delete_project(projectName);
+    usecaseResult.wait(5);
+    ctx->usecaseResult = usecaseResult.takeFirst().at(0).toMap();
+}
+
+CUKE_STEP_("^the project with name \"([a-zA-Z]+[0-9]*)\" is deleted$") {
+    REGEX_PARAM(QString, projectName);
+    ScenarioScope<MainCtx> ctx;
+    QCOMPARE(ctx->usecaseResult.value("eid").toString(), projectName);
+    QCOMPARE(ctx->usecaseResult.value("outcome").toString(), QString("PROJECT_DELETED"));
 }

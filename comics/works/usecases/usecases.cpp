@@ -216,6 +216,23 @@ void usecases::delete_panel(const QString &name, const QString &ProjectName)
     emit usecaseCompleted(ret);
 }
 
+void usecases::delete_project(const QString &name)
+{
+    QVariantMap ret;
+    if (name == entities_reg->currentProject->eid()) {
+        delete entities_reg->currentProject;
+        entities_reg->currentProject = nullptr;
+    }
+    ret = {
+        {"outcome", "PROJECT_DELETED"},
+        {"eid", name},
+        {"characters", QStringList()},
+        {"panels", QStringList()}
+    };
+    emit projectDeleted(ret);
+    emit usecaseCompleted(ret);
+}
+
 void usecases::describe_panel(const QString &panelId, const QString &panelDescription)
 {
     QVariantMap ret;

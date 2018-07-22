@@ -19,6 +19,7 @@ public:
     Q_INVOKABLE void create_project(const QString& projectName);
     Q_INVOKABLE void delete_character(const QString& characterName, const QString& projectName);
     Q_INVOKABLE void delete_panel(const QString& panelId, const QString& projectName);
+    Q_INVOKABLE void delete_project(const QString& projectName);
     Q_INVOKABLE void describe_panel(const QString& panelId, const QString& panelDescription);
     Q_INVOKABLE void name_panel(const QString& panelId, const QString& panelName);
 
@@ -39,6 +40,7 @@ signals:
     void panelNamed(QVariantMap value);
     void panelNotCreated(QVariantMap value);
     void projectCreated(QVariantMap value);
+    void projectDeleted(QVariantMap value);
 };
 }
 }
