@@ -34,6 +34,11 @@ Window {
         onPanelDescribed: panelsModel.add(value.panels)
         onPanelNamed: panelsModel.add(value.panels)
         onProjectCreated: projectId = value.eid
+        onProjectDeleted: {
+            projectId = ""
+            charactersModel.clear()
+            panelsModel.clear()
+        }
     }
     Connections {
         target: projectPdf
@@ -43,7 +48,6 @@ Window {
             snackbar.timer.start()
         }
     }
-
     JsonListModel {
         id: panelsModel
         idAttribute: "eid"
@@ -105,13 +109,15 @@ Window {
         startProjectHint.visible: panelsModel.count === 0 && charactersModel.count === 0
         saveButton {
             onClicked: saveDialog.open()
+            enabled: charactersList.model.count > 0 || panelsList.model.count > 0
         }
         exportToPdfButton {
             onClicked: exportToPdfDialog.open()
             enabled: charactersList.model.count > 0 || panelsList.model.count > 0
         }
         closeButton {
-            enabled: false
+            enabled: projectId != "" && (charactersList.model.count > 0 || panelsList.model.count > 0)
+            onClicked: uc.delete_project(projectId)
         }
     }
     FileDialog {
