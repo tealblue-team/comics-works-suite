@@ -30,6 +30,8 @@ void ProjectJson::loadFromJsonDoc(const QByteArray& projectJson)
     auto jsonObject = projectJsonDoc.object();
     auto charactersJson = jsonObject.value("characters").toArray();
     auto panelsJson = jsonObject.value("panels").toArray();
+    auto projectName = jsonObject.value("name").toString();
+    auto projectId = jsonObject.value("eid").toString();
 
     m_createPanels = connect(m_uc, &usecases::characterCreated, [=](QVariant value) {
         auto characters = value.toMap().value("characters").toList();
@@ -120,7 +122,7 @@ void ProjectJson::loadFromJsonDoc(const QByteArray& projectJson)
             emit loaded(0);
         }
     });
-    m_uc->create_project(QString("project%1").arg(m_utils->generateRandomId(5)));
+    m_uc->create_project(projectId=="" ? QString("project%1").arg(m_utils->generateRandomId(5)) : projectId);
     for (int i=0;i<charactersJson.size();++i) {
         auto characterName = charactersJson.at(i).toObject().value("name").toString();
         m_uc->create_character(characterName, m_uc->entities_reg->currentProject->eid());
