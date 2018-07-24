@@ -279,7 +279,7 @@ void usecases::name_project(const QString &projectId, const QString &projectName
         {"eid", projectId},
         {"name", projectName}
     };
-    emit panelNamed(ret);
+    emit projectNamed(ret);
     emit usecaseCompleted(ret);
 }
 

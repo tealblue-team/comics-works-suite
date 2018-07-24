@@ -71,12 +71,11 @@ GridLayout {
                 KeyNavigation.tab: panelsGrid
             }
         }
-        CWA.H6 {
+        CWM.ProjectNameLabel {
             id: projectNameLabel
-            x: 16
-            text: "[projectName]"
-            color: CWA.Colors.shades300
             anchors.bottom: projectButtons.top
+            width: parent.width
+            x: 16
         }
         Row {
             id: projectButtons

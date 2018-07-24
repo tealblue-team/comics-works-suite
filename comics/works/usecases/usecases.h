@@ -41,6 +41,7 @@ signals:
     void panelNamed(QVariantMap value);
     void panelNotCreated(QVariantMap value);
     void projectCreated(QVariantMap value);
+    void projectNamed(QVariantMap value);
     void projectDeleted(QVariantMap value);
 };
 }

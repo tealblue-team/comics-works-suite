@@ -9,7 +9,7 @@ import comics.works.ui.templates 1.0 as CWT
 
 Window {
     id: mainWindow
-    title: "%1 %2 - [%3]".arg("comics.works").arg("StoryTeller").arg(projectId)
+    title: "%1 %2 - %3".arg("comics.works").arg("StoryTeller").arg(projectName || "[%1]".arg(projectId))
     visible: true
     width: 1024
     height: 768
@@ -41,6 +41,7 @@ Window {
             panelsModel.clear()
             uc.create_project("project%1".arg(utils.generateRandomId(5)))
         }
+        onProjectNamed: projectName = value.name
     }
     Connections {
         target: projectPdf
@@ -104,7 +105,11 @@ Window {
                 indexLabel.text: 1+index
             }
         }
-        projectNameLabel.text: projectName || "[%1]".arg(projectId)
+        projectNameLabel {
+            text: projectName
+            placeholderText: "[%1]".arg(projectId)
+            onNameConfirmed: uc.name_project(projectId, projectNameLabel.displayText)
+        }
         openProjectButton {
             onClicked: openDialog.open()
             visible: panelsModel.count === 0 && charactersModel.count === 0

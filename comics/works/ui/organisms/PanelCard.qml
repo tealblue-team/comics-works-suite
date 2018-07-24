@@ -173,11 +173,9 @@ FocusScope {
                 padding: 0
                 font.pixelSize: CWA.Typo.p2
                 Keys.onReturnPressed: dialogCharacterButton.clicked()
-                background: Rectangle {
+                background: Item {
                     implicitWidth: 200
                     implicitHeight: 32
-                    color: "transparent"
-                    border.color: "transparent"
                     CWA.P2 {
                         id: chooseDialogCharacterButton
                         color: CWA.Colors.shades400

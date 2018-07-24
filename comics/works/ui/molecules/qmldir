@@ -6,4 +6,5 @@ InlineIconButton 1.0 InlineIconButton.qml
 InlineSelectionList 1.0 InlineSelectionList.qml
 InlineTextIconButton 1.0 InlineTextIconButton.qml
 InlineTextPicButton 1.0 InlineTextPicButton.qml
+ProjectNameLabel 1.0 ProjectNameLabel.qml
 Snackbar 1.0 Snackbar.qml
