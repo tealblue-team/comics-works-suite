@@ -11,6 +11,7 @@ GridLayout {
     property alias panelsList: panelsList
     property alias panelsGrid: panelsGrid
     property alias saveButton: saveButton
+    property alias projectNameLabel: projectNameLabel
     property alias exportToPdfButton: exportToPdfButton
     property alias openProjectButton: openProjectButton
     property alias closeButton: closeButton
@@ -23,7 +24,11 @@ GridLayout {
         Layout.preferredWidth: 200
         Layout.fillHeight: true
         ColumnLayout {
-            anchors.fill: parent
+            id: entityListsColumn
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: parent.top
+            anchors.bottom: projectNameLabel.top
             anchors.margins: 16
             anchors.topMargin: 8
             Row {
@@ -65,25 +70,35 @@ GridLayout {
                 model: panelsGrid.model
                 KeyNavigation.tab: panelsGrid
             }
-            Row {
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.bottom: parent.bottom
-                spacing: 4
-                CWM.Button {
-                    id: saveButton
-                    text: qsTr("Save")
-                    width: 52
-                }
-                CWM.Button {
-                    id: closeButton
-                    text: qsTr("X")
-                    width: 32
-                }
-                CWM.Button {
-                    id: exportToPdfButton
-                    text: qsTr("Export PDF")
-                    width: 88
-                }
+        }
+        CWA.H6 {
+            id: projectNameLabel
+            x: 16
+            text: "[projectName]"
+            color: CWA.Colors.shades300
+            anchors.bottom: projectButtons.top
+        }
+        Row {
+            id: projectButtons
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.bottom: parent.bottom
+            spacing: 4
+            anchors.margins: 16
+            CWM.Button {
+                id: saveButton
+                text: qsTr("Save")
+                width: 48
+            }
+            CWM.Button {
+                id: closeButton
+                text: qsTr("X")
+                width: 28
+            }
+            CWM.Button {
+                id: exportToPdfButton
+                text: qsTr("Export PDF")
+                width: 84
             }
         }
     }

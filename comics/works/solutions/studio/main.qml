@@ -14,6 +14,7 @@ Window {
     width: 1024
     height: 768
     property string projectId
+    property string projectName
     Component.onCompleted: uc.create_project("project%1".arg(utils.generateRandomId(5)))
     Connections {
         target: uc
@@ -38,6 +39,7 @@ Window {
             projectId = ""
             charactersModel.clear()
             panelsModel.clear()
+            uc.create_project("project%1".arg(utils.generateRandomId(5)))
         }
     }
     Connections {
@@ -102,6 +104,7 @@ Window {
                 indexLabel.text: 1+index
             }
         }
+        projectNameLabel.text: projectName || "[%1]".arg(projectId)
         openProjectButton {
             onClicked: openDialog.open()
             visible: panelsModel.count === 0 && charactersModel.count === 0
