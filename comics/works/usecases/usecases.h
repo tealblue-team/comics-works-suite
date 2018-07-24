@@ -22,6 +22,7 @@ public:
     Q_INVOKABLE void delete_project(const QString& projectName);
     Q_INVOKABLE void describe_panel(const QString& panelId, const QString& panelDescription);
     Q_INVOKABLE void name_panel(const QString& panelId, const QString& panelName);
+    Q_INVOKABLE void name_project(const QString& projectId, const QString& projectName);
 
     QVariantList _getCharactersList(QVector<entities::CharacterBase*>*) const;
     QVariantList _getPanelsList(QVector<entities::PanelBase*>*) const;

@@ -5,5 +5,5 @@ Feature: create project
 
   Scenario: success
     Given no project with name "project1" exists
-    When I try to create a project with name "project1"
-    Then the project with name "project1" is created
+    When I try to create a project with id "project1"
+    Then the project with id "project1" is created

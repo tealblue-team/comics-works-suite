@@ -29,6 +29,10 @@ const QString& Project::eid() const {
     return m_eid;
 }
 
+const QString& Project::name() const {
+    return m_name;
+}
+
 QVector<PanelBase*>* Project::panels() const {
     return m_panels;
 }
@@ -41,6 +45,13 @@ void Project::setEid(const QString& eid) {
     if (m_eid != eid && eid != "") {
         m_eid = eid;
         emit eidChanged();
+    }
+}
+
+void Project::setName(const QString& name) {
+    if (m_name != name && name != "") {
+        m_name = name;
+        emit nameChanged();
     }
 }
 

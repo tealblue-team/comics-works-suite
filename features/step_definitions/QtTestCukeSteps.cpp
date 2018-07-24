@@ -30,7 +30,7 @@ struct MainCtx {
 std::istream& operator>> (std::istream& in, QString& val) { std::string s; in >> s; val = s.c_str(); return in; }
 std::ostream& operator<< (std::ostream& out, const QString& val) { out << val.toLatin1().data(); return out; }
 
-CUKE_STEP_("^I try to create a project with name \"([a-zA-Z]+[0-9]*)\"$") {
+CUKE_STEP_("^I try to create a project with id \"([a-zA-Z]+[0-9]*)\"$") {
     REGEX_PARAM(QString, workspaceId);
     ScenarioScope<MainCtx> ctx;
     QSignalSpy usecaseResult(&ctx->uc, &usecases::usecaseCompleted);
@@ -39,7 +39,7 @@ CUKE_STEP_("^I try to create a project with name \"([a-zA-Z]+[0-9]*)\"$") {
     ctx->usecaseResult = usecaseResult.takeFirst().at(0).toMap();
 }
 
-CUKE_STEP_("^the project with name \"([a-zA-Z]+[0-9]*)\" is created$") {
+CUKE_STEP_("^the project with id \"([a-zA-Z]+[0-9]*)\" is created$") {
     REGEX_PARAM(QString, workspaceId);
     ScenarioScope<MainCtx> ctx;
     QCOMPARE(ctx->entities.currentProject->eid(), workspaceId);
@@ -269,11 +269,28 @@ CUKE_STEP_("^I try to name panel \"([a-zA-Z]+[0-9]*)\" as \"(.+)\"$") {
     ctx->usecaseResult = usecaseResult.takeFirst().at(0).toMap();
 }
 
+CUKE_STEP_("^I try to name project \"([a-zA-Z]+[0-9]*)\" as \"(.+)\"$") {
+    REGEX_PARAM(QString, projectId);
+    REGEX_PARAM(QString, projectName);
+    ScenarioScope<MainCtx> ctx;
+    QSignalSpy usecaseResult(&ctx->uc, &usecases::usecaseCompleted);
+    ctx->uc.name_project(projectId, projectName);
+    usecaseResult.wait(5);
+    ctx->usecaseResult = usecaseResult.takeFirst().at(0).toMap();
+}
+
 CUKE_STEP_("^a name is added to panel \"([a-zA-Z]+[0-9]*)\"$") {
     REGEX_PARAM(QString, panelId);
     ScenarioScope<MainCtx> ctx;
     QCOMPARE(ctx->usecaseResult.value("eid").toString(), panelId);
     QCOMPARE(ctx->usecaseResult.value("outcome").toString(), QString("PANEL_NAMED"));
+}
+
+CUKE_STEP_("^a name is added to project \"([a-zA-Z]+[0-9]*)\"$") {
+    REGEX_PARAM(QString, projectId);
+    ScenarioScope<MainCtx> ctx;
+    QCOMPARE(ctx->usecaseResult.value("eid").toString(), projectId);
+    QCOMPARE(ctx->usecaseResult.value("outcome").toString(), QString("PROJECT_NAMED"));
 }
 
 CUKE_STEP_("^the name for panel \"([a-zA-Z]+[0-9]*)\" reads \"(.+)\"$") {
@@ -289,6 +306,14 @@ CUKE_STEP_("^the name for panel \"([a-zA-Z]+[0-9]*)\" reads \"(.+)\"$") {
         }
     }
     QVERIFY(nameFound);
+}
+
+CUKE_STEP_("^the name for project \"([a-zA-Z]+[0-9]*)\" reads \"(.+)\"$") {
+    REGEX_PARAM(QString, projectId);
+    REGEX_PARAM(QString, projectName);
+    ScenarioScope<MainCtx> ctx;
+    QVERIFY(ctx->entities.currentProject->eid() == projectId
+            && ctx->entities.currentProject->name() == projectName);
 }
 
 CUKE_STEP_("^no character with name \"([a-zA-Z0-9]+)\" exists in the current project$") {
@@ -475,7 +500,7 @@ CUKE_STEP_("^the character with name \"([a-zA-Z0-9]+)\" is deleted from all pane
     QVERIFY(! characterFound);
 }
 
-CUKE_STEP_("^I try to delete the project with name \"([a-zA-Z]+[0-9]*)\"$") {
+CUKE_STEP_("^I try to delete the project with id \"([a-zA-Z]+[0-9]*)\"$") {
     REGEX_PARAM(QString, projectName);
     ScenarioScope<MainCtx> ctx;
     QSignalSpy usecaseResult(&ctx->uc, &usecases::usecaseCompleted);
@@ -484,7 +509,7 @@ CUKE_STEP_("^I try to delete the project with name \"([a-zA-Z]+[0-9]*)\"$") {
     ctx->usecaseResult = usecaseResult.takeFirst().at(0).toMap();
 }
 
-CUKE_STEP_("^the project with name \"([a-zA-Z]+[0-9]*)\" is deleted$") {
+CUKE_STEP_("^the project with id \"([a-zA-Z]+[0-9]*)\" is deleted$") {
     REGEX_PARAM(QString, projectName);
     ScenarioScope<MainCtx> ctx;
     QCOMPARE(ctx->usecaseResult.value("eid").toString(), projectName);

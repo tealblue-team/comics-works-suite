@@ -5,8 +5,8 @@ Feature: create pile
   without committing to stricter groupings like page, book etc
 
   Background:
-    Given I try to create a project with name "project1"
-    And the project with name "project1" is created
+    Given I try to create a project with id "project1"
+    And the project with id "project1" is created
 
   Scenario: completed
     Given no pile with name "pile1" exists in the current project

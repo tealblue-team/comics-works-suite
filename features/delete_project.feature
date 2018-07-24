@@ -4,8 +4,8 @@ Feature: delete project
   to work on another project
 
   Background:
-    Given I try to create a project with name "project1"
-    And the project with name "project1" is created
+    Given I try to create a project with id "project1"
+    And the project with id "project1" is created
     And I try to create a character with name "Ayran"
     And the character with name "Ayran" is created
     And I try to create a panel with id "panel1"
@@ -16,8 +16,8 @@ Feature: delete project
     And a dialog is added to panel "panel1"
 
   Scenario: completed
-    When I try to delete the project with name "project1"
-    Then the project with name "project1" is deleted
+    When I try to delete the project with id "project1"
+    Then the project with id "project1" is deleted
     And the character with name "Ayran" is deleted
     And all dialogs for character with name "Ayran" in all panels are deleted
     And the character with name "Ayran" is deleted from all panels

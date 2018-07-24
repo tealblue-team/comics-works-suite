@@ -4,8 +4,8 @@ Feature: delete character
   because I changed my mind about the cast
 
   Background:
-    Given I try to create a project with name "project1"
-    And the project with name "project1" is created
+    Given I try to create a project with id "project1"
+    And the project with id "project1" is created
     And I try to create a character with name "Ayran"
     And the character with name "Ayran" is created
     And I try to create a character with name "Birun"

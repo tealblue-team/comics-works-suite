@@ -270,6 +270,19 @@ void usecases::name_panel(const QString &panelId, const QString &panelName)
     emit usecaseCompleted(ret);
 }
 
+void usecases::name_project(const QString &projectId, const QString &projectName)
+{
+    QVariantMap ret;
+    entities_reg->currentProject->setName(projectName);
+    ret = {
+        {"outcome", "PROJECT_NAMED"},
+        {"eid", projectId},
+        {"name", projectName}
+    };
+    emit panelNamed(ret);
+    emit usecaseCompleted(ret);
+}
+
 // ----------------------------------------------------------------------------------
 
 QVariantList usecases::_getPanelsList(QVector<entities::PanelBase *>* panels) const

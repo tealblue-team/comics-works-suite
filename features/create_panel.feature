@@ -4,8 +4,8 @@ Feature: create panel
   so that I can tell a story fragment through it
 
   Background:
-    Given I try to create a project with name "project1"
-    And the project with name "project1" is created
+    Given I try to create a project with id "project1"
+    And the project with id "project1" is created
 
   Scenario: completed
     Given no panel with id "panel1" exists in the current project
