@@ -1,5 +1,6 @@
 module comics.works.ui.molecules
 
+AppBadge 1.0 AppBadge.qml
 Button 1.0 Button.qml
 Desk 1.0 Desk.qml
 InlineIconButton 1.0 InlineIconButton.qml

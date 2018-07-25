@@ -31,32 +31,8 @@ GridLayout {
             anchors.bottom: projectNameLabel.top
             anchors.margins: 16
             anchors.topMargin: 8
-            Row {
+            CWM.AppBadge {
                 Layout.fillWidth: true
-                spacing: 8
-                CWA.CWLogoIcon {
-                    id: cwLogoIcon
-                    width: 40
-                }
-                Column {
-                    anchors.verticalCenter: cwLogoIcon.verticalCenter
-                    spacing: -8
-                    Row {
-                        CWA.H5 {
-                            text: "comics."
-                            color: CWA.Colors.accent500
-                        }
-                        CWA.H5 {
-                            text: "works"
-                            color: CWA.Colors.shades300
-                        }
-                    }
-                    CWA.H5 {
-                        text: "StoryTeller"
-                        color: CWA.Colors.shades300
-                    }
-
-                }
             }
             CWO.CharactersList {
                 id: charactersList
@@ -68,7 +44,7 @@ GridLayout {
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 model: panelsGrid.model
-                KeyNavigation.tab: panelsGrid
+                KeyNavigation.tab: projectNameLabel
             }
         }
         CWM.ProjectNameLabel {
@@ -76,6 +52,7 @@ GridLayout {
             anchors.bottom: projectButtons.top
             width: parent.width
             x: 16
+            KeyNavigation.tab: panelsGrid
         }
         Row {
             id: projectButtons
