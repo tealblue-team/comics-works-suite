@@ -44,5 +44,6 @@
         <file>molecules/Button.qml</file>
         <file>assets/comics-works-logo-64.png</file>
         <file>molecules/ProjectNameLabel.qml</file>
+        <file>molecules/AppBadge.qml</file>
     </qresource>
 </RCC>
