@@ -8,12 +8,12 @@ FocusScope {
     signal removePanelButtonClicked(string itemId)
     property alias model: listView.model
     property alias addPanelButton: addPanelButton
+    implicitWidth: 256
+    implicitHeight: 256
     Rectangle {
         anchors.fill: parent
         color: CWA.Colors.shades600
     }
-    implicitWidth: 256
-    implicitHeight: 256
     Row {
         id: header
         spacing: 8
@@ -25,24 +25,20 @@ FocusScope {
             color: CWA.Colors.shades400
         }
     }
-    Column {
-        id: buttonsCol
-        width: root.width
+    CWM.InlineTextIconButton {
+        id: addPanelButton
         anchors.top: header.bottom
-        CWM.InlineTextIconButton {
-            id: addPanelButton
-            focus: true
-            text: qsTr("add panel")
-            iconContent: "add"
-            anchors{left:parent.left;right:parent.right}
-            Keys.onReturnPressed: clicked()
-        }
+        focus: true
+        text: qsTr("add panel")
+        iconContent: "add"
+        anchors{left:parent.left;right:parent.right}
+        Keys.onReturnPressed: clicked()
     }
     ListView {
         id: listView
         clip: true
         height: 180
-        anchors.top: buttonsCol.bottom
+        anchors.top: addPanelButton.bottom
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: parent.bottom
