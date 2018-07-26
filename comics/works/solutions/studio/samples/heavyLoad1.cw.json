@@ -1,6 +1,4 @@
 {
-    "eid": "sampleProject1",
-    "name": "Heavy Load",
     "characters": [
         {
             "name": "Ayran"
@@ -16,6 +14,9 @@
         },
         {
             "name": "Guard 2"
+        },
+        {
+            "name": "Dilgun"
         }
     ],
     "panels": [
