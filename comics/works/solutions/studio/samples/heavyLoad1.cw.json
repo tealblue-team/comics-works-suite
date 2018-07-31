@@ -17,8 +17,27 @@
         },
         {
             "name": "Dilgun"
+        },
+        {
+            "name": "Mingoor"
+        },
+        {
+            "name": "Cimkha"
+        },
+        {
+            "name": "Shildigook"
+        },
+        {
+            "name": "Kindun"
+        },
+        {
+            "name": "Tomsun"
+        },
+        {
+            "name": "Barsun"
         }
     ],
+    "name": "Heavy Load - Book I",
     "panels": [
         {
             "characters": [
@@ -382,6 +401,918 @@
             ],
             "eid": "pPYODZ",
             "name": "HL-I-B-15"
+        },
+        {
+            "characters": [
+                "Dilgun"
+            ],
+            "description": "A girl's (Dilgun) hands stops Ayran's arm from punching Birun in the face.",
+            "dialogs": [
+                {
+                    "characterName": "Dilgun",
+                    "dialogContent_en_US": "Stop it!"
+                }
+            ],
+            "eid": "pYPSNJ",
+            "name": "HL-I-C-1"
+        },
+        {
+            "characters": [
+                "Ayran",
+                "Dilgun"
+            ],
+            "description": "Ayran turns his face to Dilgun. Birun looking to her already, his face still scared.",
+            "dialogs": [
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "What the..."
+                }
+            ],
+            "eid": "pYVGTR",
+            "name": "HL-I-C-2"
+        },
+        {
+            "characters": [
+                "Dilgun",
+                "Ayran",
+                "Birun"
+            ],
+            "description": "Birun stands up, his face becoming more relaxed. Ayran looking to Dilgun. Dilgun speaking from outside.",
+            "dialogs": [
+                {
+                    "characterName": "Dilgun",
+                    "dialogContent_en_US": "Ayran, for Ashtalan's sake... Are you crazy?"
+                }
+            ],
+            "eid": "pYPOGJ",
+            "name": "HL-I-C-3"
+        },
+        {
+            "characters": [
+                "Dilgun"
+            ],
+            "description": "Dilgun crosses arms, evidently annoyed/upset and raises her chin.",
+            "dialogs": [
+            ],
+            "eid": "pYKEZB",
+            "name": "HL-I-C-4"
+        },
+        {
+            "characters": [
+                "Dilgun"
+            ],
+            "description": "Dilgun looks to the sky.",
+            "dialogs": [
+                {
+                    "characterName": "Dilgun",
+                    "dialogContent_en_US": "I only have one brother! Dilgun And I need him..."
+                }
+            ],
+            "eid": "pYSBLJ",
+            "name": "HL-I-C-5A"
+        },
+        {
+            "characters": [
+                "Dilgun"
+            ],
+            "description": "Dilgun looks to Ayran and Birun.",
+            "dialogs": [
+                {
+                    "characterName": "Dilgun",
+                    "dialogContent_en_US": "to help me keep away the horde of stinky beasts who think I'm gorgeous!"
+                }
+            ],
+            "eid": "pYKPVN",
+            "name": "HL-I-C-5B"
+        },
+        {
+            "characters": [
+                "Ayran",
+                "Dilgun"
+            ],
+            "description": "Ayran faces Dilgun (side shot) and points finger onto her chest.",
+            "dialogs": [
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "Your brother, whom I thought to be my best friend, just kicked me in the face!"
+                },
+                {
+                    "characterName": "Dilgun",
+                    "dialogContent_en_US": "Don't you tell me!"
+                }
+            ],
+            "eid": "pYTGKJ",
+            "name": "HL-I-C-6A"
+        },
+        {
+            "characters": [
+                "Ayran",
+                "Dilgun"
+            ],
+            "description": "Ayran lowers his face and becomes red.",
+            "dialogs": [
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "Furthermore, you are not that gorgeous..."
+                }
+            ],
+            "eid": "pYGOVZ",
+            "name": "HL-I-C-6B"
+        },
+        {
+            "characters": [
+                "Dilgun",
+                "Ayran"
+            ],
+            "description": "Dilgun takes Ayran's chin and lifts his face.",
+            "dialogs": [
+                {
+                    "characterName": "Dilgun",
+                    "dialogContent_en_US": "Of course I am, and you know it."
+                },
+                {
+                    "characterName": "Dilgun",
+                    "dialogContent_en_US": "Melukkim girls are just too hot."
+                }
+            ],
+            "eid": "pYBEOR",
+            "name": "HL-I-C-7"
+        },
+        {
+            "characters": [
+                "Dilgun"
+            ],
+            "description": "Dilgun continues speaking with amused and challenging expression.",
+            "dialogs": [
+                {
+                    "characterName": "Dilgun",
+                    "dialogContent_en_US": "Unlike your Silkhan girls, who are no more than whitewashed housepets."
+                }
+            ],
+            "eid": "pYZNBQ",
+            "name": "HL-I-C-8"
+        },
+        {
+            "characters": [
+                "Dilgun",
+                "Ayran"
+            ],
+            "description": "Dilgun continues to Ayran pushing him back.",
+            "dialogs": [
+                {
+                    "characterName": "Dilgun",
+                    "dialogContent_en_US": "...just like you."
+                },
+                {
+                    "characterName": "Dilgun",
+                    "dialogContent_en_US": "I mean, even my bro was able to beat the crap out of you!"
+                }
+            ],
+            "eid": "pYYHUC",
+            "name": "HL-I-C-9A"
+        },
+        {
+            "characters": [
+                "Birun",
+                "Ayran",
+                "Dilgun"
+            ],
+            "description": "Birun and Ayran, Dilgun's head from the back.",
+            "dialogs": [
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "Hey!"
+                },
+                {
+                    "characterName": "Birun",
+                    "dialogContent_en_US": "Hey!"
+                }
+            ],
+            "eid": "pYMKPT",
+            "name": "HL-I-C-9B"
+        },
+        {
+            "characters": [
+                "Birun",
+                "Dilgun"
+            ],
+            "description": "Birun to Dilgun.",
+            "dialogs": [
+                {
+                    "characterName": "Birun",
+                    "dialogContent_en_US": "Don't you speak to me like that little sister!"
+                }
+            ],
+            "eid": "pYWSHO",
+            "name": "HL-I-C-10A"
+        },
+        {
+            "characters": [
+                "Birun",
+                "Ayran"
+            ],
+            "description": "Birun turning to Ayran.",
+            "dialogs": [
+                {
+                    "characterName": "Birun",
+                    "dialogContent_en_US": "And you, filthy beggar... Are you insane?!?"
+                }
+            ],
+            "eid": "pYXLKC",
+            "name": "HL-I-C-10B"
+        },
+        {
+            "characters": [
+                "Birun",
+                "Ayran"
+            ],
+            "description": "Birun facing Ayran.",
+            "dialogs": [
+                {
+                    "characterName": "Birun",
+                    "dialogContent_en_US": "What was on your mind?!?"
+                },
+                {
+                    "characterName": "Birun",
+                    "dialogContent_en_US": "You could have killed me!"
+                }
+            ],
+            "eid": "pYMGIS",
+            "name": "HL-I-C-11"
+        },
+        {
+            "characters": [
+                "Ayran",
+                "Birun",
+                "Dilgun"
+            ],
+            "description": "Ayran to Birun, both angry. Dilgun between them trying to stop them.",
+            "dialogs": [
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "What was on my mind???"
+                },
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "We were training for the stick fighting ritual, and out of the blue you started kicking me, you b..."
+                },
+                {
+                    "characterName": "Dilgun",
+                    "dialogContent_en_US": "Shut up now!"
+                }
+            ],
+            "eid": "pYLHQY",
+            "name": "HL-I-C-12"
+        },
+        {
+            "characters": [
+                "Dilgun",
+                "Birun"
+            ],
+            "description": "Dilgun to Birun. Birun scratches his head.",
+            "dialogs": [
+                {
+                    "characterName": "Dilgun",
+                    "dialogContent_en_US": "Birun, it's time to go home. Lunch is ready."
+                },
+                {
+                    "characterName": "Dilgun",
+                    "dialogContent_en_US": "Mum was already screaming at you when I left."
+                }
+            ],
+            "eid": "pZIQDX",
+            "name": "HL-I-C-13"
+        },
+        {
+            "characters": [
+                "Ayran",
+                "Birun"
+            ],
+            "description": "Ayran to Birun. Now smiling and embracing him.",
+            "dialogs": [
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "Once again the fates sent your little sister to save you, you screaming piglet!"
+                }
+            ],
+            "eid": "pZHSTK",
+            "name": "HL-I-C-14"
+        },
+        {
+            "characters": [
+                "Birun",
+                "Ayran"
+            ],
+            "description": "Birun, protesting. Both start walking away.",
+            "dialogs": [
+                {
+                    "characterName": "Birun",
+                    "dialogContent_en_US": "Ah, come on! I would certainly have dribbled that girly punch of yours and was ready to hit back."
+                },
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "Yes, yes... sure!"
+                }
+            ],
+            "eid": "pZQQXZ",
+            "name": "HL-I-C-15"
+        },
+        {
+            "characters": [
+                "Ayran",
+                "Birun"
+            ],
+            "description": "Ayran keeps on walking with Birun, playing with the stick.",
+            "dialogs": [
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "But for the stick fight, my foreign friend, you'll just have to..."
+                },
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "well, stick to... sticks! No kicks!"
+                }
+            ],
+            "eid": "pZYXXO",
+            "name": "HL-I-C-16"
+        },
+        {
+            "characters": [
+                "Ayran",
+                "Birun"
+            ],
+            "description": "Birun and Ayran. Birun makes a helpless face about the joke. Ayran turns serious.",
+            "dialogs": [
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "Gosthal and his crew are certainly training hard..."
+                },
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "we cannot allow them to win!"
+                }
+            ],
+            "eid": "pZOTNL",
+            "name": "HL-I-C-17"
+        },
+        {
+            "characters": [
+                "Birun",
+                "Ayran",
+                "Dilgun"
+            ],
+            "description": "Birun turning to him. Zoom out also including Dilgun who runs ahead.",
+            "dialogs": [
+                {
+                    "characterName": "Birun",
+                    "dialogContent_en_US": "Don't you worry, we'll show them something."
+                },
+                {
+                    "characterName": "Dilgun",
+                    "dialogContent_en_US": "Come on you snails..."
+                },
+                {
+                    "characterName": "Dilgun",
+                    "dialogContent_en_US": "If you keep this pace while fighting you'll be screwed!"
+                }
+            ],
+            "eid": "pZWANA",
+            "name": "HL-I-C-18"
+        },
+        {
+            "characters": [
+                "Ayran",
+                "Birun"
+            ],
+            "description": "Ayran and Birun start walking among the fields. Wide shot.",
+            "dialogs": [
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "Birun, we really need to stand out during the fighting ritual..."
+                },
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "It's the only chance we have in the foreseeable future to be noticed by the chief maintainers."
+                }
+            ],
+            "eid": "pZLNXX",
+            "name": "HL-I-C-19"
+        },
+        {
+            "characters": [
+                "Ayran",
+                "Birun"
+            ],
+            "description": "Closer shot.",
+            "dialogs": [
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "I don't want to end up as a farmer, like..."
+                },
+                {
+                    "characterName": "Birun",
+                    "dialogContent_en_US": "Like your father?"
+                }
+            ],
+            "eid": "pZPJIY",
+            "name": "HL-I-C-20"
+        },
+        {
+            "characters": [
+                "Ayran",
+                "Birun"
+            ],
+            "description": "Ayran turns to Birun.",
+            "dialogs": [
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "Yes, like the old tyrant."
+                }
+            ],
+            "eid": "pZRCLL",
+            "name": "HL-I-C-21"
+        },
+        {
+            "characters": [
+            ],
+            "description": "\nDetail of the environment.",
+            "dialogs": [
+            ],
+            "eid": "pZABOA",
+            "name": "HL-I-C-22A"
+        },
+        {
+            "characters": [
+                "Birun",
+                "Ayran"
+            ],
+            "description": "Birun and Ayran from above.",
+            "dialogs": [
+                {
+                    "characterName": "Birun",
+                    "dialogContent_en_US": "Ayran, I might agree that your dad is not very likeable..."
+                }
+            ],
+            "eid": "pZVZWM",
+            "name": "HL-I-C-22B"
+        },
+        {
+            "characters": [
+                "Birun",
+                "Ayran"
+            ],
+            "description": "",
+            "dialogs": [
+                {
+                    "characterName": "Birun",
+                    "dialogContent_en_US": "...but he crushes his back all day long to provide food and shelter for you and your sister."
+                }
+            ],
+            "eid": "pZTZNL",
+            "name": "HL-I-C-23"
+        },
+        {
+            "characters": [
+                "Ayran",
+                "Birun"
+            ],
+            "description": "Ayran turns to Birun again.",
+            "dialogs": [
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "I don't care."
+                },
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "I'm just looking forward to being declared an adult by the chief maintainers."
+                }
+            ],
+            "eid": "pZXMBM",
+            "name": "HL-I-C-24"
+        },
+        {
+            "characters": [
+                "Ayran"
+            ],
+            "description": "Ayran looks forward.",
+            "dialogs": [
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "Then, I'll leave home and take good care of myself."
+                },
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "I'll become a respected soldier, and a famous chief maintainer."
+                }
+            ],
+            "eid": "pZLFIW",
+            "name": "HL-I-C-25"
+        },
+        {
+            "characters": [
+                "Birun"
+            ],
+            "description": "Birun smiles.",
+            "dialogs": [
+                {
+                    "characterName": "Birun",
+                    "dialogContent_en_US": "Hey, it's all about you... and what about me?"
+                }
+            ],
+            "eid": "pZVFDS",
+            "name": "HL-I-C-26A"
+        },
+        {
+            "characters": [
+                "Ayran"
+            ],
+            "description": "Ayran smiles too, proud and mocking.",
+            "dialogs": [
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "Oh, you'll become a soldier too, but not as famous and respected as myself!"
+                }
+            ],
+            "eid": "pZFEYO",
+            "name": "HL-I-C-26B"
+        },
+        {
+            "characters": [
+                "Birun",
+                "Ayran"
+            ],
+            "description": "Birun looking at Ayran, thoughtful and very interested.",
+            "dialogs": [
+                {
+                    "characterName": "Birun",
+                    "dialogContent_en_US": "And what will happen of your sister?"
+                }
+            ],
+            "eid": "pZZJLS",
+            "name": "HL-I-C-27"
+        },
+        {
+            "characters": [
+                "Ayran",
+                "Birun"
+            ],
+            "description": "Ayran also thoughtful.",
+            "dialogs": [
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "Well, I don't know... she'll probably want to stay with dad, that's what she promised our mum. "
+                },
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "And he's gonna ruin her life. Unless..."
+                },
+                {
+                    "characterName": "Birun",
+                    "dialogContent_en_US": "Unless?"
+                }
+            ],
+            "eid": "pZMCSC",
+            "name": "HL-I-C-28"
+        },
+        {
+            "characters": [
+                "Ayran",
+                "Birun"
+            ],
+            "description": "Ayran embraces Birun. Birun daydreams.",
+            "dialogs": [
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "... unless her secret lover takes her far, far away!"
+                },
+                {
+                    "characterName": "Birun",
+                    "dialogContent_en_US": "Yes, why not? I'll take her to Melukka, the land of my ancestors."
+                },
+                {
+                    "characterName": "Birun",
+                    "dialogContent_en_US": "There we'll settle and build our home..."
+                }
+            ],
+            "eid": "pZGRUO",
+            "name": "HL-I-C-29"
+        },
+        {
+            "characters": [
+                "Birun"
+            ],
+            "description": "Birun wakes up.",
+            "dialogs": [
+                {
+                    "characterName": "Birun",
+                    "dialogContent_en_US": "For all snakes! Dilgun is already home!"
+                },
+                {
+                    "characterName": "Birun",
+                    "dialogContent_en_US": "My mother will kill me!"
+                }
+            ],
+            "eid": "pZQALJ",
+            "name": "HL-I-C-30A"
+        },
+        {
+            "characters": [
+                "Birun",
+                "Ayran"
+            ],
+            "description": "Birun runs away.",
+            "dialogs": [
+                {
+                    "characterName": "Birun",
+                    "dialogContent_en_US": "I'll see you in the afternoon!"
+                },
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "Run little rabbit!"
+                }
+            ],
+            "eid": "pZBAYM",
+            "name": "HL-I-C-30B"
+        },
+        {
+            "characters": [
+                "Ayran"
+            ],
+            "description": "Ayran reaches his home, looks at it.",
+            "dialogs": [
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "There it is..."
+                }
+            ],
+            "eid": "pGFHUF",
+            "name": "HL-I-DA-1"
+        },
+        {
+            "characters": [
+                "Ayran"
+            ],
+            "description": "Ayran climbs the stairs.",
+            "dialogs": [
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "Please..."
+                }
+            ],
+            "eid": "pGTKPV",
+            "name": "HL-I-DA-2A"
+        },
+        {
+            "characters": [
+                "Ayran"
+            ],
+            "description": "Ayran walks towards the door.",
+            "dialogs": [
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "... let him be asleep..."
+                }
+            ],
+            "eid": "pGZYVD",
+            "name": "HL-I-DA-2B"
+        },
+        {
+            "characters": [
+                "Ayran",
+                "Mingoor"
+            ],
+            "description": "Ayran getting in from the outside.  \nInside is dark with a man's silhouette holding a bottle.",
+            "dialogs": [
+            ],
+            "eid": "pGDKSX",
+            "name": "HL-I-DA-3A"
+        },
+        {
+            "characters": [
+                "Ayran",
+                "Mingoor"
+            ],
+            "description": "The man speaks. Close up.",
+            "dialogs": [
+                {
+                    "characterName": "Mingoor",
+                    "dialogContent_en_US": "Ayran! What the heck, you damn scoundrel..."
+                },
+                {
+                    "characterName": "Mingoor",
+                    "dialogContent_en_US": "where have you been all this time?"
+                }
+            ],
+            "eid": "pGCELK",
+            "name": "HL-I-DA-3B"
+        },
+        {
+            "characters": [
+                "Ayran",
+                "Mingoor"
+            ],
+            "description": "Ayran in the kitchen, behind his father.",
+            "dialogs": [
+            ],
+            "eid": "pGUTDV",
+            "name": "HL-I-DA-4A"
+        },
+        {
+            "characters": [
+                "Ayran",
+                "Mingoor"
+            ],
+            "description": "Ayran in the kitchen, behind his father.",
+            "dialogs": [
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "I was..."
+                },
+                {
+                    "characterName": "Mingoor",
+                    "dialogContent_en_US": "Shut up!"
+                }
+            ],
+            "eid": "pGWEJI",
+            "name": "HL-I-DA-4B"
+        },
+        {
+            "characters": [
+                "Mingoor"
+            ],
+            "description": "",
+            "dialogs": [
+                {
+                    "characterName": "Mingoor",
+                    "dialogContent_en_US": "I know where you were..."
+                },
+                {
+                    "characterName": "Mingoor",
+                    "dialogContent_en_US": "Always wasting time with the Melukkim!"
+                }
+            ],
+            "eid": "pGJGNS",
+            "name": "HL-I-DA-5A"
+        },
+        {
+            "characters": [
+                "Mingoor"
+            ],
+            "description": "",
+            "dialogs": [
+                {
+                    "characterName": "Mingoor",
+                    "dialogContent_en_US": "Human filth they are, frickin' immigrants!!!"
+                }
+            ],
+            "eid": "pGYSOI",
+            "name": "HL-I-DA-5B"
+        },
+        {
+            "characters": [
+                "Ayran",
+                "Mingoor"
+            ],
+            "description": "Mingoor stands up. Getting closer to Ayran.",
+            "dialogs": [
+                {
+                    "characterName": "Ayran",
+                    "dialogContent_en_US": "Ah, come on dad, they're..."
+                },
+                {
+                    "characterName": "Mingoor",
+                    "dialogContent_en_US": "I said SHUT-UP!"
+                }
+            ],
+            "eid": "pGHQRX",
+            "name": "HL-I-DA-6"
+        },
+        {
+            "characters": [
+                "Ayran",
+                "Mingoor"
+            ],
+            "description": "Mingoor standing up, turns head aside but doesn't look to Ayran.  \nStill raging face and big glass-like eyes.",
+            "dialogs": [
+                {
+                    "characterName": "Mingoor",
+                    "dialogContent_en_US": "dammit son, are you blinder than yo' old father?"
+                },
+                {
+                    "characterName": "Mingoor",
+                    "dialogContent_en_US": "those people ain't ANYTHING like us!"
+                }
+            ],
+            "eid": "pGZNZC",
+            "name": "HL-I-DA-7"
+        },
+        {
+            "characters": [
+                "Mingoor"
+            ],
+            "description": "Mingoor getting calmer.",
+            "dialogs": [
+                {
+                    "characterName": "Mingoor",
+                    "dialogContent_en_US": "that Birun dude is taking you to the wrong path."
+                },
+                {
+                    "characterName": "Mingoor",
+                    "dialogContent_en_US": "Ayran, they don't share our values..."
+                }
+            ],
+            "eid": "pGKWIE",
+            "name": "HL-I-DA-8"
+        },
+        {
+            "characters": [
+                "Ayran",
+                "Mingoor",
+                "Cimkha"
+            ],
+            "description": "Pointing the hand to the back.",
+            "dialogs": [
+                {
+                    "characterName": "Mingoor",
+                    "dialogContent_en_US": "Now lend a hand to your sister. I'm hungry."
+                },
+                {
+                    "characterName": "Mingoor",
+                    "dialogContent_en_US": "Now... where is my sweetie?"
+                }
+            ],
+            "eid": "pGTNWA",
+            "name": "HL-I-DA-9"
+        },
+        {
+            "characters": [
+                "Mingoor"
+            ],
+            "description": "Going towards the ladder.",
+            "dialogs": [
+                {
+                    "characterName": "Mingoor",
+                    "dialogContent_en_US": "Shildigook!"
+                }
+            ],
+            "eid": "pGCOZC",
+            "name": "HL-I-DA-10A"
+        },
+        {
+            "characters": [
+                "Mingoor",
+                "Shildigook"
+            ],
+            "description": "Shildigook runs towards the house.",
+            "dialogs": [
+                {
+                    "characterName": "Shildigook",
+                    "dialogContent_en_US": "Wof wof!"
+                }
+            ],
+            "eid": "pGAOQB",
+            "name": "HL-I-DA-10B"
+        },
+        {
+            "characters": [
+                "Mingoor",
+                "Shildigook"
+            ],
+            "description": "Mingoor and Shildigook meet in the courtyard.",
+            "dialogs": [
+            ],
+            "eid": "pGARXU",
+            "name": "HL-I-DA-11A"
+        },
+        {
+            "characters": [
+                "Mingoor",
+                "Shildigook"
+            ],
+            "description": "Mingoor and Shildigook showing affection.",
+            "dialogs": [
+                {
+                    "characterName": "Mingoor",
+                    "dialogContent_en_US": "My beautiful, beautiful one..."
+                },
+                {
+                    "characterName": "Mingoor",
+                    "dialogContent_en_US": "Thank God, I have you."
+                }
+            ],
+            "eid": "pGAKJB",
+            "name": "HL-I-DA-11B"
+        },
+        {
+            "characters": [
+                "Mingoor",
+                "Shildigook"
+            ],
+            "description": "Zooming out, air view of the property.",
+            "dialogs": [
+            ],
+            "eid": "pGEXXC",
+            "name": "HL-I-DA-12"
         }
     ]
 }
