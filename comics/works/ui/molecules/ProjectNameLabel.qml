@@ -11,10 +11,4 @@ TextField {
     background: Item {}
     leftPadding: 0
     Keys.onReturnPressed: nameConfirmed(event)
-    CWA.P2 {
-        color: CWA.Colors.shades400
-        text: parent.placeholderText
-        anchors.verticalCenter: parent.verticalCenter
-        visible: ! parent.displayText
-    }
 }
