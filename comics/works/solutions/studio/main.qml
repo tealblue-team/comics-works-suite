@@ -62,6 +62,15 @@ Window {
     CWT.StoryTellerTpl {
         id: storyTellerViewer
         anchors.fill: parent
+        Keys.onPressed: {
+            if ((event.key === Qt.Key_Plus) && (event.modifiers & Qt.ControlModifier)) {
+                uc.create_panel("p%1".arg(utils.generateRandomId(5)), projectId)
+            }
+            if ((event.key === Qt.Key_Minus) && (event.modifiers & Qt.ControlModifier)) {
+                uc.delete_panel(panelsModel.at(panelsModel.count-1).eid, projectId)
+            }
+        }
+        focus: true
         charactersList {
             model: charactersModel
             onItemClicked: uc.delete_character(name, projectId)
@@ -107,7 +116,7 @@ Window {
         }
         projectNameLabel {
             text: projectName
-            placeholderText: "[%1]".arg(projectId)
+            placeholderText: projectName !== "" && projectNameLabel.activeFocus ? "" : "[%1]".arg(projectId)
             onNameConfirmed: uc.name_project(projectId, projectNameLabel.displayText)
         }
         openProjectButton {
