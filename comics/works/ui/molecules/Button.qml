@@ -4,7 +4,7 @@ import "../atoms" as CWA
 
 Button {
     id: button
-    font.pixelSize: CWA.Typo.p2
+    font.pixelSize: CWA.Typo.p3
     background: Rectangle {
         radius: 4
         color: pressed ? CWA.Colors.shades300 : CWA.Colors.shades100
