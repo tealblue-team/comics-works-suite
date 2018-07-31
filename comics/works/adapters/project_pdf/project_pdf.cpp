@@ -46,12 +46,15 @@ QTextDocument* ProjectPdf::convertToTextDoc() {
     QTextCursor cursor(document);
 
     QTextCharFormat plain;
+    plain.setFontPointSize(12);
 
     QTextCharFormat italic;
     italic.setFontItalic(true);
+    italic.setFontPointSize(12);
 
     QTextCharFormat bold;
     bold.setFontWeight(600);
+    bold.setFontPointSize(12);
 
     cursor.setCharFormat(plain);
 
