@@ -28,10 +28,10 @@ void ProjectJson::loadFromJsonDoc(const QByteArray& projectJson)
 {
     auto projectJsonDoc = QJsonDocument::fromJson(projectJson);
     auto jsonObject = projectJsonDoc.object();
+    auto projectId = jsonObject.value("eid").toString();
+    auto projectName = jsonObject.value("name").toString();
     auto charactersJson = jsonObject.value("characters").toArray();
     auto panelsJson = jsonObject.value("panels").toArray();
-    auto projectName = jsonObject.value("name").toString();
-    auto projectId = jsonObject.value("eid").toString();
 
     m_createPanels = connect(m_uc, &usecases::characterCreated, [=](QVariant value) {
         auto characters = value.toMap().value("characters").toList();
@@ -136,6 +136,7 @@ void ProjectJson::loadFromJsonDoc(const QByteArray& projectJson)
 void ProjectJson::saveToJsonDoc()
 {
     auto projectJson = QJsonObject();
+    projectJson["name"] = m_uc->entities_reg->currentProject->name();
     projectJson["panels"] = QJsonArray::fromVariantList(m_uc->_getPanelsList(m_uc->entities_reg->currentProject->panels()));
     projectJson["characters"] = QJsonArray::fromVariantList(m_uc->_getCharactersList(m_uc->entities_reg->currentProject->characters()));
     auto projectJsonDoc = QJsonDocument(projectJson);
