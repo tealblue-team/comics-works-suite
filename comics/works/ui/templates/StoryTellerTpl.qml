@@ -27,14 +27,36 @@ FocusScope {
             Layout.fillHeight: true
             ColumnLayout {
                 id: entityListsColumn
-                anchors.left: parent.left
-                anchors.right: parent.right
-                anchors.top: parent.top
-                anchors.bottom: projectNameLabel.top
+                anchors.fill: parent
                 anchors.margins: 16
                 anchors.topMargin: 8
                 CWM.AppBadge {
                     Layout.fillWidth: true
+                }
+                CWM.ProjectNameLabel {
+                    id: projectNameLabel
+                    Layout.fillWidth: true
+                    KeyNavigation.tab: panelsGrid
+                }
+                Row {
+                    id: projectButtons
+                    Layout.fillWidth: true
+                    spacing: 4
+                    CWM.Button {
+                        id: saveButton
+                        text: qsTr("Save")
+                        width: 48
+                    }
+                    CWM.Button {
+                        id: closeButton
+                        text: qsTr("X")
+                        width: 28
+                    }
+                    CWM.Button {
+                        id: exportToPdfButton
+                        text: qsTr("Export PDF")
+                        width: 84
+                    }
                 }
                 CWO.CharactersList {
                     id: charactersList
@@ -47,36 +69,6 @@ FocusScope {
                     Layout.fillWidth: true
                     model: panelsGrid.model
                     KeyNavigation.tab: projectNameLabel
-                }
-            }
-            CWM.ProjectNameLabel {
-                id: projectNameLabel
-                anchors.bottom: projectButtons.top
-                width: parent.width
-                x: 16
-                KeyNavigation.tab: panelsGrid
-            }
-            Row {
-                id: projectButtons
-                anchors.left: parent.left
-                anchors.right: parent.right
-                anchors.bottom: parent.bottom
-                spacing: 4
-                anchors.margins: 16
-                CWM.Button {
-                    id: saveButton
-                    text: qsTr("Save")
-                    width: 48
-                }
-                CWM.Button {
-                    id: closeButton
-                    text: qsTr("X")
-                    width: 28
-                }
-                CWM.Button {
-                    id: exportToPdfButton
-                    text: qsTr("Export PDF")
-                    width: 84
                 }
             }
         }
