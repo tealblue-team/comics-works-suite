@@ -509,7 +509,7 @@
                 "Ayran",
                 "Dilgun"
             ],
-            "description": "Ayran lowers his face and becomes red.",
+            "description": "Ayran lowers his face and turns red.",
             "dialogs": [
                 {
                     "characterName": "Ayran",
@@ -542,7 +542,7 @@
             "characters": [
                 "Dilgun"
             ],
-            "description": "Dilgun continues speaking with amused and challenging expression.",
+            "description": "Dilgun keeps on speaking with amused and challenging expression.",
             "dialogs": [
                 {
                     "characterName": "Dilgun",
@@ -1313,6 +1313,690 @@
             ],
             "eid": "pGEXXC",
             "name": "HL-I-DA-12"
+        },
+        {
+            "characters": [
+                "Kindun"
+            ],
+            "description": "Zoom onto Kindun's face.",
+            "dialogs": [
+            ],
+            "eid": "pPJLBG",
+            "name": "HL-I-DB-1A"
+        },
+        {
+            "characters": [
+                "Kindun"
+            ],
+            "description": "I tell ya guys...",
+            "dialogs": [
+            ],
+            "eid": "pPHLSF",
+            "name": "HL-I-DB-1B"
+        },
+        {
+            "characters": [
+                "Birun",
+                "Dilgun",
+                "Kindun",
+                "Tomsun",
+                "Barsun"
+            ],
+            "description": "Overview of Birun's dining room and who is in there.",
+            "dialogs": [
+            ],
+            "eid": "pPGCLF",
+            "name": "HL-I-DB-2"
+        },
+        {
+            "characters": [
+                "Kindun",
+                "Birun",
+                "Dilgun"
+            ],
+            "description": "",
+            "dialogs": [
+                {
+                    "characterName": "Kindun",
+                    "dialogContent_en_US": "in Melukka, girls and boys your age are already fathers and mothers!"
+                }
+            ],
+            "eid": "pPYQWJ",
+            "name": "HL-I-DB-3A"
+        },
+        {
+            "characters": [
+                "Birun",
+                "Kindun",
+                "Dilgun"
+            ],
+            "description": "Not wasting the day like you two do!",
+            "dialogs": [
+            ],
+            "eid": "pPMCOZ",
+            "name": "HL-I-DB-3B"
+        },
+        {
+            "characters": [
+                "Dilgun",
+                "Kindun"
+            ],
+            "description": "Going towards Kindun, sarcastic.",
+            "dialogs": [
+                {
+                    "characterName": "Dilgun",
+                    "dialogContent_en_US": "Hey, if girls and boys in Melukka end up like you, then I'm happy to become an old-maid..."
+                }
+            ],
+            "eid": "pPKCEY",
+            "name": "HL-I-DB-4A"
+        },
+        {
+            "characters": [
+                "Dilgun",
+                "Tomsun"
+            ],
+            "description": "Dilgun's mum (Tomsun) chiming in.",
+            "dialogs": [
+                {
+                    "characterName": "Tomsun",
+                    "dialogContent_en_US": "Don't you dare to talk to our guest like that, miss Dilgun!"
+                }
+            ],
+            "eid": "pPQJVN",
+            "name": "HL-I-DB-4B"
+        },
+        {
+            "characters": [
+                "Kindun",
+                "Tomsun"
+            ],
+            "description": "Kindun with a gentle smile to Tomsun.",
+            "dialogs": [
+                {
+                    "characterName": "Kindun",
+                    "dialogContent_en_US": "Ah, don't you worry Tomsun my dear..."
+                },
+                {
+                    "characterName": "Kindun",
+                    "dialogContent_en_US": "She's got some fierce Melukkim temper in her young veins"
+                },
+                {
+                    "characterName": "Kindun",
+                    "dialogContent_en_US": "And that's good"
+                }
+            ],
+            "eid": "pPECCW",
+            "name": "HL-I-DB-5"
+        },
+        {
+            "characters": [
+                "Birun",
+                "Dilgun",
+                "Kindun"
+            ],
+            "description": "Kindun back to Birun and Dilgun.",
+            "dialogs": [
+                {
+                    "characterName": "Kindun",
+                    "dialogContent_en_US": "I'll tell ya more... not only guys your age are already parents..."
+                },
+                {
+                    "characterName": "Kindun",
+                    "dialogContent_en_US": "They are also fearsome warriors!"
+                }
+            ],
+            "eid": "pPJZFE",
+            "name": "HL-I-DB-6"
+        },
+        {
+            "characters": [
+                "Birun",
+                "Dilgun"
+            ],
+            "description": "Birun and Dilgun both excited, Birun also marvelled.  \nThey reply to Kindun.",
+            "dialogs": [
+                {
+                    "characterName": "Dilgun",
+                    "dialogContent_en_US": "ahh... this I like more!"
+                },
+                {
+                    "characterName": "Birun",
+                    "dialogContent_en_US": "Really? How? And what are they going to fight for?"
+                }
+            ],
+            "eid": "pQCTND",
+            "name": "HL-I-DB-7"
+        },
+        {
+            "characters": [
+                "Birun",
+                "Dilgun",
+                "Kindun"
+            ],
+            "description": "Kindun to Dilgun and Birun who stare.",
+            "dialogs": [
+                {
+                    "characterName": "Kindun",
+                    "dialogContent_en_US": "Well my dears, you have heard about the crisis, haven't you?"
+                }
+            ],
+            "eid": "pQCKQW",
+            "name": "HL-I-DB-8A"
+        },
+        {
+            "characters": [
+                "Kindun",
+                "Barsun",
+                "Tomsun"
+            ],
+            "description": "Then to Barsun, Birun's father.",
+            "dialogs": [
+                {
+                    "characterName": "Kindun",
+                    "dialogContent_en_US": "Barsun, you have heard about the crisis, haven't you?"
+                }
+            ],
+            "eid": "pQXAJO",
+            "name": "HL-I-DB-8B"
+        },
+        {
+            "characters": [
+                "Tomsun",
+                "Barsun"
+            ],
+            "description": "Barsun, who was doing the dishes, turns around.",
+            "dialogs": [
+                {
+                    "characterName": "Barsun",
+                    "dialogContent_en_US": "Crisis? What crisis?"
+                }
+            ],
+            "eid": "pQFHKD",
+            "name": "HL-I-DB-9"
+        },
+        {
+            "characters": [
+                "Kindun",
+                "Birun"
+            ],
+            "description": "Kindun very surprised, getting straight from the sofa.",
+            "dialogs": [
+                {
+                    "characterName": "Kindun",
+                    "dialogContent_en_US": "Are you telling me that no tidings of the crisis have arrived yet to this corner of Silkha?"
+                },
+                {
+                    "characterName": "Birun",
+                    "dialogContent_en_US": "Uncle Kindun, what are you talking about?"
+                }
+            ],
+            "eid": "pQICEX",
+            "name": "HL-I-DB-10"
+        },
+        {
+            "characters": [
+                "Kindun"
+            ],
+            "description": "",
+            "dialogs": [
+                {
+                    "characterName": "Kindun",
+                    "dialogContent_en_US": "> Kindun: What am I talking about? "
+                }
+            ],
+            "eid": "pQLXYR",
+            "name": "HL-I-DB-11A"
+        },
+        {
+            "characters": [
+                "Kindun"
+            ],
+            "description": "",
+            "dialogs": [
+                {
+                    "characterName": "Kindun",
+                    "dialogContent_en_US": "My friends, the allied kingdoms of Vintuka have formally recalled their delegations from all Western regions"
+                },
+                {
+                    "characterName": "Kindun",
+                    "dialogContent_en_US": "including Silkhan land"
+                }
+            ],
+            "eid": "pQXPNU",
+            "name": "HL-I-DB-11B"
+        },
+        {
+            "characters": [
+                "Birun",
+                "Barsun"
+            ],
+            "description": "Birun turns to Barsun.",
+            "dialogs": [
+                {
+                    "characterName": "Birun",
+                    "dialogContent_en_US": "Dad, what does that mean?"
+                }
+            ],
+            "eid": "pQGXFQ",
+            "name": "HL-I-DB-12A"
+        },
+        {
+            "characters": [
+                "Birun",
+                "Dilgun"
+            ],
+            "description": "Dilgun harshly to Birun.",
+            "dialogs": [
+                {
+                    "characterName": "Dilgun",
+                    "dialogContent_en_US": "It means war, you idiot! "
+                }
+            ],
+            "eid": "pQZLPU",
+            "name": "HL-I-DB-12B"
+        },
+        {
+            "characters": [
+                "Birun",
+                "Dilgun",
+                "Tomsun"
+            ],
+            "description": "Tomsun reassuring to Birun, petrifying glaze to Dilgun.",
+            "dialogs": [
+                {
+                    "characterName": "Tomsun",
+                    "dialogContent_en_US": "well dear, it's not technically war yet... but it might end up being one."
+                },
+                {
+                    "characterName": "Tomsun",
+                    "dialogContent_en_US": "But Kindun, tell us more... how... and why?"
+                }
+            ],
+            "eid": "pQEYEV",
+            "name": "HL-I-DB-13"
+        },
+        {
+            "characters": [
+                "Kindun"
+            ],
+            "description": "Kindun narrating, Silkhan resources.",
+            "dialogs": [
+                {
+                    "characterName": "Kindun",
+                    "dialogContent_en_US": "oh well, you know, Vintuka has always had a foot in the Western countries"
+                },
+                {
+                    "characterName": "Kindun",
+                    "dialogContent_en_US": "especially in Silkhan land, because of the timber, the water supplies, the rice crops and the livestock"
+                }
+            ],
+            "eid": "pQMPSR",
+            "name": "HL-I-DB-14"
+        },
+        {
+            "characters": [
+                "Barsun"
+            ],
+            "description": "Barsun drying the dishes narrating, image of Vintuka.",
+            "dialogs": [
+                {
+                    "characterName": "Barsun",
+                    "dialogContent_en_US": "indeed! population in Vintuka has been growing steadily"
+                },
+                {
+                    "characterName": "Barsun",
+                    "dialogContent_en_US": "they've got the knowledge, the machinery and the trading ships..."
+                }
+            ],
+            "eid": "pQDCLO",
+            "name": "HL-I-DB-15"
+        },
+        {
+            "characters": [
+                "Barsun"
+            ],
+            "description": "but that's not something you can feed people with!",
+            "dialogs": [
+            ],
+            "eid": "pQSWJF",
+            "name": "HL-I-DB-16A"
+        },
+        {
+            "characters": [
+                "Kindun"
+            ],
+            "description": "Kindun smoking a pipe.",
+            "dialogs": [
+                {
+                    "characterName": "Kindun",
+                    "dialogContent_en_US": "indeed, my friend"
+                },
+                {
+                    "characterName": "Kindun",
+                    "dialogContent_en_US": "And Western traders know this all too well"
+                }
+            ],
+            "eid": "pQIILW",
+            "name": "HL-I-DB-16B"
+        },
+        {
+            "characters": [
+                "Kindun"
+            ],
+            "description": "Images from the Western harbors. Kindun as caption above and below.",
+            "dialogs": [
+                {
+                    "characterName": "Kindun",
+                    "dialogContent_en_US": "So, Western traders and port authorities started imposing much heavier tolls on goods"
+                },
+                {
+                    "characterName": "Kindun",
+                    "dialogContent_en_US": "As Western harbours represent the only sustainable route for Vintukkans to get what they need from Silkhan land"
+                }
+            ],
+            "eid": "pQEPHO",
+            "name": "HL-I-DB-17"
+        },
+        {
+            "characters": [
+                "Kindun"
+            ],
+            "description": "Kindun to the whole family.",
+            "dialogs": [
+                {
+                    "characterName": "Kindun",
+                    "dialogContent_en_US": "Problem is, Vintukans are not stupid"
+                }
+            ],
+            "eid": "pQJDVP",
+            "name": "HL-I-DB-18A"
+        },
+        {
+            "characters": [
+                "Kindun"
+            ],
+            "description": "",
+            "dialogs": [
+                {
+                    "characterName": "Kindun",
+                    "dialogContent_en_US": "Everybody knows that Silkha, and the whole West, is a free land just because Vintuka allows them to be."
+                }
+            ],
+            "eid": "pQNQKQ",
+            "name": "HL-I-DB-18B"
+        },
+        {
+            "characters": [
+                "Kindun"
+            ],
+            "description": "",
+            "dialogs": [
+                {
+                    "characterName": "Kindun",
+                    "dialogContent_en_US": "Until now, conquering thw West by military force was simply more costly than buying goods from it."
+                },
+                {
+                    "characterName": "Kindun",
+                    "dialogContent_en_US": "But this isn't true anymore, thanks to the greed of Western traders."
+                }
+            ],
+            "eid": "pQQBPE",
+            "name": "HL-I-DB-19"
+        },
+        {
+            "characters": [
+                "Barsun"
+            ],
+            "description": "",
+            "dialogs": [
+                {
+                    "characterName": "Barsun",
+                    "dialogContent_en_US": "that might all be true, but why does Silkha have to pay for the greed of Western traders?"
+                }
+            ],
+            "eid": "pQSMVR",
+            "name": "HL-I-DB-20"
+        },
+        {
+            "characters": [
+                "Barsun"
+            ],
+            "description": "",
+            "dialogs": [
+                {
+                    "characterName": "Barsun",
+                    "dialogContent_en_US": "I mean we source the goods that they trade, but the tolls they put on the goods is none of our business..."
+                }
+            ],
+            "eid": "pQWQVL",
+            "name": "HL-I-DB-21"
+        },
+        {
+            "characters": [
+                "Kindun"
+            ],
+            "description": "",
+            "dialogs": [
+                {
+                    "characterName": "Kindun",
+                    "dialogContent_en_US": "You know, Vintukans could not care less about whether the tolls increase is the fault of Silkhan producers, or the traders."
+                },
+                {
+                    "characterName": "Kindun",
+                    "dialogContent_en_US": "All they know is that Silkha has got the stuff they need..."
+                }
+            ],
+            "eid": "pHYBFK",
+            "name": "HL-I-DB-22"
+        },
+        {
+            "characters": [
+                "Kindun"
+            ],
+            "description": "",
+            "dialogs": [
+                {
+                    "characterName": "Kindun",
+                    "dialogContent_en_US": "and if Western harbour cities are the bottleneck for them to get these goods..."
+                },
+                {
+                    "characterName": "Kindun",
+                    "dialogContent_en_US": "while conquering those harbours they might just as well take over the whole of Silkha."
+                }
+            ],
+            "eid": "pHOWVH",
+            "name": "HL-I-DB-23A"
+        },
+        {
+            "characters": [
+                "Kindun"
+            ],
+            "description": "",
+            "dialogs": [
+                {
+                    "characterName": "Kindun",
+                    "dialogContent_en_US": "Problem solved!"
+                }
+            ],
+            "eid": "pHOPGN",
+            "name": "HL-I-DB-23B"
+        },
+        {
+            "characters": [
+                "Birun",
+                "Dilgun",
+                "Kindun",
+                "Tomsun",
+                "Barsun"
+            ],
+            "description": "Silence. Everyone is petrified.",
+            "dialogs": [
+            ],
+            "eid": "pHGTCL",
+            "name": "HL-I-DB-24A"
+        },
+        {
+            "characters": [
+                "Birun",
+                "Dilgun",
+                "Kindun",
+                "Tomsun",
+                "Barsun"
+            ],
+            "description": "They look at each other.",
+            "dialogs": [
+            ],
+            "eid": "pHXFVJ",
+            "name": "HL-I-DB-24B"
+        },
+        {
+            "characters": [
+                "Birun",
+                "Kindun"
+            ],
+            "description": "",
+            "dialogs": [
+                {
+                    "characterName": "Birun",
+                    "dialogContent_en_US": "But uncle Kindun, Melukka is not Vintuka..."
+                },
+                {
+                    "characterName": "Birun",
+                    "dialogContent_en_US": "Why are we Melukkans getting ready to fight?"
+                }
+            ],
+            "eid": "pHOSOH",
+            "name": "HL-I-DB-25"
+        },
+        {
+            "characters": [
+                "Birun",
+                "Dilgun"
+            ],
+            "description": "Dilgun with a hopeless face.",
+            "dialogs": [
+                {
+                    "characterName": "Dilgun",
+                    "dialogContent_en_US": "I do have a stupid brother..."
+                }
+            ],
+            "eid": "pHKAKZ",
+            "name": "HL-I-DB-26A"
+        },
+        {
+            "characters": [
+                "Dilgun",
+                "Birun"
+            ],
+            "description": "Dilgun to Birun.",
+            "dialogs": [
+                {
+                    "characterName": "Dilgun",
+                    "dialogContent_en_US": "Did you ever notice that the Melukkan High Commander has a Vintukan surname???"
+                },
+                {
+                    "characterName": "Dilgun",
+                    "dialogContent_en_US": "Who'd you think is ruling the country of our ancestors?"
+                }
+            ],
+            "eid": "pHTYNO",
+            "name": "HL-I-DB-26B"
+        },
+        {
+            "characters": [
+                "Dilgun",
+                "Barsun"
+            ],
+            "description": "",
+            "dialogs": [
+                {
+                    "characterName": "Barsun",
+                    "dialogContent_en_US": "That's quite right ma'm, but talk once more like that to your bro..."
+                },
+                {
+                    "characterName": "Barsun",
+                    "dialogContent_en_US": "...and you can forget about attending this year's stick fight."
+                }
+            ],
+            "eid": "pHGARX",
+            "name": "HL-I-DB-27"
+        },
+        {
+            "characters": [
+                "Tomsun",
+                "Kindun"
+            ],
+            "description": "Tomsun to Kindun.",
+            "dialogs": [
+                {
+                    "characterName": "Tomsun",
+                    "dialogContent_en_US": "Kindun, you are giving us really bad news."
+                },
+                {
+                    "characterName": "Tomsun",
+                    "dialogContent_en_US": "When we moved to Silkha from Melukka, we were just looking for peace and prosperity."
+                }
+            ],
+            "eid": "pHFKWD",
+            "name": "HL-I-DB-28A"
+        },
+        {
+            "characters": [
+                "Tomsun",
+                "Kindun"
+            ],
+            "description": "",
+            "dialogs": [
+                {
+                    "characterName": "Tomsun",
+                    "dialogContent_en_US": "It seems that all of that will soon be gone."
+                },
+                {
+                    "characterName": "Tomsun",
+                    "dialogContent_en_US": "If war hits both of our countries, what will we do?"
+                }
+            ],
+            "eid": "pHARSW",
+            "name": "HL-I-DB-28B"
+        },
+        {
+            "characters": [
+                "Barsun",
+                "Tomsun"
+            ],
+            "description": "Barsun to Tomsun.",
+            "dialogs": [
+                {
+                    "characterName": "Barsun",
+                    "dialogContent_en_US": "Tomsun, dear, don't be so tragic."
+                },
+                {
+                    "characterName": "Barsun",
+                    "dialogContent_en_US": "Nothing is lost, just yet."
+                },
+                {
+                    "characterName": "Barsun",
+                    "dialogContent_en_US": "I'm sure that the chief maintainers will find a deal with Vintuka and prevent a war."
+                }
+            ],
+            "eid": "pHXJCV",
+            "name": "HL-I-DB-29"
+        },
+        {
+            "characters": [
+                "Barsun",
+                "Tomsun"
+            ],
+            "description": "Barsun to Tomsun.",
+            "dialogs": [
+                {
+                    "characterName": "Barsun",
+                    "dialogContent_en_US": "I hope, at least..."
+                }
+            ],
+            "eid": "pHXLCI",
+            "name": "HL-I-DB-30"
         }
     ]
 }
