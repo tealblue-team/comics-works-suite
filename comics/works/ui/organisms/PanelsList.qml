@@ -6,6 +6,7 @@ import "../molecules" as CWM
 FocusScope {
     id: root
     signal removePanelButtonClicked(string itemId)
+    signal panelClicked(int idx)
     property alias model: listView.model
     property alias addPanelButton: addPanelButton
     implicitWidth: 256
@@ -36,6 +37,7 @@ FocusScope {
     }
     ListView {
         id: listView
+        signal itemClicked()
         clip: true
         height: 180
         anchors.top: addPanelButton.bottom
@@ -68,6 +70,10 @@ FocusScope {
                 width: root.width - 88
                 anchors.left: nameLabel.right
                 verticalAlignment: Qt.AlignVCenter
+            }
+            MouseArea {
+                anchors.fill: parent
+                onClicked: panelClicked(index)
             }
             MouseArea {
                 anchors.right: parent.right

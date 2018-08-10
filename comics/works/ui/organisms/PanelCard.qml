@@ -10,13 +10,13 @@ FocusScope {
 
     width: 256
     height: width + 1
-    focus: true
 
     signal descriptionConfirmed(var event)
     signal nameConfirmed(var event)
     signal descriptionTabPressed(var event)
     signal descriptionBacktabPressed(var event)
     signal addDialogButtonClicked(string characterName, string dialogContent)
+    signal clicked(var mouse)
 
     property alias name: name
     property alias description: description
@@ -42,9 +42,12 @@ FocusScope {
         color: root.activeFocus ? CWA.Colors.shades0 : CWA.Colors.shades100
         radius: 4
     }
+    MouseArea {
+        anchors.fill: parent
+        onClicked: root.clicked(mouse)
+    }
     TextField {
         id: name
-//        focus: true
         font.pixelSize: CWA.Typo.p2
         color: activeFocus ? CWA.Colors.primary900 : CWA.Colors.shades500
         padding: 4

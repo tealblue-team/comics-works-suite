@@ -7,6 +7,7 @@ import "../organisms" as CWO
 
 GridView {
     id: root
+    property int lastIndex
     cellWidth: 264
     cellHeight: 264
 }

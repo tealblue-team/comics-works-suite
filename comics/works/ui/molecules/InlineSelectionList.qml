@@ -6,7 +6,8 @@ ListView {
     id: root
     signal itemClicked(string name)
     width: 80
-    height: count * 24 + 8
+    clip: true
+    height: (count<5 ? count*24 : 4*24) + 8
     currentIndex: 0
     delegate: ItemDelegate {
         padding: 4

@@ -31,6 +31,7 @@ FocusScope {
                 anchors.margins: 16
                 anchors.topMargin: 8
                 CWM.AppBadge {
+                    id: appBadge
                     Layout.fillWidth: true
                 }
                 CWM.ProjectNameLabel {

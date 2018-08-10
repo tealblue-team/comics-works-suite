@@ -65,12 +65,36 @@ Window {
         Keys.onPressed: {
             if ((event.key === Qt.Key_Plus) && (event.modifiers & Qt.ControlModifier)) {
                 uc.create_panel("p%1".arg(utils.generateRandomId(5)), projectId)
+                panelsGrid.lastIndex = panelsGrid.currentIndex
             }
             if ((event.key === Qt.Key_Minus) && (event.modifiers & Qt.ControlModifier)) {
                 uc.delete_panel(panelsModel.at(panelsModel.count-1).eid, projectId)
+                panelsGrid.lastIndex = panelsGrid.currentIndex
             }
         }
         focus: true
+        projectNameLabel {
+            text: projectName
+            placeholderText: projectName !== "" && projectNameLabel.activeFocus ? "" : "[%1]".arg(projectId)
+            onNameConfirmed: uc.name_project(projectId, projectNameLabel.displayText)
+        }
+        openProjectButton {
+            onClicked: openDialog.open()
+            visible: panelsModel.count === 0 && charactersModel.count === 0
+        }
+        startProjectHint.visible: panelsModel.count === 0 && charactersModel.count === 0
+        saveButton {
+            onClicked: saveDialog.open()
+            enabled: charactersList.model.count > 0 || panelsList.model.count > 0
+        }
+        exportToPdfButton {
+            onClicked: exportToPdfDialog.open()
+            enabled: charactersList.model.count > 0 || panelsList.model.count > 0
+        }
+        closeButton {
+            enabled: projectId != "" && (charactersList.model.count > 0 || panelsList.model.count > 0)
+            onClicked: uc.delete_project(projectId)
+        }
         charactersList {
             model: charactersModel
             onItemClicked: uc.delete_character(name, projectId)
@@ -83,13 +107,27 @@ Window {
         }
         panelsList {
             model: panelsModel
-            addPanelButton.onClicked: uc.create_panel("p%1".arg(utils.generateRandomId(5)), projectId)
-            onRemovePanelButtonClicked: uc.delete_panel(itemId, projectId)
+            addPanelButton.onClicked: {
+                uc.create_panel("p%1".arg(utils.generateRandomId(5)), projectId)
+                panelsGrid.lastIndex = panelsGrid.currentIndex
+            }
+            onRemovePanelButtonClicked: {
+                uc.delete_panel(itemId, projectId)
+                panelsGrid.lastIndex = panelsGrid.currentIndex
+            }
+            onPanelClicked: {
+                storyTellerViewer.panelsGrid.positionViewAtIndex(idx, GridView.Contain)
+                storyTellerViewer.panelsGrid.currentIndex = idx
+                storyTellerViewer.panelsGrid.currentItem.forceActiveFocus()
+            }
         }
         panelsGrid {
             model: panelsModel
+            onModelChanged: panelsGrid.positionViewAtIndex(panelsGrid.lastIndex, GridView.Contain)
             delegate: CWO.PanelCard {
                 id: panelCard
+                onClicked: forceActiveFocus()
+                onActiveFocusChanged: if (activeFocus) storyTellerViewer.panelsGrid.currentIndex = index
                 name.placeholderText: "[%1]".arg(model.eid)
                 name.text: model.name || ""
                 description.placeholderText: qsTr("add description...")
@@ -113,28 +151,6 @@ Window {
                 panelCharactersList.model: model.characters
                 indexLabel.text: 1+index
             }
-        }
-        projectNameLabel {
-            text: projectName
-            placeholderText: projectName !== "" && projectNameLabel.activeFocus ? "" : "[%1]".arg(projectId)
-            onNameConfirmed: uc.name_project(projectId, projectNameLabel.displayText)
-        }
-        openProjectButton {
-            onClicked: openDialog.open()
-            visible: panelsModel.count === 0 && charactersModel.count === 0
-        }
-        startProjectHint.visible: panelsModel.count === 0 && charactersModel.count === 0
-        saveButton {
-            onClicked: saveDialog.open()
-            enabled: charactersList.model.count > 0 || panelsList.model.count > 0
-        }
-        exportToPdfButton {
-            onClicked: exportToPdfDialog.open()
-            enabled: charactersList.model.count > 0 || panelsList.model.count > 0
-        }
-        closeButton {
-            enabled: projectId != "" && (charactersList.model.count > 0 || panelsList.model.count > 0)
-            onClicked: uc.delete_project(projectId)
         }
     }
     FileDialog {
