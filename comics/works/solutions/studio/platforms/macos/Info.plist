@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleExecutable</key>
         <string>comics.works Studio</string>
+        <key>CFBundleVersion</key>
+        <string>0.1.0</string>
 	<key>CFBundleGetInfoString</key>
         <string>comics.works Studio</string>
         <key>CFBundleIconFile</key>
