@@ -38,8 +38,6 @@ int main(int argc, char *argv[])
     }
 #endif
     app.exec();
-    // Delete update on app quit, or maybe use a unique_ptr
-    delete updater;
 
     using namespace comics::works;
 
@@ -68,10 +66,16 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("utils", utils);
     engine.rootContext()->setContextProperty("projectJson", projectJson);
     engine.rootContext()->setContextProperty("projectPdf", projectPdf);
+    engine.rootContext()->setContextProperty("applicationVersion", app.applicationVersion());
 
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
     if (engine.rootObjects().isEmpty())
         return -1;
 
-    return app.exec();
+    bool normalExit = app.exec();
+
+    // Delete update on app quit, or maybe use a unique_ptr
+    delete updater;
+
+    return normalExit;
 }

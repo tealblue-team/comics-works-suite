@@ -198,4 +198,10 @@ Window {
         anchors.bottom: parent.bottom
         text: storyTellerViewer.panelsGrid.currentIndex
     }
+    Text {
+        anchors.bottom: parent.bottom
+        anchors.right: parent.right
+        color: "red"
+        text: applicationVersion
+    }
 }

@@ -5,13 +5,15 @@
 	<key>CFBundleExecutable</key>
         <string>comics.works Studio</string>
         <key>CFBundleVersion</key>
+        <string>1000</string>
+        <key>CFBundleShortVersionString</key>
         <string>0.1.0</string>
 	<key>CFBundleGetInfoString</key>
         <string>comics.works Studio</string>
         <key>CFBundleIconFile</key>
         <string>comics-works-studio</string>
 	<key>CFBundleIdentifier</key>
-	<string>comics.works.studio</string>
+        <string>comics.works.studio.macos</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleSignature</key>
