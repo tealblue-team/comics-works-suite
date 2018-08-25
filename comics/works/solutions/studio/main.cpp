@@ -37,7 +37,6 @@ int main(int argc, char *argv[])
         qDebug() << "Auto-update is disabled on Mac OS X.";
     }
 #endif
-    app.exec();
 
     using namespace comics::works;
 

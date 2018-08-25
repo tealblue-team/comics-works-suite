@@ -23,6 +23,10 @@
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>NSSupportsAutomaticGraphicsSwitching</key>
-	<true/>
+        <true/>
+        <key>SUFeedUrl</key>
+        <string>https://comics.works/studio/releases/macos/comics_works_studio_releases_macos.xml</string>
+        <key>SUPublicDSAKeyFile</key>
+        <string>comics_works_piccolino_dsa.pub</string>
 </dict>
 </plist>

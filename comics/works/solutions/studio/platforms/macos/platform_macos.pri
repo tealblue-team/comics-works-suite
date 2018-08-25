@@ -19,6 +19,10 @@ sparkle.path = Contents/Frameworks
 sparkle.files = $$SPARKLE_PATH/Sparkle.framework
 QMAKE_BUNDLE_DATA += sparkle
 
+dsa.files = $$PWD/comics_works_piccolino_dsa.pub
+dsa.path = Contents/Resources
+QMAKE_BUNDLE_DATA += dsa
+
 HEADERS += \
     $$PWD/AutoUpdater.h \
     $$PWD/SparkleAutoUpdater.h \
