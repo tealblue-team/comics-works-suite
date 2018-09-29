@@ -20,10 +20,17 @@ Row {
                 color: CWA.Colors.shades300
             }
         }
-        CWA.H5 {
-            text: "StoryTeller"
-            color: CWA.Colors.shades300
+        Row {
+            spacing: 8
+            CWA.H5 {
+                text: "StoryTeller"
+                color: CWA.Colors.shades300
+            }
+            CWA.P3 {
+                anchors.bottom: parent.bottom
+                color: CWA.Colors.shades500
+                text: typeof applicationVersion != 'undefined' ? applicationVersion : '[version]'
+            }
         }
-        
     }
 }

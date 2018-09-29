@@ -7,6 +7,8 @@ Button {
     font.pixelSize: CWA.Typo.p3
     background: Rectangle {
         radius: 4
-        color: pressed ? CWA.Colors.shades300 : CWA.Colors.shades100
+        color: button.activeFocus ? CWA.Colors.primary500
+                 : pressed ? CWA.Colors.shades300 : CWA.Colors.shades100
     }
+    Keys.onReturnPressed: clicked()
 }

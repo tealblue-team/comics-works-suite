@@ -29,6 +29,7 @@ FocusScope {
         id: addCharacterField
         anchors.top: header.bottom
         color: CWA.Colors.shades0
+        focus: true
         background: Rectangle {
             implicitWidth: 200
             implicitHeight: 40

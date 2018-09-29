@@ -37,7 +37,7 @@ FocusScope {
                 CWM.ProjectNameLabel {
                     id: projectNameLabel
                     Layout.fillWidth: true
-                    KeyNavigation.tab: panelsGrid
+                    KeyNavigation.tab: saveButton
                 }
                 Row {
                     id: projectButtons
@@ -47,16 +47,19 @@ FocusScope {
                         id: saveButton
                         text: qsTr("Save")
                         width: 48
+                        KeyNavigation.tab: closeButton
                     }
                     CWM.Button {
                         id: closeButton
                         text: qsTr("X")
                         width: 28
+                        KeyNavigation.tab: exportToPdfButton
                     }
                     CWM.Button {
                         id: exportToPdfButton
                         text: qsTr("Export PDF")
                         width: 84
+                        KeyNavigation.tab: charactersList
                     }
                 }
                 CWO.CharactersList {
@@ -69,7 +72,7 @@ FocusScope {
                     Layout.fillHeight: true
                     Layout.fillWidth: true
                     model: panelsGrid.model
-                    KeyNavigation.tab: projectNameLabel
+                    KeyNavigation.tab: panelsGrid
                 }
             }
         }
@@ -84,8 +87,10 @@ FocusScope {
             }
             CWM.Button {
                 id: openProjectButton
+                focus: true
                 text: qsTr("Open Project")
                 anchors.centerIn: parent
+                KeyNavigation.tab: projectNameLabel
             }
             CWA.P1 {
                 id: startProjectHint

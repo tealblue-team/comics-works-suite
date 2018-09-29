@@ -193,15 +193,4 @@ Window {
         anchors.margins: 16
         anchors.horizontalCenter: parent.horizontalCenter
     }
-    CWA.P1 {
-        anchors.right: parent.right
-        anchors.bottom: parent.bottom
-        text: storyTellerViewer.panelsGrid.currentIndex
-    }
-    Text {
-        anchors.bottom: parent.bottom
-        anchors.right: parent.right
-        color: "red"
-        text: applicationVersion
-    }
 }
