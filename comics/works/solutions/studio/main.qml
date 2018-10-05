@@ -73,6 +73,8 @@ Window {
             }
         }
         focus: true
+        appBadge.onClicked: signalHandler.checkForUpdates()
+        appBadge.appVersion: applicationVersion
         projectNameLabel {
             text: projectName
             placeholderText: projectName !== "" && projectNameLabel.activeFocus ? "" : "[%1]".arg(projectId)

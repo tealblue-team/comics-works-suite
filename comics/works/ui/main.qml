@@ -69,14 +69,9 @@ Window {
                 Label {
                     text: "Logotypes"
                 }
-                CWA.CWLogo {
-                }
-                Rectangle {
-                    width: childrenRect.width
-                    height: childrenRect.height
-                    color: CWA.Colors.shades600
-                    CWA.CWLogoBw {
-                    }
+//                CWA.CWLogo {
+//                }
+                CWA.CWLogoIcon {
                 }
             }
             ColumnLayout {
@@ -136,6 +131,12 @@ Window {
                 Label {
                     text: "Molecules"
                     font.pixelSize: 20
+                }
+                Label {
+                    text: "AppBadge"
+                }
+                CWM.AppBadge {
+                    appVersion: "0.0.0"
                 }
                 Label {
                     text: "InlineIconButton"

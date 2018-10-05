@@ -7,6 +7,7 @@ import "../organisms" as CWO
 
 FocusScope {
     id: root
+    property alias appBadge: appBadge
     property alias charactersList: charactersList
     property alias panelsList: panelsList
     property alias panelsGrid: panelsGrid

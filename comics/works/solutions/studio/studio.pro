@@ -4,8 +4,12 @@ TARGET = comics-works-studio
 
 DEFINES += QT_DEPRECATED_WARNINGS
 
+HEADERS += \
+    signal_handler.h
+
 SOURCES += \
-        main.cpp
+        main.cpp \
+        signal_handler.cpp
 
 RESOURCES += qml.qrc
 
