@@ -5,9 +5,9 @@
 	<key>CFBundleExecutable</key>
         <string>comics.works Studio</string>
         <key>CFBundleVersion</key>
-        <string>1000</string>
+        <string>1100</string>
         <key>CFBundleShortVersionString</key>
-        <string>0.1.0</string>
+        <string>0.1.1</string>
 	<key>CFBundleGetInfoString</key>
         <string>comics.works Studio</string>
         <key>CFBundleIconFile</key>

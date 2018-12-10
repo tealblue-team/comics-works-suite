@@ -12,12 +12,13 @@ class usecases : public QObject {
 public:
     explicit usecases(QObject* parent = nullptr);
     Q_INVOKABLE void add_character_to_panel(const QString& characterName, const QString& panelId);
-    Q_INVOKABLE void add_dialog_to_panel(const QString& dialogContent, const QString& characterName, const QString& panelId);
+    Q_INVOKABLE void add_dialog_to_panel(const QString& dialogId, const QString& dialogContent, const QString& characterName, const QString& panelId);
     Q_INVOKABLE void create_character(const QString& characterName, const QString& projectName);
     Q_INVOKABLE void create_panel(const QString& panelId, const QString& projectName);
     Q_INVOKABLE QVariantMap create_pile(const QString& pileName, const QString& projectName);
     Q_INVOKABLE void create_project(const QString& projectName);
     Q_INVOKABLE void delete_character(const QString& characterName, const QString& projectName);
+    Q_INVOKABLE void delete_dialog_from_panel(const QString& dialogId, const QString& panelId, const QString& projectName);
     Q_INVOKABLE void delete_panel(const QString& panelId, const QString& projectName);
     Q_INVOKABLE void delete_project(const QString& projectName);
     Q_INVOKABLE void describe_panel(const QString& panelId, const QString& panelDescription);
@@ -35,6 +36,7 @@ signals:
     void characterDeleted(QVariantMap value);
     void characterNotCreated(QVariantMap value);
     void dialogAddedToPanel(QVariantMap value);
+    void dialogDeletedFromPanel(QVariantMap value);
     void panelCreated(QVariantMap value);
     void panelDeleted(QVariantMap value);
     void panelDescribed(QVariantMap value);

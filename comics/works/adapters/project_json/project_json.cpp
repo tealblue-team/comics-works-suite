@@ -95,6 +95,7 @@ void ProjectJson::loadFromJsonDoc(const QByteArray& projectJson)
                     auto dialogJson = panelDialogsJson.at(j).toObject();
                     m_dialogsCount += 1;
                     m_uc->add_dialog_to_panel(
+                                dialogJson.value("dialogId").toString(),
                                 dialogJson.value("dialogContent_en_US").toString(),
                                 dialogJson.value("characterName").toString(),
                                 panels.at(i).toMap().value("eid").toString()

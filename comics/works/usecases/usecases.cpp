@@ -41,14 +41,14 @@ void usecases::add_character_to_panel(const QString &characterName, const QStrin
     emit usecaseCompleted(ret);
 }
 
-void usecases::add_dialog_to_panel(const QString &dialogContent, const QString &characterName, const QString &panelName)
+void usecases::add_dialog_to_panel(const QString &dialogId, const QString &dialogContent, const QString &characterName, const QString &panelName)
 {
     QVariantMap ret;
     entities::PanelBase* panel;
     for (int i=0;i<entities_reg->currentProject->panels()->length();++i) {
         if (entities_reg->currentProject->panels()->at(i)->eid() == panelName) {
             panel = entities_reg->currentProject->panels()->at(i);
-            panel->addDialog(dialogContent, characterName);
+            panel->addDialog(dialogId, dialogContent, characterName);
             break;
         }
     }
@@ -172,6 +172,7 @@ void usecases::delete_character(const QString &characterName, const QString &Pro
                 auto dialog = dialogs.at(j).toMap();
                 if (dialog.value("characterName").toString() == characterName) {
                     panels->at(i)->removeDialog(
+                                dialog.value("dialogId").toString(),
                                 dialog.value("dialogContent_en_US").toString(),
                                 dialog.value("characterName").toString());
                 }
@@ -213,6 +214,33 @@ void usecases::delete_panel(const QString &name, const QString &ProjectName)
         {"panels", _getPanelsList(panels)}
     };
     emit panelDeleted(ret);
+    emit usecaseCompleted(ret);
+}
+
+void usecases::delete_dialog_from_panel(const QString &dialogId, const QString &panelId, const QString &ProjectName)
+{
+    QVariantMap ret;
+    auto panels = entities_reg->currentProject->panels();
+    for (auto panel : *panels) {
+        if (panel->eid() == panelId) {
+            for (auto dialog : panel->dialogs()) {
+                if (dialog.toMap().value("dialogId").toString() == dialogId) {
+                    panel->removeDialog(
+                                dialog.toMap().value("dialogId").toString(),
+                                dialog.toMap().value("dialogContent_en_US").toString(),
+                                dialog.toMap().value("characterName").toString()
+                                );
+                    break;
+                }
+            }
+        }
+    }
+    ret = {
+        {"outcome", "DIALOG_DELETED_FROM_PANEL"},
+        {"eid", dialogId},
+        {"panels", _getPanelsList(panels)}
+    };
+    emit dialogDeletedFromPanel(ret);
     emit usecaseCompleted(ret);
 }
 

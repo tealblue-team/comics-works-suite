@@ -358,13 +358,14 @@ CUKE_STEP_("^I can lookup the character with name \"([a-zA-Z0-9]+)\" in the curr
     QVERIFY(found);
 }
 
-CUKE_STEP_("^I try to add a dialog saying \"(.+)\" for character \"([a-zA-Z0-9]+)\" to panel \"([a-zA-Z]+[0-9]*)\"$") {
+CUKE_STEP_("^I try to add a dialog with id \"(.+)\" saying \"(.+)\" for character \"([a-zA-Z0-9]+)\" to panel \"([a-zA-Z]+[0-9]*)\"$") {
+    REGEX_PARAM(QString, dialogId);
     REGEX_PARAM(QString, dialogContent);
     REGEX_PARAM(QString, characterName);
     REGEX_PARAM(QString, panelName);
     ScenarioScope<MainCtx> ctx;
     QSignalSpy usecaseResult(&ctx->uc, &usecases::usecaseCompleted);
-    ctx->uc.add_dialog_to_panel(dialogContent, characterName, panelName);
+    ctx->uc.add_dialog_to_panel(dialogId, dialogContent, characterName, panelName);
     usecaseResult.wait(5);
     ctx->usecaseResult = usecaseResult.takeFirst().at(0).toMap();
 }
@@ -379,14 +380,20 @@ CUKE_STEP_("^I try to add character with name \"([a-zA-Z0-9]+)\" to panel \"([a-
     ctx->usecaseResult = usecaseResult.takeFirst().at(0).toMap();
 }
 
-CUKE_STEP_("^a dialog is added to panel \"([a-zA-Z]+[0-9]*)\"$") {
+CUKE_STEP_("^a dialog with id \"(.+)\" is added to panel \"([a-zA-Z]+[0-9]*)\"$") {
+    REGEX_PARAM(QString, dialogId);
     REGEX_PARAM(QString, panelName);
     ScenarioScope<MainCtx> ctx;
     bool dialogFound = false;
     for (int i = 0; i < ctx->entities.currentProject->panels()->size(); ++i) {
-        if ((ctx->entities.currentProject->panels()->at(i)->eid() == panelName)
-                && (ctx->entities.currentProject->panels()->at(i)->dialogs().length() > 0)) {
-            dialogFound = true;
+        auto panel = ctx->entities.currentProject->panels()->at(i);
+        if (panel->eid() == panelName) {
+            for (int j = 0; j < panel->dialogs().size(); ++j) {
+                if (panel->dialogs().at(j).toMap().value("dialogId") == dialogId) {
+                    dialogFound = true;
+                    break;
+                }
+            }
             break;
         }
     }
@@ -408,15 +415,42 @@ CUKE_STEP_("^the first dialog for panel \"([a-zA-Z]+[0-9]*)\" belongs to charact
     QVERIFY(dialogFound);
 }
 
+CUKE_STEP_("the dialog \"(.+)\" is deleted from panel \"(.+)\"$") {
+    REGEX_PARAM(QString, dialogId);
+    REGEX_PARAM(QString, panelName);
+    ScenarioScope<MainCtx> ctx;
+    bool dialogFound = false;
+    for (auto panelResult : ctx->usecaseResult.value("panels").toList()) {
+        auto dialogs = panelResult.toMap().value("dialogs").toList();
+        if (dialogs.size() > 0) {
+            auto panelDialogId = dialogs.at(0).toMap().value("dialogId").toString();
+            qDebug() << panelDialogId << dialogId;
+            if (panelResult.toMap().value("eid").toString() == panelName && panelDialogId == dialogId) {
+                dialogFound = true;
+                break;
+            }
+        }
+    }
+    QVERIFY(! dialogFound);
+}
+
+CUKE_STEP_("I try to delete the dialog with id \"(.+)\" from panel \"(.+)\"$") {
+    REGEX_PARAM(QString, dialogId);
+    REGEX_PARAM(QString, panelName);
+    ScenarioScope<MainCtx> ctx;
+    QSignalSpy usecaseResult(&ctx->uc, &usecases::usecaseCompleted);
+    ctx->uc.delete_dialog_from_panel(dialogId, panelName, ctx->entities.currentProject->eid());
+    usecaseResult.wait(5);
+    ctx->usecaseResult = usecaseResult.takeFirst().at(0).toMap();
+}
 
 CUKE_STEP_("^the first dialog for panel \"([a-zA-Z]+[0-9]*)\" reads \"(.+)\"$") {
     REGEX_PARAM(QString, panelName);
     REGEX_PARAM(QString, dialogContent);
     ScenarioScope<MainCtx> ctx;
     bool dialogFound = false;
-    for (int i = 0; i < ctx->entities.currentProject->panels()->size(); ++i) {
-        if ((ctx->entities.currentProject->panels()->at(i)->eid() == panelName)
-                && (ctx->entities.currentProject->panels()->at(i)->dialogs().at(0).toMap().value("dialogContent_en_US") == dialogContent)) {
+    for (auto panel : *ctx->entities.currentProject->panels()) {
+        if (panel->eid() == panelName && panel->dialogs().at(0).toMap().value("dialogContent_en_US").toString() == dialogContent) {
             dialogFound = true;
             break;
         }

@@ -14,7 +14,7 @@ Feature: add dialog to panel
     And the character with name "Ayran" is added to panel "panel1"
 
   Scenario: completed
-    When I try to add a dialog saying "hello world" for character "Ayran" to panel "panel1"
-    Then a dialog is added to panel "panel1"
+    When I try to add a dialog with id "dialog1" saying "hello world" for character "Ayran" to panel "panel1"
+    Then a dialog with id "dialog1" is added to panel "panel1"
     And the first dialog for panel "panel1" belongs to character "Ayran"
     And the first dialog for panel "panel1" reads "hello world"

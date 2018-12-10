@@ -21,8 +21,8 @@ public:
     int height() const;
 
     void addCharacter(entities::CharacterBase*);
-    void addDialog(const QString& dialogContent, const QString& characterName);
-    void removeDialog(const QString& dialogContent, const QString& characterName);
+    void addDialog(const QString& dialogId, const QString& dialogContent, const QString& characterName);
+    void removeDialog(const QString& dialogId, const QString& dialogContent, const QString& characterName);
     void setDescription(const QString&);
     void setEid(const QString&);
     void setName(const QString&);

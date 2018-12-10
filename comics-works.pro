@@ -9,4 +9,6 @@ SUBDIRS += \
     comics/works/adapters \
     comics/works/utils
 
-DISTFILES += features/*.feature
+DISTFILES += \
+    features/*.feature \
+    features/upcoming/*.feature

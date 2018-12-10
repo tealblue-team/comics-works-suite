@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
     app.setOrganizationName("comics.works");
     app.setOrganizationDomain("comics.works");
     app.setApplicationName("comics.works Studio");
-    app.setApplicationVersion("0.1.0");
+    app.setApplicationVersion("0.1.1");
 
     auto signalHandler = new SignalHandler(&app);
 

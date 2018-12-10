@@ -1,3 +1,5 @@
+#include <QDebug>
+
 #include "panel.h"
 #include <QVariantMap>
 #include <QVector>
@@ -46,22 +48,26 @@ void Panel::addCharacter(CharacterBase* character) {
         m_characters->append(character);
 }
 
-void Panel::addDialog(const QString &dialogContent, const QString &characterName)
+void Panel::addDialog(const QString &dialogId, const QString &dialogContent, const QString &characterName)
 {
     QVariantMap dialog({
-        {"dialogContent_en_US", dialogContent},
-        {"characterName", characterName},
-    });
+                           {"dialogId", dialogId},
+                           {"dialogContent_en_US", dialogContent},
+                           {"characterName", characterName},
+                       });
     m_dialogs.append(QVariant(dialog));
 }
 
-void Panel::removeDialog(const QString &dialogContent, const QString &characterName)
+void Panel::removeDialog(const QString &dialogId, const QString &dialogContent, const QString &characterName)
 {
     QVariantMap dialog({
-        {"dialogContent_en_US", dialogContent},
-        {"characterName", characterName},
-    });
+                           {"dialogId", dialogId},
+                           {"dialogContent_en_US", dialogContent},
+                           {"characterName", characterName},
+                       });
+    qDebug() << m_dialogs;
     m_dialogs.removeAt(m_dialogs.indexOf(QVariant(dialog)));
+    qDebug() << m_dialogs;
 }
 
 void Panel::setDescription(const QString& description)

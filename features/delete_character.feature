@@ -16,10 +16,10 @@ Feature: delete character
     And the character with name "Ayran" is added to panel "panel1"
     And I try to add character with name "Birun" to panel "panel1"
     And the character with name "Birun" is added to panel "panel1"
-    And I try to add a dialog saying "hi mate" for character "Birun" to panel "panel1"
-    And a dialog is added to panel "panel1"
-    And I try to add a dialog saying "hello world" for character "Ayran" to panel "panel1"
-    And a dialog is added to panel "panel1"
+    And I try to add a dialog with id "dialog1" saying "hi mate" for character "Birun" to panel "panel1"
+    And a dialog with id "dialog1" is added to panel "panel1"
+    And I try to add a dialog with id "dialog2" saying "hello world" for character "Ayran" to panel "panel1"
+    And a dialog with id "dialog2" is added to panel "panel1"
 
   Scenario: completed
     When I try to delete the character with name "Ayran"
