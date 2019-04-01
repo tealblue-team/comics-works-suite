@@ -39,7 +39,7 @@ void PanelTest::test_removeDialog()
     panel->addDialog(dialogId, dialogContent_en_US, characterName);
     QCOMPARE(panel->dialogs().size(), 1);
     // WHEN
-    panel->removeDialog(dialogId, dialogContent_en_US, characterName);
+    panel->removeDialog(dialogId);
     // THEN
     QCOMPARE(panel->dialogs().size(), 0);
 }

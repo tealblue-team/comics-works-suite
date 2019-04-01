@@ -22,7 +22,7 @@ public:
 
     void addCharacter(entities::CharacterBase*);
     void addDialog(const QString& dialogId, const QString& dialogContent, const QString& characterName);
-    void removeDialog(const QString& dialogId, const QString& dialogContent, const QString& characterName);
+    void removeDialog(const QString&);
     void setDescription(const QString&);
     void setEid(const QString&);
     void setName(const QString&);

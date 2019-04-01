@@ -16,6 +16,7 @@ FocusScope {
     signal descriptionTabPressed(var event)
     signal descriptionBacktabPressed(var event)
     signal addDialogButtonClicked(string characterName, string dialogContent)
+    signal removeDialogButtonClicked(string dialogId, string dialogContent, string characterName)
     signal clicked(var mouse)
 
     property alias name: name
@@ -140,16 +141,24 @@ FocusScope {
                 width: dialogs.width - 8
                 height: childrenRect.height
                 CWM.InlineTextPicButton {
+                    id: dialogIcon
                     text: modelData.characterName.substring(0,3)
                     size: "S"
                 }
                 Text {
+                    id: dialogText
                     color: CWA.Colors.shades700
                     font.pixelSize: CWA.Typo.p2
-                    width: parent.width - 48
+                    width: parent.width - dialogIcon.width - dialogRemoveButton.width - 24
                     wrapMode: Text.Wrap
                     height: implicitHeight
                     text: modelData.dialogContent_en_US
+                }
+                CWM.InlineTextPicButton {
+                    id: dialogRemoveButton
+                    text: "-"
+                    size: "S"
+                    onClicked: removeDialogButtonClicked(modelData.dialogId, modelData.dialogContent_en_US, modelData.characterName)
                 }
             }
         }

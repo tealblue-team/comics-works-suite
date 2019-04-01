@@ -4,6 +4,6 @@ Feature: create project
   so that I can keep all related work and settings in one place
 
   Scenario: success
-    Given no project with name "project1" exists
+    Given no project with id "project1" exists
     When I try to create a project with id "project1"
     Then the project with id "project1" is created

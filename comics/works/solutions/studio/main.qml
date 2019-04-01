@@ -20,6 +20,11 @@ Window {
         target: uc
         onCharacterAddedToPanel: panelsModel.add(value.panels)
         onDialogAddedToPanel: panelsModel.add(value.panels)
+        onDialogDeletedFromPanel: {
+            console.debug(JSON.stringify(value.panels))
+            panelsModel.clear()
+            panelsModel.add(value.panels)
+        }
         onCharacterCreated: charactersModel.add(value.characters)
         onCharacterDeleted: {
             charactersModel.clear()
@@ -37,6 +42,7 @@ Window {
         onProjectCreated: projectId = value.eid
         onProjectDeleted: {
             projectId = ""
+            projectName = ""
             charactersModel.clear()
             panelsModel.clear()
             uc.create_project("project%1".arg(utils.generateRandomId(5)))
@@ -146,8 +152,11 @@ Window {
                 availableCharactersSelector.model: charactersModel
                 availableCharactersSelector.onItemClicked: uc.add_character_to_panel(name, model.eid)
                 onAddDialogButtonClicked: {
-                    uc.add_dialog_to_panel(dialogContent, characterName, model.eid)
+                    uc.add_dialog_to_panel("dialog%1".arg(utils.generateRandomId(5)), dialogContent, characterName, model.eid)
                     dialogField.clear()
+                }
+                onRemoveDialogButtonClicked: {
+                    uc.delete_dialog_from_panel(dialogId, model.eid, projectId)
                 }
                 dialogsList.model: model.dialogs
                 panelCharactersList.model: model.characters

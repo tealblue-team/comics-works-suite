@@ -58,16 +58,16 @@ void Panel::addDialog(const QString &dialogId, const QString &dialogContent, con
     m_dialogs.append(QVariant(dialog));
 }
 
-void Panel::removeDialog(const QString &dialogId, const QString &dialogContent, const QString &characterName)
+void Panel::removeDialog(const QString &dialogId)
 {
-    QVariantMap dialog({
-                           {"dialogId", dialogId},
-                           {"dialogContent_en_US", dialogContent},
-                           {"characterName", characterName},
-                       });
-    qDebug() << m_dialogs;
-    m_dialogs.removeAt(m_dialogs.indexOf(QVariant(dialog)));
-    qDebug() << m_dialogs;
+    auto dlgs = dialogs();
+    for (int i=0; i < dlgs.size(); ++i) {
+        if (dlgs[i].toMap().value("dialogId") == dialogId) {
+            dlgs.removeAt(i);
+            m_dialogs = dlgs;
+            break;
+        }
+    }
 }
 
 void Panel::setDescription(const QString& description)

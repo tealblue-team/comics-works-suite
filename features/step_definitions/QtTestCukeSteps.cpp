@@ -30,6 +30,13 @@ struct MainCtx {
 std::istream& operator>> (std::istream& in, QString& val) { std::string s; in >> s; val = s.c_str(); return in; }
 std::ostream& operator<< (std::ostream& out, const QString& val) { out << val.toLatin1().data(); return out; }
 
+CUKE_STEP_("^no project with id \"([a-zA-Z]+[0-9]*)\" exists$") {
+    REGEX_PARAM(QString, workspaceId);
+    ScenarioScope<MainCtx> ctx;
+    bool workspaceExists = ctx->entities.currentProject != nullptr;
+    QVERIFY(! workspaceExists);
+}
+
 CUKE_STEP_("^I try to create a project with id \"([a-zA-Z]+[0-9]*)\"$") {
     REGEX_PARAM(QString, workspaceId);
     ScenarioScope<MainCtx> ctx;
@@ -62,13 +69,6 @@ CUKE_STEP_("^no panel with id \"([a-zA-Z]+[0-9]*)\" exists in the current projec
         }
     }
     QVERIFY(! panelExists);
-}
-
-CUKE_STEP_("^no project with name \"([a-zA-Z]+[0-9]*)\" exists$") {
-    REGEX_PARAM(QString, workspaceId);
-    ScenarioScope<MainCtx> ctx;
-    bool workspaceExists = ctx->entities.currentProject != nullptr;
-    QVERIFY(! workspaceExists);
 }
 
 CUKE_STEP_("^a pile with name \"([a-zA-Z]+[0-9]*)\" exists in the current project$") {
@@ -426,6 +426,7 @@ CUKE_STEP_("the dialog \"(.+)\" is deleted from panel \"(.+)\"$") {
             auto panelDialogId = dialogs.at(0).toMap().value("dialogId").toString();
             qDebug() << panelDialogId << dialogId;
             if (panelResult.toMap().value("eid").toString() == panelName && panelDialogId == dialogId) {
+                qDebug() << "dialogFound";
                 dialogFound = true;
                 break;
             }

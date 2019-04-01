@@ -23,7 +23,7 @@ public:
 
     virtual void addCharacter(CharacterBase*) = 0;
     virtual void addDialog(const QString& dialogId, const QString& dialogContent, const QString& characterName) = 0;
-    virtual void removeDialog(const QString& dialogId, const QString& dialogContent, const QString& characterName) = 0;
+    virtual void removeDialog(const QString& dialogId) = 0;
     virtual void setEid(const QString&) = 0;
     virtual void setDescription(const QString&) = 0;
     virtual void setName(const QString&) = 0;
