@@ -47,7 +47,8 @@
             "dialogs": [
                 {
                     "characterName": "Ayran",
-                    "dialogContent_en_US": "So... that's what war is"
+                    "dialogContent_en_US": "So... that's what war is",
+                    "dialogId": ""
                 }
             ],
             "eid": "pADTLN",
@@ -61,7 +62,8 @@
             "dialogs": [
                 {
                     "characterName": "Ayran",
-                    "dialogContent_en_US": "I am leaving my country with a heavy load upon me"
+                    "dialogContent_en_US": "I am leaving my country with a heavy load upon me",
+                    "dialogId": ""
                 }
             ],
             "eid": "pFBRRY",
@@ -97,7 +99,8 @@
             "dialogs": [
                 {
                     "characterName": "Ayran",
-                    "dialogContent_en_US": "... A load that will never leave me."
+                    "dialogContent_en_US": "... A load that will never leave me.",
+                    "dialogId": ""
                 }
             ],
             "eid": "pKRPYW",
@@ -165,7 +168,8 @@
             "dialogs": [
                 {
                     "characterName": "Ayran",
-                    "dialogContent_en_US": "Yet, when it all started everything looked so exciting..."
+                    "dialogContent_en_US": "Yet, when it all started everything looked so exciting...",
+                    "dialogId": ""
                 }
             ],
             "eid": "pTMGHJ",
@@ -179,7 +183,8 @@
             "dialogs": [
                 {
                     "characterName": "Ayran",
-                    "dialogContent_en_US": "But now HE is dead, and so am I."
+                    "dialogContent_en_US": "But now HE is dead, and so am I.",
+                    "dialogId": ""
                 }
             ],
             "eid": "pEMXXB",
@@ -195,7 +200,8 @@
             "dialogs": [
                 {
                     "characterName": "Narrator",
-                    "dialogContent_en_US": "Some time before..."
+                    "dialogContent_en_US": "Some time before...",
+                    "dialogId": ""
                 }
             ],
             "eid": "pXNNIZ",
@@ -210,7 +216,8 @@
             "dialogs": [
                 {
                     "characterName": "Ayran",
-                    "dialogContent_en_US": "Birun! Commend your soul to Ashtalan the almighty, cause you're gonna meet her soon!"
+                    "dialogContent_en_US": "Birun! Commend your soul to Ashtalan the almighty, cause you're gonna meet her soon!",
+                    "dialogId": ""
                 }
             ],
             "eid": "pMGCYB",
@@ -224,7 +231,8 @@
             "dialogs": [
                 {
                     "characterName": "Ayran",
-                    "dialogContent_en_US": "WAAAH!"
+                    "dialogContent_en_US": "WAAAH!",
+                    "dialogId": ""
                 }
             ],
             "eid": "pNJHXN",
@@ -239,7 +247,8 @@
             "dialogs": [
                 {
                     "characterName": "Birun",
-                    "dialogContent_en_US": "Ayran, you son of a blind raccoon! I'll show you now!"
+                    "dialogContent_en_US": "Ayran, you son of a blind raccoon! I'll show you now!",
+                    "dialogId": ""
                 }
             ],
             "eid": "pMYBTU",
@@ -254,11 +263,13 @@
             "dialogs": [
                 {
                     "characterName": "Ayran",
-                    "dialogContent_en_US": "?"
+                    "dialogContent_en_US": "?",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Birun",
-                    "dialogContent_en_US": "HA!"
+                    "dialogContent_en_US": "HA!",
+                    "dialogId": ""
                 }
             ],
             "eid": "pVDARW",
@@ -361,7 +372,8 @@
             "dialogs": [
                 {
                     "characterName": "Birun",
-                    "dialogContent_en_US": "Hey..."
+                    "dialogContent_en_US": "Hey...",
+                    "dialogId": ""
                 }
             ],
             "eid": "pSYGEI",
@@ -396,7 +408,8 @@
             "dialogs": [
                 {
                     "characterName": "Ayran",
-                    "dialogContent_en_US": "Go to hell!"
+                    "dialogContent_en_US": "Go to hell!",
+                    "dialogId": ""
                 }
             ],
             "eid": "pPYODZ",
@@ -410,7 +423,8 @@
             "dialogs": [
                 {
                     "characterName": "Dilgun",
-                    "dialogContent_en_US": "Stop it!"
+                    "dialogContent_en_US": "Stop it!",
+                    "dialogId": ""
                 }
             ],
             "eid": "pYPSNJ",
@@ -425,7 +439,8 @@
             "dialogs": [
                 {
                     "characterName": "Ayran",
-                    "dialogContent_en_US": "What the..."
+                    "dialogContent_en_US": "What the...",
+                    "dialogId": ""
                 }
             ],
             "eid": "pYVGTR",
@@ -441,7 +456,8 @@
             "dialogs": [
                 {
                     "characterName": "Dilgun",
-                    "dialogContent_en_US": "Ayran, for Ashtalan's sake... Are you crazy?"
+                    "dialogContent_en_US": "Ayran, for Ashtalan's sake... Are you crazy?",
+                    "dialogId": ""
                 }
             ],
             "eid": "pYPOGJ",
@@ -465,7 +481,8 @@
             "dialogs": [
                 {
                     "characterName": "Dilgun",
-                    "dialogContent_en_US": "I only have one brother! Dilgun And I need him..."
+                    "dialogContent_en_US": "I only have one brother! Dilgun And I need him...",
+                    "dialogId": ""
                 }
             ],
             "eid": "pYSBLJ",
@@ -479,7 +496,8 @@
             "dialogs": [
                 {
                     "characterName": "Dilgun",
-                    "dialogContent_en_US": "to help me keep away the horde of stinky beasts who think I'm gorgeous!"
+                    "dialogContent_en_US": "to help me keep away the horde of stinky beasts who think I'm gorgeous!",
+                    "dialogId": ""
                 }
             ],
             "eid": "pYKPVN",
@@ -494,11 +512,13 @@
             "dialogs": [
                 {
                     "characterName": "Ayran",
-                    "dialogContent_en_US": "Your brother, whom I thought to be my best friend, just kicked me in the face!"
+                    "dialogContent_en_US": "Your brother, whom I thought to be my best friend, just kicked me in the face!",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Dilgun",
-                    "dialogContent_en_US": "Don't you tell me!"
+                    "dialogContent_en_US": "Don't you tell me!",
+                    "dialogId": ""
                 }
             ],
             "eid": "pYTGKJ",
@@ -513,7 +533,8 @@
             "dialogs": [
                 {
                     "characterName": "Ayran",
-                    "dialogContent_en_US": "Furthermore, you are not that gorgeous..."
+                    "dialogContent_en_US": "Furthermore, you are not that gorgeous...",
+                    "dialogId": ""
                 }
             ],
             "eid": "pYGOVZ",
@@ -528,11 +549,13 @@
             "dialogs": [
                 {
                     "characterName": "Dilgun",
-                    "dialogContent_en_US": "Of course I am, and you know it."
+                    "dialogContent_en_US": "Of course I am, and you know it.",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Dilgun",
-                    "dialogContent_en_US": "Melukkim girls are just too hot."
+                    "dialogContent_en_US": "Melukkim girls are just too hot.",
+                    "dialogId": ""
                 }
             ],
             "eid": "pYBEOR",
@@ -546,7 +569,8 @@
             "dialogs": [
                 {
                     "characterName": "Dilgun",
-                    "dialogContent_en_US": "Unlike your Silkhan girls, who are no more than whitewashed housepets."
+                    "dialogContent_en_US": "Unlike your Silkhan girls, who are no more than whitewashed housepets.",
+                    "dialogId": ""
                 }
             ],
             "eid": "pYZNBQ",
@@ -561,11 +585,13 @@
             "dialogs": [
                 {
                     "characterName": "Dilgun",
-                    "dialogContent_en_US": "...just like you."
+                    "dialogContent_en_US": "...just like you.",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Dilgun",
-                    "dialogContent_en_US": "I mean, even my bro was able to beat the crap out of you!"
+                    "dialogContent_en_US": "I mean, even my bro was able to beat the crap out of you!",
+                    "dialogId": ""
                 }
             ],
             "eid": "pYYHUC",
@@ -581,11 +607,13 @@
             "dialogs": [
                 {
                     "characterName": "Ayran",
-                    "dialogContent_en_US": "Hey!"
+                    "dialogContent_en_US": "Hey!",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Birun",
-                    "dialogContent_en_US": "Hey!"
+                    "dialogContent_en_US": "Hey!",
+                    "dialogId": ""
                 }
             ],
             "eid": "pYMKPT",
@@ -600,7 +628,8 @@
             "dialogs": [
                 {
                     "characterName": "Birun",
-                    "dialogContent_en_US": "Don't you speak to me like that little sister!"
+                    "dialogContent_en_US": "Don't you speak to me like that little sister!",
+                    "dialogId": ""
                 }
             ],
             "eid": "pYWSHO",
@@ -615,7 +644,8 @@
             "dialogs": [
                 {
                     "characterName": "Birun",
-                    "dialogContent_en_US": "And you, filthy beggar... Are you insane?!?"
+                    "dialogContent_en_US": "And you, filthy beggar... Are you insane?!?",
+                    "dialogId": ""
                 }
             ],
             "eid": "pYXLKC",
@@ -630,11 +660,13 @@
             "dialogs": [
                 {
                     "characterName": "Birun",
-                    "dialogContent_en_US": "What was on your mind?!?"
+                    "dialogContent_en_US": "What was on your mind?!?",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Birun",
-                    "dialogContent_en_US": "You could have killed me!"
+                    "dialogContent_en_US": "You could have killed me!",
+                    "dialogId": ""
                 }
             ],
             "eid": "pYMGIS",
@@ -650,15 +682,18 @@
             "dialogs": [
                 {
                     "characterName": "Ayran",
-                    "dialogContent_en_US": "What was on my mind???"
+                    "dialogContent_en_US": "What was on my mind???",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Ayran",
-                    "dialogContent_en_US": "We were training for the stick fighting ritual, and out of the blue you started kicking me, you b..."
+                    "dialogContent_en_US": "We were training for the stick fighting ritual, and out of the blue you started kicking me, you b...",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Dilgun",
-                    "dialogContent_en_US": "Shut up now!"
+                    "dialogContent_en_US": "Shut up now!",
+                    "dialogId": ""
                 }
             ],
             "eid": "pYLHQY",
@@ -673,11 +708,13 @@
             "dialogs": [
                 {
                     "characterName": "Dilgun",
-                    "dialogContent_en_US": "Birun, it's time to go home. Lunch is ready."
+                    "dialogContent_en_US": "Birun, it's time to go home. Lunch is ready.",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Dilgun",
-                    "dialogContent_en_US": "Mum was already screaming at you when I left."
+                    "dialogContent_en_US": "Mum was already screaming at you when I left.",
+                    "dialogId": ""
                 }
             ],
             "eid": "pZIQDX",
@@ -692,7 +729,8 @@
             "dialogs": [
                 {
                     "characterName": "Ayran",
-                    "dialogContent_en_US": "Once again the fates sent your little sister to save you, you screaming piglet!"
+                    "dialogContent_en_US": "Once again the fates sent your little sister to save you, you screaming piglet!",
+                    "dialogId": ""
                 }
             ],
             "eid": "pZHSTK",
@@ -707,11 +745,13 @@
             "dialogs": [
                 {
                     "characterName": "Birun",
-                    "dialogContent_en_US": "Ah, come on! I would certainly have dribbled that girly punch of yours and was ready to hit back."
+                    "dialogContent_en_US": "Ah, come on! I would certainly have dribbled that girly punch of yours and was ready to hit back.",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Ayran",
-                    "dialogContent_en_US": "Yes, yes... sure!"
+                    "dialogContent_en_US": "Yes, yes... sure!",
+                    "dialogId": ""
                 }
             ],
             "eid": "pZQQXZ",
@@ -726,11 +766,13 @@
             "dialogs": [
                 {
                     "characterName": "Ayran",
-                    "dialogContent_en_US": "But for the stick fight, my foreign friend, you'll just have to..."
+                    "dialogContent_en_US": "But for the stick fight, my foreign friend, you'll just have to...",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Ayran",
-                    "dialogContent_en_US": "well, stick to... sticks! No kicks!"
+                    "dialogContent_en_US": "well, stick to... sticks! No kicks!",
+                    "dialogId": ""
                 }
             ],
             "eid": "pZYXXO",
@@ -745,11 +787,13 @@
             "dialogs": [
                 {
                     "characterName": "Ayran",
-                    "dialogContent_en_US": "Gosthal and his crew are certainly training hard..."
+                    "dialogContent_en_US": "Gosthal and his crew are certainly training hard...",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Ayran",
-                    "dialogContent_en_US": "we cannot allow them to win!"
+                    "dialogContent_en_US": "we cannot allow them to win!",
+                    "dialogId": ""
                 }
             ],
             "eid": "pZOTNL",
@@ -765,15 +809,18 @@
             "dialogs": [
                 {
                     "characterName": "Birun",
-                    "dialogContent_en_US": "Don't you worry, we'll show them something."
+                    "dialogContent_en_US": "Don't you worry, we'll show them something.",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Dilgun",
-                    "dialogContent_en_US": "Come on you snails..."
+                    "dialogContent_en_US": "Come on you snails...",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Dilgun",
-                    "dialogContent_en_US": "If you keep this pace while fighting you'll be screwed!"
+                    "dialogContent_en_US": "If you keep this pace while fighting you'll be screwed!",
+                    "dialogId": ""
                 }
             ],
             "eid": "pZWANA",
@@ -788,11 +835,13 @@
             "dialogs": [
                 {
                     "characterName": "Ayran",
-                    "dialogContent_en_US": "Birun, we really need to stand out during the fighting ritual..."
+                    "dialogContent_en_US": "Birun, we really need to stand out during the fighting ritual...",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Ayran",
-                    "dialogContent_en_US": "It's the only chance we have in the foreseeable future to be noticed by the chief maintainers."
+                    "dialogContent_en_US": "It's the only chance we have in the foreseeable future to be noticed by the chief maintainers.",
+                    "dialogId": ""
                 }
             ],
             "eid": "pZLNXX",
@@ -807,11 +856,13 @@
             "dialogs": [
                 {
                     "characterName": "Ayran",
-                    "dialogContent_en_US": "I don't want to end up as a farmer, like..."
+                    "dialogContent_en_US": "I don't want to end up as a farmer, like...",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Birun",
-                    "dialogContent_en_US": "Like your father?"
+                    "dialogContent_en_US": "Like your father?",
+                    "dialogId": ""
                 }
             ],
             "eid": "pZPJIY",
@@ -826,7 +877,8 @@
             "dialogs": [
                 {
                     "characterName": "Ayran",
-                    "dialogContent_en_US": "Yes, like the old tyrant."
+                    "dialogContent_en_US": "Yes, like the old tyrant.",
+                    "dialogId": ""
                 }
             ],
             "eid": "pZRCLL",
@@ -850,7 +902,8 @@
             "dialogs": [
                 {
                     "characterName": "Birun",
-                    "dialogContent_en_US": "Ayran, I might agree that your dad is not very likeable..."
+                    "dialogContent_en_US": "Ayran, I might agree that your dad is not very likeable...",
+                    "dialogId": ""
                 }
             ],
             "eid": "pZVZWM",
@@ -865,7 +918,8 @@
             "dialogs": [
                 {
                     "characterName": "Birun",
-                    "dialogContent_en_US": "...but he crushes his back all day long to provide food and shelter for you and your sister."
+                    "dialogContent_en_US": "...but he crushes his back all day long to provide food and shelter for you and your sister.",
+                    "dialogId": ""
                 }
             ],
             "eid": "pZTZNL",
@@ -880,11 +934,13 @@
             "dialogs": [
                 {
                     "characterName": "Ayran",
-                    "dialogContent_en_US": "I don't care."
+                    "dialogContent_en_US": "I don't care.",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Ayran",
-                    "dialogContent_en_US": "I'm just looking forward to being declared an adult by the chief maintainers."
+                    "dialogContent_en_US": "I'm just looking forward to being declared an adult by the chief maintainers.",
+                    "dialogId": ""
                 }
             ],
             "eid": "pZXMBM",
@@ -898,11 +954,13 @@
             "dialogs": [
                 {
                     "characterName": "Ayran",
-                    "dialogContent_en_US": "Then, I'll leave home and take good care of myself."
+                    "dialogContent_en_US": "Then, I'll leave home and take good care of myself.",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Ayran",
-                    "dialogContent_en_US": "I'll become a respected soldier, and a famous chief maintainer."
+                    "dialogContent_en_US": "I'll become a respected soldier, and a famous chief maintainer.",
+                    "dialogId": ""
                 }
             ],
             "eid": "pZLFIW",
@@ -916,7 +974,8 @@
             "dialogs": [
                 {
                     "characterName": "Birun",
-                    "dialogContent_en_US": "Hey, it's all about you... and what about me?"
+                    "dialogContent_en_US": "Hey, it's all about you... and what about me?",
+                    "dialogId": ""
                 }
             ],
             "eid": "pZVFDS",
@@ -930,7 +989,8 @@
             "dialogs": [
                 {
                     "characterName": "Ayran",
-                    "dialogContent_en_US": "Oh, you'll become a soldier too, but not as famous and respected as myself!"
+                    "dialogContent_en_US": "Oh, you'll become a soldier too, but not as famous and respected as myself!",
+                    "dialogId": ""
                 }
             ],
             "eid": "pZFEYO",
@@ -945,7 +1005,8 @@
             "dialogs": [
                 {
                     "characterName": "Birun",
-                    "dialogContent_en_US": "And what will happen of your sister?"
+                    "dialogContent_en_US": "And what will happen of your sister?",
+                    "dialogId": ""
                 }
             ],
             "eid": "pZZJLS",
@@ -960,15 +1021,18 @@
             "dialogs": [
                 {
                     "characterName": "Ayran",
-                    "dialogContent_en_US": "Well, I don't know... she'll probably want to stay with dad, that's what she promised our mum. "
+                    "dialogContent_en_US": "Well, I don't know... she'll probably want to stay with dad, that's what she promised our mum. ",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Ayran",
-                    "dialogContent_en_US": "And he's gonna ruin her life. Unless..."
+                    "dialogContent_en_US": "And he's gonna ruin her life. Unless...",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Birun",
-                    "dialogContent_en_US": "Unless?"
+                    "dialogContent_en_US": "Unless?",
+                    "dialogId": ""
                 }
             ],
             "eid": "pZMCSC",
@@ -983,15 +1047,18 @@
             "dialogs": [
                 {
                     "characterName": "Ayran",
-                    "dialogContent_en_US": "... unless her secret lover takes her far, far away!"
+                    "dialogContent_en_US": "... unless her secret lover takes her far, far away!",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Birun",
-                    "dialogContent_en_US": "Yes, why not? I'll take her to Melukka, the land of my ancestors."
+                    "dialogContent_en_US": "Yes, why not? I'll take her to Melukka, the land of my ancestors.",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Birun",
-                    "dialogContent_en_US": "There we'll settle and build our home..."
+                    "dialogContent_en_US": "There we'll settle and build our home...",
+                    "dialogId": ""
                 }
             ],
             "eid": "pZGRUO",
@@ -1005,11 +1072,13 @@
             "dialogs": [
                 {
                     "characterName": "Birun",
-                    "dialogContent_en_US": "For all snakes! Dilgun is already home!"
+                    "dialogContent_en_US": "For all snakes! Dilgun is already home!",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Birun",
-                    "dialogContent_en_US": "My mother will kill me!"
+                    "dialogContent_en_US": "My mother will kill me!",
+                    "dialogId": ""
                 }
             ],
             "eid": "pZQALJ",
@@ -1024,11 +1093,13 @@
             "dialogs": [
                 {
                     "characterName": "Birun",
-                    "dialogContent_en_US": "I'll see you in the afternoon!"
+                    "dialogContent_en_US": "I'll see you in the afternoon!",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Ayran",
-                    "dialogContent_en_US": "Run little rabbit!"
+                    "dialogContent_en_US": "Run little rabbit!",
+                    "dialogId": ""
                 }
             ],
             "eid": "pZBAYM",
@@ -1042,7 +1113,8 @@
             "dialogs": [
                 {
                     "characterName": "Ayran",
-                    "dialogContent_en_US": "There it is..."
+                    "dialogContent_en_US": "There it is...",
+                    "dialogId": ""
                 }
             ],
             "eid": "pGFHUF",
@@ -1056,7 +1128,8 @@
             "dialogs": [
                 {
                     "characterName": "Ayran",
-                    "dialogContent_en_US": "Please..."
+                    "dialogContent_en_US": "Please...",
+                    "dialogId": ""
                 }
             ],
             "eid": "pGTKPV",
@@ -1070,7 +1143,8 @@
             "dialogs": [
                 {
                     "characterName": "Ayran",
-                    "dialogContent_en_US": "... let him be asleep..."
+                    "dialogContent_en_US": "... let him be asleep...",
+                    "dialogId": ""
                 }
             ],
             "eid": "pGZYVD",
@@ -1096,11 +1170,13 @@
             "dialogs": [
                 {
                     "characterName": "Mingoor",
-                    "dialogContent_en_US": "Ayran! What the heck, you damn scoundrel..."
+                    "dialogContent_en_US": "Ayran! What the heck, you damn scoundrel...",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Mingoor",
-                    "dialogContent_en_US": "where have you been all this time?"
+                    "dialogContent_en_US": "where have you been all this time?",
+                    "dialogId": ""
                 }
             ],
             "eid": "pGCELK",
@@ -1126,11 +1202,13 @@
             "dialogs": [
                 {
                     "characterName": "Ayran",
-                    "dialogContent_en_US": "I was..."
+                    "dialogContent_en_US": "I was...",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Mingoor",
-                    "dialogContent_en_US": "Shut up!"
+                    "dialogContent_en_US": "Shut up!",
+                    "dialogId": ""
                 }
             ],
             "eid": "pGWEJI",
@@ -1144,11 +1222,13 @@
             "dialogs": [
                 {
                     "characterName": "Mingoor",
-                    "dialogContent_en_US": "I know where you were..."
+                    "dialogContent_en_US": "I know where you were...",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Mingoor",
-                    "dialogContent_en_US": "Always wasting time with the Melukkim!"
+                    "dialogContent_en_US": "Always wasting time with the Melukkim!",
+                    "dialogId": ""
                 }
             ],
             "eid": "pGJGNS",
@@ -1162,7 +1242,8 @@
             "dialogs": [
                 {
                     "characterName": "Mingoor",
-                    "dialogContent_en_US": "Human filth they are, frickin' immigrants!!!"
+                    "dialogContent_en_US": "Human filth they are, frickin' immigrants!!!",
+                    "dialogId": ""
                 }
             ],
             "eid": "pGYSOI",
@@ -1177,11 +1258,13 @@
             "dialogs": [
                 {
                     "characterName": "Ayran",
-                    "dialogContent_en_US": "Ah, come on dad, they're..."
+                    "dialogContent_en_US": "Ah, come on dad, they're...",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Mingoor",
-                    "dialogContent_en_US": "I said SHUT-UP!"
+                    "dialogContent_en_US": "I said SHUT-UP!",
+                    "dialogId": ""
                 }
             ],
             "eid": "pGHQRX",
@@ -1196,11 +1279,13 @@
             "dialogs": [
                 {
                     "characterName": "Mingoor",
-                    "dialogContent_en_US": "dammit son, are you blinder than yo' old father?"
+                    "dialogContent_en_US": "dammit son, are you blinder than yo' old father?",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Mingoor",
-                    "dialogContent_en_US": "those people ain't ANYTHING like us!"
+                    "dialogContent_en_US": "those people ain't ANYTHING like us!",
+                    "dialogId": ""
                 }
             ],
             "eid": "pGZNZC",
@@ -1214,11 +1299,13 @@
             "dialogs": [
                 {
                     "characterName": "Mingoor",
-                    "dialogContent_en_US": "that Birun dude is taking you to the wrong path."
+                    "dialogContent_en_US": "that Birun dude is taking you to the wrong path.",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Mingoor",
-                    "dialogContent_en_US": "Ayran, they don't share our values..."
+                    "dialogContent_en_US": "Ayran, they don't share our values...",
+                    "dialogId": ""
                 }
             ],
             "eid": "pGKWIE",
@@ -1234,11 +1321,13 @@
             "dialogs": [
                 {
                     "characterName": "Mingoor",
-                    "dialogContent_en_US": "Now lend a hand to your sister. I'm hungry."
+                    "dialogContent_en_US": "Now lend a hand to your sister. I'm hungry.",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Mingoor",
-                    "dialogContent_en_US": "Now... where is my sweetie?"
+                    "dialogContent_en_US": "Now... where is my sweetie?",
+                    "dialogId": ""
                 }
             ],
             "eid": "pGTNWA",
@@ -1252,7 +1341,8 @@
             "dialogs": [
                 {
                     "characterName": "Mingoor",
-                    "dialogContent_en_US": "Shildigook!"
+                    "dialogContent_en_US": "Shildigook!",
+                    "dialogId": ""
                 }
             ],
             "eid": "pGCOZC",
@@ -1267,7 +1357,8 @@
             "dialogs": [
                 {
                     "characterName": "Shildigook",
-                    "dialogContent_en_US": "Wof wof!"
+                    "dialogContent_en_US": "Wof wof!",
+                    "dialogId": ""
                 }
             ],
             "eid": "pGAOQB",
@@ -1293,11 +1384,13 @@
             "dialogs": [
                 {
                     "characterName": "Mingoor",
-                    "dialogContent_en_US": "My beautiful, beautiful one..."
+                    "dialogContent_en_US": "My beautiful, beautiful one...",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Mingoor",
-                    "dialogContent_en_US": "Thank God, I have you."
+                    "dialogContent_en_US": "Thank God, I have you.",
+                    "dialogId": ""
                 }
             ],
             "eid": "pGAKJB",
@@ -1358,7 +1451,8 @@
             "dialogs": [
                 {
                     "characterName": "Kindun",
-                    "dialogContent_en_US": "in Melukka, girls and boys your age are already fathers and mothers!"
+                    "dialogContent_en_US": "in Melukka, girls and boys your age are already fathers and mothers!",
+                    "dialogId": ""
                 }
             ],
             "eid": "pPYQWJ",
@@ -1385,7 +1479,8 @@
             "dialogs": [
                 {
                     "characterName": "Dilgun",
-                    "dialogContent_en_US": "Hey, if girls and boys in Melukka end up like you, then I'm happy to become an old-maid..."
+                    "dialogContent_en_US": "Hey, if girls and boys in Melukka end up like you, then I'm happy to become an old-maid...",
+                    "dialogId": ""
                 }
             ],
             "eid": "pPKCEY",
@@ -1400,7 +1495,8 @@
             "dialogs": [
                 {
                     "characterName": "Tomsun",
-                    "dialogContent_en_US": "Don't you dare to talk to our guest like that, miss Dilgun!"
+                    "dialogContent_en_US": "Don't you dare to talk to our guest like that, miss Dilgun!",
+                    "dialogId": ""
                 }
             ],
             "eid": "pPQJVN",
@@ -1415,15 +1511,18 @@
             "dialogs": [
                 {
                     "characterName": "Kindun",
-                    "dialogContent_en_US": "Ah, don't you worry Tomsun my dear..."
+                    "dialogContent_en_US": "Ah, don't you worry Tomsun my dear...",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Kindun",
-                    "dialogContent_en_US": "She's got some fierce Melukkim temper in her young veins"
+                    "dialogContent_en_US": "She's got some fierce Melukkim temper in her young veins",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Kindun",
-                    "dialogContent_en_US": "And that's good"
+                    "dialogContent_en_US": "And that's good",
+                    "dialogId": ""
                 }
             ],
             "eid": "pPECCW",
@@ -1439,11 +1538,13 @@
             "dialogs": [
                 {
                     "characterName": "Kindun",
-                    "dialogContent_en_US": "I'll tell ya more... not only guys your age are already parents..."
+                    "dialogContent_en_US": "I'll tell ya more... not only guys your age are already parents...",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Kindun",
-                    "dialogContent_en_US": "They are also fearsome warriors!"
+                    "dialogContent_en_US": "They are also fearsome warriors!",
+                    "dialogId": ""
                 }
             ],
             "eid": "pPJZFE",
@@ -1458,11 +1559,13 @@
             "dialogs": [
                 {
                     "characterName": "Dilgun",
-                    "dialogContent_en_US": "ahh... this I like more!"
+                    "dialogContent_en_US": "ahh... this I like more!",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Birun",
-                    "dialogContent_en_US": "Really? How? And what are they going to fight for?"
+                    "dialogContent_en_US": "Really? How? And what are they going to fight for?",
+                    "dialogId": ""
                 }
             ],
             "eid": "pQCTND",
@@ -1478,7 +1581,8 @@
             "dialogs": [
                 {
                     "characterName": "Kindun",
-                    "dialogContent_en_US": "Well my dears, you have heard about the crisis, haven't you?"
+                    "dialogContent_en_US": "Well my dears, you have heard about the crisis, haven't you?",
+                    "dialogId": ""
                 }
             ],
             "eid": "pQCKQW",
@@ -1494,7 +1598,8 @@
             "dialogs": [
                 {
                     "characterName": "Kindun",
-                    "dialogContent_en_US": "Barsun, you have heard about the crisis, haven't you?"
+                    "dialogContent_en_US": "Barsun, you have heard about the crisis, haven't you?",
+                    "dialogId": ""
                 }
             ],
             "eid": "pQXAJO",
@@ -1509,7 +1614,8 @@
             "dialogs": [
                 {
                     "characterName": "Barsun",
-                    "dialogContent_en_US": "Crisis? What crisis?"
+                    "dialogContent_en_US": "Crisis? What crisis?",
+                    "dialogId": ""
                 }
             ],
             "eid": "pQFHKD",
@@ -1524,11 +1630,13 @@
             "dialogs": [
                 {
                     "characterName": "Kindun",
-                    "dialogContent_en_US": "Are you telling me that no tidings of the crisis have arrived yet to this corner of Silkha?"
+                    "dialogContent_en_US": "Are you telling me that no tidings of the crisis have arrived yet to this corner of Silkha?",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Birun",
-                    "dialogContent_en_US": "Uncle Kindun, what are you talking about?"
+                    "dialogContent_en_US": "Uncle Kindun, what are you talking about?",
+                    "dialogId": ""
                 }
             ],
             "eid": "pQICEX",
@@ -1542,7 +1650,8 @@
             "dialogs": [
                 {
                     "characterName": "Kindun",
-                    "dialogContent_en_US": "> Kindun: What am I talking about? "
+                    "dialogContent_en_US": "> Kindun: What am I talking about? ",
+                    "dialogId": ""
                 }
             ],
             "eid": "pQLXYR",
@@ -1556,11 +1665,13 @@
             "dialogs": [
                 {
                     "characterName": "Kindun",
-                    "dialogContent_en_US": "My friends, the allied kingdoms of Vintuka have formally recalled their delegations from all Western regions"
+                    "dialogContent_en_US": "My friends, the allied kingdoms of Vintuka have formally recalled their delegations from all Western regions",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Kindun",
-                    "dialogContent_en_US": "including Silkhan land"
+                    "dialogContent_en_US": "including Silkhan land",
+                    "dialogId": ""
                 }
             ],
             "eid": "pQXPNU",
@@ -1575,7 +1686,8 @@
             "dialogs": [
                 {
                     "characterName": "Birun",
-                    "dialogContent_en_US": "Dad, what does that mean?"
+                    "dialogContent_en_US": "Dad, what does that mean?",
+                    "dialogId": ""
                 }
             ],
             "eid": "pQGXFQ",
@@ -1590,7 +1702,8 @@
             "dialogs": [
                 {
                     "characterName": "Dilgun",
-                    "dialogContent_en_US": "It means war, you idiot! "
+                    "dialogContent_en_US": "It means war, you idiot! ",
+                    "dialogId": ""
                 }
             ],
             "eid": "pQZLPU",
@@ -1606,11 +1719,13 @@
             "dialogs": [
                 {
                     "characterName": "Tomsun",
-                    "dialogContent_en_US": "well dear, it's not technically war yet... but it might end up being one."
+                    "dialogContent_en_US": "well dear, it's not technically war yet... but it might end up being one.",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Tomsun",
-                    "dialogContent_en_US": "But Kindun, tell us more... how... and why?"
+                    "dialogContent_en_US": "But Kindun, tell us more... how... and why?",
+                    "dialogId": ""
                 }
             ],
             "eid": "pQEYEV",
@@ -1624,11 +1739,13 @@
             "dialogs": [
                 {
                     "characterName": "Kindun",
-                    "dialogContent_en_US": "oh well, you know, Vintuka has always had a foot in the Western countries"
+                    "dialogContent_en_US": "oh well, you know, Vintuka has always had a foot in the Western countries",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Kindun",
-                    "dialogContent_en_US": "especially in Silkhan land, because of the timber, the water supplies, the rice crops and the livestock"
+                    "dialogContent_en_US": "especially in Silkhan land, because of the timber, the water supplies, the rice crops and the livestock",
+                    "dialogId": ""
                 }
             ],
             "eid": "pQMPSR",
@@ -1642,11 +1759,13 @@
             "dialogs": [
                 {
                     "characterName": "Barsun",
-                    "dialogContent_en_US": "indeed! population in Vintuka has been growing steadily"
+                    "dialogContent_en_US": "indeed! population in Vintuka has been growing steadily",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Barsun",
-                    "dialogContent_en_US": "they've got the knowledge, the machinery and the trading ships..."
+                    "dialogContent_en_US": "they've got the knowledge, the machinery and the trading ships...",
+                    "dialogId": ""
                 }
             ],
             "eid": "pQDCLO",
@@ -1670,11 +1789,13 @@
             "dialogs": [
                 {
                     "characterName": "Kindun",
-                    "dialogContent_en_US": "indeed, my friend"
+                    "dialogContent_en_US": "indeed, my friend",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Kindun",
-                    "dialogContent_en_US": "And Western traders know this all too well"
+                    "dialogContent_en_US": "And Western traders know this all too well",
+                    "dialogId": ""
                 }
             ],
             "eid": "pQIILW",
@@ -1688,11 +1809,13 @@
             "dialogs": [
                 {
                     "characterName": "Kindun",
-                    "dialogContent_en_US": "So, Western traders and port authorities started imposing much heavier tolls on goods"
+                    "dialogContent_en_US": "So, Western traders and port authorities started imposing much heavier tolls on goods",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Kindun",
-                    "dialogContent_en_US": "As Western harbours represent the only sustainable route for Vintukkans to get what they need from Silkhan land"
+                    "dialogContent_en_US": "As Western harbours represent the only sustainable route for Vintukkans to get what they need from Silkhan land",
+                    "dialogId": ""
                 }
             ],
             "eid": "pQEPHO",
@@ -1706,7 +1829,8 @@
             "dialogs": [
                 {
                     "characterName": "Kindun",
-                    "dialogContent_en_US": "Problem is, Vintukans are not stupid"
+                    "dialogContent_en_US": "Problem is, Vintukans are not stupid",
+                    "dialogId": ""
                 }
             ],
             "eid": "pQJDVP",
@@ -1720,7 +1844,8 @@
             "dialogs": [
                 {
                     "characterName": "Kindun",
-                    "dialogContent_en_US": "Everybody knows that Silkha, and the whole West, is a free land just because Vintuka allows them to be."
+                    "dialogContent_en_US": "Everybody knows that Silkha, and the whole West, is a free land just because Vintuka allows them to be.",
+                    "dialogId": ""
                 }
             ],
             "eid": "pQNQKQ",
@@ -1734,11 +1859,13 @@
             "dialogs": [
                 {
                     "characterName": "Kindun",
-                    "dialogContent_en_US": "Until now, conquering thw West by military force was simply more costly than buying goods from it."
+                    "dialogContent_en_US": "Until now, conquering thw West by military force was simply more costly than buying goods from it.",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Kindun",
-                    "dialogContent_en_US": "But this isn't true anymore, thanks to the greed of Western traders."
+                    "dialogContent_en_US": "But this isn't true anymore, thanks to the greed of Western traders.",
+                    "dialogId": ""
                 }
             ],
             "eid": "pQQBPE",
@@ -1752,7 +1879,8 @@
             "dialogs": [
                 {
                     "characterName": "Barsun",
-                    "dialogContent_en_US": "that might all be true, but why does Silkha have to pay for the greed of Western traders?"
+                    "dialogContent_en_US": "that might all be true, but why does Silkha have to pay for the greed of Western traders?",
+                    "dialogId": ""
                 }
             ],
             "eid": "pQSMVR",
@@ -1766,7 +1894,8 @@
             "dialogs": [
                 {
                     "characterName": "Barsun",
-                    "dialogContent_en_US": "I mean we source the goods that they trade, but the tolls they put on the goods is none of our business..."
+                    "dialogContent_en_US": "I mean we source the goods that they trade, but the tolls they put on the goods is none of our business...",
+                    "dialogId": ""
                 }
             ],
             "eid": "pQWQVL",
@@ -1780,11 +1909,13 @@
             "dialogs": [
                 {
                     "characterName": "Kindun",
-                    "dialogContent_en_US": "You know, Vintukans could not care less about whether the tolls increase is the fault of Silkhan producers, or the traders."
+                    "dialogContent_en_US": "You know, Vintukans could not care less about whether the tolls increase is the fault of Silkhan producers, or the traders.",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Kindun",
-                    "dialogContent_en_US": "All they know is that Silkha has got the stuff they need..."
+                    "dialogContent_en_US": "All they know is that Silkha has got the stuff they need...",
+                    "dialogId": ""
                 }
             ],
             "eid": "pHYBFK",
@@ -1798,11 +1929,13 @@
             "dialogs": [
                 {
                     "characterName": "Kindun",
-                    "dialogContent_en_US": "and if Western harbour cities are the bottleneck for them to get these goods..."
+                    "dialogContent_en_US": "and if Western harbour cities are the bottleneck for them to get these goods...",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Kindun",
-                    "dialogContent_en_US": "while conquering those harbours they might just as well take over the whole of Silkha."
+                    "dialogContent_en_US": "while conquering those harbours they might just as well take over the whole of Silkha.",
+                    "dialogId": ""
                 }
             ],
             "eid": "pHOWVH",
@@ -1816,7 +1949,8 @@
             "dialogs": [
                 {
                     "characterName": "Kindun",
-                    "dialogContent_en_US": "Problem solved!"
+                    "dialogContent_en_US": "Problem solved!",
+                    "dialogId": ""
                 }
             ],
             "eid": "pHOPGN",
@@ -1859,11 +1993,13 @@
             "dialogs": [
                 {
                     "characterName": "Birun",
-                    "dialogContent_en_US": "But uncle Kindun, Melukka is not Vintuka..."
+                    "dialogContent_en_US": "But uncle Kindun, Melukka is not Vintuka...",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Birun",
-                    "dialogContent_en_US": "Why are we Melukkans getting ready to fight?"
+                    "dialogContent_en_US": "Why are we Melukkans getting ready to fight?",
+                    "dialogId": ""
                 }
             ],
             "eid": "pHOSOH",
@@ -1878,7 +2014,8 @@
             "dialogs": [
                 {
                     "characterName": "Dilgun",
-                    "dialogContent_en_US": "I do have a stupid brother..."
+                    "dialogContent_en_US": "I do have a stupid brother...",
+                    "dialogId": ""
                 }
             ],
             "eid": "pHKAKZ",
@@ -1893,11 +2030,13 @@
             "dialogs": [
                 {
                     "characterName": "Dilgun",
-                    "dialogContent_en_US": "Did you ever notice that the Melukkan High Commander has a Vintukan surname???"
+                    "dialogContent_en_US": "Did you ever notice that the Melukkan High Commander has a Vintukan surname???",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Dilgun",
-                    "dialogContent_en_US": "Who'd you think is ruling the country of our ancestors?"
+                    "dialogContent_en_US": "Who'd you think is ruling the country of our ancestors?",
+                    "dialogId": ""
                 }
             ],
             "eid": "pHTYNO",
@@ -1912,11 +2051,13 @@
             "dialogs": [
                 {
                     "characterName": "Barsun",
-                    "dialogContent_en_US": "That's quite right ma'm, but talk once more like that to your bro..."
+                    "dialogContent_en_US": "That's quite right ma'm, but talk once more like that to your bro...",
+                    "dialogId": ""
                 },
                 {
                     "characterName": "Barsun",
-                    "dialogContent_en_US": "...and you can forget about attending this year's stick fight."
+                    "dialogContent_en_US": "...and you can forget about attending this year's stick fight.",
+                    "dialogId": ""
                 }
             ],
             "eid": "pHGARX",
@@ -1931,72 +2072,150 @@
             "dialogs": [
                 {
                     "characterName": "Tomsun",
-                    "dialogContent_en_US": "Kindun, you are giving us really bad news."
-                },
-                {
-                    "characterName": "Tomsun",
-                    "dialogContent_en_US": "When we moved to Silkha from Melukka, we were just looking for peace and prosperity."
+                    "dialogContent_en_US": "Kindun, you are giving us really bad news.",
+                    "dialogId": ""
                 }
             ],
             "eid": "pHFKWD",
-            "name": "HL-I-DB-28A"
+            "name": "HL-I-DB-28"
         },
         {
             "characters": [
                 "Tomsun",
                 "Kindun"
             ],
-            "description": "",
+            "description": "Flashback to Tom and Bar moving to Silkha.",
             "dialogs": [
                 {
                     "characterName": "Tomsun",
-                    "dialogContent_en_US": "It seems that all of that will soon be gone."
-                },
-                {
-                    "characterName": "Tomsun",
-                    "dialogContent_en_US": "If war hits both of our countries, what will we do?"
+                    "dialogContent_en_US": "When we moved to Silkha from Melukka, we were just looking for peace and prosperity.",
+                    "dialogId": ""
                 }
             ],
             "eid": "pHARSW",
-            "name": "HL-I-DB-28B"
-        },
-        {
-            "characters": [
-                "Barsun",
-                "Tomsun"
-            ],
-            "description": "Barsun to Tomsun.",
-            "dialogs": [
-                {
-                    "characterName": "Barsun",
-                    "dialogContent_en_US": "Tomsun, dear, don't be so tragic."
-                },
-                {
-                    "characterName": "Barsun",
-                    "dialogContent_en_US": "Nothing is lost, just yet."
-                },
-                {
-                    "characterName": "Barsun",
-                    "dialogContent_en_US": "I'm sure that the chief maintainers will find a deal with Vintuka and prevent a war."
-                }
-            ],
-            "eid": "pHXJCV",
             "name": "HL-I-DB-29"
         },
         {
             "characters": [
                 "Barsun",
+                "Tomsun",
+                "Kindun"
+            ],
+            "description": "Tomsun to Kindun.",
+            "dialogs": [
+                {
+                    "characterName": "Tomsun",
+                    "dialogContent_en_US": "It seems that all of that will soon be gone.",
+                    "dialogId": ""
+                },
+                {
+                    "characterName": "Tomsun",
+                    "dialogContent_en_US": "If war hits both of our countries, what will we do?",
+                    "dialogId": ""
+                }
+            ],
+            "eid": "pHXJCV",
+            "name": "HL-I-DB-30"
+        },
+        {
+            "characters": [
+                "Barsun",
                 "Tomsun"
             ],
             "description": "Barsun to Tomsun.",
             "dialogs": [
                 {
                     "characterName": "Barsun",
-                    "dialogContent_en_US": "I hope, at least..."
+                    "dialogContent_en_US": "Tomsun, dear, don't be so tragic.",
+                    "dialogId": ""
+                },
+                {
+                    "characterName": "Barsun",
+                    "dialogContent_en_US": "Nothing is lost, just yet.",
+                    "dialogId": ""
                 }
             ],
             "eid": "pHXLCI",
-            "name": "HL-I-DB-30"
+            "name": "HL-I-DB-31"
+        },
+        {
+            "characters": [
+                "Barsun",
+                "Tomsun"
+            ],
+            "description": "Barsun to Tomsun.",
+            "dialogs": [
+                {
+                    "characterName": "Barsun",
+                    "dialogContent_en_US": "I'm sure that the chief maintainers will find a deal with Vintuka and prevent a war.",
+                    "dialogId": ""
+                }
+            ],
+            "eid": "pHXLCE",
+            "name": "HL-I-DB-32A"
+        },
+        {
+            "characters": [
+                "Barsun",
+                "Tomsun"
+            ],
+            "description": "Barsun to Tomsun.",
+            "dialogs": [
+                {
+                    "characterName": "Barsun",
+                    "dialogContent_en_US": "I hope, at least...",
+                    "dialogId": "dialogFLEZU"
+                }
+            ],
+            "eid": "pHXLCO",
+            "name": "HL-I-DB-32B"
+        },
+        {
+            "characters": [
+                "Birun",
+                "Dilgun"
+            ],
+            "description": "Birun and Dilgun speechless. Zoom out.",
+            "dialogs": [
+            ],
+            "eid": "pFFJMY",
+            "name": "HL-I-DB-33"
+        },
+        {
+            "characters": [
+            ],
+            "description": "And because of this, their parents wanted them to stop seeing eachoter",
+            "dialogs": [
+            ],
+            "eid": "pFWYEJ",
+            "name": "HL-I-E"
+        },
+        {
+            "characters": [
+            ],
+            "description": "And because of this, they had a first real fight",
+            "dialogs": [
+            ],
+            "eid": "pFTXEB",
+            "name": "HL-I-F"
+        },
+        {
+            "characters": [
+            ],
+            "description": "Until finally, they realised how silly it was to fight",
+            "dialogs": [
+            ],
+            "eid": "pFUYVI",
+            "name": "HL-I-G"
+        },
+        {
+            "characters": [
+            ],
+            "description": "And from that day, their bond grew stronger",
+            "dialogs": [
+            ],
+            "eid": "pFIJFL",
+            "name": "HL-I-H"
         }
     ]
 }
