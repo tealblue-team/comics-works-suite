@@ -1,5 +1,5 @@
 # comics-works-suite
-Your new production assistant
+Your new production assistant.
 
 ## Supported platforms
 
