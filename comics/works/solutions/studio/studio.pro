@@ -38,5 +38,3 @@ include(../../utils/utils.pri)
 #samples.files = $$PWD/samples/heavyLoad1.cw.json
 #samples.path = Contents
 #QMAKE_BUNDLE_DATA += samples
-
-OTHER_FILES += $$PWD/samples/heavyLoad1.cw.json

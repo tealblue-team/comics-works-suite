@@ -11,7 +11,7 @@ class PanelTest : public QObject
 public:
     PanelTest();
 
-private Q_SLOTS:
+private slots:
     void test_create();
     void test_removeDialog();
 };

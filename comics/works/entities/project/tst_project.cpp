@@ -11,7 +11,7 @@ class ProjectTest : public QObject
 public:
     ProjectTest();
 
-private Q_SLOTS:
+private slots:
     void test_ctor();
     void test_eid();
 };

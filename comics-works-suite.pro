@@ -11,4 +11,6 @@ SUBDIRS += \
 
 DISTFILES += \
     features/*.feature \
-    features/upcoming/*.feature
+    features/upcoming/*.feature \
+    samples/project/heavyLoad1.cw.json \
+    samples/storyboard/heavyLoad1.storyboard.cw.pdf
